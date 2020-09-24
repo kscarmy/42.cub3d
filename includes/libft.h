@@ -178,7 +178,14 @@ void			ft_parsing_resolution(m_point *map); // replis la struct des données con
 int				ft_incre_spaces(m_point *map, int backn, int h);  // retourne u espaces rencontré dans map->fil[map->x + h] ou h est un head
 int				ft_is_space(char c, int backn, int end, m_point *map); // classe tout caractère pouvant être classé comme espace.
 int				ft_is_color(int color); // Si color faux return 1, sinon 0
-
+void			ft_check_file_half(m_point *map); // vérification des datas du fichiers
+void			ft_check_map(m_point *map); // call toutes les merdes pour la map
+void			ft_found_map(m_point *map); // cherche la map.
+int				ft_is_not_map(char c, int one); // liste les caractères appartenant à la map.
+void			ft_set_world_spawn(m_point *map, int u); // tout est dans le nom.
+void			ft_create_mapping(m_point *map); // malloc de la map.
+void			ft_fill_map(m_point *map); // remplis la map de son contenus.
+void			ft_fill_line_map(m_point *map, int l); // l est la ligne à malloc :)
 
 
 #endif

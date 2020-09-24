@@ -62,6 +62,8 @@ SRC_C = srcs/ft_error_1.c\
 		srcs/ft_parsing_map_data.c\
 		srcs/ft_parsing_map.c\
 		srcs/ft_parsing_utils.c\
+		srcs/ft_parsing_map_map.c\
+		srcs/ft_parsing_map_utils.c\
 
 MAIN_C = srcs/main.c\
 
@@ -119,6 +121,8 @@ OBJS =	ft_printf.o\
 			ft_parsing_map.o\
 			ft_parsing_utils.o\
 			ft_parsing_map_data.o\
+			ft_parsing_map_map.o\
+			ft_parsing_map_utils.o\
 
 
 all : $(NAME)

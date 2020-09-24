@@ -12,6 +12,28 @@
 
 #include "../includes/libft.h"
 
+void    ft_check_file_half(m_point *map)
+{
+    // ft_printf("wtf\n");
+    // ft_printf("err : %d\n", map->error);
+    if (map->res == 0)
+        map->error = 700;
+    if (map->floor == 0)
+        map->error = 705;
+    if (map->ceiling == 0)
+        map->error = 710;
+    if (map->no == NULL)
+        map->error = 715;
+    if (map->so == NULL)
+        map->error = 720;
+    if (map->we == NULL)
+        map->error = 725;
+    if (map->ea == NULL)
+        map->error = 730;
+    if (map->s == NULL)
+        map->error = 735;
+}
+
 void	ft_strfreejoin_newline(m_point *map, char *buff)
 {
 	char	*tmp;
@@ -89,12 +111,12 @@ int ft_parsing_map(m_point *map, char *argv)
         // map->x = (map->file[map->x] != '\0') ? map->x + 1 : map->x;
         m++;
     }
-    // (map->error == 0) ? ft_check_file_half(map) : ft_printf("ERROR BEFORE MAPING\n");
+    (map->error == 0) ? ft_check_file_half(map) : ft_printf("ERROR BEFORE MAPING\n");
     // // METTRE LA FONCTION POUR GERER LA MAP ICI
     // // ft_printf("Ax : %d\n", map->x);
     // // ft_printf("file : \n'%s'\n", &map->file[map->x]);
-    // if (map->error == 0)
-    //     ft_check_map(map);
+    if (map->error == 0)
+        ft_check_map(map);
     // if (map->error > 0)
     //     ft_error_detected(map);
     // return ((map->error == 0) ? 1 : ft_exit_free_map(map, -1));
