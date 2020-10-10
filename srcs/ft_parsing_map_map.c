@@ -112,29 +112,71 @@ void    ft_fill_line_map(m_point *map, int l) // l est la ligne à malloc :)
     int u;
 
     u = 1;
-	ft_printf("et là c'est cmt\n");
     while (map->file[map->x + u] != '\n' && map->file[map->x + u] != '\0')
         u++;
     // ft_printf("AEu : %d\n", u);
 	ft_gnl_strdel(&(map->map[l])); // TEST 123
-    map->map[l] = (char*)malloc(sizeof(char) * (u + 1));
+    map->map[l] = (char*)malloc(sizeof(char) * (u));
     map->error = (map->map[l] == NULL) ? 1200 + l : map->error;
-    map->map[l][u] = '\0';
+    map->map[l][u - 1] = '\0';
     u = 1;
     // ft_printf("AEx : %d\n", map->x);
     while (map->file[map->x + u] != '\n' && map->file[map->x + u] != '\0')
     {
         map->map[l][u - 1] = map->file[map->x + u];
-        // ft_printf("'%c'", map->file[map->x + u]);
+        // ft_printf("'%c' - ", map->file[map->x + u]);
+		// ft_printf("'%c', ", map->map[l][u - 1]);
         u++;
     }
-	map->map[l][u] = '\0';
+	// printf("\n");
+	// ft_printf("et la ?'%s'", map->map[l]);
+	map->map[l][u - 1] = '\0';
     map->x = map->x + u;
+}
+
+void    ft_parse_map(m_point *map)
+{
+    int l;
+    int x;
+
+    l = 0;
+    x = 0;
+    while (map->map[0][x] != '\0' && map->map[0][x] != '0' && map->map[0][x] != '2')
+        x++;
+    map->error = (map->map[0][x] == '\0' || map->map[0][x] != '2') ? map->error : 950;
+    x = 0;
+    while (map->map[map->l - 1][x] != '\0' && map->map[map->l - 1][x] != '0' && map->map[map->l - 1][x] != '2')
+        x++;
+    map->error = (map->map[map->l - 1][x] == '\0' || map->map[map->l - 1][x] != '2') ? map->error : 955;
+    x = 0;
+    // ft_printf("map : %p\n", map);
+    // ft_printf("mm : %p\n", map->map);
+    // ft_printf
+    while (map->error == 0 && map->map != NULL && map->map[l] != NULL)
+    {
+        // ft_printf("l : %p\n", map->map[l]);
+        while (map->error == 0 && map->map[l][x] != '\0')
+        {
+            // ft_printf("x : %p %c\n", map->map[l][x], map->map[l][x]);
+            if (ft_is_not_map(map->map[l][x], 0) == 1)
+                ft_next_zero_map(map, l, x);
+            if ((map->map[l][x] == '0' && map->error == 0) || (map->map[l][x] == '2' && map->error == 0))
+            {
+                ft_next_zero_map(map, l, x);
+                // ft_printf("HEIN4\n");
+            }
+            x++;
+            // ft_printf("HEIN3\n");
+        }
+        x = 0;
+        l++;
+        // ft_printf("HEIN2\n");
+    }
+    // ft_printf("HEIN1\n");
 }
 
 void    ft_check_map(m_point *map) // call toutes les merdes pour la map
 {
-	ft_printf("UN PASSAGE\n");
     if (map->error == 0)
         ft_found_map(map);
     // ft_printf("x : %d\nfile : \n'%s'\n", map->x, &map->file[map->x]);
@@ -142,7 +184,7 @@ void    ft_check_map(m_point *map) // call toutes les merdes pour la map
         ft_create_mapping(map);
     if (map->error == 0)
         ft_fill_map(map);
-    // if (map->error == 0)
-    //     ft_parse_map(map);
+    if (map->error == 0)
+        ft_parse_map(map);
     // ft_printf("HEIN\n");
 }

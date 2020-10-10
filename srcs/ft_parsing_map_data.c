@@ -42,7 +42,6 @@ void    ft_parsing_floor(m_point *map)
     int z;
 
     z = 1;
-	ft_printf("\n\nWSH\n\n");
     if (map->floor == 0)
     {
         z = z + ft_incre_spaces(map, 0, z);
@@ -128,7 +127,6 @@ void    ft_parsing_path_to(m_point *map)
     int y;
 
     y = map->x;
-	ft_printf("\n\nWuH\n\n");
     z = (map->file[map->x] == 'S' && map->file[map->x + 1] == ' ') ? 1 : 2;
     z = z + ft_incre_spaces(map, 0, z);
     map->error = (map->no != NULL && map->file[map->x] == 'N' && map->file[map->x + 1] == 'O') ? 600 : map->error; //check si déjà alloué

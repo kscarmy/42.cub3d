@@ -92,14 +92,9 @@ int ft_parsing_map(m_point *map, char *argv)
 
     m = 0;
     ft_parsing_open_fd(map, argv);
-	ft_printf("\n%s\n\n", map->file);
     while (map->error == 0 && map->file[map->x] != '\0' && m < 8)
     {
-		ft_printf("map>-x : '%d\n'", map->x);
-		ft_printf("\neuuhhh : '%c'\n", map->file[map->x]);
-		
         map->x = ft_incre_spaces(map, 1, 0) + map->x;
-		ft_printf("map>-x : '%d\n'", map->x);
         if (map->file[map->x] == 'R')
             ft_parsing_resolution(map);
         if (map->file[map->x] == 'F')
@@ -117,8 +112,8 @@ int ft_parsing_map(m_point *map, char *argv)
     // // ft_printf("file : \n'%s'\n", &map->file[map->x]);
     if (map->error == 0)
         ft_check_map(map);
-    // if (map->error > 0)
-    //     ft_error_detected(map);
-    // return ((map->error == 0) ? 1 : ft_exit_free_map(map, -1));
+    if (map->error > 0)
+        ft_error_detected(map);
+    return ((map->error == 0) ? 1 : ft_exit_free_map(map, -1));
 	return(1);
 }

@@ -186,6 +186,10 @@ void			ft_set_world_spawn(m_point *map, int u); // tout est dans le nom.
 void			ft_create_mapping(m_point *map); // malloc de la map.
 void			ft_fill_map(m_point *map); // remplis la map de son contenus.
 void			ft_fill_line_map(m_point *map, int l); // l est la ligne à malloc :)
-
+void			ft_parse_map(m_point *map); // parse toute la map à la recherche d'erreurs
+void			ft_next_zero_map(m_point *map, int l, int x); // cherche une erreur dans la map et l'indique à map disp error;
+void			ft_map_disp_error(m_point *map, int l, int x, int erreur); // indique où se situe l'erreur dans la map.
+int				ft_next_zero_char(char c); // Liste des caractères valides dans map.
+void			ft_error_detected(m_point *map); // affiche ou est l'erreur.
 
 #endif

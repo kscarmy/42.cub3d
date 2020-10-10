@@ -11,14 +11,10 @@ int main(int argc, char **argv)
 		return (-1);
 	ft_init_map(&map);
 		// return(ft_exor_nfn(4)); // Dans le cas où je dois malloc des données dans ft_init_map
-	ft_printf("\ninit :\n");
 	ft_disp_verif(&map);
 	// return(0);
-	ft_printf("parse :\n");
 	if (ft_parsing_map(&map, argv[1]) == -1) // parsing du fichier
 		return (-1);
 	ft_disp_verif(&map);
-	ft_printf("free :\n");
-	ft_printf("error : '%d'\n", map.error);
 	return (ft_exit_free_map(&map, 0));
 }

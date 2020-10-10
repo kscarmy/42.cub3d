@@ -42,6 +42,7 @@ void	ft_disp_verif(m_point *map)
 {
 	int u;
 	// int i;
+	// char *str;
 
 	u = 0;
 	// i = 0;
@@ -54,19 +55,19 @@ void	ft_disp_verif(m_point *map)
 	ft_printf("F : '%d' : '%d','%d','%d'\n", map->floor, map->fr, map->fg, map->fb);
 	ft_printf("C : '%d' : '%d','%d','%d'\n", map->ceiling, map->cr, map->cg, map->cb);
 	ft_printf("Spawn : %c\n", map->spawn);
-	ft_printf("\n\n L = '%d\n\n", map->l);
-	ft_printf("l === '%d'\n", map->l);
 	// printf("BON : '%s'\n", map->map[0]);
 	while (u < map->l) // AFFICHAGE DE LA MAP BUGGER
 	{
+		// str = map->map[u];
+		// // printf("'%s'\n", str);
 		// i = 0;
-		// while (map->map[u][i])
+		// while (str[i])
 		// {
-		// 	ft_printf("%s", (map->map[u]));
+		// 	ft_printf("'%c'", (str[i]));
 		// 	i++;
 		// }
 		// ft_printf("\n");
-		// printf("'%s'\n", map->map[u]);
+		printf("'%s'\n", map->map[u]);
 		u++;
 	}
 }
@@ -82,14 +83,12 @@ int		ft_exit_free_map(m_point *map, int ret)
 		map->map[i] = NULL;
 		i++;
 	}
-	ft_printf("ptn %d\n", map->l);
 	if (map->map != NULL)
 	{
 		free(map->map);
 		map->map = NULL;
 		map->l = 0;
 	}
-	ft_printf("ptn %d\n", map->l);
 	if (map->no != NULL)
 		ft_gnl_strdel(&map->no);
 	if (map->so != NULL)
@@ -103,6 +102,6 @@ int		ft_exit_free_map(m_point *map, int ret)
 	if (map->file != NULL)
 		ft_gnl_strdel(&map->file);
 	ft_printf("\n\033[0m<Les mallocs ont ete clears>\n");
-	// ft_disp_verif(map);
+	ft_disp_verif(map);
 	return (ret);
 }
