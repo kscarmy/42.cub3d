@@ -16,5 +16,8 @@ int main(int argc, char **argv)
 	if (ft_parsing_map(&map, argv[1]) == -1) // parsing du fichier
 		return (-1);
 	ft_disp_verif(&map);
+
+	ft_windows(&map);
+
 	return (ft_exit_free_map(&map, 0));
 }

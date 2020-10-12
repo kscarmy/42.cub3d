@@ -10,13 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef FT_CUB3D_H
+# define FT_CUB3D_H
 # include <stdarg.h>
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+
+
+# include "../mlx/mlx.h"
+# include "../mlx/mlx_int.h"
+
 
 # include <stdio.h> // A SUPPRIMER
 
@@ -191,5 +196,20 @@ void			ft_next_zero_map(m_point *map, int l, int x); // cherche une erreur dans 
 void			ft_map_disp_error(m_point *map, int l, int x, int erreur); // indique où se situe l'erreur dans la map.
 int				ft_next_zero_char(char c); // Liste des caractères valides dans map.
 void			ft_error_detected(m_point *map); // affiche ou est l'erreur.
+
+typedef struct k_point
+{
+	void	*mlx; // Le mlx requis pour utiliser la mlx
+	void	*win1; // Première fenetre d'affichage
+	int		error; // Pas d'erreurs = 0, erreurs = >0
+	m_point	*map; // Lien direct vers la structure map
+
+
+}				w_point;
+
+void			ft_windows(m_point *map); // Fonction de base de la gestion de la fenetre
+void			ft_exit_free_all(w_point *win, int ret); // Sortie avec free de win et de map, le ret correspond à la valeur retournée : -1 = erreurs, 0 = tout est bon.
+void			ft_init_win(w_point *win, m_point *mapi); // fonction d'initialisation de la structure win
+
 
 #endif

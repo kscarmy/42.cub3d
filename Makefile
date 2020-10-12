@@ -6,6 +6,8 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
+CMLXFLAGS = -L./libft -I/usr/local/include -L/usr/local/lib -L/usr/include -lm -lbsd -lX11 -lXext ./mlx/libmlx_Linux.a ./mlx/libmlx.a
+
 LIBFT_C = libft/ft_atoi.c\
 		libft/ft_bzero.c\
 		libft/ft_calloc.c\
@@ -64,6 +66,7 @@ SRC_C = srcs/ft_error_1.c\
 		srcs/ft_parsing_utils.c\
 		srcs/ft_parsing_map_map.c\
 		srcs/ft_parsing_map_utils.c\
+		srcs/ft_window.c\
 
 MAIN_C = srcs/main.c\
 
@@ -123,6 +126,7 @@ OBJS =	ft_printf.o\
 			ft_parsing_map_data.o\
 			ft_parsing_map_map.o\
 			ft_parsing_map_utils.o\
+			ft_window.o\
 
 
 all : $(NAME)
@@ -131,8 +135,10 @@ $(NAME) :
 	@$(CC) $(CFLAGS) $(PRINTF_C) $(LIBFT_C) $(SRC_C) -c
 	@ar -rc $(NAME_LIBFT) $(OBJS)
 	@ranlib $(NAME_LIBFT)
-	@$(CC) $(CFLAGS) $(MAIN_C) -g3 -fsanitize=leak $(NAME_LIBFT) -o $(NAME)
+	gcc -Wall -Werror -Wextra srcs/main.c -g3 -fsanitize=leak libft.a -o Cub3d -I/usr/local/include -L/usr/local/lib -L/usr/include -lm -lbsd -lX11 -lXext ./mlx/libmlx_Linux.a
+#	$(CC) $(CFLAGS) $(MAIN_C) -g3 -fsanitize=leak $(NAME_LIBFT) -o $(NAME) -I/usr/local/include -L/usr/local/lib -L/usr/include -lm -lbsd -lX11 -lXext ./mlx/libmlx_Linux.a
 #-g3 -fsanitize=leak
+# $(CMLXFLAGS)
 clean :
 	@rm -rf $(OBJS)
 
