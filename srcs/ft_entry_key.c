@@ -12,15 +12,23 @@
 
 #include "../includes/libft.h"
 
-void	ft_entry_keyboard(m_point *map)
+int		ft_entry_keyboard(int key, void *p)
 {
-//	échap
-//	z
-//	q
-//	s
-//	d
+	w_point *win;
+
+	win = p;
+	ft_printf("key : %d\nPos_X : %d\nPos_Y : %d\nX : %d\nY : %d\nD : %d\n", key, win->pos_x, win->pos_y, win->x, win->y, win->d);
+	// ft_printf("test : %s\n", win->map->no);
+	if (key == 65307)
+	{
+		ft_exit_free_all(win, 0);
+		exit(0);
+	}
+	if (key == 122 || key == 113 || key == 115 || key == 100 || key == 65361 || key == 65363)
+		ft_move_zqsd(key, win);
+	
 
 
 
-
+	return(0);
 }

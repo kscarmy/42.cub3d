@@ -203,13 +203,28 @@ typedef struct k_point
 	void	*win1; // Première fenetre d'affichage
 	int		error; // Pas d'erreurs = 0, erreurs = >0
 	m_point	*map; // Lien direct vers la structure map
-
-
+	int		pos_x; // position dans la case en x
+	int		pos_y; // position dans la case en y
+	// char	**casa; // position globale sur la map ( la case )
+	int		x; // position sur la map
+	int		y; // position sur la map
+	int		d; // angle où se situe la vue du perso (d pour degré) : entre 0 et 359, où 0 regarde totalement direction nord
+	int		move_size; // définis la taille d'un déplacement dans une case /!\ move_size < 100 && > 0 !
+	int		d_size; // définis la taille de degrés de rotation de d
+	int		screen_range; // distance entre la camera et lecran.
 }				w_point;
 
 void			ft_windows(m_point *map); // Fonction de base de la gestion de la fenetre
 void			ft_exit_free_all(w_point *win, int ret); // Sortie avec free de win et de map, le ret correspond à la valeur retournée : -1 = erreurs, 0 = tout est bon.
 void			ft_init_win(w_point *win, m_point *mapi); // fonction d'initialisation de la structure win
+int				ft_entry_keyboard(int key, void *p); // fonction qui recois les entrées claviers et les attribues à leurs fonctions respectives.
+int				ft_move_zqsd(int key, w_point *win); // déplacement du joueur dans ka casa : pos_x et pox_y sont modifiés.
+void			ft_found_worldspawn(w_point *win); // trouve le point de spawn et le stock dans X et Y
+void			ft_move_in_casa(w_point *win); // déplace sur x et y de casa et réafece pos_x et pos_y
+void    		ft_map_disp_pos(w_point *win); // affichage de la map
+int				ft_is_worldspawn(char c); // détection d'un caractère de spawn
+void			ft_screen(w_point *win); // soccupe de l'écran
+void			ft_set_screen(w_point *win); // soccupe de définir des variables pour l'écran
 
 
 #endif
