@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <math.h>
 
 
 # include "../mlx/mlx.h"
@@ -197,26 +198,46 @@ void			ft_map_disp_error(m_point *map, int l, int x, int erreur); // indique où
 int				ft_next_zero_char(char c); // Liste des caractères valides dans map.
 void			ft_error_detected(m_point *map); // affiche ou est l'erreur.
 
+typedef	struct v_point // structure de calcul
+{
+	int		set; // 1 = set, 0 = non set
+	double	deg; // variable temporaire de calcul en degree
+	double	rad; // variable temporaire de calcul en radians
+	double		x; // variable x de calcul du pythagore du rayon					triangle
+	double		y; // variable y de calcul du pythagore du rayon					triangle
+	int		posxr; // position x du vecteur rayon ex : le perso sur la map		point où se situe le vecteur sur la map
+	int		posyr; // position y du vecteur rayon ex : le perso sur la map		point où se situe le vecteur sur la map
+	int		px; // position dans la case en x du vecteur rayon					point où se trouve le vecteur dans la case
+	int		py; // position dans la case en y du vecteur rayon					point où se trouve le vecteur dans la case
+	int		ray; // taille d'un vecteur rayon.
+	int		oray; // taille d'un vecteur rayon précédent. OBSOLETE ?
+	int		p; // nombre de pytha à appliquer.
+}				c_point;
+
+
 typedef struct k_point
 {
 	void	*mlx; // Le mlx requis pour utiliser la mlx
 	void	*win1; // Première fenetre d'affichage
 	int		error; // Pas d'erreurs = 0, erreurs = >0
 	m_point	*map; // Lien direct vers la structure map
-	int		pos_x; // position dans la case en x
-	int		pos_y; // position dans la case en y
-	// char	**casa; // position globale sur la map ( la case )
-	int		x; // position sur la map
-	int		y; // position sur la map
-	int		d; // angle où se situe la vue du perso (d pour degré) : entre 0 et 359, où 0 regarde totalement direction nord
+	int		pos_x; // position dans la case en x du perso
+	int		pos_y; // position dans la case en y du perso
+	// char	**casa; // position globale sur la map ( la case ) // old
+	int		x; // position sur la map du perso
+	int		y; // position sur la map du perso
+	double	d; // angle où se situe la vue du perso (d pour degré) : entre 0 et 359, où 0 regarde totalement direction nord
 	int		move_size; // définis la taille d'un déplacement dans une case /!\ move_size < 100 && > 0 !
-	int		d_size; // définis la taille de degrés de rotation de d
+	int		d_size; // définis la taille de degrés de rotation de d lorsque la touche est pressée
 	int		screen_range; // distance entre la camera et lecran.
+	// c_point	*calc; // structure de calculs contenue dans calc. // old
+	c_point	*hc; // struct de calculs honrizontaux
+	c_point	*vc; // struct de calculs verticaux
 }				w_point;
 
 void			ft_windows(m_point *map); // Fonction de base de la gestion de la fenetre
 void			ft_exit_free_all(w_point *win, int ret); // Sortie avec free de win et de map, le ret correspond à la valeur retournée : -1 = erreurs, 0 = tout est bon.
-void			ft_init_win(w_point *win, m_point *mapi); // fonction d'initialisation de la structure win
+void			ft_init_win(w_point *win, m_point *mapi, c_point *hca, c_point *vca); // fonction d'initialisation de la structure win
 int				ft_entry_keyboard(int key, void *p); // fonction qui recois les entrées claviers et les attribues à leurs fonctions respectives.
 int				ft_move_zqsd(int key, w_point *win); // déplacement du joueur dans ka casa : pos_x et pox_y sont modifiés.
 void			ft_found_worldspawn(w_point *win); // trouve le point de spawn et le stock dans X et Y
@@ -225,6 +246,16 @@ void    		ft_map_disp_pos(w_point *win); // affichage de la map
 int				ft_is_worldspawn(char c); // détection d'un caractère de spawn
 void			ft_screen(w_point *win); // soccupe de l'écran
 void			ft_set_screen(w_point *win); // soccupe de définir des variables pour l'écran
+double			ft_radian_to_degrees(double rad); // converti win->calc->rad en degrées dans win->calc->deg
+double			ft_degrees_to_radian(double deg); // converti win->calc->deg en radians dans win->calc->rad
+int				ft_found_range(w_point *win, double d); // cherche la valeur d'un rayon
+void			ft_first_inter(w_point *win); // cherche la première intersection d'un rayon
+int				ft_right_angle(w_point *win, double d); // calcul du rayon avec un angle droit
+void			ft_reset_calc(w_point *win); // init et reset des structures de calculs vc et hc
+int				ft_is_wall(w_point *win, int x, int y); // return 0 si mur, 1 sinon.
+void			ft_thales(w_point *win, double a); // applique thales sur un rayon donné en structure hc ou vc et affiche la colone, a = angle en degrés en partant du milieu
+void			ft_disp_screen(w_point *win); // call thales autant de fois que de colones présentes.
+void			ft_red_pixel(w_point *win, int h, int x); // permet de tester l'affichage, h = hauteur du mur, x = colone où print
 
 
 #endif

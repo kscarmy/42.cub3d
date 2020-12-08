@@ -24,9 +24,9 @@ void    ft_map_disp_pos(w_point *win)
 
 void	ft_move_in_casa(w_point *win)
 {
-	if (win->pos_x > 100)
+	if (win->pos_x >= 100)
 	{
-		win->pos_x = win->move_size;
+		win->pos_x = 0;
 		win->x = win->x + 1;
 	}
 	if (win->pos_x < 0)
@@ -34,9 +34,9 @@ void	ft_move_in_casa(w_point *win)
 		win->pos_x = 100 - win->move_size;
 		win->x = win->x - 1;
 	}
-	if (win->pos_y > 100)
+	if (win->pos_y >= 100)
 	{
-		win->pos_y = win->move_size;
+		win->pos_y = 0;
 		win->y = win->y + 1;
 	}
 	if (win->pos_y < 0)

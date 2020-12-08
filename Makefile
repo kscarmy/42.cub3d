@@ -73,6 +73,10 @@ SRC_C = srcs/ft_error_1.c\
 		srcs/ft_position.c\
 		srcs/ft_range.c\
 		srcs/ft_screen.c\
+		srcs/ft_utils.c\
+		srcs/ft_thales.c\
+		srcs/ft_pytha.c\
+		srcs/ft_range_2.c\
 
 MAIN_C = srcs/main.c\
 
@@ -137,6 +141,10 @@ OBJS =	ft_printf.o\
 			ft_position.o\
 			ft_range.o\
 			ft_screen.o\
+			ft_utils.o\
+			ft_thales.o\
+			ft_pytha.o\
+			ft_range_2.o\
 
 
 all : $(NAME)

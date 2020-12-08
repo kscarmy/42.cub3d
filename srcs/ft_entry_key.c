@@ -17,7 +17,7 @@ int		ft_entry_keyboard(int key, void *p)
 	w_point *win;
 
 	win = p;
-	ft_printf("key : %d\nPos_X : %d\nPos_Y : %d\nX : %d\nY : %d\nD : %d\n", key, win->pos_x, win->pos_y, win->x, win->y, win->d);
+	ft_printf("key : %d\nPos_X : %d\nPos_Y : %d\nX : %d\nY : %d\nD : %d\n", key, win->pos_x, win->pos_y, win->x, win->y, (int) win->d);
 	// ft_printf("test : %s\n", win->map->no);
 	if (key == 65307)
 	{
