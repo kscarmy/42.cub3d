@@ -212,6 +212,8 @@ typedef	struct v_point // structure de calcul
 	int		ray; // taille d'un vecteur rayon.
 	int		oray; // taille d'un vecteur rayon précédent. OBSOLETE ?
 	int		p; // nombre de pytha à appliquer.
+	double	xx; // position map + case.
+	double	yy; // position map + case.
 }				c_point;
 
 
@@ -253,9 +255,16 @@ void			ft_first_inter(w_point *win); // cherche la première intersection d'un r
 int				ft_right_angle(w_point *win, double d); // calcul du rayon avec un angle droit
 void			ft_reset_calc(w_point *win); // init et reset des structures de calculs vc et hc
 int				ft_is_wall(w_point *win, int x, int y); // return 0 si mur, 1 sinon.
-void			ft_thales(w_point *win, double a); // applique thales sur un rayon donné en structure hc ou vc et affiche la colone, a = angle en degrés en partant du milieu
+void			ft_thales(w_point *win, double a, int c); // applique thales sur un rayon donné en structure hc ou vc et affiche la colone, a = angle en degrés en partant du milieu, c = la colone à print
 void			ft_disp_screen(w_point *win); // call thales autant de fois que de colones présentes.
 void			ft_red_pixel(w_point *win, int h, int x); // permet de tester l'affichage, h = hauteur du mur, x = colone où print
+void			ft_ent_to_dec(w_point *win, int s); // entiers to decimaux, s = struc de calc
+void			ft_dec_to_ent(w_point *win, int s); // decimaux to entiers, s = struc de calc
+void			ft_not_angle_droit(w_point *win, double d); // calculs affichage
+void			ft_up_vc(w_point *win); // augmente de 1 vc
+void			ft_first_angle_vc(w_point *win); // trouve le premier angle cd vc
+void			ft_second_angle_vc(w_point *win); // calcule les autres angles de vc
+double			ft_pytha(double x, double y); // rend la distance
 
 
 #endif

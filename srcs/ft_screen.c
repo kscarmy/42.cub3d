@@ -7,7 +7,7 @@ void	ft_screen(w_point *win)
 	r = 0; // a supprimer
 	r = r;
 	ft_set_screen(win);
-	ft_red_pixel(win, 50, 160); // test
+	// ft_red_pixel(win, 50, 160); // test
 	// ft_printf("r = '%d'\n");
 	// ft_printf("r = '%d'\n", ft_found_range(win, 270)); // test
 	// r = ft_found_range(win, 0); // a supprimer
@@ -26,6 +26,9 @@ void	ft_set_screen(w_point *win)
 	win->screen_range = (int)value;
 	// win->screen_range = (value % 10 < 5) ? (int)value : (int)value + 1;
 	printf("screen range : %d\n", win->screen_range);
+	ft_printf("before disp screen\n");
+	ft_disp_screen(win);
+	ft_printf("after disp screen\n");
 	// win->screen_range = ((win->map->rx / 2) / tan);
 
 
@@ -38,17 +41,17 @@ void	ft_disp_screen(w_point *win)
 	int u;
 	double ang; // angle entre deux colones en degrés
 
-	x = win->map->rx;
-	i = 0;
-	ang = 60 / win->map->rx;
-	ang = ang; // A SUPP
+	x = win->map->rx; // =nombre colones
+	i = 0; // compteur colones
+	ang = 60 / (double)win->map->rx;
+	printf("ang : '%lf'\n", ang);
 
-	u = (x % 2 == 0) ? x / 2 + 1 : x / 2;
-	u = u; // A SUPP
-	ft_thales(win, 0);
-	//affichage colone milieu 
-	while (i < x)
+	u = (x % 2 == 0) ? x / 2 + 1 : x / 2; // zone où se situe les colones
+	ft_thales(win, win->d, u); // test angle droit
+	//affichage colone milieu
+	while (i < (x / 2))
 	{
+		ft_thales(win, (ang * i), i + u);
 		// affichage colone droite
 		// affichage colone gauche
 		i++;

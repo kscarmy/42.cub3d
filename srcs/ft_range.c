@@ -15,6 +15,8 @@ void	ft_reset_calc(w_point *win)
 	win->hc->py = win->pos_y;
 	win->hc->ray = 0;
 	win->hc->oray = 0;
+	win->hc->xx = 0;
+	win->hc->yy = 0;
 
 	win->vc->set = 0;
 	win->vc->deg = 0;
@@ -27,11 +29,13 @@ void	ft_reset_calc(w_point *win)
 	win->vc->py = win->pos_y;
 	win->vc->ray = 0;
 	win->vc->oray = 0;
+	win->vc->xx = 0;
+	win->vc->yy = 0;
 }
 
 int		ft_is_wall(w_point *win, int x, int y) // return 0 si mur, 1 sinon.
 {
-	ft_printf("where2 : '%c'\n", win->map->map[x][y]);
+	// ft_printf("where2 : '%c'\n", win->map->map[x][y]);
 	if(win->map->map[x][y] == '1')
 		return(0);
 	else
@@ -77,6 +81,7 @@ int		ft_found_range(w_point *win, double d)
 	
 	r = -1;
 	ft_reset_calc(win);
+	printf("range d : '%lf'\n", d);
 	// ft_printf("DDDD: '%d'\n", (int)d);
 	// ft_printf("TESTT : \n");
 	// ft_printf("test : '%c' %d\n", win->map->map[5][5], (int)d);
@@ -87,7 +92,9 @@ int		ft_found_range(w_point *win, double d)
 	}
 	else
 	{
-		ft_printf("ELSE\n");
+		ft_printf("ELSE not angle droit\n");
+		ft_not_angle_droit(win, d);
+		
 		/* code */
 	}
 	// ft_printf("r1 : '%d'\n", r);
