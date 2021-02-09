@@ -1,6 +1,6 @@
 #include "../includes/libft.h"
 
-void	ft_init_win(w_point *win, m_point *mapi, c_point *hca, c_point *vca) // mapi = map
+void	ft_init_win(w_point *win, m_point *mapi, c_point *cal) // mapi = map
 {
 	win->error = 0;
 	if (!(win->mlx = mlx_init()))
@@ -22,8 +22,8 @@ void	ft_init_win(w_point *win, m_point *mapi, c_point *hca, c_point *vca) // map
 	// win->casa = &(win->map->map);
 	win->map = mapi;
 	// win->calc = calcu; // init les deux struct hc et vc
-	win->hc = hca;
-	win->vc = vca;
+	win->ca = cal;
+	// win->vc = vca;
 	win->move_size = 10;
 	win->d_size = 10;
 	ft_found_worldspawn(win);
@@ -88,10 +88,10 @@ void	ft_windows(m_point *map)
 {
 	w_point win; // déclaration strucure "win" pour windows
 	// c_point calc; // déclaration strucure "calc" pour stocker les variables // OLD
-	c_point hc; // déclaration structure de calcul horizontal
-	c_point vc; // déclaration structure de calcul vertical
+	c_point ca; // déclaration structure de calcul
+	// c_point vc; // déclaration structure de calcul vertical
 
-	ft_init_win(&win, map, &hc, &vc);
+	ft_init_win(&win, map, &ca);
 	if (win.error > 0)
 		ft_exit_free_all(&win, -1); // Free win et map puis exit(0);
 	ft_printf("No errors\n"); // A SUPPRIMER

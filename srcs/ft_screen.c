@@ -47,7 +47,8 @@ void	ft_disp_screen(w_point *win)
 	printf("ang : '%lf'\n", ang);
 
 	u = (x % 2 == 0) ? x / 2 + 1 : x / 2; // zone où se situe les colones
-	ft_thales(win, win->d, u); // test angle droit
+	u = u;
+	// ft_thales(win, win->d, u); // test angle droit // A REMETTRE ET MODIFIER LA FONCTION SUREMENT
 	//affichage colone milieu
 	while (i < (x / 2))
 	{
