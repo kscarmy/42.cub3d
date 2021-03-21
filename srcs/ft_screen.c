@@ -34,6 +34,20 @@ void	ft_set_screen(w_point *win)
 
 }
 
+// void	ft_max_map(w_point *win)
+// {
+// 	double x;
+// 	double y;
+
+// 	x = 0;
+// 	y = 0;
+// 	while (win->map->map[x][y] != '\0')
+// 	{
+// 		while (win->map->map[x])
+// 	}
+// }
+
+
 void	ft_disp_screen(w_point *win)
 {
 	int x;
@@ -50,8 +64,9 @@ void	ft_disp_screen(w_point *win)
 	u = u;
 	// ft_thales(win, win->d, u); // test angle droit // A REMETTRE ET MODIFIER LA FONCTION SUREMENT
 	//affichage colone milieu
-	while (i < (x / 2))
+	while (i < (x / 2) && i < 10) // supp i < 10 car test
 	{
+		// printf("thales\n");
 		ft_thales(win, (ang * i), i + u);
 		// affichage colone droite
 		// affichage colone gauche

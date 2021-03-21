@@ -1,4 +1,4 @@
-// #include "../includes/libft.h"
+#include "../includes/libft.h"
 
 // void	ft_not_angle_droit(w_point *win, double d)
 // {
@@ -155,10 +155,10 @@
 // 	// printf("xx '%lf' yy '%lf' x '%lf' y '%lf' \n", win->hc->xx, win->hc->yy, win->hc->x, win->hc->y);
 // }
 
-// double		ft_pytha(double x, double y) // rend la distance
-// {
-// 	double ray;
+double		ft_pytha(double x, double y) // rend la distance
+{
+	double ray;
 
-// 	ray = sqrt( pow(x, 2) + pow(y, 2));
-// 	return(ray);
-// }
+	ray = sqrt((x * x) + (y * y));
+	return(ray);
+}

@@ -254,6 +254,8 @@ typedef struct k_point
 	// c_point	*calc; // structure de calculs contenue dans calc. // old
 	// c_point	*hc; // struct de calculs honrizontaux
 	// c_point	*vc; // struct de calculs verticaux
+	// double	max_x; // max colones map
+	// double	max_y; // max lignes map
 	c_point *ca; // struct de calculs
 }				w_point;
 
@@ -268,29 +270,30 @@ void    		ft_map_disp_pos(w_point *win); // affichage de la map
 int				ft_is_worldspawn(char c); // détection d'un caractère de spawn
 void			ft_screen(w_point *win); // soccupe de l'écran
 void			ft_set_screen(w_point *win); // soccupe de définir des variables pour l'écran
-// double			ft_radian_to_degrees(double rad); // converti win->calc->rad en degrées dans win->calc->deg
-// double			ft_degrees_to_radian(double deg); // converti win->calc->deg en radians dans win->calc->rad
+double			ft_radian_to_degrees(double rad); // converti win->calc->rad en degrées dans win->calc->deg
+double			ft_degrees_to_radian(double deg); // converti win->calc->deg en radians dans win->calc->rad
 // int				ft_found_range(w_point *win, double d); // cherche la valeur d'un rayon
 // void			ft_first_inter(w_point *win); // cherche la première intersection d'un rayon
 // int				ft_right_angle(w_point *win, double d); // calcul du rayon avec un angle droit
 // void			ft_reset_calc(w_point *win); // init et reset des structures de calculs vc et hc
-// int				ft_is_wall(w_point *win, int x, int y); // return 0 si mur, 1 sinon.
+double				ft_is_wall(w_point *win, double x, double y); // return 0 si mur, 1 sinon.
 // void			ft_thales(w_point *win, double a, int c); // applique thales sur un rayon donné en structure hc ou vc et affiche la colone, a = angle en degrés en partant du milieu, c = la colone à print
 void			ft_disp_screen(w_point *win); // call thales autant de fois que de colones présentes.
 void			ft_red_pixel(w_point *win, int h, int x); // permet de tester l'affichage, h = hauteur du mur, x = colone où print
 // void			ft_ent_to_dec(w_point *win, int s); // entiers to decimaux, s = struc de calc
 // void			ft_dec_to_ent(w_point *win, int s); // decimaux to entiers, s = struc de calc
-// void			ft_not_angle_droit(w_point *win, double d); // calculs affichage
+double			ft_not_angle_droit(w_point *win, double d); // calculs affichage
 // void			ft_up_vc(w_point *win); // augmente de 1 vc
 // void			ft_first_angle_vc(w_point *win); // trouve le premier angle cd vc
 // void			ft_second_angle_vc(w_point *win); // calcule les autres angles de vc
-// double			ft_pytha(double x, double y); // rend la distance
+double			ft_pytha(double x, double y); // rend la distance
 // void			ft_up_hc(w_point *win); // augmente de 1 hc
 // void			ft_first_angle_hc(w_point *win); // trouve le premier angle hc
 // void			ft_second_angle_hc(w_point *win); // calcule les autres angles de hc
 // void			ft_dec_to_ent_2(w_point *win, int s); // s = 1 = vc && s = 2 = hc && s = 3 = vc + hc
 double			ft_found_angle(w_point *win, double d); //  
 void			ft_thales(w_point *win, double a, int c); //
+void			ft_reset_ca(w_point *win); // reset la struct de calculs
 
 
 #endif

@@ -1,14 +1,14 @@
 #include "../includes/libft.h"
 
-// // double	ft_degrees_to_radian(double deg)
-// // {
-// // 	return(deg * M_PI / 180);
-// // }
+double	ft_degrees_to_radian(double deg)
+{
+	return(deg * M_PI / 180);
+}
 
-// // double	ft_radian_to_degrees(double rad)
-// // {
-// // 	return(rad * 180 / M_PI);
-// // }
+double	ft_radian_to_degrees(double rad)
+{
+	return(rad * 180 / M_PI);
+}
 
 // // void	ft_ent_to_dec(w_point *win, int s) // s = 1 = vc && s = 2 = hc && s = 3 = vc + hc
 // // {
