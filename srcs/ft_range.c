@@ -169,58 +169,165 @@ void	ft_reset_ca(w_point *win)
 
 }
 
-
-
-
 void	ft_first_vc_hc(w_point *win, double d)
 {
 	double x;
 	double y;
-	double rad;
 
 	x = 0;
 	y = 0;
-	rad = ft_degrees_to_radian(90 - win->ca->deg);
-	win->ca->vray = 0; // A SUPP
+	win->ca->vray = 0;
 	win->ca->hray = 0;
-	if (d < 90) // vc
+	if (d < 90 || d > 270) // hc
 	{
-		x = win->pos_x;
-		x = x / 100;
-		y = x / tan(win->ca->rad);
-		win->ca->pvx = (double)win->x + (x / 100);
-		win->ca->pvy = (double)win->y + (y / 100);
-		win->ca->vray = ft_pytha(x, y);
-		// printf("x '%f' y '%f' pvx '%f' pvy '%f' vray '%f'\n", x, y, win->ca->pvx, win->ca->pvy, win->ca->vray);
-	}
-	if (d < 90) // hc
-	{
-		y = win->pos_y;
-		y = y / 100;
-		x = y / tan(rad);
-		win->ca->phx = (double)win->x + (x / 100);
-		win->ca->phy = (double)win->y + (y / 100);
+		y = win->ca->yy;
+		if (d < 90)
+			x = y / tan(win->ca->rad);
+		else
+			x = y / tan(ft_degrees_to_radian(360 - win->ca->deg));
+		if (d < 90)
+		{
+			win->ca->phy = win->ca->y + win->ca->yy + y;
+			win->ca->phx = win->ca->x + win->ca->xx - x;
+		}
+		else
+		{
+			win->ca->phy = win->ca->y + win->ca->yy - y;
+			win->ca->phx = win->ca->x + win->ca->yy - x;
+		}
 		win->ca->hray = ft_pytha(x, y);
-		// printf("x '%f' y '%f' phx '%f' phy '%f' hray '%f'\n", x, y, win->ca->phx, win->ca->phy, win->ca->hray);
 	}
-	// printf("first vc hc : '%f' '%f'\n", win->ca->vray, win->ca->hray);
+	if (d < 90 || d > 270) // vc
+	{
+		x = win->ca->xx;
+		if (d < 90)
+			y = x / tan(ft_degrees_to_radian(90 - win->ca->deg));
+		else
+			y = x / tan(ft_degrees_to_radian(270 - win->ca->deg));
+		if (d < 90)
+		{
+			win->ca->pvx = win->ca->x + win->ca->xx - x;
+			win->ca->pvy = win->ca->y + win->ca->yy + y;
+		}
+		else
+		{
+			win->ca->pvx = win->ca->x + win->ca->xx - x;
+			win->ca->pvy = win->ca->y + win->ca->yy - y;
+		}
+		win->ca->vray = ft_pytha(x, y);
+	}
 }
+
+
+// void	ft_first_vc_hc(w_point *win, double d)
+// {
+// 	double x;
+// 	double y;
+// 	// double rad;
+
+// 	x = 0;
+// 	y = 0;
+// 	// rad = ft_degrees_to_radian(90 - win->ca->deg);
+// 	win->ca->vray = 0; // A SUPP
+// 	win->ca->hray = 0;
+// 	if (d < 90 || d > 270) // vc
+// 	{
+
+// 		x = win->pos_x; // pos_x vaux 50 de base, il faut donc la divisier / 100
+// 		x = x / 100;
+// 		if (d < 90)
+// 			y = x / tan(win->ca->rad);
+// 		else
+// 			y = x / tan( ft_degrees_to_radian(360 - win->ca->deg));
+// 		if (d < 90)
+// 			win->ca->pvx = (double)win->x + x + ((double)win->pos_x / 100);
+// 		else
+// 			win->ca->pvx = (double)win->x - x + ((double)win->pos_x / 100);
+// 		// printf("y '%f'\n", y);
+// 		if (d < 90)
+// 			win->ca->pvy = (double)win->y + y;
+// 		else
+// 			win->ca->pvy = (double)win->y - y;
+// 		win->ca->vray = ft_pytha(x, y);
+// 		// printf("x '%f' y '%f' pvx '%f' pvy '%f' vray '%f'\n", x, y, win->ca->pvx, win->ca->pvy, win->ca->vray);
+// 	}
+
+
+// 	if (d < 90 || d > 270) // hc
+// 	{
+// 		y = win->pos_y; // pos_y vaux 50 de base, donc / 100
+// 		y = y / 100;
+// 		if (d < 90)
+// 			x = y / tan(ft_degrees_to_radian(90 - win->ca->deg));
+// 		else
+// 			x = y / tan(ft_degrees_to_radian(90 - (360 - win->ca->deg)));
+// 		if (d < 90)
+// 			win->ca->phx = (double)win->x - x + ((double)win->pos_x / 100);
+// 		else
+// 			win->ca->phx = (double)win->x - x + ((double)win->pos_x / 100);
+// 		printf("x '%f' y '%f'\n", x, y);
+// 		if (d < 90)
+// 			win->ca->phy = (double)win->y - y + ((double)win->pos_y / 100);
+// 		else
+// 			win->ca->phy = (double)win->y - y + ((double)win->pos_y / 100);
+		
+// 		win->ca->hray = ft_pytha(x, y);
+// 		printf("x '%f' y '%f' phx '%f' phy '%f' hray '%f'\n", x, y, win->ca->phx, win->ca->phy, win->ca->hray);
+// 	}
+// 	printf("win x '%d' win y '%d'\n", win->x, win->y);
+// 	printf("first vc hc : '%f' '%f'\n", win->ca->vray, win->ca->hray);
+// }
 
 void	ft_up_vc(w_point *win, double d) // A REMETTRE
 {
-	int x;
-	int y;
+	double x;
+	double y;
 
 	x = 0;
 	y = 0;
-	if (d < 90)
+	if (d < 90 || d > 270) // vc
 	{
 		x = 1;
-		y = x / tan(win->ca->rad);
-		win->ca->pvx = win->ca->pvx + (x / 100);
-		win->ca->pvy = win->ca->pvy + (y / 100);
+		if (d < 90)
+			y = x / tan(ft_degrees_to_radian(90 - win->ca->deg));
+		else
+			y = x / tan(ft_degrees_to_radian(270 - win->ca->deg));
+		if (d < 90)
+		{
+			win->ca->pvx = win->ca->pvx - x;
+			win->ca->pvy = win->ca->pvy + y;
+		}
+		else
+		{
+			win->ca->pvx = win->ca->pvx - x;
+			win->ca->pvy = win->ca->pvy - y;
+		}
 		win->ca->vray = win->ca->vray + ft_pytha(x, y);
+
+		// printf("vc : x '%f' y '%f' vray '%f'\n",x, y, win->ca->vray);
 	}
+
+
+
+
+
+	// if (d < 90 || d > 270)
+	// {
+	// 	x = 1;
+	// 	// y = x / tan(win->ca->rad);
+	// 	if (d < 90)
+	// 		y = x / tan(win->ca->rad);
+	// 	else
+	// 		y = x / tan( ft_degrees_to_radian(360 - win->ca->deg));
+	// 	win->ca->pvx = win->ca->pvx - x;
+	// 	if (d < 90)
+	// 		win->ca->pvy = win->ca->pvy + (y / 100);
+	// 	else
+	// 		win->ca->pvy = win->ca->pvy - (y / 100);
+	// 	// printf("oray '%f'\n", win->ca->vray);
+	// 	win->ca->vray = win->ca->vray + ft_pytha(x, (y / 100));
+	// 	printf("vc : x '%f' y '%f' ray '%f'\n", win->ca->pvx, win->ca->pvy, win->ca->vray);
+	// }
 	// ft_printf("else in up hc");
 }
 
@@ -228,21 +335,50 @@ void	ft_up_vc(w_point *win, double d) // A REMETTRE
 
 void	ft_up_hc(w_point *win, double d)
 {
-	int x;
-	int y;
-	double rad;
+	double x;
+	double y;
+	// double rad;
 	
 	x = 0;
 	y = 0;
-	rad = ft_degrees_to_radian(90 - win->ca->deg);
-	if (d < 90)
+	if (d < 90 || d > 270) // hc
 	{
 		y = 1;
-		x = y / tan(rad);
-		win->ca->phx = win->ca->phx + (x / 100);
-		win->ca->phy = win->ca->phy + (y / 100);
+		if (d < 90)
+			x = y / tan(win->ca->rad);
+		else
+			x = y / tan(ft_degrees_to_radian(360 - win->ca->deg));
+		if (d < 90)
+		{
+			win->ca->phy = win->ca->phy + y;
+			win->ca->phx = win->ca->phx - x;
+		}
+		else
+		{
+			win->ca->phy = win->ca->phy - y;
+			win->ca->phx = win->ca->phx - x;
+		}
 		win->ca->hray = win->ca->hray + ft_pytha(x, y);
 	}
+
+	// rad = ft_degrees_to_radian(90 - win->ca->deg);
+	// if (d < 90 || d > 270)
+	// {
+	// 	y = 1;
+	// 	// x = y / tan(rad);
+	// 	if (d < 90)
+	// 		x = y / tan(rad);
+	// 	else
+	// 		x = y / tan(ft_degrees_to_radian(90 - (360 - win->ca->deg)));
+	// 	win->ca->phx = win->ca->phx - (x / 100);
+	// 	if (d < 90)
+	// 		win->ca->phy = win->ca->phy + 100;
+	// 	else
+	// 		win->ca->phy = win->ca->phy - 100;
+	// 	// printf("oray '%f'\n", win->ca->hray);
+	// 	win->ca->hray = win->ca->hray + ft_pytha((x / 100), y);
+	// 	printf("hc : x '%f' y '%f' ray '%f'\n", win->ca->phx, win->ca->phy, win->ca->hray);
+	// }
 	// ft_printf("else in up hc");
 }
 
@@ -250,6 +386,61 @@ void	ft_up_hc(w_point *win, double d)
 
 
 
+
+
+
+
+// double	ft_not_angle_droit(w_point *win, double d)
+// {
+// 	win->ca->deg = d;
+// 	int x;//sup
+
+// 	x = 100;//sup protection anti while 1
+// 	// win->ca->hx = 0;
+// 	// win->ca->hy = 0;
+// 	// win->ca->vx = 0;
+// 	// win->ca->vy = 0;
+// 	ft_reset_ca(win);
+// 	// printf("not angle droit d : '%lf'\n", d);
+// 	// printf("test calc : '%lf'\n", 100*ft_radian_to_degrees(tan(1.0472)));
+
+	
+// 	// ft_printf("IN\n");
+// 	// ft_printf("hcx'%d' hcy'%d' vcx'%d' vcy'%d'\n", win->hc->posxr, win->hc->posyr, win->vc->posxr, win->vc->posyr);
+// 	while(ft_is_wall(win, win->ca->hx, win->ca->hy) && ft_is_wall(win, win->ca->vx, win->ca->vy) && x > 0) //  && x > 0
+// 	{
+// 		if (win->ca->hray == 0 && win->ca->vray == 0)
+// 			ft_first_vc_hc(win, d);
+// 		printf("vray '%f' hray '%f'\n", win->ca->vray, win->ca->hray);
+// 		if(win->ca->hray < win->ca->vray)
+// 		{
+// 			//augmenter hc
+// 			ft_printf("up hc\n");
+// 			ft_up_hc(win, d);
+// 			win->ca->hx = win->ca->phx;
+// 			win->ca->hy = win->ca->phy;
+// 			// ft_printf("up hc\n");
+// 		}
+// 		else
+// 		{
+// 			//augmenter vc
+// 			// ft_printf("up vc\n");
+// 			ft_printf("up vc\n");
+// 			ft_up_vc(win, d);
+// 			win->ca->vx = win->ca->pvx;
+// 			win->ca->vy = win->ca->pvy;
+// 		}
+// 		// ft_printf("hcx'%d' hcy'%d' vcx'%d' vcy'%d'\n", win->hc->posxr, win->hc->posyr, win->vc->posxr, win->vc->posyr);
+// 		x--;//sup
+// 		// printf("win : hx '%f' hy '%f' vx '%f' vy '%f'\n", win->ca->hx, win->ca->hy, win->ca->vx, win->ca->vy);
+
+// 	}
+// 	if (win->ca->vray < win->ca->hray)
+// 		return (win->ca->vray * 100);
+// 	else
+// 		return (win->ca->hray * 100);
+// 	// ft_printf("OUT\n");
+// }
 
 
 
@@ -258,49 +449,46 @@ double	ft_not_angle_droit(w_point *win, double d)
 {
 	win->ca->deg = d;
 	int x;//sup
+	int u;
 
-	x = 3;//sup protection anti while 1
-	// win->ca->hx = 0;
-	// win->ca->hy = 0;
-	// win->ca->vx = 0;
-	// win->ca->vy = 0;
+	u = 0;
+
+	x = 0;//sup protection anti while 1
+	printf("pos : x '%f' y '%f' xx '%f' yy '%f'\n", win->ca->x, win->ca->y, win->ca->xx, win->ca->yy);
 	ft_reset_ca(win);
-	// printf("not angle droit d : '%lf'\n", d);
-	// printf("test calc : '%lf'\n", 100*ft_radian_to_degrees(tan(1.0472)));
-
-	
-	// ft_printf("IN\n");
-	// ft_printf("hcx'%d' hcy'%d' vcx'%d' vcy'%d'\n", win->hc->posxr, win->hc->posyr, win->vc->posxr, win->vc->posyr);
-	while(ft_is_wall(win, win->ca->hx, win->ca->hy) && ft_is_wall(win, win->ca->vx, win->ca->vy) && x > 0) //  && x > 0
-	{
-		if (win->ca->hray == 0 && win->ca->vray == 0)
+	if (win->ca->hray == 0 && win->ca->vray == 0)
 			ft_first_vc_hc(win, d);
-		if(win->ca->hray > win->ca->vray)
+
+	printf("pvx '%f' pvy '%f'\n", win->ca->pvx, win->ca->pvy);
+	while (u == 0 && x < 10) // v
+	{
+		// printf("test\n");
+
+		if (u == 0)
 		{
-			//augmenter hc
-			ft_printf("up hc\n");
-			ft_up_hc(win, d);
-			win->ca->hx = win->ca->phx;
-			win->ca->hy = win->ca->phy;
-			// ft_printf("up hc\n");
-		}
-		else
-		{
-			//augmenter vc
-			// ft_printf("up vc\n");
 			ft_printf("up vc\n");
 			ft_up_vc(win, d);
-			win->ca->vx = win->ca->pvx;
-			win->ca->vy = win->ca->pvy;
 		}
-		// ft_printf("hcx'%d' hcy'%d' vcx'%d' vcy'%d'\n", win->hc->posxr, win->hc->posyr, win->vc->posxr, win->vc->posyr);
-		x--;//sup
-		// printf("win : hx '%f' hy '%f' vx '%f' vy '%f'\n", win->ca->hx, win->ca->hy, win->ca->vx, win->ca->vy);
-
+		printf("vx '%f' vy '%f'\n", win->ca->pvx, win->ca->pvy);
+		if (ft_is_wall(win, win->ca->pvx, win->ca->pvy) == 0)
+			u = 1;
 	}
+	u = 0;
+	while (u == 0 && x < 10) // hc
+	{
+
+		if (u == 0)
+		{
+			// ft_printf("up hc\n");
+			ft_up_hc(win, d);
+		}
+		if (ft_is_wall(win, win->ca->phx, win->ca->phy) == 0)
+			u = 1;
+	}
+	// printf("last vc hc : '%f' '%f'\n", win->ca->vray, win->ca->hray);
+	// printf("vx '%f' vy '%f' hx '%f' hy '%f'\n", win->ca->pvx, win->ca->pvy, win->ca->phx, win->ca->phy);
 	if (win->ca->vray < win->ca->hray)
 		return (win->ca->vray * 100);
 	else
 		return (win->ca->hray * 100);
-	// ft_printf("OUT\n");
 }

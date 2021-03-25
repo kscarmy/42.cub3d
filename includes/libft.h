@@ -218,6 +218,10 @@ void			ft_error_detected(m_point *map); // affiche ou est l'erreur.
 
 typedef	struct v_point // structure de calcul : ca
 {
+	double x; // position dans la map corrigée
+	double y; // position dans la map corrigée
+	double xx; // position dans la case corrigée et / 100
+	double yy; // position dans la case corrigée et / 100
 	double hx; // horizontal calc x
 	double hy; // horizontal calc y
 	double vx; // vertical calc x
@@ -251,6 +255,8 @@ typedef struct k_point
 	int		move_size; // définis la taille d'un déplacement dans une case /!\ move_size < 100 && > 0 !
 	int		d_size; // définis la taille de degrés de rotation de d lorsque la touche est pressée
 	int		screen_range; // distance entre la camera et lecran.
+	int		max_x; // max de x dans la ligne
+	int		max_y; // max de y dans la map
 	// c_point	*calc; // structure de calculs contenue dans calc. // old
 	// c_point	*hc; // struct de calculs honrizontaux
 	// c_point	*vc; // struct de calculs verticaux
@@ -292,8 +298,9 @@ double			ft_pytha(double x, double y); // rend la distance
 // void			ft_second_angle_hc(w_point *win); // calcule les autres angles de hc
 // void			ft_dec_to_ent_2(w_point *win, int s); // s = 1 = vc && s = 2 = hc && s = 3 = vc + hc
 double			ft_found_angle(w_point *win, double d); //  
-void			ft_thales(w_point *win, double a, int c); //
+void			ft_thales(w_point *win, double a, int c, int i); //
 void			ft_reset_ca(w_point *win); // reset la struct de calculs
+double			ft_converte_angle(double d, double a, int sig); // convertie les angles pour les calculs de distance
 
 
 #endif

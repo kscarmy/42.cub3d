@@ -25,7 +25,11 @@ int		ft_entry_keyboard(int key, void *p)
 		exit(0);
 	}
 	if (key == 122 || key == 113 || key == 115 || key == 100 || key == 65361 || key == 65363)
+	{
 		ft_move_zqsd(key, win);
+		mlx_clear_window(win->mlx, win->win1);
+		ft_screen(win); // affiche les déplacements
+	}
 	
 
 

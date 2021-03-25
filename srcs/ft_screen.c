@@ -64,10 +64,21 @@ void	ft_disp_screen(w_point *win)
 	u = u;
 	// ft_thales(win, win->d, u); // test angle droit // A REMETTRE ET MODIFIER LA FONCTION SUREMENT
 	//affichage colone milieu
-	while (i < (x / 2) && i < 10) // supp i < 10 car test
+	win->max_y = 0;
+	while (win->map->map[win->max_y])
+		win->max_y++;
+	win->ca->x = (double)win->y - 1;
+	win->ca->y = (double)win->x - 1;
+	win->ca->xx = (double)win->pos_y;
+	win->ca->yy = (double)win->pos_x;
+	win->ca->xx = win->ca->xx / 100;
+	win->ca->yy = win->ca->yy / 100;
+	// printf("max y : '%d'\n", win->max_y);
+	while (i < (x / 2)) // supp i < 10 car test
 	{
 		// printf("thales\n");
-		ft_thales(win, (ang * i), i + u);
+		ft_thales(win, (ang * i), u, i);
+		// ft_thales(win, );
 		// affichage colone droite
 		// affichage colone gauche
 		i++;
