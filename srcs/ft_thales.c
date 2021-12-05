@@ -155,17 +155,23 @@ void	ft_thales(w_point *win, double a, int c, int i)
 	u = c - i;
 	// printf("PRE d '%f' a '%f' d + a '%f'\n", win->d, a, (win->d + a));
 		// printf("pos r = '%f'\n", r);
-
+	// printf ("TEST\n");
 	r = ft_found_angle(win, ft_converte_angle(win->d, a, 1)); // droite de l ecran
 	h = (100 / r) * win->screen_range;
 	ft_red_pixel(win, h, c + i);
 
 	// printf("NEG : '%f'\n", ft_converte_angle(win->d, a, 0));
-	r = ft_found_angle(win, ft_converte_angle(win->d, a, 0)); // gauche de l ecran
+
+
+	// r = ft_found_angle(win, ft_converte_angle(win->d, a, 0)); // gauche de l ecran
+	// h = (100 / r) * win->screen_range;
+	// ft_red_pixel(win, h, u);
+
+
 	// printf("neg r = '%f'\n", r);
 	// printf("c '%d' i '%d' u '%f'\n", c, i, u);
-	h = (100 / r) * win->screen_range;
+	
 	// ft_printf("thales : h : '%d' r : '%d' test : '%d'", (int)h, (int)r, (100 / r) * win->screen_range);
 	// printf("deg : '%lf'\n", win->d + a);
-	ft_red_pixel(win, h, u);
+	// ft_red_pixel(win, h, u);
 }

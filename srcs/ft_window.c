@@ -1,4 +1,5 @@
 #include "../includes/libft.h"
+#include "../mlx/mlx.h"
 
 void	ft_init_win(w_point *win, m_point *mapi, c_point *cal) // mapi = map
 {

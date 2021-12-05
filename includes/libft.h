@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guderram <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:25:39 by guderram          #+#    #+#             */
-/*   Updated: 2019/11/20 13:25:42 by guderram         ###   ########.fr       */
+/*   Updated: 2021/12/03 05:22:12 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,20 @@
 
 
 # include "../mlx/mlx.h"
-# include "../mlx/mlx_int.h"
+// # include "../mlx/mlx_int.h"
 
 
 # include <stdio.h> // A SUPPRIMER
 
-# define BUFFER_SIZE 32
+# define BUFFER_SIZE 32 // gnl
+
+# define KEY_MOVE_FRONT 13 // old 122 ?
+# define KEY_MOVE_BACK 1 // old 100 ?
+# define KEY_MOVE_LEFT 0 // old 113 ?
+# define KEY_MOVE_RIGHT 2 // old 115 ?
+# define KEY_ROTATE_LEFT 123 // old 65361 ?
+# define KEY_ROTATE_RIGHT 124 // old 65363 ?
+# define KEY_ECHAP 53 // old 65307 ?
 
 int				ft_atoi(const char *nptr);
 void			ft_bzero(void *s, size_t n);
@@ -301,6 +309,9 @@ double			ft_found_angle(w_point *win, double d); //
 void			ft_thales(w_point *win, double a, int c, int i); //
 void			ft_reset_ca(w_point *win); // reset la struct de calculs
 double			ft_converte_angle(double d, double a, int sig); // convertie les angles pour les calculs de distance
+
+/* ft_pytha.c */
+void	ft_up_vert(w_point *win, double d); // test pour vc
 
 
 #endif

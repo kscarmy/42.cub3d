@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parsing_map_data.c                              :+:      :+:    :+:   */
+/*   ft_entry_key.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guderram <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 12:45:32 by guderram          #+#    #+#             */
-/*   Updated: 2020/01/31 12:45:33 by guderram         ###   ########.fr       */
+/*   Updated: 2021/12/02 06:04:17 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ int		ft_entry_keyboard(int key, void *p)
 	win = p;
 	ft_printf("key : %d\nPos_X : %d\nPos_Y : %d\nX : %d\nY : %d\nD : %d\n", key, win->pos_x, win->pos_y, win->x, win->y, (int) win->d);
 	// ft_printf("test : %s\n", win->map->no);
-	if (key == 65307)
+	if (key == KEY_ECHAP)
 	{
 		ft_exit_free_all(win, 0);
 		exit(0);
 	}
-	if (key == 122 || key == 113 || key == 115 || key == 100 || key == 65361 || key == 65363)
+	if (key == KEY_MOVE_FRONT || key == KEY_MOVE_LEFT || key == KEY_MOVE_RIGHT || key == KEY_MOVE_BACK || key == KEY_ROTATE_LEFT || key == KEY_ROTATE_RIGHT)
 	{
 		ft_move_zqsd(key, win);
 		mlx_clear_window(win->mlx, win->win1);

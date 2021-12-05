@@ -459,15 +459,16 @@ double	ft_not_angle_droit(w_point *win, double d)
 	if (win->ca->hray == 0 && win->ca->vray == 0)
 			ft_first_vc_hc(win, d);
 
-	printf("pvx '%f' pvy '%f'\n", win->ca->pvx, win->ca->pvy);
+	printf("A : pvx '%f' pvy '%f'\n", win->ca->pvx, win->ca->pvy);
 	while (u == 0 && x < 10) // v
 	{
 		// printf("test\n");
 
 		if (u == 0)
 		{
-			ft_printf("up vc\n");
-			ft_up_vc(win, d);
+			// ft_printf("up vc\n");
+			// ft_up_vc(win, d);
+			ft_up_vert(win, d);
 		}
 		printf("vx '%f' vy '%f'\n", win->ca->pvx, win->ca->pvy);
 		if (ft_is_wall(win, win->ca->pvx, win->ca->pvy) == 0)
@@ -485,7 +486,7 @@ double	ft_not_angle_droit(w_point *win, double d)
 		if (ft_is_wall(win, win->ca->phx, win->ca->phy) == 0)
 			u = 1;
 	}
-	// printf("last vc hc : '%f' '%f'\n", win->ca->vray, win->ca->hray);
+	printf("last vc hc : '%f' '%f'\n", win->ca->vray, win->ca->hray);
 	// printf("vx '%f' vy '%f' hx '%f' hy '%f'\n", win->ca->pvx, win->ca->pvy, win->ca->phx, win->ca->phy);
 	if (win->ca->vray < win->ca->hray)
 		return (win->ca->vray * 100);

@@ -8,7 +8,7 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-CMLXFLAGS = -L./libft -I/usr/local/include -L/usr/local/lib -L/usr/include -lm -lbsd -lX11 -lXext ./mlx/libmlx_Linux.a 
+MLXFLAGS = -I /usr/X11/include -g -L /usr/X11/lib -lX11 -lmlx -lXext -Lmlx -lmlx -framework OpenGL -framework AppKit
 
 LIBFT_C = libft/ft_atoi.c\
 		libft/ft_bzero.c\
@@ -128,34 +128,36 @@ OBJS =	ft_printf.o\
 			ft_get_next_line.o\
 			ft_get_next_line_utils.o\
 			ft_printf_percent.o\
-			ft_error_1.o\
-			ft_check_file_name.o\
-			ft_structs.o\
-			ft_parsing_map.o\
-			ft_parsing_utils.o\
-			ft_parsing_map_data.o\
-			ft_parsing_map_map.o\
-			ft_parsing_map_utils.o\
-			ft_window.o\
-			ft_entry_key.o\
-			ft_position.o\
-			ft_range.o\
-			ft_screen.o\
-			ft_utils.o\
-			ft_thales.o\
-			ft_pytha.o\
-			ft_range_2.o\
+			# ft_error_1.o\
+			# ft_check_file_name.o\
+			# ft_structs.o\
+			# ft_parsing_map.o\
+			# ft_parsing_utils.o\
+			# ft_parsing_map_data.o\
+			# ft_parsing_map_map.o\
+			# ft_parsing_map_utils.o\
+			# ft_window.o\
+			# ft_entry_key.o\
+			# ft_position.o\
+			# ft_range.o\
+			# ft_screen.o\
+			# ft_utils.o\
+			# ft_thales.o\
+			# ft_pytha.o\
+			# ft_range_2.o\
 
 
 all : $(NAME)
 
 $(NAME) :
-	@$(CC) $(CFLAGS) $(PRINTF_C) $(LIBFT_C) $(SRC_C) -c
+	@$(CC) $(CFLAGS) $(PRINTF_C) $(LIBFT_C) -c
 	@ar -rc $(NAME_LIBFT) $(OBJS)
 	@ranlib $(NAME_LIBFT)
-	@$(CC) $(CFLAGS) $(MAIN_C) -g3 -fsanitize=leak $(NAME_LIBFT) $(NAME_MLX_LIBFT) -o $(NAME) $(CMLXFLAGS)
+	@$(CC) $(MAIN_C) $(SRC_C) $(NAME_LIBFT) $(CFLAGS) $(MLXFLAGS) -o $(NAME) 
 #-g3 -fsanitize=leak
 # $(CMLXFLAGS)
+# @ $(CC) $(MAIN_C) $(SRC_C) $(LIBFT_C) $(MLXFLAGS)
+# $(NAME_MLX_LIBFT)
 clean :
 	@rm -rf $(OBJS)
 

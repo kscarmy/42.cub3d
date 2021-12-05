@@ -80,5 +80,5 @@ void	ft_red_pixel(w_point *win, int h, int x)
 		ret = mlx_pixel_put(win->mlx,win->win1, x, mid - i,0xFF99FF);
 		i++;
 	}
-	ret = ret;
+	// ret = ret;
 }
