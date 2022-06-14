@@ -3,19 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsing_map.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guderram <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 12:45:32 by guderram          #+#    #+#             */
-/*   Updated: 2020/01/31 12:45:33 by guderram         ###   ########.fr       */
+/*   Updated: 2022/06/14 14:25:56 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../../includes/libft.h"
 
 void    ft_check_file_half(m_point *map)
 {
-    // ft_printf("wtf\n");
-    // ft_printf("err : %d\n", map->error);
     if (map->res == 0)
         map->error = 700;
     if (map->floor == 0)
@@ -42,7 +40,6 @@ void	ft_strfreejoin_newline(m_point *map, char *buff)
 
 	i = 0;
     u = 0;
-    // ft_printf("file : %s, buff : %s\n", map->file, buff);
 	tmp = map->file;
 	map->file = malloc (sizeof(char) * (ft_gnl_strlen(tmp) + ft_gnl_strlen(buff) + 2));
 	if ((map->error = (map->file == NULL) ? 1010 : map->error) == 0)
@@ -102,14 +99,10 @@ int ft_parsing_map(m_point *map, char *argv)
         if (map->file[map->x] == 'C')
             ft_parsing_ceiling(map);
         if ((((map->file[map->x] == 'N' && map->file[map->x + 1] == 'O') || (map->file[map->x] == 'S' && map->file[map->x + 1] == 'O') || (map->file[map->x] == 'W' && map->file[map->x + 1] == 'E') || (map->file[map->x] == 'E' && map->file[map->x + 1] == 'A')) && map->file[map->x + 2] == ' ') || (map->file[map->x] == 'S' && map->file[map->x + 1] == ' '))
-            ft_parsing_path_to(map); // JEAN MICHEL
-        // map->x = (map->file[map->x] != '\0') ? map->x + 1 : map->x;
+            ft_parsing_path_to(map);
         m++;
     }
     (map->error == 0) ? ft_check_file_half(map) : ft_printf("ERROR BEFORE MAPING\n");
-    // // METTRE LA FONCTION POUR GERER LA MAP ICI
-    // // ft_printf("Ax : %d\n", map->x);
-    // // ft_printf("file : \n'%s'\n", &map->file[map->x]);
     if (map->error == 0)
         ft_check_map(map);
     if (map->error > 0)

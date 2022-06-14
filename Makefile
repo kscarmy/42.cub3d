@@ -1,169 +1,83 @@
-NAME_LIBFT = libft.a
+## Executables name
+NAME		= cub3D
 
-NAME_MLX_LIBFT = ./mlx/libmlx.a
+MLXFLAGS = -I /usr/X11/include -g -L /usr/X11/lib -lX11 -lmlx -lXext -Lmlx -lmlx  -lXext -lX11 -lm
 
-NAME = Cub3d
+## Sources
 
-CC = gcc
+SRC = srcs/calc/ft_pytha.c \
+		srcs/calc/ft_range.c \
+		srcs/calc/ft_thales.c \
+		srcs/disp/ft_screen.c \
+		srcs/disp/ft_window.c \
+		srcs/move/ft_entry_key.c \
+		srcs/move/ft_position.c \
+		srcs/parsing/ft_check_file_name.c \
+		srcs/parsing/ft_parsing_map_data.c \
+		srcs/parsing/ft_parsing_map_map.c \
+		srcs/parsing/ft_parsing_map_utils.c \
+		srcs/parsing/ft_parsing_map.c \
+		srcs/parsing/ft_parsing_utils.c \
+		srcs/parsing/ft_structs.c \
+		srcs/utils/ft_error_1.c \
+		srcs/utils/ft_utils.c \
 
-CFLAGS = -Wall -Wextra -Werror
-
-MLXFLAGS = -I /usr/X11/include -g -L /usr/X11/lib -lX11 -lmlx -lXext -Lmlx -lmlx -framework OpenGL -framework AppKit
-
-LIBFT_C = libft/ft_atoi.c\
-		libft/ft_bzero.c\
-		libft/ft_calloc.c\
-		libft/ft_isalnum.c\
-		libft/ft_isalpha.c\
-		libft/ft_isascii.c\
-		libft/ft_isdigit.c\
-		libft/ft_isprint.c\
-		libft/ft_itoa.c\
-		libft/ft_memccpy.c\
-		libft/ft_memchr.c\
-		libft/ft_memcmp.c\
-		libft/ft_memcpy.c\
-		libft/ft_memmove.c\
-		libft/ft_memset.c\
-		libft/ft_putchar_fd.c\
-		libft/ft_putendl_fd.c\
-		libft/ft_putnbr_fd.c\
-		libft/ft_putstr_fd.c\
-		libft/ft_split.c\
-		libft/ft_strchr.c\
-		libft/ft_strdup.c\
-		libft/ft_strjoin.c\
-		libft/ft_strlcat.c\
-		libft/ft_strlcpy.c\
-		libft/ft_strlen.c\
-		libft/ft_strmapi.c\
-		libft/ft_strncmp.c\
-		libft/ft_strnstr.c\
-		libft/ft_strrchr.c\
-		libft/ft_strtrim.c\
-		libft/ft_substr.c\
-		libft/ft_tolower.c\
-		libft/ft_toupper.c\
-		libft/ft_get_next_line.c\
-		libft/ft_get_next_line_utils.c\
-
-PRINTF_C =	libft/ft_printf.c\
-			libft/ft_printf_disp.c\
-			libft/ft_printf_x.c\
-			libft/ft_printf_c.c\
-			libft/ft_printf_ana.c\
-			libft/ft_printf_know.c\
-			libft/ft_printf_s.c\
-			libft/ft_printf_percent.c\
-			libft/ft_printf_u.c\
-			libft/ft_printf_d.c\
-			libft/ft_printf_itoa.c\
-			libft/ft_printf_p.c\
-
-SRC_C = srcs/ft_error_1.c\
-		srcs/ft_check_file_name.c\
-		srcs/ft_structs.c\
-		srcs/ft_parsing_map_data.c\
-		srcs/ft_parsing_map.c\
-		srcs/ft_parsing_utils.c\
-		srcs/ft_parsing_map_map.c\
-		srcs/ft_parsing_map_utils.c\
-		srcs/ft_window.c\
-		srcs/ft_entry_key.c\
-		srcs/ft_position.c\
-		srcs/ft_range.c\
-		srcs/ft_screen.c\
-		srcs/ft_utils.c\
-		srcs/ft_thales.c\
-		srcs/ft_pytha.c\
-		srcs/ft_range_2.c\
 
 MAIN_C = srcs/main.c\
 
-OBJS =	ft_printf.o\
-			ft_printf_u.o\
-			ft_printf_c.o\
-			ft_printf_x.o\
-			ft_printf_p.o\
-			ft_printf_itoa.o\
-			ft_printf_d.o\
-			ft_printf_disp.o\
-			ft_printf_ana.o\
-			ft_printf_know.o\
-			ft_printf_s.o\
-			ft_atoi.o\
-			ft_bzero.o\
-			ft_calloc.o\
-			ft_isalnum.o\
-			ft_isalpha.o\
-			ft_isascii.o\
-			ft_isdigit.o\
-			ft_isprint.o\
-			ft_itoa.o\
-			ft_memccpy.o\
-			ft_memchr.o\
-			ft_memcmp.o\
-			ft_memcpy.o\
-			ft_memmove.o\
-			ft_memset.o\
-			ft_putchar_fd.o\
-			ft_putendl_fd.o\
-			ft_putnbr_fd.o\
-			ft_putstr_fd.o\
-			ft_split.o\
-			ft_strchr.o\
-			ft_strdup.o\
-			ft_strjoin.o\
-			ft_strlcat.o\
-			ft_strlcpy.o\
-			ft_strlen.o\
-			ft_strmapi.o\
-			ft_strncmp.o\
-			ft_strnstr.o\
-			ft_strrchr.o\
-			ft_strtrim.o\
-			ft_substr.o\
-			ft_tolower.o\
-			ft_toupper.o\
-			ft_get_next_line.o\
-			ft_get_next_line_utils.o\
-			ft_printf_percent.o\
-			# ft_error_1.o\
-			# ft_check_file_name.o\
-			# ft_structs.o\
-			# ft_parsing_map.o\
-			# ft_parsing_utils.o\
-			# ft_parsing_map_data.o\
-			# ft_parsing_map_map.o\
-			# ft_parsing_map_utils.o\
-			# ft_window.o\
-			# ft_entry_key.o\
-			# ft_position.o\
-			# ft_range.o\
-			# ft_screen.o\
-			# ft_utils.o\
-			# ft_thales.o\
-			# ft_pytha.o\
-			# ft_range_2.o\
+
+## Objects (patsubst = path substitute)
+OBJ	= ${patsubst srcs/%, obj/%, $(SRC:.c=.o)}
+
+## LIBFT config
+LIBFT		= $(LIBFT_DIR)libft.a
+LIBFT_DIR	= ./libft/
+LIB_FLAGS	= -L $(LIBFT_DIR)
+INC		= -I ./inc/ -I $(LIBFT_DIR)
+
+## Compiling config
+CC		= gcc
+RM		= rm -rf
+CFLAGS		= -Wall -Werror -Wextra
+## -fsanitize=address -g3
+## Output messages	
+DONE = @echo "libft compiled successfully!"
+CLEAN_O = @echo "Object files removed!"
+CLEAN_A = @echo "Executables removed!"
+DONE = @echo "cub3D ready to use!"
+
+all:	obj $(NAME)
 
 
-all : $(NAME)
+$(NAME): $(OBJ) $(LIBFT)
+	@$(CC) $(MAIN_C) $(CFLAGS) $(OBJ) ./libft.a $(MLXFLAGS) -o $(NAME)
+	$(DONE)
 
-$(NAME) :
-	@$(CC) $(CFLAGS) $(PRINTF_C) $(LIBFT_C) -c
-	@ar -rc $(NAME_LIBFT) $(OBJS)
-	@ranlib $(NAME_LIBFT)
-	@$(CC) $(MAIN_C) $(SRC_C) $(NAME_LIBFT) $(CFLAGS) $(MLXFLAGS) -o $(NAME) 
-#-g3 -fsanitize=leak
-# $(CMLXFLAGS)
-# @ $(CC) $(MAIN_C) $(SRC_C) $(LIBFT_C) $(MLXFLAGS)
-# $(NAME_MLX_LIBFT)
-clean :
-	@rm -rf $(OBJS)
+$(LIBFT):
+	@make -sC $(LIBFT_DIR)
 
-fclean : clean
-	@rm -rf $(NAME)
-	@rm -rf $(NAME_LIBFT)
+obj:
+	@mkdir -p obj
+	@mkdir -p obj/calc
+	@mkdir -p obj/disp
+	@mkdir -p obj/move
+	@mkdir -p obj/utils
+	@mkdir -p obj/parsing
 
-re : fclean all
-	@rm -rf $(OBJS)
+
+obj/%.o: srcs/%.c
+	@$(CC) $(CFLAGS) -o $@ -c $<
+
+clean:
+	@make clean -sC $(LIBFT_DIR)
+	@${RM} obj ${OBJ}
+	$(CLEAN_O)
+
+fclean:	clean
+	@make fclean -sC $(LIBFT_DIR)
+	@${RM} ${NAME}
+	$(CLEAN_A)
+
+re: fclean all
+
+.PHONY:	all clean fclean re obj

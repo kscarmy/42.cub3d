@@ -1,10 +1,22 @@
-#include "../includes/libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_screen.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/14 13:27:50 by guderram          #+#    #+#             */
+/*   Updated: 2022/06/14 16:54:01 by guderram         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../../includes/libft.h"
 
 void	ft_screen(w_point *win)
 {
-	int r; // a supprimer
+	// int r; // a supprimer
 
-	r = 0; // a supprimer
+	// r = 0; // a supprimer
 	// r = r;
 	ft_set_screen(win);
 	// ft_red_pixel(win, 50, 160); // test
@@ -35,19 +47,6 @@ void	ft_set_screen(w_point *win)
 
 }
 
-// void	ft_max_map(w_point *win)
-// {
-// 	double x;
-// 	double y;
-
-// 	x = 0;
-// 	y = 0;
-// 	while (win->map->map[x][y] != '\0')
-// 	{
-// 		while (win->map->map[x])
-// 	}
-// }
-
 
 void	ft_disp_screen(w_point *win)
 {
@@ -68,14 +67,9 @@ void	ft_disp_screen(w_point *win)
 	win->max_y = 0;
 	while (win->map->map[win->max_y])
 		win->max_y++;
-	win->ca->x = (double)win->y - 1;
-	win->ca->y = (double)win->x - 1;
-	win->ca->xx = (double)win->pos_y;
-	win->ca->yy = (double)win->pos_x;
-	win->ca->xx = win->ca->xx / 100;
-	win->ca->yy = win->ca->yy / 100;
-	// printf("max y : '%d'\n", win->max_y);
-	while (i < (x / 2) && i < 5) // supp i < 10 car test
+	win->ca->x = (double)win->y - 1 + ((double)win->pos_y / 100);
+	win->ca->y = (double)win->x - 1 + ((double)win->pos_x / 100);
+	while (i < (x / 2) && i < 1) // supp i < 10 car test
 	{
 		// printf("thales\n");
 		ft_thales(win, (ang * i), u, i);

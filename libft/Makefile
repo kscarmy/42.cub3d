@@ -4,55 +4,55 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-LIBFT_C = libft/ft_atoi.c\
-		libft/ft_bzero.c\
-		libft/ft_calloc.c\
-		libft/ft_isalnum.c\
-		libft/ft_isalpha.c\
-		libft/ft_isascii.c\
-		libft/ft_isdigit.c\
-		libft/ft_isprint.c\
-		libft/ft_itoa.c\
-		libft/ft_memccpy.c\
-		libft/ft_memchr.c\
-		libft/ft_memcmp.c\
-		libft/ft_memcpy.c\
-		libft/ft_memmove.c\
-		libft/ft_memset.c\
-		libft/ft_putchar_fd.c\
-		libft/ft_putendl_fd.c\
-		libft/ft_putnbr_fd.c\
-		libft/ft_putstr_fd.c\
-		libft/ft_split.c\
-		libft/ft_strchr.c\
-		libft/ft_strdup.c\
-		libft/ft_strjoin.c\
-		libft/ft_strlcat.c\
-		libft/ft_strlcpy.c\
-		libft/ft_strlen.c\
-		libft/ft_strmapi.c\
-		libft/ft_strncmp.c\
-		libft/ft_strnstr.c\
-		libft/ft_strrchr.c\
-		libft/ft_strtrim.c\
-		libft/ft_substr.c\
-		libft/ft_tolower.c\
-		libft/ft_toupper.c\
-		libft/ft_get_next_line.c\
-		libft/ft_get_next_line_utils.c\
+LIBFT_C = ./ft_atoi.c\
+		./ft_bzero.c\
+		./ft_calloc.c\
+		./ft_isalnum.c\
+		./ft_isalpha.c\
+		./ft_isascii.c\
+		./ft_isdigit.c\
+		./ft_isprint.c\
+		./ft_itoa.c\
+		./ft_memccpy.c\
+		./ft_memchr.c\
+		./ft_memcmp.c\
+		./ft_memcpy.c\
+		./ft_memmove.c\
+		./ft_memset.c\
+		./ft_putchar_fd.c\
+		./ft_putendl_fd.c\
+		./ft_putnbr_fd.c\
+		./ft_putstr_fd.c\
+		./ft_split.c\
+		./ft_strchr.c\
+		./ft_strdup.c\
+		./ft_strjoin.c\
+		./ft_strlcat.c\
+		./ft_strlcpy.c\
+		./ft_strlen.c\
+		./ft_strmapi.c\
+		./ft_strncmp.c\
+		./ft_strnstr.c\
+		./ft_strrchr.c\
+		./ft_strtrim.c\
+		./ft_substr.c\
+		./ft_tolower.c\
+		./ft_toupper.c\
+		./ft_get_next_line.c\
+		./ft_get_next_line_utils.c\
 
-SRC_C =	src/ft_printf.c\
-			src/ft_printf_disp.c\
-			src/ft_printf_x.c\
-			src/ft_printf_c.c\
-			src/ft_printf_ana.c\
-			src/ft_printf_know.c\
-			src/ft_printf_s.c\
-			src/ft_printf_percent.c\
-			src/ft_printf_u.c\
-			src/ft_printf_d.c\
-			src/ft_printf_itoa.c\
-			src/ft_printf_p.c\
+SRC_C =	./ft_printf.c\
+			./ft_printf_disp.c\
+			./ft_printf_x.c\
+			./ft_printf_c.c\
+			./ft_printf_ana.c\
+			./ft_printf_know.c\
+			./ft_printf_s.c\
+			./ft_printf_percent.c\
+			./ft_printf_u.c\
+			./ft_printf_d.c\
+			./ft_printf_itoa.c\
+			./ft_printf_p.c\
 
 OBJS =	ft_printf.o\
 			ft_printf_u.o\

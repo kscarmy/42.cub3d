@@ -1,5 +1,17 @@
-#include "../includes/libft.h"
-#include "../mlx/mlx.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_window.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/14 13:28:22 by guderram          #+#    #+#             */
+/*   Updated: 2022/06/14 13:28:23 by guderram         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../../includes/libft.h"
+#include "../../mlx/mlx.h"
 
 void	ft_init_win(w_point *win, m_point *mapi, c_point *cal) // mapi = map
 {
