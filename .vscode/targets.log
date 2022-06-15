@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Jun 14 13:25:46 2022
+# Make data base, printed on Wed Jun 15 12:23:06 2022
 
 # Variables
 
@@ -18,12 +18,12 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 DESKTOP_SESSION = ubuntu
 # default
 .SHELLFLAGS := -c
-# makefile (from 'Makefile', line 30)
+# makefile (from 'Makefile', line 32)
 OBJ = ${patsubst srcs/%, obj/%, $(SRC:.c=.o)}
 # environment
 XDG_SESSION_CLASS = user
 # makefile (from 'Makefile', line 8)
-SRC = srcs/calc/ft_pytha.c srcs/calc/ft_range.c srcs/calc/ft_thales.c srcs/disp/ft_screen.c srcs/disp/ft_window.c srcs/move/ft_entry_key.c srcs/move/ft_position.c srcs/parsing/ft_check_file_name.c srcs/parsing/ft_parsing_map_data.c srcs/parsing/ft_parsing_map_map.c srcs/parsing/ft_parsing_map_utils.c srcs/parsing/ft_parsing_map.c srcs/parsing/ft_parsing_utils.c srcs/parsing/ft_structs.c srcs/utils/ft_error_1.c srcs/utils/ft_utils.c 
+SRC = srcs/calc/ft_pytha.c srcs/calc/ft_range.c srcs/calc/ft_thales.c srcs/calc/ft_vc.c srcs/calc/ft_hc.c srcs/disp/ft_screen.c srcs/disp/ft_window.c srcs/move/ft_entry_key.c srcs/move/ft_position.c srcs/parsing/ft_check_file_name.c srcs/parsing/ft_parsing_map_data.c srcs/parsing/ft_parsing_map_map.c srcs/parsing/ft_parsing_map_utils.c srcs/parsing/ft_parsing_map.c srcs/parsing/ft_parsing_utils.c srcs/parsing/ft_structs.c srcs/utils/ft_error_1.c srcs/utils/ft_utils.c 
 # environment
 XDG_SESSION_TYPE = x11
 # environment
@@ -42,23 +42,25 @@ XMODIFIERS = @im=ibus
 CURDIR := /mnt/nfs/homes/guderram/42/cub3d
 # makefile
 SHELL = /bin/sh
-# makefile (from 'Makefile', line 40)
+# makefile (from 'Makefile', line 42)
 RM = rm -rf
+# environment
+GDM_LANG = en
 # environment
 VTE_VERSION = 6003
 # environment
-VSCODE_NLS_CONFIG = {"locale":"fr","availableLanguages":{"*":"fr"},"_languagePackId":"25fe6a3290ec415596628d4afc87a88c.fr","_translationsConfigFile":"/mnt/nfs/homes/guderram/.config/Code/clp/25fe6a3290ec415596628d4afc87a88c.fr/tcf.json","_cacheRoot":"/mnt/nfs/homes/guderram/.config/Code/clp/25fe6a3290ec415596628d4afc87a88c.fr","_resolvedLanguagePackCoreLocation":"/mnt/nfs/homes/guderram/.config/Code/clp/25fe6a3290ec415596628d4afc87a88c.fr/dfd34e8260c270da74b5c2d86d61aee4b6d56977","_corruptedFile":"/mnt/nfs/homes/guderram/.config/Code/clp/25fe6a3290ec415596628d4afc87a88c.fr/corrupted.info","_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"fr","availableLanguages":{"*":"fr"},"_languagePackId":"25fe6a3290ec415596628d4afc87a88c.fr","_translationsConfigFile":"/mnt/nfs/homes/guderram/.config/Code/clp/25fe6a3290ec415596628d4afc87a88c.fr/tcf.json","_cacheRoot":"/mnt/nfs/homes/guderram/.config/Code/clp/25fe6a3290ec415596628d4afc87a88c.fr","_resolvedLanguagePackCoreLocation":"/mnt/nfs/homes/guderram/.config/Code/clp/25fe6a3290ec415596628d4afc87a88c.fr/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5","_corruptedFile":"/mnt/nfs/homes/guderram/.config/Code/clp/25fe6a3290ec415596628d4afc87a88c.fr/corrupted.info","_languagePackSupport":true}
 # environment
 _ = /usr/bin/code
-# makefile (from 'Makefile', line 41)
+# makefile (from 'Makefile', line 43)
 CFLAGS = -Wall -Werror -Wextra
 # environment
-JOURNAL_STREAM = 9:731352494
+JOURNAL_STREAM = 9:767671
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile (from 'Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
-# makefile (from 'Makefile', line 35)
+# makefile (from 'Makefile', line 37)
 LIB_FLAGS = -L $(LIBFT_DIR)
 # automatic
 @F = $(notdir $@)
@@ -75,15 +77,15 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/32509/bus
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-MANAGERPID = 741365
+MANAGERPID = 193861
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/32509/vscode-ipc-e491da69-37eb-4ee6-9fb5-af91bf317a51.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/32509/vscode-ipc-e5a6f510-e2e9-40a4-8ebd-b1806756a09f.sock
 # environment
 VSCODE_CWD = /mnt/nfs/homes/guderram/42/cub3d
 # environment
-XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session14
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session5
 # environment
-KRB5CCNAME = FILE:/tmp/krb5cc_32509_a5XZNl
+KRB5CCNAME = FILE:/tmp/krb5cc_32509_3eSWNi
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -91,7 +93,7 @@ PATH = /mnt/nfs/homes/guderram/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr
 # environment
 GPG_AGENT_INFO = /run/user/32509/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/e2r10p6.clusters.42paris.fr:@/tmp/.ICE-unix/741809,unix/e2r10p6.clusters.42paris.fr:/tmp/.ICE-unix/741809
+SESSION_MANAGER = local/e1r10p6.clusters.42paris.fr:@/tmp/.ICE-unix/194535,unix/e1r10p6.clusters.42paris.fr:/tmp/.ICE-unix/194535
 # environment
 XDG_RUNTIME_DIR = /run/user/32509
 # environment
@@ -101,10 +103,10 @@ VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 36d29f872b5e4a1c9fa2525b6ff6cdeb
+INVOCATION_ID = 196671277e1a40e5a1251deba0faf9d3
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
-# makefile (from 'Makefile', line 34)
+# makefile (from 'Makefile', line 36)
 LIBFT_DIR = ./libft/
 # environment
 XDG_GREETER_DATA_DIR = /var/lib/lightdm-data/guderram
@@ -125,12 +127,12 @@ PWD = /mnt/nfs/homes/guderram/42/cub3d
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 741772
-# makefile (from 'Makefile', line 47)
+SSH_AGENT_PID = 194315
+# makefile (from 'Makefile', line 49)
 DONE = @echo "cub3D ready to use!"
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
-# makefile (from 'Makefile', line 26)
+# makefile (from 'Makefile', line 28)
 MAIN_C = srcs/main.c 
 # environment
 GTK_MODULES = gail:atk-bridge
@@ -141,7 +143,7 @@ HOME = /mnt/nfs/homes/guderram
 # environment
 VSCODE_CLI = 1
 # environment
-VSCODE_CODE_CACHE_PATH = /mnt/nfs/homes/guderram/.config/Code/CachedData/dfd34e8260c270da74b5c2d86d61aee4b6d56977
+VSCODE_CODE_CACHE_PATH = /mnt/nfs/homes/guderram/.config/Code/CachedData/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5
 # environment
 LOGNAME = guderram
 # environment
@@ -166,11 +168,11 @@ MAKECMDGOALS := all
 QT_IM_MODULE = ibus
 # environment
 SHLVL = 1
-# makefile (from 'Makefile', line 33)
+# makefile (from 'Makefile', line 35)
 LIBFT = $(LIBFT_DIR)libft.a
-# makefile (from 'Makefile', line 45)
+# makefile (from 'Makefile', line 47)
 CLEAN_O = @echo "Object files removed!"
-# makefile (from 'Makefile', line 39)
+# makefile (from 'Makefile', line 41)
 CC = gcc
 # default
 MAKE_VERSION := 4.2.1
@@ -186,18 +188,20 @@ LIBVIRT_DEFAULT_URI = qemu:///system
 %D = $(patsubst %/,%,$(dir $%))
 # default
 MAKE_COMMAND := make
-# makefile (from 'Makefile', line 36)
+# makefile (from 'Makefile', line 38)
 INC = -I ./inc/ -I $(LIBFT_DIR)
 # environment
-OLDPWD = /mnt/nfs/homes/guderram/42/cub3d/mlx
+OLDPWD = /mnt/nfs/homes/guderram
 # default
 .VARIABLES := 
 # automatic
 *F = $(notdir $*)
 # environment
+LANGUAGE = en
+# environment
 XDG_SEAT_PATH = /org/freedesktop/DisplayManager/Seat0
 # environment
-VSCODE_IPC_HOOK = /run/user/32509/vscode-c015ace9-1.66.2-main.sock
+VSCODE_IPC_HOOK = /run/user/32509/vscode-c015ace9-1.67.2-main.sock
 # makefile
 MAKEFLAGS = pqrR
 # environment
@@ -210,7 +214,7 @@ MFLAGS = -pqrR
 GDK_BACKEND = x11
 # automatic
 +F = $(notdir $+)
-# makefile (from 'Makefile', line 46)
+# makefile (from 'Makefile', line 48)
 CLEAN_A = @echo "Executables removed!"
 # environment
 QT_ACCESSIBILITY = 1
@@ -225,11 +229,11 @@ LC_ALL = C
 # environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/009ea524_d0da_4700_9ba5_2179c3d90467
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/686aea00_2145_4fad_a1f8_2db5cae21f10
 # automatic
 ^F = $(notdir $^)
 # environment
-GNOME_TERMINAL_SERVICE = :1.149
+GNOME_TERMINAL_SERVICE = :1.83
 # default
 SUFFIXES := 
 # environment
@@ -249,9 +253,9 @@ TERM = xterm-256color
 # environment
 DOCKER_HOST = unix:///run/user/32509/docker.sock
 # environment
-VSCODE_PID = 758787
+VSCODE_PID = 195828
 # variable set hash-table stats:
-# Load=120/1024=12%, Rehash=0, Collisions=19/157=12%
+# Load=122/1024=12%, Rehash=0, Collisions=19/159=12%
 
 # Pattern-specific Variable Values
 
@@ -259,25 +263,25 @@ VSCODE_PID = 758787
 
 # Directories
 
-# . (device 57, inode 264220679): 16 files, no impossibilities.
-# srcs (device 57, inode 264220700): No files, no impossibilities so far.
+# . (device 53, inode 264220679): 16 files, no impossibilities.
+# srcs (device 53, inode 264220700): No files, no impossibilities so far.
 
 # 16 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
 obj/%.o: srcs/%.c
-#  recipe to execute (from 'Makefile', line 69):
+#  recipe to execute (from 'Makefile', line 71):
 	@$(CC) $(CFLAGS) -o $@ -c $<
 
 # 1 implicit rules, 0 (0.0%) terminal.
 
 # Files
+ 
 
 # Not a target:
 obj/calc/ft_range.o:
 #  Implicit rule search has not been done.
- 
 #  Modification time never checked.
 #  File has not been updated.
 
@@ -296,11 +300,11 @@ all: obj cub3D
 #  Modification time never checked.
 #  File has not been updated.
 
-cub3D: obj/calc/ft_pytha.o obj/calc/ft_range.o obj/calc/ft_thales.o obj/disp/ft_screen.o obj/disp/ft_window.o obj/move/ft_entry_key.o obj/move/ft_position.o obj/parsing/ft_check_file_name.o obj/parsing/ft_parsing_map_data.o obj/parsing/ft_parsing_map_map.o obj/parsing/ft_parsing_map_utils.o obj/parsing/ft_parsing_map.o obj/parsing/ft_parsing_utils.o obj/parsing/ft_structs.o obj/utils/ft_error_1.o obj/utils/ft_utils.o libft/libft.a
+cub3D: obj/calc/ft_pytha.o obj/calc/ft_range.o obj/calc/ft_thales.o obj/calc/ft_vc.o obj/calc/ft_hc.o obj/disp/ft_screen.o obj/disp/ft_window.o obj/move/ft_entry_key.o obj/move/ft_position.o obj/parsing/ft_check_file_name.o obj/parsing/ft_parsing_map_data.o obj/parsing/ft_parsing_map_map.o obj/parsing/ft_parsing_map_utils.o obj/parsing/ft_parsing_map.o obj/parsing/ft_parsing_utils.o obj/parsing/ft_structs.o obj/utils/ft_error_1.o obj/utils/ft_utils.o libft/libft.a
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 53):
+#  recipe to execute (from 'Makefile', line 55):
 	@$(CC) $(MAIN_C) $(CFLAGS) $(OBJ) ./libft.a $(MLXFLAGS) -o $(NAME)
 	$(DONE)
 
@@ -313,7 +317,7 @@ cub3D: obj/calc/ft_pytha.o obj/calc/ft_range.o obj/calc/ft_thales.o obj/disp/ft_
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-14 13:25:45.426110198
+#  Last modified 2022-06-15 12:23:04.367765573
 #  File has been updated.
 #  Successfully updated.
 
@@ -336,6 +340,18 @@ obj/calc/ft_thales.o:
 #  File has not been updated.
 
 # Not a target:
+obj/calc/ft_vc.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/calc/ft_hc.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 obj/parsing/ft_parsing_map_data.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -345,7 +361,7 @@ libft/libft.a:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 57):
+#  recipe to execute (from 'Makefile', line 59):
 	@make -sC $(LIBFT_DIR)
 
 fclean: clean
@@ -353,7 +369,7 @@ fclean: clean
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 77):
+#  recipe to execute (from 'Makefile', line 79):
 	@make fclean -sC $(LIBFT_DIR)
 	@${RM} ${NAME}
 	$(CLEAN_A)
@@ -389,7 +405,7 @@ obj:
 # ? := 
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=1/11=9%
-#  recipe to execute (from 'Makefile', line 60):
+#  recipe to execute (from 'Makefile', line 62):
 	@mkdir -p obj
 	@mkdir -p obj/calc
 	@mkdir -p obj/disp
@@ -432,7 +448,7 @@ clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 72):
+#  recipe to execute (from 'Makefile', line 74):
 	@make clean -sC $(LIBFT_DIR)
 	@${RM} obj ${OBJ}
 	$(CLEAN_O)
@@ -480,19 +496,19 @@ obj/parsing/ft_parsing_map.o:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=27/1024=3%, Rehash=0, Collisions=2/69=3%
+# Load=29/1024=3%, Rehash=0, Collisions=4/73=5%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 44 / storage = 627 B / avg = 14 B
-# current buf: size = 8162 B / used = 627 B / count = 44 / avg = 14 B
+# strcache buffers: 1 (0) / strings = 46 / storage = 661 B / avg = 14 B
+# current buf: size = 8162 B / used = 661 B / count = 46 / avg = 14 B
 
-# strcache performance: lookups = 72 / hit rate = 38%
+# strcache performance: lookups = 74 / hit rate = 37%
 # hash-table stats:
-# Load=44/8192=1%, Rehash=0, Collisions=1/72=1%
-# Finished Make data base on Tue Jun 14 13:25:46 2022
+# Load=46/8192=1%, Rehash=0, Collisions=1/74=1%
+# Finished Make data base on Wed Jun 15 12:23:06 2022
 
  

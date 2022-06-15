@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:25:39 by guderram          #+#    #+#             */
-/*   Updated: 2022/06/14 17:01:49 by guderram         ###   ########.fr       */
+/*   Updated: 2022/06/15 17:54:37 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,17 +182,41 @@ typedef	struct v_point // structure de calcul : ca
 
 
 
-	
-	// double xx; // position dans la case corrigée et / 100
-	// double yy; // position dans la case corrigée et / 100
+	double fvcs; // first vertical calc size;
+	double fvcx; // first vertical calc x
+	double fvcy; // first vertical calc y
 
-	double hx; // horizontal calc x
-	double hy; // horizontal calc y
+	double vcs; // vertical calc size;
+	double vcx; // vertical calc x
+	double vcy; // vertical calc y
+
+	double vs; // vertical size;
+	double vx; // vertical x
+	double vy; // vertical y
 
 
-	
-	double vx; // vertical calc x
-	double vy; // vertical calc y
+
+
+
+	double fhcs; // first horizontal calc size;
+	double fhcx; // first horizontal calc x
+	double fhcy; // first horizontal calc y
+
+
+	double hcs; // horizontal calc size;
+	double hcx; // horizontal calc x
+	double hcy; // horizontal calc y
+
+	double hs; // horizontal size;
+	double hx; // horizontal x
+	double hy; // horizontal y
+
+
+
+
+
+
+
 	double ox; // original x
 	double oy; // original y
 	double phx; // horizontal position x
@@ -250,7 +274,7 @@ int		main(int argc, char **argv);
 
 /*	ft_range.c	*/
 double	ft_pytha(double x, double y); // rend la distance
-void	ft_reset_ca(w_point *win);
+void	ft_reset_ca(w_point *w);
 int		ft_is_wall(m_point *map, double x, double y); // renvoie 1 sur mur, sinon 0
 double	ft_inf_one(double i); // renvoie ce qui est apres la virgule
 
@@ -264,6 +288,21 @@ void	ft_set_ca(w_point *win);
 double	ft_converte_angle(double d, double a, int sig); // sig = addition 1 ou soustraction 0
 double	ft_found_angle(w_point *win, double d);
 void	ft_thales(w_point *win, double a, int c, int i);
+
+/*	ft_vc.c	*/
+void	ft_vc_add(w_point *w, double d); // rajoute les zones de calculs au point en question
+void	ft_vc_pytha(w_point *w, double d);
+void	ft_first_vc_pytha(w_point *w, double d);
+void	ft_first_vc(w_point *w, double d);
+double	ft_while_vc(w_point *w, double d);
+
+/*	ft_hc.c	*/
+
+void	ft_hc_add(w_point *w, double d); // rajoute les zones de calculs au point en question
+void	ft_hc_pytha(w_point *w, double d);
+void	ft_first_hc_pytha(w_point *w, double d);
+void	ft_first_hc(w_point *w, double d);
+double	ft_while_hc(w_point *w, double d);
 
 
 /*	******	*/
@@ -310,6 +349,8 @@ void	ft_error_detected(m_point *map);
 double	ft_degrees_to_radian(double deg);
 double	ft_radian_to_degrees(double rad);
 void	ft_red_pixel(w_point *win, int h, int x);
+int		ft_str_size(char *str);
+int		ft_is_entier(double a); // retourne 1 si le nombre n'est pa entier sinon 0
 
 
 /*	**********	*/

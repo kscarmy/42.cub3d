@@ -8,6 +8,8 @@ MLXFLAGS = -I /usr/X11/include -g -L /usr/X11/lib -lX11 -lmlx -lXext -Lmlx -lmlx
 SRC = srcs/calc/ft_pytha.c \
 		srcs/calc/ft_range.c \
 		srcs/calc/ft_thales.c \
+		srcs/calc/ft_vc.c \
+		srcs/calc/ft_hc.c \
 		srcs/disp/ft_screen.c \
 		srcs/disp/ft_window.c \
 		srcs/move/ft_entry_key.c \

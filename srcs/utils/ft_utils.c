@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:35:30 by guderram          #+#    #+#             */
-/*   Updated: 2022/06/14 16:21:31 by guderram         ###   ########.fr       */
+/*   Updated: 2022/06/15 17:54:22 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,25 @@ void	ft_red_pixel(w_point *win, int h, int x)
 		i++;
 	}
 	ret = ret;
+}
+
+int		ft_str_size(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (str == NULL)
+		return (0);
+	while (str != NULL && str[i] && str[i] != '\0')
+		i++;
+	return (i);
+}
+
+int		ft_is_entier(double a) // retourne 1 si le nombre n'est pa entier sinon 0
+{
+	while (a <= 1)
+		a = a - 1;
+	if (a > 0)
+		return (1);
+	return (0);
 }
