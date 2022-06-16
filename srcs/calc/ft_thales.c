@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:25:15 by guderram          #+#    #+#             */
-/*   Updated: 2022/06/16 16:45:16 by guderram         ###   ########.fr       */
+/*   Updated: 2022/06/16 22:41:45 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,10 +122,10 @@ void	ft_thales(w_point *win, double a, int c, int i)
 	ft_reset_ca(win);
 	// printf("ft_thales : x %f y %f\n", win->ca->x, win->ca->y);
 	r = ft_found_angle(win, ft_converte_angle(win->d, a, 1)); // droite de l ecran
-	
+	r = ft_abs(r) * 2;  // A SUPP 
 	ft_map_disp_pos(win);
 	printf("ft_thales : r %f\n", r);
 	// printf("screen range : %d\n", win->screen_range);
 	h = (100 / r) * win->screen_range;	
-	ft_red_pixel(win, (h - 50), c + i); // A SUPP LE '- 50'
+	ft_red_pixel(win, h, c + i); // A SUPP LE '- 50'
 }

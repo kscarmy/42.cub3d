@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:35:30 by guderram          #+#    #+#             */
-/*   Updated: 2022/06/16 16:37:20 by guderram         ###   ########.fr       */
+/*   Updated: 2022/06/16 22:01:46 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_red_pixel(w_point *win, int h, int x)
 	mid = win->map->ry/2;
 	ret = 0;
 	ft_printf("red pixel : h : '%d' x : '%d'\n\n", h, x);
-	while (h < 1000 && h > 0 && i < h)
+	while (h < 1000 && h > 0 && i < h && i <= win->map->ry)
 	{
 		ret = mlx_pixel_put(win->mlx,win->win1, x, mid + i,0xFF99FF);
 		ret = mlx_pixel_put(win->mlx,win->win1, x, mid - i,0xFF99FF);
@@ -54,10 +54,11 @@ int		ft_str_size(char *str)
 	return (i);
 }
 
-int		ft_is_entier(double a) // retourne 1 si le nombre n'est pa entier sinon 0
+int		ft_is_entier(double a) // retourne 1 si le nombre n'est pas entier sinon 0
 {
-	while (a <= 1)
+	while (a >= 1)
 		a = a - 1;
+	// printf("ft_is_entier a %f\n", a);
 	if (a > 0)
 		return (1);
 	return (0);

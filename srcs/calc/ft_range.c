@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 12:56:59 by guderram          #+#    #+#             */
-/*   Updated: 2022/06/16 16:41:54 by guderram         ###   ########.fr       */
+/*   Updated: 2022/06/16 22:40:01 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,15 +72,42 @@ int		ft_is_wall(m_point *map, double x, double y) // renvoie 1 sur mur, sinon 0
 		return (1);
 	if (x < 0)
 		return (1);
+	// x--;
+	// y--;
+
 	if (ft_abs((int)y) > map->l + 1)
 		return (1);
 	if (ft_abs((int)x) > ft_str_size(map->map[(int)ft_abs((int)y)]))
 		return (1);
 	printf("ft_is_wall x %f y %f x %d y %d\n", x, y, (int)x, (int)y);
-	// if (ft_inf_one(y) == 0 )
-	if (map->map[(int)y][(int)x] == '1')
+	printf("ft_is_wall : x %d y %d\n", ft_is_entier(x), ft_is_entier(y));
+	// if (ft_is_entier(x) == 0 && ft_is_entier(y) == 1)
+	// {
+	// 	if (map->map[(int)y][(int)x] == '1')
+	// 		return (1);
+	// 	if (map->map[(int)y][(int)x + 1] == '1')
+	// 		return (1);
+	// }
+	// if (ft_is_entier(x) == 1 && ft_is_entier(y) == 0)
+	// {
+	// 	if (map->map[(int)y][(int)x] == '1')
+	// 		return (1);
+	// 	if (map->map[(int)y + 1][(int)x] == '1')
+	// 		return (1);
+	// }
+	// if ((ft_is_entier(y) == 0) && ft_is_entier(x) == 1 && (map->map[(int)y - 2][(int)x - 1] == '1')) // test y - 1 si y est en bordure
+	// {
+	// 	printf("wall x\n");
+	// 	return (1);
+	// }
+	// if ((ft_is_entier(x) == 0) && ft_is_entier(y) == 1 && (map->map[(int)y - 1][(int)x - 2] == '1')) // test x - 1 si y est en bordure
+	// {
+	// 	printf("wall y\n");
+	// 	return (1);
+	// }
+	if (map->map[(int)y - 1][(int)x - 1] == '1')
 	{
-		printf("wall ok\n");
+		printf("wall autre\n");
 		return (1);
 	}
 	return (0);
