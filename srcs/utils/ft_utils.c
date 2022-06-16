@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:35:30 by guderram          #+#    #+#             */
-/*   Updated: 2022/06/15 17:54:22 by guderram         ###   ########.fr       */
+/*   Updated: 2022/06/16 16:37:20 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@ void	ft_red_pixel(w_point *win, int h, int x)
 	i = 0;
 	mid = win->map->ry/2;
 	ret = 0;
-	ft_printf("red pixel : h : '%d' x : '%d'\n", h, x);
-	while (h > 0 && i < h)
+	ft_printf("red pixel : h : '%d' x : '%d'\n\n", h, x);
+	while (h < 1000 && h > 0 && i < h)
 	{
 		ret = mlx_pixel_put(win->mlx,win->win1, x, mid + i,0xFF99FF);
 		ret = mlx_pixel_put(win->mlx,win->win1, x, mid - i,0xFF99FF);
 		i++;
 	}
-	ret = ret;
+	// ret = ret;
 }
 
 int		ft_str_size(char *str)

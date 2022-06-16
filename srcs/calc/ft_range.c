@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 12:56:59 by guderram          #+#    #+#             */
-/*   Updated: 2022/06/15 14:26:47 by guderram         ###   ########.fr       */
+/*   Updated: 2022/06/16 16:41:54 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,18 +68,21 @@ double		ft_pytha(double x, double y) // rend la distance
 
 int		ft_is_wall(m_point *map, double x, double y) // renvoie 1 sur mur, sinon 0
 {
-	// int	i;
-	// int	u;
-
-	// i = 0;
-	// u = 0;
-	// while ()
+	if (y < 0)
+		return (1);
+	if (x < 0)
+		return (1);
+	if (ft_abs((int)y) > map->l + 1)
+		return (1);
+	if (ft_abs((int)x) > ft_str_size(map->map[(int)ft_abs((int)y)]))
+		return (1);
+	printf("ft_is_wall x %f y %f x %d y %d\n", x, y, (int)x, (int)y);
+	// if (ft_inf_one(y) == 0 )
 	if (map->map[(int)y][(int)x] == '1')
+	{
+		printf("wall ok\n");
 		return (1);
-	if ((int)y > map->l + 1)
-		return (1);
-	if ((int)x > ft_str_size(map->map[(int)y]))
-		return (1);
+	}
 	return (0);
 }
 
@@ -102,12 +105,12 @@ double	ft_ret_range(double x, double y, double xx, double yy) // renvoie la dist
 	double ret;
 	
 	ret = 0;
-	printf("ft_ret_range 1 : x %f y %f xx %f yy %f\n", x, y, xx, yy);
+	// printf("ft_ret_range 1 : x %f y %f xx %f yy %f\n", x, y, xx, yy);
 	x = ft_abs(x) - ft_abs(xx);
 	y = ft_abs(y) - ft_abs(yy);
-	printf("ft_ret_range 2 : x %f y %f xx %f yy %f\n", x, y, xx, yy);
+	// printf("ft_ret_range 2 : x %f y %f xx %f yy %f\n", x, y, xx, yy);
 	ret = ft_pytha(ft_abs(x), ft_abs(y));
-	printf("ft_ret_range 3 : ret %f\n", ret);
+	// printf("ft_ret_range 3 : ret %f\n", ret);
 	return(ret);
 }
 
@@ -120,7 +123,7 @@ double	ft_right_angle(w_point *w, double d)
 	i = 0;
 	x = w->ca->x;
 	y = w->ca->y;
-	printf("ft_right_angle 1 : x %f y %f\n", x, y);
+	// printf("ft_right_angle 1 : x %f y %f\n", x, y);
 	while (ft_is_wall(w->map, x, y) == 0 && i < 100000000)
 	{
 		if (d == 0) // remonte
@@ -133,8 +136,8 @@ double	ft_right_angle(w_point *w, double d)
 			x = x - 0.001;
 		i++;
 	}
-	printf("ft_right_angle 2 : x %f y %f\n", x, y);
-	printf("ft_right_angle 3 : i %d\n", i);
+	// printf("ft_right_angle 2 : x %f y %f\n", x, y);
+	// printf("ft_right_angle 3 : i %d\n", i);
 	// x = x + ((double)w->pos_y / 100);
 	// y = y + ((double)w->pos_x / 100);
 	// printf("ft_right_angle 4 : x %f y %f\n", x, y);

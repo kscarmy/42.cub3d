@@ -1,7 +1,13 @@
 ## Executables name
 NAME		= cub3D
 
-MLXFLAGS = -I /usr/X11/include -g -L /usr/X11/lib -lX11 -lmlx -lXext -Lmlx -lmlx  -lXext -lX11 -lm
+
+## LINUX
+# MLXFLAGS = -I /usr/X11/include -g -L /usr/X11/lib -lX11 -lmlx -lXext -Lmlx -lmlx  -lXext -lX11 -lm
+
+
+## MAC
+MLXFLAGS = -I /usr/X11/include -g -L /usr/X11/lib -lX11 -lmlx -lXext -Lmlx -lmlx -framework OpenGL -framework AppKit
 
 ## Sources
 
@@ -52,7 +58,7 @@ all:	obj $(NAME)
 
 
 $(NAME): $(OBJ) $(LIBFT)
-	@$(CC) $(MAIN_C) $(CFLAGS) $(OBJ) ./libft.a $(MLXFLAGS) -o $(NAME)
+	@$(CC) $(MAIN_C) $(CFLAGS) $(MLXFLAGS) ./libft/libft.a ./mlx/libmlx.a $(OBJ) -o $(NAME)
 	$(DONE)
 
 $(LIBFT):

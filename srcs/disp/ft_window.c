@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:28:22 by guderram          #+#    #+#             */
-/*   Updated: 2022/06/14 13:28:23 by guderram         ###   ########.fr       */
+/*   Updated: 2022/06/15 21:33:09 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 void	ft_init_win(w_point *win, m_point *mapi, c_point *cal) // mapi = map
 {
 	win->error = 0;
+	printf("INIT WIND\n");
 	if (!(win->mlx = mlx_init()))
 	{
 		ft_printf("Init mlx fail !\n");
@@ -39,6 +40,7 @@ void	ft_init_win(w_point *win, m_point *mapi, c_point *cal) // mapi = map
 	// win->vc = vca;
 	win->move_size = 10;
 	win->d_size = 10;
+	printf("INIT WIND\n");
 	ft_found_worldspawn(win);
 }
 

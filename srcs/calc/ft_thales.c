@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:25:15 by guderram          #+#    #+#             */
-/*   Updated: 2022/06/15 14:28:00 by guderram         ###   ########.fr       */
+/*   Updated: 2022/06/16 16:45:16 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,34 +59,47 @@ double	ft_converte_angle(double d, double a, int sig) // sig = addition 1 ou sou
 
 double	ft_found_angle(w_point *win, double d)
 {
-	double r;
-	
-	r = -1;
+	double rh;
+	double rv;
+
+	rh = 0;
+	rv = 0;
 	// ft_set_ca(win);
-	d = d;
-	printf("ft_found_angle : d %f\n", d);
+	// d = d;
+	// printf("ft_found_angle : d %f\n", d);
 	if (d == 0 || d == 90 || d == 180 || d == 270)
 	{
-		printf("ANGLE DROIT\n");
-		r = ft_right_angle(win, d);
-		printf("ft_found_angle : r %f\n", r);
+		// printf("ANGLE DROIT\n");
+		// return (ft_right_angle(win, d));
+		rh = ft_right_angle(win, d);
+		// printf("ft_found_angle : r %f\n", rh);
+		return (rh);
 	}
-	else
-	{
-		printf("\n\nPAS ANGLE DROIT\n\n");
+
+	// printf("\n\nPAS ANGLE DROIT\n\n");
 		// ft_first_vc(win, d);
 		// ft_first_hc(win, d);
-		ft_while_hc(win, d);
-		ft_while_hc(win, d);
-		if (win->ca->hs < win->ca->vs)
-			r = win->ca->hs;
-		else
-			r = win->ca->vs;
+	rh = ft_while_hc(win, d);
+	rv = ft_while_vc(win, d);
+	printf("rh %f rv %f\n", rh, rv);
+	if (win->ca->hx < 0 || win->ca->hy < 0)
+		return (rv);
+	// printf("")
+	if (win->ca->vx < 0 || win->ca->vy < 0)
+		return (rh);	
+	if (rh < rv)
+		return (rh);
+	return (rv);
+	// return (0);
+		
+		// if (win->ca->hs < win->ca->vs)
+		// 	r = win->ca->hs;
+		// else
+		// 	r = win->ca->vs;
+
 		// win->ca->deg = d;
 		// win->ca->rad = ft_degrees_to_radian(win->ca->deg);
 		// r = ft_not_angle_droit(win, d);
-	}
-	return(r);
 }
 
 void	ft_thales(w_point *win, double a, int c, int i)
@@ -96,18 +109,23 @@ void	ft_thales(w_point *win, double a, int c, int i)
 	// double u;
 
 	r = 0;
-	h = 0;
-	r = r;
-	h = h;
-	a = a;
-	c = c;
-	i = i;
-	win = win;
+	// h = 0;
+	// a = 0;
+	// r = r;
+	// h = h;
+	// a = a;
+	// c = c;
+	// i = i;
+	// win = win;
+	// i = 0;
+	// c = 0;
 	ft_reset_ca(win);
-	printf("ft_thales : x %f y %f\n", win->ca->x, win->ca->y);
+	// printf("ft_thales : x %f y %f\n", win->ca->x, win->ca->y);
 	r = ft_found_angle(win, ft_converte_angle(win->d, a, 1)); // droite de l ecran
-	printf("ft_thales : r %f\n", r);
 	
+	ft_map_disp_pos(win);
+	printf("ft_thales : r %f\n", r);
+	// printf("screen range : %d\n", win->screen_range);
 	h = (100 / r) * win->screen_range;	
-	ft_red_pixel(win, h, c + i);
+	ft_red_pixel(win, (h - 50), c + i); // A SUPP LE '- 50'
 }

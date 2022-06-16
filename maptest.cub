@@ -1,4 +1,4 @@
-R 1000 500
+R 800 500
 NO ./tests/path_to_the_north_texture
 SO ./tests/path_to_the_south_texture
 WE ./tests/path_to_the_west_texture
@@ -12,6 +12,6 @@ C 225,30,0
 1000001
 1000001
 1000001
-1000N01
+100N001
 1000001
 1111111
