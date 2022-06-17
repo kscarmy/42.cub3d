@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:25:39 by guderram          #+#    #+#             */
-/*   Updated: 2022/06/15 17:54:37 by guderram         ###   ########.fr       */
+/*   Updated: 2022/06/17 12:53:38 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 
 # include "../mlx/mlx.h"
-// # include "../mlx/mlx_int.h"
+# include "../mlx/mlx_int.h"
 
 
 # include <stdio.h> // A SUPPRIMER

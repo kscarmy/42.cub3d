@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:25:15 by guderram          #+#    #+#             */
-/*   Updated: 2022/06/16 22:41:45 by guderram         ###   ########.fr       */
+/*   Updated: 2022/06/17 14:46:34 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,13 +80,17 @@ double	ft_found_angle(w_point *win, double d)
 		// ft_first_vc(win, d);
 		// ft_first_hc(win, d);
 	rh = ft_while_hc(win, d);
+	rh = rh * cos(ft_degrees_to_radian(d));
+	
 	rv = ft_while_vc(win, d);
-	printf("rh %f rv %f\n", rh, rv);
-	if (win->ca->hx < 0 || win->ca->hy < 0)
-		return (rv);
-	// printf("")
-	if (win->ca->vx < 0 || win->ca->vy < 0)
-		return (rh);	
+	rv = rv * cos(ft_degrees_to_radian(d));
+	printf("ft_found_angle : rh %f rv %f \n", rh, rv);
+	// printf("rh %f rv %f\n", rh, rv);
+	// if (win->ca->hx < 0 || win->ca->hy < 0)
+		// return (rv);
+	// // printf("")
+	// if (win->ca->vx < 0 || win->ca->vy < 0)
+		// return (rh);	
 	if (rh < rv)
 		return (rh);
 	return (rv);
@@ -100,9 +104,10 @@ double	ft_found_angle(w_point *win, double d)
 		// win->ca->deg = d;
 		// win->ca->rad = ft_degrees_to_radian(win->ca->deg);
 		// r = ft_not_angle_droit(win, d);
+		rv = rv;
 }
 
-void	ft_thales(w_point *win, double a, int c, int i)
+void	ft_thales(w_point *win, double a, int c, int i)	
 {
 	double h; // hauteur à disp
 	double r;
@@ -123,7 +128,7 @@ void	ft_thales(w_point *win, double a, int c, int i)
 	// printf("ft_thales : x %f y %f\n", win->ca->x, win->ca->y);
 	r = ft_found_angle(win, ft_converte_angle(win->d, a, 1)); // droite de l ecran
 	r = ft_abs(r) * 2;  // A SUPP 
-	ft_map_disp_pos(win);
+	// ft_map_disp_pos(win);
 	printf("ft_thales : r %f\n", r);
 	// printf("screen range : %d\n", win->screen_range);
 	h = (100 / r) * win->screen_range;	

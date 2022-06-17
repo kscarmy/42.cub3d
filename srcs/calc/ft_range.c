@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 12:56:59 by guderram          #+#    #+#             */
-/*   Updated: 2022/06/16 22:40:01 by guderram         ###   ########.fr       */
+/*   Updated: 2022/06/17 13:09:10 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,8 @@ int		ft_is_wall(m_point *map, double x, double y) // renvoie 1 sur mur, sinon 0
 		return (1);
 	if (ft_abs((int)x) > ft_str_size(map->map[(int)ft_abs((int)y)]))
 		return (1);
-	printf("ft_is_wall x %f y %f x %d y %d\n", x, y, (int)x, (int)y);
-	printf("ft_is_wall : x %d y %d\n", ft_is_entier(x), ft_is_entier(y));
+	// printf("ft_is_wall x %f y %f x %d y %d\n", x, y, (int)x, (int)y);
+	// printf("ft_is_wall : x %d y %d\n", ft_is_entier(x), ft_is_entier(y));
 	// if (ft_is_entier(x) == 0 && ft_is_entier(y) == 1)
 	// {
 	// 	if (map->map[(int)y][(int)x] == '1')
@@ -105,9 +105,9 @@ int		ft_is_wall(m_point *map, double x, double y) // renvoie 1 sur mur, sinon 0
 	// 	printf("wall y\n");
 	// 	return (1);
 	// }
-	if (map->map[(int)y - 1][(int)x - 1] == '1')
+	if (map->map[(int)y][(int)x] == '1')
 	{
-		printf("wall autre\n");
+		// printf("wall autre\n");
 		return (1);
 	}
 	return (0);

@@ -7,13 +7,9 @@ mkdir -p obj/move
 mkdir -p obj/utils
 mkdir -p obj/parsing
  
-gcc -Wall -Werror -Wextra -o obj/calc/ft_vc.o -c srcs/calc/ft_vc.c
- 
-gcc -Wall -Werror -Wextra -o obj/calc/ft_hc.o -c srcs/calc/ft_hc.c
- 
 make -sC ./libft/
  
-gcc srcs/main.c  -Wall -Werror -Wextra  obj/calc/ft_pytha.o  obj/calc/ft_range.o  obj/calc/ft_thales.o  obj/calc/ft_vc.o  obj/calc/ft_hc.o  obj/disp/ft_screen.o  obj/disp/ft_window.o  obj/move/ft_entry_key.o  obj/move/ft_position.o  obj/parsing/ft_check_file_name.o  obj/parsing/ft_parsing_map_data.o  obj/parsing/ft_parsing_map_map.o  obj/parsing/ft_parsing_map_utils.o  obj/parsing/ft_parsing_map.o  obj/parsing/ft_parsing_utils.o  obj/parsing/ft_structs.o  obj/utils/ft_error_1.o  obj/utils/ft_utils.o ./libft.a -I /usr/X11/include -g -L /usr/X11/lib -lX11 -lmlx -lXext -Lmlx -lmlx  -lXext -lX11 -lm -o cub3D
+gcc srcs/main.c  -Wall -Werror -Wextra   obj/calc/ft_pytha.o  obj/calc/ft_range.o  obj/calc/ft_thales.o  obj/calc/ft_vc.o  obj/calc/ft_hc.o  obj/disp/ft_screen.o  obj/disp/ft_window.o  obj/move/ft_entry_key.o  obj/move/ft_position.o  obj/parsing/ft_check_file_name.o  obj/parsing/ft_parsing_map_data.o  obj/parsing/ft_parsing_map_map.o  obj/parsing/ft_parsing_map_utils.o  obj/parsing/ft_parsing_map.o  obj/parsing/ft_parsing_utils.o  obj/parsing/ft_structs.o  obj/utils/ft_error_1.o  obj/utils/ft_utils.o -I /usr/X11/include -g -L /usr/X11/lib -lX11 -lmlx -lXext -Lmlx -lmlx  -lXext -lX11 -lm ./mlx/libmlx_Linux.a ./mlx/libmlx.a   ./libft.a -o cub3D
 echo "cub3D ready to use!"
 make: Leaving directory '/mnt/nfs/homes/guderram/42/cub3d'
  

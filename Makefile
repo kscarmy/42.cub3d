@@ -3,11 +3,11 @@ NAME		= cub3D
 
 
 ## LINUX
-# MLXFLAGS = -I /usr/X11/include -g -L /usr/X11/lib -lX11 -lmlx -lXext -Lmlx -lmlx  -lXext -lX11 -lm
+MLXFLAGS = -I /usr/X11/include -g -L /usr/X11/lib -lX11 -lmlx -lXext -Lmlx -lmlx  -lXext -lX11 -lm
 
 
 ## MAC
-MLXFLAGS = -I /usr/X11/include -g -L /usr/X11/lib -lX11 -lmlx -lXext -Lmlx -lmlx -framework OpenGL -framework AppKit
+# MLXFLAGS = -I /usr/X11/include -g -L /usr/X11/lib -lX11 -lmlx -lXext -Lmlx -lmlx -framework OpenGL -framework AppKit
 
 ## Sources
 
@@ -38,7 +38,7 @@ MAIN_C = srcs/main.c\
 OBJ	= ${patsubst srcs/%, obj/%, $(SRC:.c=.o)}
 
 ## LIBFT config
-LIBFT		= $(LIBFT_DIR)libft.a
+LIBFT		= -L libft/libft.a
 LIBFT_DIR	= ./libft/
 LIB_FLAGS	= -L $(LIBFT_DIR)
 INC		= -I ./inc/ -I $(LIBFT_DIR)
@@ -58,7 +58,7 @@ all:	obj $(NAME)
 
 
 $(NAME): $(OBJ) $(LIBFT)
-	@$(CC) $(MAIN_C) $(CFLAGS) $(MLXFLAGS) ./libft/libft.a ./mlx/libmlx.a $(OBJ) -o $(NAME)
+	@$(CC) $(MAIN_C) $(CFLAGS)  $(OBJ) $(MLXFLAGS) ./mlx/libmlx_Linux.a ./mlx/libmlx.a   ./libft.a -o $(NAME)
 	$(DONE)
 
 $(LIBFT):
