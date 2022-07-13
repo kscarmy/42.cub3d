@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 10:46:43 by guderram          #+#    #+#             */
-/*   Updated: 2022/06/17 15:02:28 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/13 16:46:19 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_vc_add(w_point *w, double d) // rajoute les zones de calculs au point en
 	}
 	if (d > 270)
 	{
-		printf("incre vc 270-0\n");
+		// printf("incre vc 270-0\n");
 		w->ca->vs = w->ca->vs + w->ca->vcs;
 		w->ca->vx = w->ca->vx - w->ca->vcx;
 		w->ca->vy = w->ca->vy - w->ca->vcy;
@@ -99,11 +99,12 @@ double	ft_while_vc(w_point *w, double d)
 	// printf("ft_while_vc : vx %f vy %f\n", w->ca->vx, w->ca->vy);
 	if (w->ca->vy - w->ca->vcy < 0)
 		return (10000);
-	while (ft_is_wall(w->map, w->ca->vx, w->ca->vy) == 0 && w->ca->vy - w->ca->vcy > 0 && w->ca->vs < 10000 && i < 10)
+	while (ft_is_wall(w->map, w->ca->vx, w->ca->vy) == 0 && w->ca->vs < 10000 && i < 20)
 	{
 		ft_vc_add(w, d);
 		i++;
 	}
+	printf("\nft_while_vc : ft_is_wall %d\n", ft_is_wall(w->map, w->ca->vx, w->ca->vy));
 	// printf("ft_while_vc : i %d\n", i);
 	printf("ft_while_vc : x %f y %f\n", w->ca->hx, w->ca->vy);
 	if (w->ca->vy < 0)

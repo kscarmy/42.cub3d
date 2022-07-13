@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:25:15 by guderram          #+#    #+#             */
-/*   Updated: 2022/06/17 14:46:34 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/13 16:20:23 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,10 +90,17 @@ double	ft_found_angle(w_point *win, double d)
 		// return (rv);
 	// // printf("")
 	// if (win->ca->vx < 0 || win->ca->vy < 0)
-		// return (rh);	
+		// return (rh);
+
+
+
 	if (rh < rv)
 		return (rh);
 	return (rv);
+
+
+
+
 	// return (0);
 		
 		// if (win->ca->hs < win->ca->vs)

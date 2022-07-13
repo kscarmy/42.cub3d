@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:27:50 by guderram          #+#    #+#             */
-/*   Updated: 2022/06/17 15:08:21 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/13 16:00:55 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	ft_disp_screen(w_point *win)
 	win->ca->x = (double)win->y + ((double)win->pos_y / 100);
 	win->ca->y = (double)win->x + ((double)win->pos_x / 100);
 	printf("ft_disp_screen 1 : x %f y %f\n", win->ca->x, win->ca->y);
-	while (i < (x / 2) && 1 < 280) // supp i < 10 car test
+	while (i < (x / 2) && 1 < 3) // supp i < 10 car test
 	{
 		// printf("thales\n");
 		// if (i > 270)

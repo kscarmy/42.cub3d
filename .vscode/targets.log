@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Jun 17 12:58:24 2022
+# Make data base, printed on Wed Jul 13 13:57:43 2022
 
 # Variables
 
@@ -45,15 +45,17 @@ SHELL = /bin/sh
 # makefile (from 'Makefile', line 48)
 RM = rm -rf
 # environment
+GDM_LANG = en
+# environment
 VTE_VERSION = 6003
 # environment
-VSCODE_NLS_CONFIG = {"locale":"fr","availableLanguages":{"*":"fr"},"_languagePackId":"25fe6a3290ec415596628d4afc87a88c.fr","_translationsConfigFile":"/mnt/nfs/homes/guderram/.config/Code/clp/25fe6a3290ec415596628d4afc87a88c.fr/tcf.json","_cacheRoot":"/mnt/nfs/homes/guderram/.config/Code/clp/25fe6a3290ec415596628d4afc87a88c.fr","_resolvedLanguagePackCoreLocation":"/mnt/nfs/homes/guderram/.config/Code/clp/25fe6a3290ec415596628d4afc87a88c.fr/30d9c6cd9483b2cc586687151bcbcd635f373630","_corruptedFile":"/mnt/nfs/homes/guderram/.config/Code/clp/25fe6a3290ec415596628d4afc87a88c.fr/corrupted.info","_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"fr","availableLanguages":{"*":"fr"},"_languagePackId":"575d78304484aa5fa0cbb32d34fd883d.fr","_translationsConfigFile":"/mnt/nfs/homes/guderram/.config/Code/clp/575d78304484aa5fa0cbb32d34fd883d.fr/tcf.json","_cacheRoot":"/mnt/nfs/homes/guderram/.config/Code/clp/575d78304484aa5fa0cbb32d34fd883d.fr","_resolvedLanguagePackCoreLocation":"/mnt/nfs/homes/guderram/.config/Code/clp/575d78304484aa5fa0cbb32d34fd883d.fr/30d9c6cd9483b2cc586687151bcbcd635f373630","_corruptedFile":"/mnt/nfs/homes/guderram/.config/Code/clp/575d78304484aa5fa0cbb32d34fd883d.fr/corrupted.info","_languagePackSupport":true}
 # environment
 _ = /usr/bin/code
 # makefile (from 'Makefile', line 49)
 CFLAGS = -Wall -Werror -Wextra
 # environment
-JOURNAL_STREAM = 9:154909
+JOURNAL_STREAM = 9:51916
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile (from 'Makefile', line 1)
@@ -75,15 +77,15 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/32509/bus
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-MANAGERPID = 43136
+MANAGERPID = 2510
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/32509/vscode-ipc-3ee65bac-c7db-4165-a06f-9f2e7124bab6.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/32509/vscode-ipc-0ec4b61e-47d1-45d0-bbe9-67802ad609e4.sock
 # environment
 VSCODE_CWD = /mnt/nfs/homes/guderram/42/cub3d
 # environment
 XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session0
 # environment
-KRB5CCNAME = FILE:/tmp/krb5cc_32509_ALEq97
+KRB5CCNAME = FILE:/tmp/krb5cc_32509_qCnFoG
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -91,7 +93,7 @@ PATH = /mnt/nfs/homes/guderram/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr
 # environment
 GPG_AGENT_INFO = /run/user/32509/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/e1r10p6.42.fr:@/tmp/.ICE-unix/43596,unix/e1r10p6.42.fr:/tmp/.ICE-unix/43596
+SESSION_MANAGER = local/e1r11p3.clusters.42paris.fr:@/tmp/.ICE-unix/3039,unix/e1r11p3.clusters.42paris.fr:/tmp/.ICE-unix/3039
 # environment
 XDG_RUNTIME_DIR = /run/user/32509
 # environment
@@ -101,7 +103,7 @@ VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = a6f8db6c6e784630a0ebb516fed74f66
+INVOCATION_ID = a031cd445b1a4b3f8d66a2c454189c05
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # makefile (from 'Makefile', line 42)
@@ -125,7 +127,7 @@ PWD = /mnt/nfs/homes/guderram/42/cub3d
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 43558
+SSH_AGENT_PID = 3003
 # makefile (from 'Makefile', line 55)
 DONE = @echo "cub3D ready to use!"
 # environment
@@ -165,7 +167,7 @@ MAKECMDGOALS := all
 # environment
 QT_IM_MODULE = ibus
 # environment
-SHLVL = 1
+SHLVL = 2
 # makefile (from 'Makefile', line 41)
 LIBFT = -L libft/libft.a
 # makefile (from 'Makefile', line 53)
@@ -189,11 +191,13 @@ MAKE_COMMAND := make
 # makefile (from 'Makefile', line 44)
 INC = -I ./inc/ -I $(LIBFT_DIR)
 # environment
-OLDPWD = /mnt/nfs/homes/guderram/42/cub3d/mlx
+OLDPWD = /mnt/nfs/homes/guderram/42/minishell
 # default
 .VARIABLES := 
 # automatic
 *F = $(notdir $*)
+# environment
+LANGUAGE = en
 # environment
 XDG_SEAT_PATH = /org/freedesktop/DisplayManager/Seat0
 # environment
@@ -225,11 +229,11 @@ LC_ALL = C
 # environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/0669b470_7ea4_4bbd_b39c_01e00dfb2d02
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/827c2a32_4ea9_46b4_ad0f_34188c61ca8d
 # automatic
 ^F = $(notdir $^)
 # environment
-GNOME_TERMINAL_SERVICE = :1.129
+GNOME_TERMINAL_SERVICE = :1.97
 # default
 SUFFIXES := 
 # environment
@@ -249,9 +253,9 @@ TERM = xterm-256color
 # environment
 DOCKER_HOST = unix:///run/user/32509/docker.sock
 # environment
-VSCODE_PID = 49355
+VSCODE_PID = 11037
 # variable set hash-table stats:
-# Load=120/1024=12%, Rehash=0, Collisions=19/155=12%
+# Load=122/1024=12%, Rehash=0, Collisions=19/157=12%
 
 # Pattern-specific Variable Values
 
@@ -259,8 +263,8 @@ VSCODE_PID = 49355
 
 # Directories
 
-# . (device 56, inode 264209311): 17 files, no impossibilities.
-# srcs (device 56, inode 264219929): No files, no impossibilities so far.
+# . (device 59, inode 264209311): 17 files, no impossibilities.
+# srcs (device 59, inode 264219929): No files, no impossibilities so far.
 
 # 17 files, no impossibilities in 2 directories.
 
@@ -277,7 +281,6 @@ obj/%.o: srcs/%.c
 # Not a target:
 obj/calc/ft_range.o:
 #  Implicit rule search has not been done.
- 
 #  Modification time never checked.
 #  File has not been updated.
 
@@ -289,6 +292,7 @@ obj/calc/ft_range.o:
 	@make -sC $(LIBFT_DIR)
 
 all: obj cub3D
+ 
 #  Phony target (prerequisite of .PHONY).
 #  Command line target.
 #  Implicit rule search has not been done.
@@ -512,6 +516,6 @@ obj/parsing/ft_parsing_map.o:
 # strcache performance: lookups = 78 / hit rate = 38%
 # hash-table stats:
 # Load=48/8192=1%, Rehash=0, Collisions=1/78=1%
-# Finished Make data base on Fri Jun 17 12:58:24 2022
+# Finished Make data base on Wed Jul 13 13:57:43 2022
 
  
