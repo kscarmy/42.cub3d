@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:27:50 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/13 16:00:55 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/16 13:59:48 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,13 @@ void	ft_disp_screen(w_point *win)
 	while (win->map->map[win->max_y])
 		win->max_y++;
 	
-	win->ca->x = (double)win->y + ((double)win->pos_y / 100);
-	win->ca->y = (double)win->x + ((double)win->pos_x / 100);
+	win->ca->x = (double)win->y + ((double)win->pos_y / 64);
+	win->ca->y = (double)win->x + ((double)win->pos_x / 64);
 	printf("ft_disp_screen 1 : x %f y %f\n", win->ca->x, win->ca->y);
-	while (i < (x / 2) && 1 < 3) // supp i < 10 car test
+	while (i < (x / 2) && 1 < 5) // supp i < 10 car test
 	{
 		// printf("thales\n");
-		// if (i > 270)
+		// if (i > 55)
 			ft_thales(win, (ang * i), u, i);
 		// ft_thales(win, );
 		// affichage colone droite

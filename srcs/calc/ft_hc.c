@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 12:21:44 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/13 16:47:02 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/16 13:59:48 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	ft_first_hc_pytha(w_point *w, double d)
 	// printf("ft_first_hc_pytha : d %f\n", d);
 	if (d < 90)
 	{
-		y = ((double)w->pos_y / 100);
+		y = ((double)w->pos_y / 64);
 		x = y * tan(ft_degrees_to_radian(d));
 		w->ca->fhcx = w->ca->fhcx + x;
 		w->ca->fhcy = w->ca->fhcy - y; // gestion de y avec la premiere ligne
@@ -68,7 +68,7 @@ void	ft_first_hc_pytha(w_point *w, double d)
 	if (d > 270)
 	{
 		// printf("ft_first_hc_pytha : 270\n");
-		y = ((double)w->pos_y / 100);
+		y = ((double)w->pos_y / 64);
 		x = y * tan(ft_degrees_to_radian(d));
 		w->ca->fhcx = w->ca->fhcx - x;
 		w->ca->fhcy = w->ca->fhcy - y;
@@ -94,14 +94,16 @@ double	ft_while_hc(w_point *w, double d)
 	w->ca->hx = w->ca->fhcx;
 	w->ca->hy = w->ca->fhcy;
 	// printf("ft_while_hc : hx %f hy %f\n", w->ca->hx, w->ca->hy);
-	while (ft_is_wall(w->map, w->ca->hx, w->ca->hy + 1) == 0 && w->ca->hy >= 0 && w->ca->hs < 10000 && i < 10)
+	while (ft_is_wall(w->map, w->ca->hx, w->ca->hy) == 0 && w->ca->hy >= 0 && w->ca->hs < 10000 && i < 10)
 	{
 		// printf("ft_while_hc : while : x %f y %f\n", w->ca->hx, w->ca->hy);
 		ft_hc_add(w, d);
 		i++;
 	}
 	// printf("ft_while_hc : i %d\n", i);
-		printf("\nft_while_hc : ft_is_wall %d\n", ft_is_wall(w->map, w->ca->hx	, w->ca->hy));
-	printf("ft_while_hc : x %f y %f\n", w->ca->hx, w->ca->hy);
-	return (ft_ret_range(w->ca->hx, w->ca->hy + 1, w->ca->x, w->ca->y) * 100);
+		printf("\nft_while_hc : ft_is_wall %d hx %f hy %f i %d\n", ft_is_wall(w->map, w->ca->hx	, w->ca->hy), w->ca->hx, w->ca->hy, i);
+	// printf("ft_while_hc : x %f y %f\n", w->ca->hx, w->ca->hy);
+	if (w->ca->hx < 0)
+		return (10000);
+	return (ft_ret_range(w->ca->hx, w->ca->hy, w->ca->x, w->ca->y) * 100);
 }
