@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 12:56:59 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/16 13:31:06 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/16 15:51:00 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ int		ft_is_wall(m_point *map, double x, double y) // renvoie 1 sur mur, sinon 0
 	// }
 	if (map->map[(int)y][(int)x] == '1')
 	{
-		printf("wall == 1 : x %f y %f\n", x, y);
+		// printf("wall == 1 : x %f y %f\n", x, y);
 		return (1);
 	}
 	return (0);

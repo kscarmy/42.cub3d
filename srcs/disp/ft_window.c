@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:28:22 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/13 15:42:01 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/16 16:23:21 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void	ft_init_win(w_point *win, m_point *mapi, c_point *cal) // mapi = map
 	// win->calc = calcu; // init les deux struct hc et vc
 	win->ca = cal;
 	// win->vc = vca;
-	win->move_size = 10;
-	win->d_size = 1;
+	// win->move_size = 10;
+	// win->d_size = 1;
 	printf("INIT WIND\n");
 	ft_found_worldspawn(win);
 }

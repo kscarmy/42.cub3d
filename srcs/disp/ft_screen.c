@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:27:50 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/16 13:59:48 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/16 16:39:49 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ void	ft_screen(w_point *win)
 
 void	ft_set_screen(w_point *win)
 {
-	float	tan;
+	// float	tan;
 	float	value;
 
-	tan = 0.57735026919;
+	// tan = 0.57735026919;
 	// ft_printf
-	value = ((win->map->rx / 2) / tan);
-	printf("Value : %f\n", value);
+	value = ((double)(win->map->rx / 2) / tan(ft_degrees_to_radian(FOV_SIZE / 2)));
+	// printf("ft_set_screen : %f %f\n", (double)(win->map->rx / 2), tan(ft_degrees_to_radian(FOV_SIZE / 2)));	
 	// printf("\n\nZEUBIIIIII\n\n");
 	win->screen_range = (int)value;
 	// win->screen_range = (value % 10 < 5) ? (int)value : (int)value + 1;
@@ -57,7 +57,7 @@ void	ft_disp_screen(w_point *win)
 
 	x = win->map->rx; // =nombre colones
 	i = 0; // compteur colones
-	ang = 90 / (double)win->map->rx;
+	ang = FOV_SIZE / (double)x;
 	printf("ang : '%lf'\n", ang);
 
 	u = (x % 2 == 0) ? x / 2 + 1 : x / 2; // zone où se situe les colones
@@ -68,14 +68,15 @@ void	ft_disp_screen(w_point *win)
 	while (win->map->map[win->max_y])
 		win->max_y++;
 	
-	win->ca->x = (double)win->y + ((double)win->pos_y / 64);
-	win->ca->y = (double)win->x + ((double)win->pos_x / 64);
+	win->ca->x = (double)win->y + ((double)win->pos_y / 100);
+	win->ca->y = (double)win->x + ((double)win->pos_x / 100);
 	printf("ft_disp_screen 1 : x %f y %f\n", win->ca->x, win->ca->y);
-	while (i < (x / 2) && 1 < 5) // supp i < 10 car test
+	while (i < (x / 2) && 1 < 2) // supp i < 10 car test
 	{
 		// printf("thales\n");
-		// if (i > 55)
-			ft_thales(win, (ang * i), u, i);
+		// if (i > 80)
+			ft_thales(win, (win->d + (ang * i)), u, i); // droite ecran
+		// ft_thales(win, (win->d - (ang * i)), u, i); // gauche ecran
 		// ft_thales(win, );
 		// affichage colone droite
 		// affichage colone gauche
