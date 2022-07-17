@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 12:45:32 by guderram          #+#    #+#             */
-/*   Updated: 2022/06/14 13:43:55 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/17 02:56:21 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,6 @@ int		ft_is_space(char c, int backn, int end, m_point *map)
 	int x;
 
 	x = 0;
-	// if (map->error == 0) // WTF ICI EFT
-	// {
-	// 	// ft_check_file_half(map); // WTF ???
-	// 	if (map->error == 0 && backn == 1)
-	// 		backn = 0;
-	// 	map->error = 0;
-	// }
 	map->error = map->error; // A SUPPRIMER
 	if (c == ' ')
 		x++;

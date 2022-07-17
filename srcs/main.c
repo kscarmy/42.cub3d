@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:22:27 by guderram          #+#    #+#             */
-/*   Updated: 2022/06/14 14:48:41 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/17 02:44:18 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main(int argc, char **argv)
 {
-    m_point map; // déclaration de la structure "map".
+	m_point map; // déclaration de la structure "map".
 
 	if (argc != 2)
 		return(ft_exor_nfn(1));
@@ -23,11 +23,8 @@ int main(int argc, char **argv)
 		return (-1);
 	ft_init_map(&map);
 		// return(ft_exor_nfn(4)); // Dans le cas où je dois malloc des données dans ft_init_map
-	ft_disp_verif(&map);
-	// return(0);
 	if (ft_parsing_map(&map, argv[1]) == -1) // parsing du fichier
 		return (-1);
-	ft_disp_verif(&map);
 
 	ft_windows(&map);
 

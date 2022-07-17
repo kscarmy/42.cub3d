@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 12:45:32 by guderram          #+#    #+#             */
-/*   Updated: 2022/06/14 13:44:50 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/17 03:24:47 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,5 @@ int		ft_exit_free_map(m_point *map, int ret)
 	if (map->file != NULL)
 		ft_gnl_strdel(&map->file);
 	ft_printf("\n\033[0m<Les mallocs ont ete clears>\n");
-	ft_disp_verif(map);
 	return (ret);
 }

@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 12:45:32 by guderram          #+#    #+#             */
-/*   Updated: 2022/06/14 16:47:38 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/17 02:53:35 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ int		ft_entry_keyboard(int key, void *p)
 	w_point *win;
 
 	win = p;
-	ft_printf("key : %d\nPos_X : %d\nPos_Y : %d\nX : %d\nY : %d\nD : %d\n", key, win->pos_x, win->pos_y, win->x, win->y, (int) win->d);
-	// ft_printf("test : %s\n", win->map->no);
+//	ft_printf("key : %d\nPos_X : %d\nPos_Y : %d\nX : %d\nY : %d\nD : %d\n", key, win->pos_x, win->pos_y, win->x, win->y, (int) win->d);
 	if (key == KEY_ECHAP)
 	{
 		ft_exit_free_all(win, 0);
