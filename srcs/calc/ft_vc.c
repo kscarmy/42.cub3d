@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 10:46:43 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/16 16:53:52 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/18 14:13:43 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_vc_add(w_point *w, double d) // rajoute les zones de calculs au point en
 		w->ca->vy = w->ca->vy - w->ca->vcy;
 	}
 	w->ca->cr = w->ca->vs;
-	w->ca->cx = w->ca->vx;
+	w->ca->cx = w->ca->vx - 1;
 	w->ca->cy = w->ca->vy;
 	// printf("ft_vc_add : x %f y %f\n", w->ca->vx, w->ca->vy);
 }
@@ -78,7 +78,9 @@ void	ft_first_vc_pytha(w_point *w, double d)
 		w->ca->fvcx = w->ca->fvcx - x;
 		w->ca->fvcy = w->ca->fvcy - y; // gestion de y avec la premiere ligne
 	}
+	w->ca->fvcs = ft_ret_range(w->ca->fvcx, w->ca->fvcy, w->ca->x, w->ca->y);
 	// printf("ft_first_vc_pytha : x %f y %f x %f y %f\n", x, y, w->ca->fvcx, w->ca->fvcy);
+	// printf("ft_first_vc_pytha : fvcs %f\n", w->ca->fvcs);
 }
 
 void	ft_first_vc(w_point *w, double d)
@@ -92,21 +94,26 @@ void	ft_first_vc(w_point *w, double d)
 double	ft_while_vc(w_point *w, double d)
 {
 	// printf("\n");
-	int	i = 0;
-	// printf("ft_while_vc : entree\n");
+	// int	i = 0;
+	printf("ft_while_vc : entree\n");
 
 	ft_first_vc(w, d);
 	// printf("ft_while_vc : first vc pytha ok\n");
 	ft_vc_pytha(w, d);
-	// printf("ft_while_vc : fvcx %f fvcy %f : vcx %f vcy %f \n", w->ca->fvcx, w->ca->fvcy, w->ca->vcx, w->ca->vcy);
+	printf("ft_while_vc : fvcx %f fvcy %f : vcx %f vcy %f \n", w->ca->fvcx, w->ca->fvcy, w->ca->vcx, w->ca->vcy);
 	// printf("ft_while_vc : vc pytha ok\n");
 	w->ca->vs = w->ca->fvcs;
 	w->ca->vx = w->ca->fvcx;
 	w->ca->vy = w->ca->fvcy;
 	// printf
 	// printf("ft_while_vc : vy %f vcy %f\n", w->ca->vy, w->ca->vcy);
-	if (w->ca->vy - w->ca->vcy < 0)
-		return (10000);
+
+	// if (w->ca->vy - w->ca->vcy < 0)
+	// {
+	// 	printf("ADAWDAWD\n");
+	// 	// return (10000);
+	// 	w->ca->vs = 10000;
+	// }
 
 
 	// while (ft_is_wall(w->map, w->ca->vx, w->ca->vy) == 0 && w->ca->vs < 10000 && i < 20)
@@ -120,7 +127,11 @@ double	ft_while_vc(w_point *w, double d)
 	// printf("ft_while_vc : i %d\n", i);
 	// printf("ft_while_vc : vx %f vy %f\n", w->ca-vx, w->ca->vy);
 	if (w->ca->vy < 0)
-		return (10000);
-	// printf("ft_while_vc : x %f y %f\n", w->ca->vx, w->ca->vy);
+	{
+		// printf("ADAWDAWD 2\n");
+		// return (10000);
+		w->ca->vs = 10000;
+	}
+	printf("ft_while_vc : vx %f vy %f vs %f\n", w->ca->vx, w->ca->vy, w->ca->vs);
 	return (w->ca->vs * 100);
 }

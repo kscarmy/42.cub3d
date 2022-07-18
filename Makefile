@@ -57,7 +57,7 @@ DONE = @echo "cub3D ready to use!"
 all:	obj $(NAME)
 
 
-$(NAME): $(OBJ) $(LIBFT)
+$(NAME): $(OBJ)
 	@$(CC) $(MAIN_C) $(CFLAGS)  $(OBJ) $(MLXFLAGS) ./mlx/libmlx_Linux.a ./mlx/libmlx.a   ./libft.a -o $(NAME)
 	$(DONE)
 

@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 12:21:44 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/16 16:58:00 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/18 13:57:27 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_hc_add(w_point *w, double d) // rajoute les zones de calculs au point en
 	}
 	w->ca->cr = w->ca->hs;
 	w->ca->cx = w->ca->hx;
-	w->ca->cy = w->ca->hy;
+	w->ca->cy = w->ca->hy - 1;
 	// printf("ft_hc_add : x %f y %f\n", w->ca->hx, w->ca->hy);
 }
 
@@ -76,7 +76,8 @@ void	ft_first_hc_pytha(w_point *w, double d)
 		w->ca->fhcx = w->ca->fhcx - x;
 		w->ca->fhcy = w->ca->fhcy - y;
 	}
-	printf("ft_first_hc_pytha : x %f y %f x %f y %f\n", x, y, w->ca->fhcx, w->ca->fhcy);
+	w->ca->fhcs = ft_ret_range(w->ca->fhcx, w->ca->fhcy, w->ca->x, w->ca->y);
+	// printf("ft_first_hc_pytha : x %f y %f x %f y %f\n", x, y, w->ca->fhcx, w->ca->fhcy);
 }
 
 void	ft_first_hc(w_point *w, double d)
@@ -89,7 +90,7 @@ void	ft_first_hc(w_point *w, double d)
 
 double	ft_while_hc(w_point *w, double d)
 {
-	int	i = 0;
+	// int	i = 0;
 	// printf("ft_while_hc : d %f\n", d);
 	ft_first_hc(w, d);
 	ft_hc_pytha(w, d);
@@ -107,7 +108,7 @@ double	ft_while_hc(w_point *w, double d)
 
 	// printf("ft_while_hc : i %d\n", i);
 		// printf("\nft_while_hc : ft_is_wall %d hx %f hy %f i %d\n", ft_is_wall(w->map, w->ca->hx	, w->ca->hy), w->ca->hx, w->ca->hy, i);
-	// printf("ft_while_hc : x %f y %f\n", w->ca->hx, w->ca->hy);
+	// printf("ft_while_hc : hx %f hy %f hs %f\n", w->ca->hx, w->ca->hy, w->ca->hs);
 	if (w->ca->hx < 0)
 		return (10000);
 	return (w->ca->hs);

@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Jul 16 10:01:51 2022
+# Make data base, printed on Mon Jul 18 11:02:32 2022
 
 # Variables
 
@@ -38,6 +38,7 @@ XAUTHORITY = /mnt/nfs/homes/guderram/.Xauthority
 GDMSESSION = ubuntu
 # environment
 XMODIFIERS = @im=ibus
+ 
 # makefile
 CURDIR := /mnt/nfs/homes/guderram/42/cub3d
 # makefile
@@ -55,7 +56,7 @@ _ = /usr/bin/code
 # makefile (from 'Makefile', line 49)
 CFLAGS = -Wall -Werror -Wextra
 # environment
-JOURNAL_STREAM = 9:4479014
+JOURNAL_STREAM = 9:2189548
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile (from 'Makefile', line 1)
@@ -77,15 +78,15 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/32509/bus
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-MANAGERPID = 931812
+MANAGERPID = 412381
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/32509/vscode-ipc-068a3bfd-3815-4309-85c6-6626d39ee752.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/32509/vscode-ipc-bdc07975-7b5f-4f83-a1c3-de436fd3cd7a.sock
 # environment
 VSCODE_CWD = /mnt/nfs/homes/guderram/42/cub3d
 # environment
-XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session13
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session6
 # environment
-KRB5CCNAME = FILE:/tmp/krb5cc_32509_IU5Ef8
+KRB5CCNAME = FILE:/tmp/krb5cc_32509_fEuFdr
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -93,7 +94,7 @@ PATH = /mnt/nfs/homes/guderram/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr
 # environment
 GPG_AGENT_INFO = /run/user/32509/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/e1r10p6.clusters.42paris.fr:@/tmp/.ICE-unix/932347,unix/e1r10p6.clusters.42paris.fr:/tmp/.ICE-unix/932347
+SESSION_MANAGER = local/e1r11p3.clusters.42paris.fr:@/tmp/.ICE-unix/412907,unix/e1r11p3.clusters.42paris.fr:/tmp/.ICE-unix/412907
 # environment
 XDG_RUNTIME_DIR = /run/user/32509
 # environment
@@ -103,7 +104,7 @@ VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = a929008dd9794566859ad360f2a63bd1
+INVOCATION_ID = e5c66dc657984010b0e991a2b7283388
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # makefile (from 'Makefile', line 42)
@@ -127,7 +128,7 @@ PWD = /mnt/nfs/homes/guderram/42/cub3d
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 932311
+SSH_AGENT_PID = 412871
 # makefile (from 'Makefile', line 55)
 DONE = @echo "cub3D ready to use!"
 # environment
@@ -229,11 +230,11 @@ LC_ALL = C
 # environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/6e658ad2_f759_4dad_99d1_115ad2cde995
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/b3748b31_059b_4923_904f_30e5c835a989
 # automatic
 ^F = $(notdir $^)
 # environment
-GNOME_TERMINAL_SERVICE = :1.81
+GNOME_TERMINAL_SERVICE = :1.99
 # default
 SUFFIXES := 
 # environment
@@ -253,9 +254,9 @@ TERM = xterm-256color
 # environment
 DOCKER_HOST = unix:///run/user/32509/docker.sock
 # environment
-VSCODE_PID = 933417
+VSCODE_PID = 414782
 # variable set hash-table stats:
-# Load=122/1024=12%, Rehash=0, Collisions=19/157=12%
+# Load=122/1024=12%, Rehash=0, Collisions=19/156=12%
 
 # Pattern-specific Variable Values
 
@@ -263,10 +264,10 @@ VSCODE_PID = 933417
 
 # Directories
 
-# . (device 58, inode 264209311): 16 files, no impossibilities.
-# srcs (device 58, inode 264219929): No files, no impossibilities so far.
+# . (device 59, inode 264209311): 18 files, no impossibilities.
+# srcs (device 59, inode 264219929): No files, no impossibilities so far.
 
-# 16 files, no impossibilities in 2 directories.
+# 18 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -277,7 +278,6 @@ obj/%.o: srcs/%.c
 # 1 implicit rules, 0 (0.0%) terminal.
 
 # Files
- 
 
 # Not a target:
 obj/calc/ft_range.o:
@@ -307,7 +307,7 @@ all: obj cub3D
 #  Modification time never checked.
 #  File has not been updated.
 
-cub3D: obj/calc/ft_pytha.o obj/calc/ft_range.o obj/calc/ft_thales.o obj/calc/ft_vc.o obj/calc/ft_hc.o obj/disp/ft_screen.o obj/disp/ft_window.o obj/move/ft_entry_key.o obj/move/ft_position.o obj/parsing/ft_check_file_name.o obj/parsing/ft_parsing_map_data.o obj/parsing/ft_parsing_map_map.o obj/parsing/ft_parsing_map_utils.o obj/parsing/ft_parsing_map.o obj/parsing/ft_parsing_utils.o obj/parsing/ft_structs.o obj/utils/ft_error_1.o obj/utils/ft_utils.o -L libft/libft.a
+cub3D: obj/calc/ft_pytha.o obj/calc/ft_range.o obj/calc/ft_thales.o obj/calc/ft_vc.o obj/calc/ft_hc.o obj/disp/ft_screen.o obj/disp/ft_window.o obj/move/ft_entry_key.o obj/move/ft_position.o obj/parsing/ft_check_file_name.o obj/parsing/ft_parsing_map_data.o obj/parsing/ft_parsing_map_map.o obj/parsing/ft_parsing_map_utils.o obj/parsing/ft_parsing_map.o obj/parsing/ft_parsing_utils.o obj/parsing/ft_structs.o obj/utils/ft_error_1.o obj/utils/ft_utils.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -322,9 +322,10 @@ cub3D: obj/calc/ft_pytha.o obj/calc/ft_range.o obj/calc/ft_thales.o obj/calc/ft_
 #  File has not been updated.
 
 # Not a target:
+ 
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-17 12:57:39.678661477
+#  Last modified 2022-07-18 11:02:25.462191275
 #  File has been updated.
 #  Successfully updated.
 
@@ -503,7 +504,7 @@ obj/parsing/ft_parsing_map.o:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=30/1024=3%, Rehash=0, Collisions=4/76=5%
+# Load=30/1024=3%, Rehash=0, Collisions=4/72=6%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
@@ -516,6 +517,6 @@ obj/parsing/ft_parsing_map.o:
 # strcache performance: lookups = 77 / hit rate = 36%
 # hash-table stats:
 # Load=49/8192=1%, Rehash=0, Collisions=1/77=1%
-# Finished Make data base on Sat Jul 16 10:01:51 2022
+# Finished Make data base on Mon Jul 18 11:02:32 2022
 
  

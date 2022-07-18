@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 12:56:59 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/16 15:51:00 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/18 13:58:41 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,17 +70,18 @@ int		ft_is_wall(m_point *map, double x, double y) // renvoie 1 sur mur, sinon 0
 {
 	// x++;
 	// y++;
-	if (y < 0)
+	if (y <= 0)
 		return (1);
-	if (x < 0)
+	if (x <= 0)
 		return (1);
 
-
-	if (ft_abs((int)y) > map->l)
+	// x = x + 1.0;
+	// y = y + 1.0;
+	if ((int)y >= map->l)
 		return (1);
-	if (ft_abs((int)x) > ft_str_size(map->map[(int)ft_abs((int)y)]))
+	if ((int)x >= ft_str_size(map->map[(int)y]))
 		return (1);
-	// printf("ft_is_wall x %f y %f x %d y %d\n", x, y, (int)x, (int)y);
+	printf("ft_is_wall x %f y %f x %d y %d\n", x, y	, (int)x, (int)y);
 	// printf("ft_is_wall : x %d y %d\n", ft_is_entier(x), ft_is_entier(y));
 	// if (ft_is_entier(x) == 0 && ft_is_entier(y) == 1)
 	// {
@@ -108,7 +109,7 @@ int		ft_is_wall(m_point *map, double x, double y) // renvoie 1 sur mur, sinon 0
 	// }
 	if (map->map[(int)y][(int)x] == '1')
 	{
-		// printf("wall == 1 : x %f y %f\n", x, y);
+		printf("wall == 1 : x %f y %f\n", x, y);
 		return (1);
 	}
 	return (0);

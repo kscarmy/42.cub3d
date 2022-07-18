@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:25:15 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/16 16:58:53 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/18 16:07:03 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,17 +61,82 @@ double	ft_found_angle(w_point *w, double d)
 {
 	// double rh;
 	// double rv;
-	double x;
-	double y;
+	// double x;
+	// double y;
+	int	orient;
+	int	i; //  secu
 	
 	
 
 	// vh = 0;
 	// vr = 0;
-	double	ft_while_vc(w_point *w, double d);
-	double	ft_while_hc(w_point *w, double d);
-	while (ft_is_wall)
+	orient = 0;
+	if (d == 0 || d == 90 || d == 180 || d == 270)
+	{
+		printf("ANGLE DROIT\n");
+		return (0);
+		// return (ft_right_angle(w, d));
+		// return (0);
+		// rh = ft_right_angle(win, d);
+		// printf("ft_found_angle : r %f\n", rh);
+		// return (rh);
+	}
+	// printf("\nft_found_angle : d %f\nINIT :\n", d);
+	ft_while_vc(w, d);
+	ft_while_hc(w, d);
+	printf("-- ft_found_angle : INIT: HS %f VS %f\n", w->ca->hs, w->ca->vs);
+	if (w->ca->hs < w->ca->vs)
+	{
+		printf("A\n");
+		w->ca->cx = w->ca->hx;
+		w->ca->cy = w->ca->hy;
+		w->ca->cr = w->ca->hs;
+		orient = 0;
+	}
+	else
+	{
+		printf("B\n");
+		w->ca->cx = w->ca->vx;
+		w->ca->cy = w->ca->vy;
+		w->ca->cr = w->ca->vs;
+		orient = 1;
+	}
 
+	// while (w->map[(int)w->ca->cy][(int)w->ca->cx] == '1')
+	
+	while (ft_is_wall(w->map, w->ca->cx, w->ca->cy) == 0 && i < 100)
+	{
+		printf("ft_found_angle : while : HS %f VS %f\n", w->ca->hs, w->ca->vs);
+		if (w->ca->vs > w->ca->hs)
+		{
+			ft_hc_add(w, d);
+			orient = 0;
+			printf("ft_found_angle : while : HC ");
+			// x = w->ca->cx;
+			// y = w->ca->cy;
+		}
+		else
+		{
+			ft_vc_add(w, d);
+			orient = 1;
+			printf("ft_found_angle : while : VC ");
+			// x = w->ca->cx;
+			// y = w->ca->cy;
+		}
+		i++;
+		printf(": x %f y %f r %f\n", w->ca->cx, w->ca->cy, w->ca->cr);
+	}
+	printf("ft_found_angle : x %f y %f orient %d\n", w->ca->cx, w->ca->cy, orient);	
+	if (ft_is_wall(w->map, w->ca->hx, w->ca->hy) == 1 && ft_is_wall(w->map, w->ca->vx, w->ca->vy) == 1)
+	{
+		if (w->ca->vs > w->ca->hs)
+			return (w->ca->hs * 100);
+		else
+			return (w->ca->vs * 100);
+	}
+
+	
+	return (w->ca->cr * 100);
 
 	// ft_set_ca(win);
 	// d = d;
@@ -108,9 +173,6 @@ double	ft_found_angle(w_point *w, double d)
 	// return (rv);
 
 
-
-
-	return (0);
 		
 		// if (win->ca->hs < win->ca->vs)
 		// 	r = win->ca->hs;
@@ -140,12 +202,13 @@ void	ft_thales(w_point *win, double a, int c, int i)
 	// win = win;
 	// i = 0;
 	// c = 0;
+	printf("ft_thales : a %f\n", a);
 	ft_reset_ca(win);
 	// printf("ft_thales : x %f y %f\n", win->ca->x, win->ca->y);
 	r = ft_found_angle(win, ft_converte_angle(win->d, a, 1)); // droite de l ecran
 	// r = ft_abs(r) * 2;  // A SUPP
 	// ft_map_disp_pos(win);
-	printf("ft_thales : r %f\n", r);
+	printf("ft_thales : r %f\n\n", r);
 	// printf("screen range : %d\n", win->screen_range);
 	// h = (64 / r) * win->screen_range;
 	h = (win->screen_range * 64) / r;
