@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:25:39 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/16 16:29:18 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/18 16:21:25 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -260,6 +260,7 @@ typedef struct k_point
 	// double	max_x; // max colones map
 	// double	max_y; // max lignes map
 	c_point *ca; // struct de calculs
+	int		orient; // orientation de langle de vue
 }				w_point;
 
 
