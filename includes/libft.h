@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:25:39 by guderram          #+#    #+#             */
-/*   Updated: 2022/06/17 12:53:38 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/16 16:29:18 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@
 # define KEY_ROTATE_LEFT 65361 // 123 // old 65361 ?
 # define KEY_ROTATE_RIGHT 65363 // 124 // old 65363 ?
 # define KEY_ECHAP 65307 // 53 // old 65307 ?
+# define MOVE_SIZE 8
+# define FOV_SIZE 60
+# define ANG_SIZE 5
 
 int				ft_atoi(const char *nptr);
 void			ft_bzero(void *s, size_t n);
@@ -213,6 +216,9 @@ typedef	struct v_point // structure de calcul : ca
 
 
 
+	double cx; // calc x
+	double cy; // calc y
+	double cr; // calc range
 
 
 

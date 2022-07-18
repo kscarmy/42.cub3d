@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:30:43 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/17 02:55:28 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/07/17 14:01:40 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_move_in_casa(w_point *win)
 	}
 	if (win->pos_x < 0)
 	{
-		win->pos_x = 100 - win->move_size;
+		win->pos_x = 100 - MOVE_SIZE;
 		win->x = win->x - 1;
 	}
 	if (win->pos_y >= 100)
@@ -52,7 +52,7 @@ void	ft_move_in_casa(w_point *win)
 	}
 	if (win->pos_y < 0)
 	{
-		win->pos_y = 100 - win->move_size;
+		win->pos_y = 64 - MOVE_SIZE;
 		win->y = win->y - 1;
 	}
 	ft_map_disp_pos(win);
