@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Jul 19 09:51:38 2022
+# Make data base, printed on Tue Jul 19 17:06:40 2022
 
 # Variables
 
@@ -18,12 +18,12 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 DESKTOP_SESSION = ubuntu
 # default
 .SHELLFLAGS := -c
-# makefile (from 'Makefile', line 38)
+# makefile (from 'Makefile', line 31)
 OBJ = ${patsubst srcs/%, obj/%, $(SRC:.c=.o)}
 # environment
 XDG_SESSION_CLASS = user
 # makefile (from 'Makefile', line 14)
-SRC = srcs/calc/ft_pytha.c srcs/calc/ft_range.c srcs/calc/ft_thales.c srcs/calc/ft_vc.c srcs/calc/ft_hc.c srcs/disp/ft_screen.c srcs/disp/ft_window.c srcs/move/ft_entry_key.c srcs/move/ft_position.c srcs/parsing/ft_check_file_name.c srcs/parsing/ft_parsing_map_data.c srcs/parsing/ft_parsing_map_map.c srcs/parsing/ft_parsing_map_utils.c srcs/parsing/ft_parsing_map.c srcs/parsing/ft_parsing_utils.c srcs/parsing/ft_structs.c srcs/utils/ft_error_1.c srcs/utils/ft_utils.c 
+SRC = srcs/move/ft_entry_key.c srcs/move/ft_position.c srcs/parsing/ft_check_file_name.c srcs/parsing/ft_parsing_map_data.c srcs/parsing/ft_parsing_map_map.c srcs/parsing/ft_parsing_map_utils.c srcs/parsing/ft_parsing_map.c srcs/parsing/ft_parsing_utils.c srcs/parsing/ft_structs.c srcs/utils/ft_error_1.c srcs/utils/ft_utils.c 
 # environment
 XDG_SESSION_TYPE = x11
 # environment
@@ -42,7 +42,7 @@ XMODIFIERS = @im=ibus
 CURDIR := /mnt/nfs/homes/guderram/42/cub3d
 # makefile
 SHELL = /bin/sh
-# makefile (from 'Makefile', line 48)
+# makefile (from 'Makefile', line 41)
 RM = rm -rf
 # environment
 VTE_VERSION = 6003
@@ -50,7 +50,7 @@ VTE_VERSION = 6003
 VSCODE_NLS_CONFIG = {"locale":"fr","availableLanguages":{"*":"fr"},"_languagePackId":"575d78304484aa5fa0cbb32d34fd883d.fr","_translationsConfigFile":"/mnt/nfs/homes/guderram/.config/Code/clp/575d78304484aa5fa0cbb32d34fd883d.fr/tcf.json","_cacheRoot":"/mnt/nfs/homes/guderram/.config/Code/clp/575d78304484aa5fa0cbb32d34fd883d.fr","_resolvedLanguagePackCoreLocation":"/mnt/nfs/homes/guderram/.config/Code/clp/575d78304484aa5fa0cbb32d34fd883d.fr/30d9c6cd9483b2cc586687151bcbcd635f373630","_corruptedFile":"/mnt/nfs/homes/guderram/.config/Code/clp/575d78304484aa5fa0cbb32d34fd883d.fr/corrupted.info","_languagePackSupport":true}
 # environment
 _ = /usr/bin/code
-# makefile (from 'Makefile', line 49)
+# makefile (from 'Makefile', line 42)
 CFLAGS = -Wall -Werror -Wextra
 # environment
 JOURNAL_STREAM = 9:655749
@@ -58,7 +58,7 @@ JOURNAL_STREAM = 9:655749
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile (from 'Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
-# makefile (from 'Makefile', line 43)
+# makefile (from 'Makefile', line 36)
 LIB_FLAGS = -L $(LIBFT_DIR)
 # automatic
 @F = $(notdir $@)
@@ -77,7 +77,7 @@ VSCODE_VERBOSE_LOGGING = true
 # environment
 MANAGERPID = 160199
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/32509/vscode-ipc-7ff5894d-0486-46c1-8053-64cb7e2569eb.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/32509/vscode-ipc-9c29eb36-1674-4aa4-8132-05424ab1e8cb.sock
 # environment
 VSCODE_CWD = /mnt/nfs/homes/guderram/42/cub3d
 # environment
@@ -104,7 +104,7 @@ ELECTRON_RUN_AS_NODE = 1
 INVOCATION_ID = 524ce135c04e4281aae90de47517927d
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
-# makefile (from 'Makefile', line 42)
+# makefile (from 'Makefile', line 35)
 LIBFT_DIR = ./libft/
 # environment
 XDG_GREETER_DATA_DIR = /var/lib/lightdm-data/guderram
@@ -126,11 +126,11 @@ PWD = /mnt/nfs/homes/guderram/42/cub3d
 .LOADED := 
 # environment
 SSH_AGENT_PID = 160656
-# makefile (from 'Makefile', line 55)
+# makefile (from 'Makefile', line 48)
 DONE = @echo "cub3D ready to use!"
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
-# makefile (from 'Makefile', line 34)
+# makefile (from 'Makefile', line 27)
 MAIN_C = srcs/main.c 
 # environment
 GTK_MODULES = gail:atk-bridge
@@ -155,6 +155,8 @@ GNOME_DESKTOP_SESSION_ID = this-is-deprecated
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
+mr = make re
+# environment
 MAKELEVEL := 0
 # environment
 COLORTERM = truecolor
@@ -166,11 +168,11 @@ MAKECMDGOALS := all
 QT_IM_MODULE = ibus
 # environment
 SHLVL = 2
-# makefile (from 'Makefile', line 41)
+# makefile (from 'Makefile', line 34)
 LIBFT = -L libft/libft.a
-# makefile (from 'Makefile', line 53)
+# makefile (from 'Makefile', line 46)
 CLEAN_O = @echo "Object files removed!"
-# makefile (from 'Makefile', line 47)
+# makefile (from 'Makefile', line 40)
 CC = gcc
 # default
 MAKE_VERSION := 4.2.1
@@ -186,10 +188,10 @@ LIBVIRT_DEFAULT_URI = qemu:///system
 %D = $(patsubst %/,%,$(dir $%))
 # default
 MAKE_COMMAND := make
-# makefile (from 'Makefile', line 44)
+# makefile (from 'Makefile', line 37)
 INC = -I ./inc/ -I $(LIBFT_DIR)
 # environment
-OLDPWD = /mnt/nfs/homes/guderram
+OLDPWD = /mnt/nfs/homes/guderram/42/cub3d/tests
 # default
 .VARIABLES := 
 # automatic
@@ -210,7 +212,7 @@ MFLAGS = -pqrR
 GDK_BACKEND = x11
 # automatic
 +F = $(notdir $+)
-# makefile (from 'Makefile', line 54)
+# makefile (from 'Makefile', line 47)
 CLEAN_A = @echo "Executables removed!"
 # environment
 QT_ACCESSIBILITY = 1
@@ -249,9 +251,9 @@ TERM = xterm-256color
 # environment
 DOCKER_HOST = unix:///run/user/32509/docker.sock
 # environment
-VSCODE_PID = 161951
+VSCODE_PID = 226071
 # variable set hash-table stats:
-# Load=120/1024=12%, Rehash=0, Collisions=19/154=12%
+# Load=121/1024=12%, Rehash=0, Collisions=19/155=12%
 
 # Pattern-specific Variable Values
 
@@ -259,40 +261,34 @@ VSCODE_PID = 161951
 
 # Directories
 
-# . (device 54, inode 264209311): 16 files, no impossibilities.
-# srcs (device 54, inode 264219929): No files, no impossibilities so far.
+# . (device 54, inode 264208730): 16 files, no impossibilities.
+# srcs (device 54, inode 264213296): No files, no impossibilities so far.
 
 # 16 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
 obj/%.o: srcs/%.c
-#  recipe to execute (from 'Makefile', line 77):
+#  recipe to execute (from 'Makefile', line 70):
 	@$(CC) $(CFLAGS) -o $@ -c $<
 
 # 1 implicit rules, 0 (0.0%) terminal.
 
 # Files
 
-# Not a target:
-obj/calc/ft_range.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
 -L:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 65):
+#  recipe to execute (from 'Makefile', line 58):
 	@make -sC $(LIBFT_DIR)
- 
 
 all: obj cub3D
 #  Phony target (prerequisite of .PHONY).
 #  Command line target.
 #  Implicit rule search has not been done.
 #  File does not exist.
+ 
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
@@ -303,11 +299,11 @@ all: obj cub3D
 #  Modification time never checked.
 #  File has not been updated.
 
-cub3D: obj/calc/ft_pytha.o obj/calc/ft_range.o obj/calc/ft_thales.o obj/calc/ft_vc.o obj/calc/ft_hc.o obj/disp/ft_screen.o obj/disp/ft_window.o obj/move/ft_entry_key.o obj/move/ft_position.o obj/parsing/ft_check_file_name.o obj/parsing/ft_parsing_map_data.o obj/parsing/ft_parsing_map_map.o obj/parsing/ft_parsing_map_utils.o obj/parsing/ft_parsing_map.o obj/parsing/ft_parsing_utils.o obj/parsing/ft_structs.o obj/utils/ft_error_1.o obj/utils/ft_utils.o
+cub3D: obj/move/ft_entry_key.o obj/move/ft_position.o obj/parsing/ft_check_file_name.o obj/parsing/ft_parsing_map_data.o obj/parsing/ft_parsing_map_map.o obj/parsing/ft_parsing_map_utils.o obj/parsing/ft_parsing_map.o obj/parsing/ft_parsing_utils.o obj/parsing/ft_structs.o obj/utils/ft_error_1.o obj/utils/ft_utils.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 61):
+#  recipe to execute (from 'Makefile', line 54):
 	@$(CC) $(MAIN_C) $(CFLAGS)  $(OBJ) $(MLXFLAGS) ./mlx/libmlx_Linux.a ./mlx/libmlx.a   ./libft.a -o $(NAME)
 	$(DONE)
 
@@ -320,7 +316,7 @@ cub3D: obj/calc/ft_pytha.o obj/calc/ft_range.o obj/calc/ft_thales.o obj/calc/ft_
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-18 11:02:25.462191275
+#  Last modified 2022-07-19 16:08:18.079418607
 #  File has been updated.
 #  Successfully updated.
 
@@ -337,19 +333,7 @@ obj/parsing/ft_check_file_name.o:
 #  File has not been updated.
 
 # Not a target:
-obj/calc/ft_thales.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/calc/ft_vc.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/calc/ft_hc.o:
+obj/parsing/ft_parsing_utils.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -364,7 +348,7 @@ libft/libft.a:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 65):
+#  recipe to execute (from 'Makefile', line 58):
 	@make -sC $(LIBFT_DIR)
 
 fclean: clean
@@ -372,16 +356,10 @@ fclean: clean
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 85):
+#  recipe to execute (from 'Makefile', line 78):
 	@make fclean -sC $(LIBFT_DIR)
 	@${RM} ${NAME}
 	$(CLEAN_A)
-
-# Not a target:
-obj/disp/ft_screen.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
 
 obj:
 #  Phony target (prerequisite of .PHONY).
@@ -408,7 +386,7 @@ obj:
 # ? := 
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=1/11=9%
-#  recipe to execute (from 'Makefile', line 68):
+#  recipe to execute (from 'Makefile', line 61):
 	@mkdir -p obj
 	@mkdir -p obj/calc
 	@mkdir -p obj/disp
@@ -440,30 +418,18 @@ re: fclean all
 #  File does not exist.
 #  File has not been updated.
 
-# Not a target:
-obj/calc/ft_pytha.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
 clean:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 80):
+#  recipe to execute (from 'Makefile', line 73):
 	@make clean -sC $(LIBFT_DIR)
 	@${RM} obj ${OBJ}
 	$(CLEAN_O)
 
 # Not a target:
 obj/move/ft_entry_key.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/disp/ft_window.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -487,31 +453,25 @@ obj/utils/ft_utils.o:
 #  File has not been updated.
 
 # Not a target:
-obj/parsing/ft_parsing_utils.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
 obj/parsing/ft_parsing_map.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=30/1024=3%, Rehash=0, Collisions=4/72=6%
+# Load=23/1024=2%, Rehash=0, Collisions=0/58=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 49 / storage = 684 B / avg = 13 B
-# current buf: size = 8162 B / used = 684 B / count = 49 / avg = 13 B
+# strcache buffers: 1 (0) / strings = 40 / storage = 521 B / avg = 13 B
+# current buf: size = 8162 B / used = 521 B / count = 40 / avg = 13 B
 
-# strcache performance: lookups = 75 / hit rate = 34%
+# strcache performance: lookups = 68 / hit rate = 41%
 # hash-table stats:
-# Load=49/8192=1%, Rehash=0, Collisions=1/75=1%
-# Finished Make data base on Tue Jul 19 09:51:38 2022
+# Load=40/8192=0%, Rehash=0, Collisions=1/68=1%
+# Finished Make data base on Tue Jul 19 17:06:40 2022
 
  

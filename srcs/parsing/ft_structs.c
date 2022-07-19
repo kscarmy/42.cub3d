@@ -1,107 +1,94 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_structs.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/31 12:45:32 by guderram          #+#    #+#             */
-/*   Updated: 2022/06/14 13:44:50 by guderram         ###   ########.fr       */
-/*                                                                            */
+/*																			*/
+/*														:::	  ::::::::   */
+/*   ft_structs.c									   :+:	  :+:	:+:   */
+/*													+:+ +:+		 +:+	 */
+/*   By: guderram <guderram@student.42.fr>		  +#+  +:+	   +#+		*/
+/*												+#+#+#+#+#+   +#+		   */
+/*   Created: 2020/01/31 12:45:32 by guderram		  #+#	#+#			 */
+/*   Updated: 2022/07/19 16:52:28 by guderram		 ###   ########.fr	   */
+/*																			*/
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-void	ft_init_map(m_point *map)
+void	ft_init_map(m_point *m)
 {
-	map->error = 0;
-	map->rx = 0;
-	map->ry = 0;
-	map->x = 0;
-	map->res = 0;
-	map->floor = 0;
-	map->fr = 0;
-	map->fg = 0;
-	map->fb = 0;
-	map->ceiling = 0;
-	map->cr = 0;
-	map->cg = 0;
-	map->cb = 0;
-	map->spawn = '0';
-	map->l = 0;
-	map->file = NULL;
-	map->no = NULL;
-	map->so = NULL;
-	map->we = NULL;
-	map->ea = NULL;
-	map->s = NULL;
-	map->map = NULL; // TEST
+	m->er = 0;
+	m->rx = 0;
+	m->ry = 0;
+	m->x = 0;
+	m->res = 0;
+	m->floor = 0;
+	m->fr = 0;
+	m->fg = 0;
+	m->fb = 0;
+	m->ceiling = 0;
+	m->cr = 0;
+	m->cg = 0;
+	m->cb = 0;
+	m->spawn = '0';
+	m->l = 0;
+	m->fl = NULL;
+	m->no = NULL;
+	m->so = NULL;
+	m->we = NULL;
+	m->ea = NULL;
+	m->s = NULL;
+	m->map = NULL; // TEST
 }
 
-void	ft_disp_verif(m_point *map)
+void	ft_disp_verif(m_point *m)
 {
-	int u;
-	// int i;
-	// char *str;
+	int	u;
 
 	u = 0;
-	// i = 0;
-	ft_printf("R : '%d' : '%d','%d'\n", map->res, map->rx, map->ry);
-	ft_printf("NO : '%s'\n", map->no);
-	ft_printf("SO : '%s'\n", map->so);
-	ft_printf("WE : '%s'\n", map->we);
-	ft_printf("EA : '%s'\n", map->ea);
-	ft_printf("S : '%s'\n", map->s);
-	ft_printf("F : '%d' : '%d','%d','%d'\n", map->floor, map->fr, map->fg, map->fb);
-	ft_printf("C : '%d' : '%d','%d','%d'\n", map->ceiling, map->cr, map->cg, map->cb);
-	ft_printf("Spawn : %c\n", map->spawn);
-	// printf("BON : '%s'\n", map->map[0]);
-	while (u < map->l) // AFFICHAGE DE LA MAP BUGGER
+	ft_printf("R : '%d' : '%d','%d'\n", m->res, m->rx, m->ry);
+	ft_printf("NO : '%s'\n", m->no);
+	ft_printf("SO : '%s'\n", m->so);
+	ft_printf("WE : '%s'\n", m->we);
+	ft_printf("EA : '%s'\n", m->ea);
+	ft_printf("S : '%s'\n", m->s);
+	ft_printf("F : '%d' : '%d','%d','%d'\n", m->floor, m->fr, m->fg, m->fb);
+	ft_printf("C : '%d' : '%d','%d','%d'\n", m->ceiling, m->cr, m->cg, m->cb);
+	ft_printf("Spawn : %c\n", m->spawn);
+	while (u < m->l) // AFFICHAGE DE LA MAP BUGGER
 	{
-		// str = map->map[u];
-		// // printf("'%s'\n", str);
-		// i = 0;
-		// while (str[i])
-		// {
-		// 	ft_printf("'%c'", (str[i]));
-		// 	i++;
-		// }
-		// ft_printf("\n");
-		printf("'%s'\n", map->map[u]);
+		printf("'%s'\n", m->map[u]);
 		u++;
 	}
 }
 
-int		ft_exit_free_map(m_point *map, int ret)
+int	ft_exit_free_map(m_point *m, int ret)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while (i < map->l)
+	while (i < m->l)
 	{
-		free(map->map[i]);
-		map->map[i] = NULL;
+		free(m->map[i]);
+		m->map[i] = NULL;
 		i++;
 	}
-	if (map->map != NULL)
+	if (m->map != NULL)
 	{
-		free(map->map);
-		map->map = NULL;
-		map->l = 0;
+		free(m->map);
+		m->map = NULL;
+		m->l = 0;
 	}
-	if (map->no != NULL)
-		ft_gnl_strdel(&map->no);
-	if (map->so != NULL)
-		ft_gnl_strdel(&map->so);
-	if (map->we != NULL)
-		ft_gnl_strdel(&map->we);
-	if (map->ea != NULL)
-		ft_gnl_strdel(&map->ea);
-	if (map->s != NULL)
-		ft_gnl_strdel(&map->s);
-	if (map->file != NULL)
-		ft_gnl_strdel(&map->file);
+	if (m->no != NULL)
+		ft_gnl_strdel(&m->no);
+	if (m->so != NULL)
+		ft_gnl_strdel(&m->so);
+	if (m->we != NULL)
+		ft_gnl_strdel(&m->we);
+	if (m->ea != NULL)
+		ft_gnl_strdel(&m->ea);
+	if (m->s != NULL)
+		ft_gnl_strdel(&m->s);
+	if (m->fl != NULL)
+		ft_gnl_strdel(&m->fl);
 	ft_printf("\n\033[0m<Les mallocs ont ete clears>\n");
-	ft_disp_verif(map);
+	ft_disp_verif(m);
 	return (ret);
 }

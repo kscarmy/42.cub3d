@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:22:27 by guderram          #+#    #+#             */
-/*   Updated: 2022/06/14 14:48:41 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/19 16:13:20 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int main(int argc, char **argv)
 		return (-1);
 	ft_disp_verif(&map);
 
-	ft_windows(&map);
+	// ft_windows(&map);
 
 	return (ft_exit_free_map(&map, 0));
 }

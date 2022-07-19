@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 12:45:32 by guderram          #+#    #+#             */
-/*   Updated: 2022/06/14 13:38:43 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/19 16:55:34 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_check_open(char *argv) // renvoie 0 si fd ok, 1 si erreur.
 {
-	int exit;
-	int fd;
+	int	exit;
+	int	fd;
 
 	exit = 0;
 	fd = open(argv, O_RDONLY);
