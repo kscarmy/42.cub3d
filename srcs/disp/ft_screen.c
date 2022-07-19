@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:27:50 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/19 11:47:48 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/19 12:49:11 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ void	ft_disp_screen(w_point *win)
 		// printf("thales\n");
 		ft_reset_ca(win);
 		// if (i > 244)
-			ft_thales(win, (win->d + (ang * i)), u, i); // droite ecran
-		// ft_thales(win, (win->d - (ang * i)), u, i); // gauche ecran
+		ft_thales(win, (win->d + (ang * i)), u, i); // droite ecran
+		ft_thales(win, (win->d - (ang * i)), u, -i); // gauche ecran
 		// ft_thales(win, );
 		// affichage colone droite
 		// affichage colone gauche
