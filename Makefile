@@ -19,6 +19,7 @@ SRC = srcs/calc/ft_range.c \
 		srcs/disp/ft_window.c \
 		srcs/move/ft_entry_key.c \
 		srcs/move/ft_position.c \
+		srcs/move/trigo.c \
 		srcs/parsing/ft_check_file_name.c \
 		srcs/parsing/ft_parsing_map_data.c \
 		srcs/parsing/ft_parsing_map_map.c \

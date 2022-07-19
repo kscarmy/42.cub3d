@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 12:45:32 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/18 16:52:31 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/07/19 23:17:51 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,5 @@ int		ft_entry_keyboard(int key, void *p)
 		ft_reset_ca(win);
 		ft_screen(win); // affiche les déplacements
 	}
-	ft_printf("================\nkey : %d\nPos_X : %d\nPos_Y : %d\nX : %d\nY : %d\nD : %d\n"
-		, key, win->pos_x, win->pos_y, win->x, win->y, (int) win->d);
 	return (0);
 }
