@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Jul 18 11:02:32 2022
+# Make data base, printed on Tue Jul 19 09:51:38 2022
 
 # Variables
 
@@ -38,15 +38,12 @@ XAUTHORITY = /mnt/nfs/homes/guderram/.Xauthority
 GDMSESSION = ubuntu
 # environment
 XMODIFIERS = @im=ibus
- 
 # makefile
 CURDIR := /mnt/nfs/homes/guderram/42/cub3d
 # makefile
 SHELL = /bin/sh
 # makefile (from 'Makefile', line 48)
 RM = rm -rf
-# environment
-GDM_LANG = en
 # environment
 VTE_VERSION = 6003
 # environment
@@ -56,7 +53,7 @@ _ = /usr/bin/code
 # makefile (from 'Makefile', line 49)
 CFLAGS = -Wall -Werror -Wextra
 # environment
-JOURNAL_STREAM = 9:2189548
+JOURNAL_STREAM = 9:655749
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile (from 'Makefile', line 1)
@@ -78,15 +75,15 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/32509/bus
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-MANAGERPID = 412381
+MANAGERPID = 160199
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/32509/vscode-ipc-bdc07975-7b5f-4f83-a1c3-de436fd3cd7a.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/32509/vscode-ipc-7ff5894d-0486-46c1-8053-64cb7e2569eb.sock
 # environment
 VSCODE_CWD = /mnt/nfs/homes/guderram/42/cub3d
 # environment
-XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session6
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session4
 # environment
-KRB5CCNAME = FILE:/tmp/krb5cc_32509_fEuFdr
+KRB5CCNAME = FILE:/tmp/krb5cc_32509_yPOOUs
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -94,7 +91,7 @@ PATH = /mnt/nfs/homes/guderram/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr
 # environment
 GPG_AGENT_INFO = /run/user/32509/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/e1r11p3.clusters.42paris.fr:@/tmp/.ICE-unix/412907,unix/e1r11p3.clusters.42paris.fr:/tmp/.ICE-unix/412907
+SESSION_MANAGER = local/e2r9p6.clusters.42paris.fr:@/tmp/.ICE-unix/160692,unix/e2r9p6.clusters.42paris.fr:/tmp/.ICE-unix/160692
 # environment
 XDG_RUNTIME_DIR = /run/user/32509
 # environment
@@ -104,7 +101,7 @@ VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = e5c66dc657984010b0e991a2b7283388
+INVOCATION_ID = 524ce135c04e4281aae90de47517927d
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # makefile (from 'Makefile', line 42)
@@ -128,7 +125,7 @@ PWD = /mnt/nfs/homes/guderram/42/cub3d
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 412871
+SSH_AGENT_PID = 160656
 # makefile (from 'Makefile', line 55)
 DONE = @echo "cub3D ready to use!"
 # environment
@@ -198,8 +195,6 @@ OLDPWD = /mnt/nfs/homes/guderram
 # automatic
 *F = $(notdir $*)
 # environment
-LANGUAGE = en
-# environment
 XDG_SEAT_PATH = /org/freedesktop/DisplayManager/Seat0
 # environment
 VSCODE_IPC_HOOK = /run/user/32509/vscode-c015ace9-1.68.1-main.sock
@@ -230,11 +225,11 @@ LC_ALL = C
 # environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/b3748b31_059b_4923_904f_30e5c835a989
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/9b1ea08b_f481_4dfd_8851_9a4f3dc39f0c
 # automatic
 ^F = $(notdir $^)
 # environment
-GNOME_TERMINAL_SERVICE = :1.99
+GNOME_TERMINAL_SERVICE = :1.82
 # default
 SUFFIXES := 
 # environment
@@ -254,9 +249,9 @@ TERM = xterm-256color
 # environment
 DOCKER_HOST = unix:///run/user/32509/docker.sock
 # environment
-VSCODE_PID = 414782
+VSCODE_PID = 161951
 # variable set hash-table stats:
-# Load=122/1024=12%, Rehash=0, Collisions=19/156=12%
+# Load=120/1024=12%, Rehash=0, Collisions=19/154=12%
 
 # Pattern-specific Variable Values
 
@@ -264,10 +259,10 @@ VSCODE_PID = 414782
 
 # Directories
 
-# . (device 59, inode 264209311): 18 files, no impossibilities.
-# srcs (device 59, inode 264219929): No files, no impossibilities so far.
+# . (device 54, inode 264209311): 16 files, no impossibilities.
+# srcs (device 54, inode 264219929): No files, no impossibilities so far.
 
-# 18 files, no impossibilities in 2 directories.
+# 16 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -291,6 +286,7 @@ obj/calc/ft_range.o:
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 65):
 	@make -sC $(LIBFT_DIR)
+ 
 
 all: obj cub3D
 #  Phony target (prerequisite of .PHONY).
@@ -322,7 +318,6 @@ cub3D: obj/calc/ft_pytha.o obj/calc/ft_range.o obj/calc/ft_thales.o obj/calc/ft_
 #  File has not been updated.
 
 # Not a target:
- 
 Makefile:
 #  Implicit rule search has been done.
 #  Last modified 2022-07-18 11:02:25.462191275
@@ -514,9 +509,9 @@ obj/parsing/ft_parsing_map.o:
 # strcache buffers: 1 (0) / strings = 49 / storage = 684 B / avg = 13 B
 # current buf: size = 8162 B / used = 684 B / count = 49 / avg = 13 B
 
-# strcache performance: lookups = 77 / hit rate = 36%
+# strcache performance: lookups = 75 / hit rate = 34%
 # hash-table stats:
-# Load=49/8192=1%, Rehash=0, Collisions=1/77=1%
-# Finished Make data base on Mon Jul 18 11:02:32 2022
+# Load=49/8192=1%, Rehash=0, Collisions=1/75=1%
+# Finished Make data base on Tue Jul 19 09:51:38 2022
 
  

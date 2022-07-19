@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 10:46:43 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/18 16:19:10 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/19 10:06:08 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,18 +95,18 @@ double	ft_while_vc(w_point *w, double d)
 {
 	// printf("\n");
 	// int	i = 0;
-	// printf("ft_while_vc : entree\n");
+	printf("ft_while_vc : entree\n");
 
 	ft_first_vc(w, d);
-	// printf("ft_while_vc : first vc pytha ok\n");
+	printf("ft_while_vc : first vc pytha ok\n");
 	ft_vc_pytha(w, d);
-	// printf("ft_while_vc : fvcx %f fvcy %f : vcx %f vcy %f \n", w->ca->fvcx, w->ca->fvcy, w->ca->vcx, w->ca->vcy);
+	printf("ft_while_vc : fvcx %f fvcy %f : vcx %f vcy %f \n", w->ca->fvcx, w->ca->fvcy, w->ca->vcx, w->ca->vcy);
 	// printf("ft_while_vc : vc pytha ok\n");
 	w->ca->vs = w->ca->fvcs;
 	w->ca->vx = w->ca->fvcx;
 	w->ca->vy = w->ca->fvcy;
 	// printf
-	// printf("ft_while_vc : vy %f vcy %f\n", w->ca->vy, w->ca->vcy);
+	printf("ft_while_vc : vy %f vcy %f\n", w->ca->vy, w->ca->vcy);
 
 	// if (w->ca->vy - w->ca->vcy < 0)
 	// {
@@ -132,6 +132,6 @@ double	ft_while_vc(w_point *w, double d)
 		// return (10000);
 		w->ca->vs = 10000;
 	}
-	// printf("ft_while_vc : vx %f vy %f vs %f\n", w->ca->vx, w->ca->vy, w->ca->vs);
+	printf("ft_while_vc : vx %f vy %f vs %f\n", w->ca->vx, w->ca->vy, w->ca->vs);
 	return (w->ca->vs * 100);
 }
