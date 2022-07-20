@@ -270,10 +270,15 @@ void	ft_parsing_path_to_bis(m_point *m, int y, int z);
 void    ft_parsing_path_to(m_point *m);
 
 /*	ft_parsing_map_map.c	*/
+void ft_create_mapping_bis(m_point *m, int u);
 void    ft_create_mapping(m_point *m);
+void	ft_found_map_bis(m_point *m, int u);
 void    ft_found_map(m_point *m);
 void    ft_fill_map(m_point *m);
+
+/*	ft_parsing_map_map_bis.c	*/
 void    ft_fill_line_map(m_point *m, int l); // l est la ligne à malloc :)
+void	ft_parse_map_bis(m_point *m, int l, int x);
 void    ft_parse_map(m_point *m);
 void    ft_check_map(m_point *m); // call toutes les merdes pour la map
 
@@ -284,9 +289,11 @@ int     ft_next_zero_char(char c);
 void     ft_next_zero_map(m_point *m, int l, int x);
 
 /*	ft_parsing_map.c	*/
-void    ft_check_file_half(m_point *m);
+void    ft_check_fl_half(m_point *m);
+void	ft_strfreejoin_newline_bis(m_point *m, char *buff, int i, int u);
 void	ft_strfreejoin_newline(m_point *m, char *buff);
 void    ft_parsing_open_fd(m_point *m, char *argv);
+int	ft_parsing_map_bis(m_point *m);
 int		ft_parsing_map(m_point *m, char *argv);
 
 /*	ft_parsing_utils.c	*/

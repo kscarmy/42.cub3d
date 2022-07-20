@@ -32,6 +32,17 @@ void	ft_check_fl_half(m_point *m)
 		m->er = 735;
 }
 
+void	ft_strfreejoin_newline_bis(m_point *m, char *buff, int i, int u)
+{
+	while (buff[u] != '\0')
+	{
+		m->fl[i + u] = buff[u];
+		u++;
+	}
+	m->fl[i + u] = '\n';
+	m->fl[i + u + 1] = '\0';
+}
+
 void	ft_strfreejoin_newline(m_point *m, char *buff)
 {
 	char	*tmp;
@@ -41,22 +52,18 @@ void	ft_strfreejoin_newline(m_point *m, char *buff)
 	i = 0;
 	u = 0;
 	tmp = m->fl;
-	m->fl = malloc (sizeof(char) * (ft_gnl_strlen(tmp) + ft_gnl_strlen(buff) + 2));
-	if ((m->er = (m->fl == NULL) ? 1010 : m->er) == 0)
+	m->fl = malloc (sizeof(char)
+			* (ft_gnl_strlen(tmp) + ft_gnl_strlen(buff) + 2));
+	if (m->fl == NULL)
+		m->er = 1010;
+	if (m->er != 0)
+		return ;
+	while (tmp != NULL && tmp[i] != '\0')
 	{
-		while (tmp != NULL && tmp[i] != '\0')
-		{
-			m->fl[i] = tmp[i];
-			i++;
-		}
-		while (buff[u] != '\0')
-		{
-			m->fl[i + u] = buff[u];
-			u++;
-		}
-		m->fl[i + u] = '\n';
-		m->fl[i + u + 1] = '\0';
+		m->fl[i] = tmp[i];
+		i++;
 	}
+	ft_strfreejoin_newline_bis(m, buff, i, u);
 	ft_gnl_strdel(&tmp);
 }
 
@@ -69,10 +76,12 @@ void	ft_parsing_open_fd(m_point *m, char *argv)
 	ret = 0;
 	buff = NULL;
 	fd = open(argv, O_RDONLY);
-	while ((ret = ft_get_next_line(fd, &buff)) > 0)
+	ret = ft_get_next_line(fd, &buff);
+	while (ret > 0)
 	{
 		ft_strfreejoin_newline(m, buff);
 		ft_gnl_strdel(&buff);
+		ret = ft_get_next_line(fd, &buff);
 	}
 	ft_strfreejoin_newline(m, buff);
 	ft_gnl_strdel(&buff);
@@ -81,32 +90,4 @@ void	ft_parsing_open_fd(m_point *m, char *argv)
 		m->er = 15;
 	if (ret != 0)
 		m->er = 20;
-}
-
-int	ft_parsing_map(m_point *m, char *argv)
-{
-	int	i;
-
-	i = 0;
-	ft_parsing_open_fd(m, argv);
-	while (m->er == 0 && m->fl[m->x] != '\0' && i < 8)
-	{
-		m->x = ft_incre_spaces(m, 1, 0) + m->x;
-		if (m->fl[m->x] == 'R')
-			ft_parsing_resolution(m);
-		if (m->fl[m->x] == 'F')
-			ft_parsing_floor(m);
-		if (m->fl[m->x] == 'C')
-			ft_parsing_ceiling(m);
-		if ((((m->fl[m->x] == 'N' && m->fl[m->x + 1] == 'O') || (m->fl[m->x] == 'S' && m->fl[m->x + 1] == 'O') || (m->fl[m->x] == 'W' && m->fl[m->x + 1] == 'E') || (m->fl[m->x] == 'E' && m->fl[m->x + 1] == 'A')) && m->fl[m->x + 2] == ' ') || (m->fl[m->x] == 'S' && m->fl[m->x + 1] == ' '))
-			ft_parsing_path_to(m);
-		i++;
-	}
-	(m->er == 0) ? ft_check_fl_half(m) : ft_printf("er BEFORE MAPING\n");
-	if (m->er == 0)
-		ft_check_map(m);
-	if (m->er > 0)
-		ft_error_detected(m);
-	return ((m->er == 0) ? 1 : ft_exit_free_map(m, -1));
-	return (1);
 }

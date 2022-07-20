@@ -17,8 +17,10 @@ SRC =srcs/move/ft_entry_key.c \
 		srcs/parsing/ft_parsing_map_data.c \
 		srcs/parsing/ft_parsing_map_data_bis.c \
 		srcs/parsing/ft_parsing_map_map.c \
+		srcs/parsing/ft_parsing_map_map_bis.c \
 		srcs/parsing/ft_parsing_map_utils.c \
 		srcs/parsing/ft_parsing_map.c \
+		srcs/parsing/ft_parsing_map_bis.c \
 		srcs/parsing/ft_parsing_utils.c \
 		srcs/parsing/ft_structs.c \
 		srcs/utils/ft_error_1.c \
