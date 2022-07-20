@@ -35,7 +35,7 @@ void	ft_init_map(m_point *m)
 	m->we = NULL;
 	m->ea = NULL;
 	m->s = NULL;
-	m->map = NULL; // TEST
+	m->map = NULL;
 }
 
 void	ft_disp_verif(m_point *m)
@@ -52,11 +52,27 @@ void	ft_disp_verif(m_point *m)
 	ft_printf("F : '%d' : '%d','%d','%d'\n", m->floor, m->fr, m->fg, m->fb);
 	ft_printf("C : '%d' : '%d','%d','%d'\n", m->ceiling, m->cr, m->cg, m->cb);
 	ft_printf("Spawn : %c\n", m->spawn);
-	while (u < m->l) // AFFICHAGE DE LA MAP BUGGER
+	while (u < m->l)
 	{
 		printf("'%s'\n", m->map[u]);
 		u++;
 	}
+}
+
+void	ft_exit_free_map_paths(m_point *m)
+{
+	if (m->no != NULL)
+		ft_gnl_strdel(&m->no);
+	if (m->so != NULL)
+		ft_gnl_strdel(&m->so);
+	if (m->we != NULL)
+		ft_gnl_strdel(&m->we);
+	if (m->ea != NULL)
+		ft_gnl_strdel(&m->ea);
+	if (m->s != NULL)
+		ft_gnl_strdel(&m->s);
+	if (m->fl != NULL)
+		ft_gnl_strdel(&m->fl);
 }
 
 int	ft_exit_free_map(m_point *m, int ret)
@@ -76,18 +92,7 @@ int	ft_exit_free_map(m_point *m, int ret)
 		m->map = NULL;
 		m->l = 0;
 	}
-	if (m->no != NULL)
-		ft_gnl_strdel(&m->no);
-	if (m->so != NULL)
-		ft_gnl_strdel(&m->so);
-	if (m->we != NULL)
-		ft_gnl_strdel(&m->we);
-	if (m->ea != NULL)
-		ft_gnl_strdel(&m->ea);
-	if (m->s != NULL)
-		ft_gnl_strdel(&m->s);
-	if (m->fl != NULL)
-		ft_gnl_strdel(&m->fl);
+	ft_exit_free_map_paths(m);
 	ft_printf("\n\033[0m<Les mallocs ont ete clears>\n");
 	ft_disp_verif(m);
 	return (ret);

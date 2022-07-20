@@ -157,7 +157,7 @@ typedef struct	j_point
 	int		er; // pas d'erreurs : 0, erreurs : >0
 	int 	rx; // résolution : largeur
 	int		ry; // résolution : hauteur
-	int		x; // tete de lecture utilisé dans : file, 
+	int		x; // tete de lecture utilisé dans : file,
 	char	*fl; // contien une copie fichier à lire.
 	int 	res; // de base res = 0, si la résolution est définie alors res = 1
 	int		fr; // Floor : Red
@@ -255,13 +255,18 @@ int		ft_is_entier(double a); // retourne 1 si le nombre n'est pa entier sinon 0
 
 /*	ft_check_file_name.c	*/
 int	ft_check_open(char *argv); // renvoie 0 si fd ok, 1 si erreur.
+int	ft_check_file_name_end(int extension, int exist, int u);
 int	ft_check_file_name(char *argv, int extension);
 
 /*	ft_parsing_map_data.c	*/
 void ft_parsing_resolution(m_point *m);
+int	ft_parsing_while(m_point *m, int z);
 void    ft_parsing_floor(m_point *m);
 void    ft_parsing_ceiling(m_point *m);
 char    *ft_parsing_get_path(m_point *m, int z);
+
+/*	ft_parsing_map_data_bis.c	*/
+void	ft_parsing_path_to_bis(m_point *m, int y, int z);
 void    ft_parsing_path_to(m_point *m);
 
 /*	ft_parsing_map_map.c	*/
@@ -292,6 +297,7 @@ int		ft_is_color(int color); // Si color faux return 1, sinon 0
 /*	ft_structs.c	*/
 void	ft_init_map(m_point *m);
 void	ft_disp_verif(m_point *m);
+void	ft_exit_free_map_paths(m_point *m);
 int		ft_exit_free_map(m_point *m, int ret);
 
 

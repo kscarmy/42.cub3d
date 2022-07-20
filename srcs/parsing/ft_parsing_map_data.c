@@ -20,12 +20,12 @@ void	ft_parsing_resolution(m_point *m)
 	if (m->res == 0)
 	{
 		z = z + ft_incre_spaces(m, 0, z);
-		m->rx = ft_atoi((&m->fl[m->x + z])); // donne une valeur à rx
-		while (ft_isdigit(m->fl[m->x + z]) == 1) // bouge le head jusqu'au prochain int
+		m->rx = ft_atoi((&m->fl[m->x + z]));
+		while (ft_isdigit(m->fl[m->x + z]) == 1)
 			z++;
-		m->ry = ft_atoi((&m->fl[m->x + z])); // donne une valeur à ry
+		m->ry = ft_atoi((&m->fl[m->x + z]));
 		z = z + ft_incre_spaces(m, 0, z);
-		while (ft_isdigit(m->fl[m->x + z]) == 1) // bouge le head jusqu'au prochain int
+		while (ft_isdigit(m->fl[m->x + z]) == 1)
 			z++;
 		z = z + ft_incre_spaces(m, 0, z);
 		m->x = m->x + z;
@@ -37,33 +37,39 @@ void	ft_parsing_resolution(m_point *m)
 		m->er = 500;
 }
 
+int	ft_parsing_while(m_point *m, int z)
+{
+	while (ft_isdigit(m->fl[m->x + z]) == 1)
+		z++;
+	return (z);
+}
+
 void	ft_parsing_floor(m_point *m)
 {
 	int	z;
 
 	z = 1;
-	if (m->floor == 0)
-	{
-		z = z + ft_incre_spaces(m, 0, z);
-		m->fr = ft_atoi((&m->fl[m->x + z])); // Floor Red
-		while (ft_isdigit(m->fl[m->x + z]) == 1) // bouge le head jusqu'au prochain int
-			z++;
-		z = (m->fl[m->x + z] == ',') ? z + 1 : z;
-		m->fg = ft_atoi((&m->fl[m->x + z])); // Floor Green
-		while (ft_isdigit(m->fl[m->x + z]) == 1) // bouge le head jusqu'au prochain int
-			z++;
-		z = (m->fl[m->x + z] == ',') ? z + 1 : z;
-		m->fb = ft_atoi((&m->fl[m->x + z])); // Floor Blue
-		while (ft_isdigit(m->fl[m->x + z]) == 1) // bouge le head jusqu'au prochain int
-			z++;
-		z = z + ft_incre_spaces(m, 0, z);
-		m->x = m->x + z;
-		if (m->fl[m->x] != '\n' || ft_is_color(m->fr) || ft_is_color(m->fg) || ft_is_color(m->fb))
-			m->er = 515;
-		m->floor = 1;
-	}
-	else
+	if (m->floor != 0)
 		m->er = 510;
+	if (m->floor != 0)
+		return ;
+	z = z + ft_incre_spaces(m, 0, z);
+	m->fr = ft_atoi((&m->fl[m->x + z]));
+	z = ft_parsing_while(m, z);
+	if (m->fl[m->x + z] == ',')
+		z++;
+	m->fg = ft_atoi((&m->fl[m->x + z]));
+	z = ft_parsing_while(m, z);
+	if (m->fl[m->x + z] == ',')
+		z++;
+	m->fb = ft_atoi((&m->fl[m->x + z]));
+	z = ft_parsing_while(m, z);
+	z = z + ft_incre_spaces(m, 0, z);
+	m->x = m->x + z;
+	if (m->fl[m->x] != '\n' || ft_is_color(m->fr)
+		|| ft_is_color(m->fg) || ft_is_color(m->fb))
+		m->er = 515;
+	m->floor = 1;
 }
 
 void	ft_parsing_ceiling(m_point *m)
@@ -71,28 +77,27 @@ void	ft_parsing_ceiling(m_point *m)
 	int	z;
 
 	z = 1;
-	if (m->ceiling == 0)
-	{
-		z = z + ft_incre_spaces(m, 0, z);
-		m->cr = ft_atoi((&m->fl[m->x + z])); // Ceiling Red
-		while (ft_isdigit(m->fl[m->x + z]) == 1) // bouge le head jusqu'au prochain int
-			z++;
-		z = (m->fl[m->x + z] == ',') ? z + 1 : z;
-		m->cg = ft_atoi((&m->fl[m->x + z])); // Ceiling Green
-		while (ft_isdigit(m->fl[m->x + z]) == 1) // bouge le head jusqu'au prochain int
-			z++;
-		z = (m->fl[m->x + z] == ',') ? z + 1 : z;
-		m->cb = ft_atoi((&m->fl[m->x + z])); // Ceiling Blue
-		while (ft_isdigit(m->fl[m->x + z]) == 1) // bouge le head jusqu'au prochain int
-			z++;
-		z = z + ft_incre_spaces(m, 0, z);
-		m->x = m->x + z;
-		if (m->fl[m->x] != '\n' || ft_is_color(m->cr) || ft_is_color(m->cg) || ft_is_color(m->cb))
-			m->er = 525;
-		m->ceiling = 1;
-	}
-	else
+	if (m->ceiling != 0)
 		m->er = 520;
+	if (m->ceiling != 0)
+		return ;
+	z = z + ft_incre_spaces(m, 0, z);
+	m->cr = ft_atoi((&m->fl[m->x + z]));
+	z = ft_parsing_while(m, z);
+	if (m->fl[m->x + z] == ',')
+		z++;
+	m->cg = ft_atoi((&m->fl[m->x + z]));
+	z = ft_parsing_while(m, z);
+	if (m->fl[m->x + z] == ',')
+		z++;
+	m->cb = ft_atoi((&m->fl[m->x + z]));
+	z = ft_parsing_while(m, z);
+	z = z + ft_incre_spaces(m, 0, z);
+	m->x = m->x + z;
+	if (m->fl[m->x] != '\n' || ft_is_color(m->cr)
+		|| ft_is_color(m->cg) || ft_is_color(m->cb))
+		m->er = 525;
+	m->ceiling = 1;
 }
 
 char	*ft_parsing_get_path(m_point *m, int z)
@@ -106,7 +111,9 @@ char	*ft_parsing_get_path(m_point *m, int z)
 	while (ft_is_space(m->fl[m->x + z + u], 1, 1, m) == 0)
 		u++;
 	str = malloc(sizeof(char) * (u + 1));
-	if ((m->er = (str == NULL) ? 1010 : m->er) != 0)
+	if (str == NULL)
+		m->er = 1010;
+	if (str == NULL)
 		return (NULL);
 	while (m->er == 0 && k < u)
 	{
@@ -114,33 +121,9 @@ char	*ft_parsing_get_path(m_point *m, int z)
 		k++;
 	}
 	str[k] = '\0';
-	// ft_printf("alors ?\n");
-	m->er = (ft_check_open(str) == 1) ? 900 : m->er;
-	m->x = (m->er == 0) ? m->x + z + u : m->x;
+	if (ft_check_open(str) == 1)
+		m->er = 900;
+	if (m->er == 0)
+		m->x = m->x + z + u;
 	return (str);
-}
-
-void	ft_parsing_path_to(m_point *m)
-{
-	int	z;
-	int	y;
-
-	y = m->x;
-	z = (m->fl[m->x] == 'S' && m->fl[m->x + 1] == ' ') ? 1 : 2;
-	z = z + ft_incre_spaces(m, 0, z);
-	m->er = (m->no != NULL && m->fl[m->x] == 'N' && m->fl[m->x + 1] == 'O') ? 600 : m->er; //check si déjà alloué
-	m->er = (m->so != NULL && m->fl[m->x] == 'S' && m->fl[m->x + 1] == 'O') ? 610 : m->er;
-	m->er = (m->we != NULL && m->fl[m->x] == 'W' && m->fl[m->x + 1] == 'E') ? 620 : m->er;
-	m->er = (m->ea != NULL && m->fl[m->x] == 'E' && m->fl[m->x + 1] == 'A') ? 630 : m->er;
-	m->er = (m->s != NULL && m->fl[m->x] == 'S' && m->fl[m->x + 1] == ' ') ? 640 : m->er;
-	if (m->er == 0 && m->fl[y] == 'N' && m->fl[y + 1] == 'O')
-		m->no = ft_parsing_get_path(m, z);
-	if (m->er == 0 && m->fl[y] == 'S' && m->fl[y + 1] == 'O')
-		m->so = ft_parsing_get_path(m, z);
-	if (m->er == 0 && m->fl[y] == 'W' && m->fl[y + 1] == 'E')
-		m->we = ft_parsing_get_path(m, z);
-	if (m->er == 0 && m->fl[y] == 'E' && m->fl[y + 1] == 'A')
-		m->ea = ft_parsing_get_path(m, z);
-	if (m->er == 0 && m->fl[y] == 'S' && m->fl[y + 1] == ' ')
-		m->s = ft_parsing_get_path(m, z);
 }

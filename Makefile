@@ -15,6 +15,7 @@ SRC =srcs/move/ft_entry_key.c \
 		srcs/move/ft_position.c \
 		srcs/parsing/ft_check_file_name.c \
 		srcs/parsing/ft_parsing_map_data.c \
+		srcs/parsing/ft_parsing_map_data_bis.c \
 		srcs/parsing/ft_parsing_map_map.c \
 		srcs/parsing/ft_parsing_map_utils.c \
 		srcs/parsing/ft_parsing_map.c \
@@ -41,7 +42,7 @@ CC		= gcc
 RM		= rm -rf
 CFLAGS		= -Wall -Werror -Wextra
 ## -fsanitize=address -g3
-## Output messages	
+## Output messages
 DONE = @echo "libft compiled successfully!"
 CLEAN_O = @echo "Object files removed!"
 CLEAN_A = @echo "Executables removed!"

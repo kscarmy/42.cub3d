@@ -12,7 +12,7 @@
 
 #include "../../includes/libft.h"
 
-int	ft_check_open(char *argv) // renvoie 0 si fd ok, 1 si erreur.
+int	ft_check_open(char *argv)
 {
 	int	exit;
 	int	fd;
@@ -23,6 +23,17 @@ int	ft_check_open(char *argv) // renvoie 0 si fd ok, 1 si erreur.
 		exit = 1;
 	close(fd);
 	return (exit);
+}
+
+int	ft_check_file_name_end(int extension, int exist, int u)
+{
+	if (extension == 1 && exist == 0 && u != 4)
+		exist = ft_exor_nfn(2);
+	else if (exist == 1)
+		exist = ft_exor_nfn(3);
+	if (u != 4)
+		exist = 1;
+	return (exist);
 }
 
 int	ft_check_file_name(char *argv, int extension)
@@ -46,11 +57,5 @@ int	ft_check_file_name(char *argv, int extension)
 			u++;
 		}
 	}
-	if (extension == 1 && exist == 0 && u != 4)
-		exist = ft_exor_nfn(2);
-	else if (exist == 1)
-		exist = ft_exor_nfn(3);
-	if (u != 4)
-		exist = 1;
-	return (exist);
+	return (ft_check_file_name_end(extension, exist, u));
 }

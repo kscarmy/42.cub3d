@@ -12,7 +12,7 @@
 
 #include "../../includes/libft.h"
 
-int	ft_incre_spaces(m_point *m, int backn, int h) // retourne u espaces rencontré dans m->fil[m->x + h] ou h est un head
+int	ft_incre_spaces(m_point *m, int backn, int h)
 {
 	int	u;
 
@@ -27,7 +27,7 @@ int	ft_is_space(char c, int backn, int end, m_point *m)
 	int	x;
 
 	x = 0;
-	m->er = m->er; // A SUPPRIMER
+	m->er = m->er;
 	if (c == ' ')
 		x++;
 	if (c == '\n' && backn == 1)
@@ -39,7 +39,7 @@ int	ft_is_space(char c, int backn, int end, m_point *m)
 	return (x);
 }
 
-int	ft_is_color(int color) // Si color faux return 1, sinon 0
+int	ft_is_color(int color)
 {
 	if (color >= 0 && color <= 255)
 		return (0);
