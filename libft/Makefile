@@ -41,30 +41,30 @@ LIBFT_C = ./ft_atoi.c\
 		./ft_get_next_line.c\
 		./ft_get_next_line_utils.c\
 
-SRC_C =	./ft_printf.c\
-			./ft_printf_disp.c\
-			./ft_printf_x.c\
-			./ft_printf_c.c\
-			./ft_printf_ana.c\
-			./ft_printf_know.c\
-			./ft_printf_s.c\
-			./ft_printf_percent.c\
-			./ft_printf_u.c\
-			./ft_printf_d.c\
-			./ft_printf_itoa.c\
-			./ft_printf_p.c\
+SRC_C =	./printf.c\
+			./printf_disp.c\
+			./printf_x.c\
+			./printf_c.c\
+			./printf_ana.c\
+			./printf_know.c\
+			./printf_s.c\
+			./printf_percent.c\
+			./printf_u.c\
+			./printf_d.c\
+			./printf_itoa.c\
+			./printf_p.c\
 
-OBJS =	ft_printf.o\
-			ft_printf_u.o\
-			ft_printf_c.o\
-			ft_printf_x.o\
-			ft_printf_p.o\
-			ft_printf_itoa.o\
-			ft_printf_d.o\
-			ft_printf_disp.o\
-			ft_printf_ana.o\
-			ft_printf_know.o\
-			ft_printf_s.o\
+OBJS =	printf.o\
+			printf_u.o\
+			printf_c.o\
+			printf_x.o\
+			printf_p.o\
+			printf_itoa.o\
+			printf_d.o\
+			printf_disp.o\
+			printf_ana.o\
+			printf_know.o\
+			printf_s.o\
 			ft_atoi.o\
 			ft_bzero.o\
 			ft_calloc.o\
@@ -101,7 +101,7 @@ OBJS =	ft_printf.o\
 			ft_toupper.o\
 			ft_get_next_line.o\
 			ft_get_next_line_utils.o\
-			ft_printf_percent.o\
+			printf_percent.o\
 
 
 

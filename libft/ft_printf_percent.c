@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_percent.c                                :+:      :+:    :+:   */
+/*   printf_percent.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: guderram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "../includes/libft.h"
 
-void	ft_printf_itoa_ll(t_point *ptf)
+void	printf_itoa_ll(t_point *ptf)
 {
 	long long u;
 	long long i;
@@ -38,7 +38,7 @@ void	ft_printf_itoa_ll(t_point *ptf)
 	}
 }
 
-void	ft_printf_percent(t_point *ptf)
+void	printf_percent(t_point *ptf)
 {
 	ptf->siz = 1;
 	while (ptf->wdh > ptf->siz && ptf->fag != '-' && ptf->wdh != 0)

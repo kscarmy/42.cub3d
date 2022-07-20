@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: guderram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -25,7 +25,7 @@ void	ft_init_ptf(t_point *ptf, char *format)
 	ptf->c = 0;
 	ptf->b = 10;
 	ptf->maj = 'a' - 10;
-	ft_printf_itoa_init(ptf);
+	printf_itoa_init(ptf);
 	ptf->g = 0;
 	ptf->fag = 0;
 	ptf->ui = 0;
@@ -44,11 +44,11 @@ void	ft_clear_ptf(t_point *ptf)
 	ptf->c = 0;
 	ptf->b = 10;
 	ptf->maj = 'a' - 10;
-	ft_printf_itoa_init(ptf);
+	printf_itoa_init(ptf);
 	ptf->g = 0;
 }
 
-int		ft_printf(const char *format, ...)
+int		printf(const char *format, ...)
 {
 	t_point ptf;
 

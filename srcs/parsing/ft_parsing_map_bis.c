@@ -17,7 +17,7 @@ int	ft_parsing_map_bis(m_point *m)
 	if (m->er == 0)
 		ft_check_fl_half(m);
 	else
-		ft_printf("er BEFORE MAPING\n");
+		printf("er BEFORE MAPING\n");
 	if (m->er == 0)
 		ft_check_map(m);
 	if (m->er > 0)

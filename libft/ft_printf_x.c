@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_x.c                                      :+:      :+:    :+:   */
+/*   printf_x.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: guderram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "../includes/libft.h"
 
-void	ft_printf_x_disp_suite(int *m, int *a, int *u, t_point *ptf)
+void	printf_x_disp_suite(int *m, int *a, int *u, t_point *ptf)
 {
 	int x;
 
@@ -38,7 +38,7 @@ void	ft_printf_x_disp_suite(int *m, int *a, int *u, t_point *ptf)
 		ft_putchar_printf((ptf->d[0]), ptf);
 }
 
-void	ft_printf_x_disp(t_point *ptf)
+void	printf_x_disp(t_point *ptf)
 {
 	int m;
 	int a;
@@ -55,11 +55,11 @@ void	ft_printf_x_disp(t_point *ptf)
 		m--;
 		a++;
 	}
-	ft_printf_x_disp_suite(&m, &a, &u, ptf);
+	printf_x_disp_suite(&m, &a, &u, ptf);
 	ptf->siz = (ptf->ui == 0) ? 1 : ptf->siz + a;
 }
 
-void	ft_printf_itoa_x(t_point *ptf)
+void	printf_itoa_x(t_point *ptf)
 {
 	unsigned int u;
 	unsigned int i;
@@ -84,46 +84,46 @@ void	ft_printf_itoa_x(t_point *ptf)
 	ptf->d[i] = ((u % ptf->b) + ((u % ptf->b > 9) ? ptf->maj : '0'));
 }
 
-void	ft_printf_x_suite(t_point *ptf)
+void	printf_x_suite(t_point *ptf)
 {
 	while (ptf->ui == 0 && ptf->wdh > ptf->pco && ptf->pco < 0
 		&& ptf->fag == '0' && ptf->wdh > ptf->siz)
-		ft_printf_d_incre('0', ptf);
+		printf_d_incre('0', ptf);
 	while (ptf->ui == 0 && ptf->wdh > ptf->pco && ptf->pco < 0
 		&& ptf->fag == 0 && ptf->wdh > ptf->siz)
-		ft_printf_d_incre(' ', ptf);
+		printf_d_incre(' ', ptf);
 	while (ptf->ui == 0 && ptf->wdh > ptf->pco && ptf->pco > 0
 		&& ptf->fag != '-' && ptf->wdh > ptf->siz && ptf->wdh > ptf->pco)
-		ft_printf_d_incre(' ', ptf);
+		printf_d_incre(' ', ptf);
 	while (ptf->ui == 0 && ptf->wdh > ptf->pco && ptf->pco < 0
 		&& ptf->fag == 0 && ptf->wdh > ptf->siz)
-		ft_printf_d_incre(' ', ptf);
+		printf_d_incre(' ', ptf);
 	while (ptf->wdh > ptf->siz + ptf->g && ptf->fag != '-'
 	&& ptf->wdh != 0 && ptf->fag != '0' && ptf->ui != 0)
-		ft_printf_d_incre(' ', ptf);
+		printf_d_incre(' ', ptf);
 	while (ptf->wdh > ptf->siz + ptf->g && ptf->fag == '0'
 	&& ptf->wdh > ptf->pco && ptf->pco >= 0)
-		ft_printf_d_incre(' ', ptf);
+		printf_d_incre(' ', ptf);
 	while (ptf->ui == 0 && ptf->wdh > 0 && ptf->wdh > ptf->pco
 		&& (ptf->fag != '-') && ptf->pco > 0)
-		ft_printf_d_incre(' ', ptf);
+		printf_d_incre(' ', ptf);
 }
 
-void	ft_printf_x(t_point *ptf)
+void	printf_x(t_point *ptf)
 {
 	ptf->b = (ptf->typ == 'x' || ptf->typ == 'X') ? 16 : 10;
 	ptf->maj = (ptf->typ == 'X') ? 'A' - 10 : 'a' - 10;
 	ptf->ui = va_arg(ptf->ap, int);
-	ft_printf_itoa_x(ptf);
+	printf_itoa_x(ptf);
 	ptf->siz = (ptf->ui == 0) ? 1 : ptf->siz;
 	if (ptf->pco > ((ptf->d[0] == '-') ? ptf->siz - 1 : ptf->siz))
 		ptf->g = ptf->pco - ((ptf->d[0] == '-') ? ptf->siz - 1 : ptf->siz);
-	ft_printf_x_suite(ptf);
-	ft_printf_x_disp(ptf);
+	printf_x_suite(ptf);
+	printf_x_disp(ptf);
 	while (ptf->wdh > ptf->siz && ptf->fag == '-' && ptf->wdh > ptf->pco)
-		ft_printf_d_incre(' ', ptf);
+		printf_d_incre(' ', ptf);
 	while (ptf->ui == 0 && ptf->wdh > ptf->pco && ptf->pco >= 0)
-		ft_printf_d_incre(' ', ptf);
+		printf_d_incre(' ', ptf);
 	ptf->i = ptf->i + ptf->u;
 	ft_clear_ptf(ptf);
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_ana.c                                    :+:      :+:    :+:   */
+/*   printf_ana.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: guderram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -35,21 +35,21 @@ int		ft_false_type(t_point *ptf)
 void	ft_ana_types(t_point *ptf)
 {
 	if (ptf->typ == 's')
-		ft_printf_s(ptf);
+		printf_s(ptf);
 	if (ptf->typ == '%')
-		ft_printf_percent(ptf);
+		printf_percent(ptf);
 	if (ptf->typ == 'c')
-		ft_printf_c(ptf);
+		printf_c(ptf);
 	if (ptf->typ == 'd')
-		ft_printf_d(ptf);
+		printf_d(ptf);
 	if (ptf->typ == 'p')
-		ft_printf_p(ptf);
+		printf_p(ptf);
 	if (ptf->typ == 'u')
-		ft_printf_u(ptf);
+		printf_u(ptf);
 	if (ptf->typ == 'x')
-		ft_printf_x(ptf);
+		printf_x(ptf);
 	if (ptf->typ == 'X')
-		ft_printf_x(ptf);
+		printf_x(ptf);
 }
 
 int		ft_make_type(char type, t_point *ptf)

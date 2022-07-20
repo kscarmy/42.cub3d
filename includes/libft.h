@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:25:39 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/19 16:52:07 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/20 15:31:55 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ typedef struct	s_point
 	unsigned int		ui;
 }				t_point;
 
-int				ft_printf(const char *format, ...);
+int				printf(const char *format, ...);
 void			ft_init_ptf(t_point	*ptf, char *format);
 void			ft_putchar_printf(char c, t_point *ptf);
 void			ft_putstr_printf(char *str, t_point *ptf);
@@ -121,36 +121,36 @@ void			ft_ana_types(t_point *ptf);
 int				ft_make_type(char type, t_point *ptf);
 int				ft_find_type(t_point *ptf);
 void			ft_ana_flags(t_point *ptf);
-void			ft_printf_s(t_point *ptf);
+void			printf_s(t_point *ptf);
 void			ft_clear_ptf(t_point *ptf);
-int				ft_printf_strlen(char *str);
-void			ft_printf_percent(t_point *ptf);
-void			ft_printf_c(t_point *ptf);
-void			ft_printf_d(t_point *ptf);
-void			ft_printf_itoa(t_point *ptf);
-void			ft_printf_d_disp(t_point *ptf);
-void			ft_printf_itoa_init(t_point *ptf);
-void			ft_printf_d_incre(int x, t_point *ptf);
-void			ft_printf_d_suite(t_point *ptf);
-int				ft_printf_d_disp_suite(int *m, int *a, int *u, t_point *ptf);
-void			ft_printf_p(t_point *ptf);
-void			ft_printf_p_suite(t_point *ptf);
-void			ft_printf_p_incre(int x, t_point *ptf);
-void			ft_printf_itoa_ull(t_point *ptf);
-void			ft_printf_p_disp(t_point *ptf);
-void			ft_printf_p_disp_suite(int *m, int *a, int *u, t_point *ptf);
-void			ft_printf_u(t_point *ptf);
-void			ft_printf_u_suite(t_point *ptf);
-void			ft_printf_itoa_u(t_point *ptf);
-int				ft_printf_u_disp_suite(int *m, int *a, int *u, t_point *ptf);
-void			ft_printf_u_disp(t_point *ptf);
-void			ft_printf_x(t_point *ptf);
-void			ft_printf_x_suite(t_point *ptf);
-void			ft_printf_itoa_x(t_point *ptf);
-void			ft_printf_x_disp(t_point *ptf);
-void			ft_printf_x_disp_suite(int *m, int *a, int *u, t_point *ptf);
+int				printf_strlen(char *str);
+void			printf_percent(t_point *ptf);
+void			printf_c(t_point *ptf);
+void			printf_d(t_point *ptf);
+void			printf_itoa(t_point *ptf);
+void			printf_d_disp(t_point *ptf);
+void			printf_itoa_init(t_point *ptf);
+void			printf_d_incre(int x, t_point *ptf);
+void			printf_d_suite(t_point *ptf);
+int				printf_d_disp_suite(int *m, int *a, int *u, t_point *ptf);
+void			printf_p(t_point *ptf);
+void			printf_p_suite(t_point *ptf);
+void			printf_p_incre(int x, t_point *ptf);
+void			printf_itoa_ull(t_point *ptf);
+void			printf_p_disp(t_point *ptf);
+void			printf_p_disp_suite(int *m, int *a, int *u, t_point *ptf);
+void			printf_u(t_point *ptf);
+void			printf_u_suite(t_point *ptf);
+void			printf_itoa_u(t_point *ptf);
+int				printf_u_disp_suite(int *m, int *a, int *u, t_point *ptf);
+void			printf_u_disp(t_point *ptf);
+void			printf_x(t_point *ptf);
+void			printf_x_suite(t_point *ptf);
+void			printf_itoa_x(t_point *ptf);
+void			printf_x_disp(t_point *ptf);
+void			printf_x_disp_suite(int *m, int *a, int *u, t_point *ptf);
 int				ft_false_type(t_point *ptf);
-void			ft_printf_itoa_ll(t_point *ptf);
+void			printf_itoa_ll(t_point *ptf);
 
 typedef struct	j_point
 {
@@ -238,6 +238,7 @@ int		ft_move_zqsd(int key, w_point *win);
 /*	ft_error_1.c	*/
 int		ft_exor_nfn(int error);
 void	ft_map_disp_error(m_point *m, int l, int x, int erreur);
+void	ft_show_error_file_bis(m_point *m, int u, int i, int j);
 void	ft_show_error_file(m_point *m);
 void	ft_error_detected(m_point *m);
 

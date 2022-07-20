@@ -43,15 +43,15 @@ void	ft_disp_verif(m_point *m)
 	int	u;
 
 	u = 0;
-	ft_printf("R : '%d' : '%d','%d'\n", m->res, m->rx, m->ry);
-	ft_printf("NO : '%s'\n", m->no);
-	ft_printf("SO : '%s'\n", m->so);
-	ft_printf("WE : '%s'\n", m->we);
-	ft_printf("EA : '%s'\n", m->ea);
-	ft_printf("S : '%s'\n", m->s);
-	ft_printf("F : '%d' : '%d','%d','%d'\n", m->floor, m->fr, m->fg, m->fb);
-	ft_printf("C : '%d' : '%d','%d','%d'\n", m->ceiling, m->cr, m->cg, m->cb);
-	ft_printf("Spawn : %c\n", m->spawn);
+	printf("R : '%d' : '%d','%d'\n", m->res, m->rx, m->ry);
+	printf("NO : '%s'\n", m->no);
+	printf("SO : '%s'\n", m->so);
+	printf("WE : '%s'\n", m->we);
+	printf("EA : '%s'\n", m->ea);
+	printf("S : '%s'\n", m->s);
+	printf("F : '%d' : '%d','%d','%d'\n", m->floor, m->fr, m->fg, m->fb);
+	printf("C : '%d' : '%d','%d','%d'\n", m->ceiling, m->cr, m->cg, m->cb);
+	printf("Spawn : %c\n", m->spawn);
 	while (u < m->l)
 	{
 		printf("'%s'\n", m->map[u]);
@@ -93,7 +93,7 @@ int	ft_exit_free_map(m_point *m, int ret)
 		m->l = 0;
 	}
 	ft_exit_free_map_paths(m);
-	ft_printf("\n\033[0m<Les mallocs ont ete clears>\n");
+	printf("\n\033[0m<Les mallocs ont ete clears>\n");
 	ft_disp_verif(m);
 	return (ret);
 }

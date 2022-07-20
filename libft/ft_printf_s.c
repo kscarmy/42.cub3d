@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_s.c                                      :+:      :+:    :+:   */
+/*   printf_s.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: guderram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,14 +12,14 @@
 
 #include "../includes/libft.h"
 
-void	ft_printf_s_disp(char *str, t_point *ptf)
+void	printf_s_disp(char *str, t_point *ptf)
 {
 	int i;
 
 	i = 0;
 	while (ptf->wdh > ptf->pco && ptf->pco < 0
 		&& ptf->fag == '0' && ptf->wdh > ptf->siz)
-		ft_printf_d_incre('0', ptf);
+		printf_d_incre('0', ptf);
 	while (ptf->wdh > ptf->siz && ptf->fag != '-' && ptf->wdh != 0)
 	{
 		ft_putchar_printf(' ', ptf);
@@ -41,7 +41,7 @@ void	ft_printf_s_disp(char *str, t_point *ptf)
 	}
 }
 
-int		ft_printf_strlen(char *str)
+int		printf_strlen(char *str)
 {
 	int i;
 
@@ -51,16 +51,16 @@ int		ft_printf_strlen(char *str)
 	return (i);
 }
 
-void	ft_printf_s(t_point *ptf)
+void	printf_s(t_point *ptf)
 {
 	ptf->str = va_arg(ptf->ap, char*);
 	if (ptf->str == NULL)
 		ptf->str = "(null)";
-	if (ft_printf_strlen(ptf->str) < ptf->pco || ptf->pco < 0)
-		ptf->siz = ft_printf_strlen(ptf->str);
+	if (printf_strlen(ptf->str) < ptf->pco || ptf->pco < 0)
+		ptf->siz = printf_strlen(ptf->str);
 	else
 		ptf->siz = ptf->pco;
-	ft_printf_s_disp(ptf->str, ptf);
+	printf_s_disp(ptf->str, ptf);
 	ptf->i = ptf->i + ptf->u;
 	ft_clear_ptf(ptf);
 }

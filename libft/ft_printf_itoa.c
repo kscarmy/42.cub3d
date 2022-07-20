@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_itoa.c                                   :+:      :+:    :+:   */
+/*   printf_itoa.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: guderram <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "../includes/libft.h"
 
-void	ft_printf_itoa_init(t_point *ptf)
+void	printf_itoa_init(t_point *ptf)
 {
 	int x;
 
@@ -24,7 +24,7 @@ void	ft_printf_itoa_init(t_point *ptf)
 	}
 }
 
-int		ft_printf_d_disp_suite(int *m, int *a, int *u, t_point *ptf)
+int		printf_d_disp_suite(int *m, int *a, int *u, t_point *ptf)
 {
 	int x;
 
@@ -49,7 +49,7 @@ int		ft_printf_d_disp_suite(int *m, int *a, int *u, t_point *ptf)
 	return (x);
 }
 
-void	ft_printf_d_disp(t_point *ptf)
+void	printf_d_disp(t_point *ptf)
 {
 	int x;
 	int m;
@@ -72,12 +72,12 @@ void	ft_printf_d_disp(t_point *ptf)
 		m--;
 		a++;
 	}
-	x = ft_printf_d_disp_suite(&m, &a, &u, ptf);
+	x = printf_d_disp_suite(&m, &a, &u, ptf);
 	x = x + 1;
 	ptf->siz = (ptf->t == 0) ? 1 : ptf->siz + a;
 }
 
-void	ft_printf_itoa(t_point *ptf)
+void	printf_itoa(t_point *ptf)
 {
 	int u;
 	int i;
@@ -101,7 +101,7 @@ void	ft_printf_itoa(t_point *ptf)
 	}
 }
 
-void	ft_printf_itoa_ull(t_point *ptf)
+void	printf_itoa_ull(t_point *ptf)
 {
 	unsigned long long u;
 	unsigned long long i;
