@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guderram <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 21:12:56 by guderram          #+#    #+#             */
-/*   Updated: 2019/11/26 21:12:59 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/21 16:05:03 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-static	int		ft_taille(char *str, char c)
+static	int	ft_taille(char *str, char c)
 {
-	int i;
-	int nbc;
+	int	i;
+	int	nbc;
 
 	i = 0;
 	nbc = 1;
@@ -47,7 +47,7 @@ static	char	*ft_ligne(char *s, int *f, char c)
 		j++;
 		u++;
 	}
-	str = (char*)malloc(sizeof(char) * (j + 1));
+	str = (char *)malloc(sizeof(char) * (j + 1));
 	while ((s[*f] == c) && s[*f] != '\0')
 		(*f)++;
 	while ((s[*f] != c) && s[*f] != '\0')
@@ -59,7 +59,7 @@ static	char	*ft_ligne(char *s, int *f, char c)
 	return (str);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**tab;
 	int		i;
@@ -67,7 +67,8 @@ char			**ft_split(char const *s, char c)
 
 	i = 0;
 	nbc = 0;
-	if (!(tab = (char**)malloc(sizeof(char *) * (ft_taille((char *)s, c) + 1))))
+	tab = (char **)malloc(sizeof(char *) * (ft_taille((char *)s, c) + 1));
+	if (tab == NULL)
 		return (NULL);
 	if (s[0] != '\0')
 	{

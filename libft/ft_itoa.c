@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guderram <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 22:46:19 by guderram          #+#    #+#             */
-/*   Updated: 2019/11/26 22:46:24 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/21 15:38:08 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-static	int		ft_size(long nb)
+static	int	ft_size(long nb)
 {
 	long	i;
 
@@ -36,7 +36,8 @@ static	char	*ft_is_zero(void)
 {
 	char	*zero;
 
-	if (!(zero = malloc(sizeof(char) * 2)))
+	zero = malloc(sizeof(char) * 2);
+	if (zero == NULL)
 		return (NULL);
 	zero[0] = '0';
 	zero[1] = '\0';
@@ -49,7 +50,8 @@ static	char	*ft_strnb(long size, long nb)
 	long	i;
 
 	i = 0;
-	if (!(str = (char *)malloc(sizeof(char) * size)))
+	str = (char *)malloc(sizeof(char) * size);
+	if (str == NULL)
 		return (NULL);
 	if (nb < 0)
 	{
@@ -70,7 +72,7 @@ static	char	*ft_strnb(long size, long nb)
 	return (str);
 }
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*str;
 	char	*cpystr;
@@ -78,7 +80,8 @@ char			*ft_itoa(int n)
 	long	size;
 
 	i = 0;
-	if (!(str = (char *)malloc(sizeof(char) * ft_size((long)n))))
+	str = (char *)malloc(sizeof(char) * ft_size((long)n));
+	if (str == NULL)
 		return (NULL);
 	cpystr = ft_strnb(ft_size((long)n), (long)n);
 	size = ft_size((long)n) - 1;

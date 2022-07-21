@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guderram <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 16:45:38 by guderram          #+#    #+#             */
-/*   Updated: 2019/11/26 16:45:44 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/21 16:07:11 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	if (size == 0)

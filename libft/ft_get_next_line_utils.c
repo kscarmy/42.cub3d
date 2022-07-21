@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   ft_get_next_line_utils.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guderram <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 12:45:32 by guderram          #+#    #+#             */
-/*   Updated: 2020/01/31 12:45:33 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/21 15:40:57 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-int		ft_gnl_strlen(char *str)
+int	ft_gnl_strlen(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str != NULL && str[i] != '\0')
@@ -27,13 +27,15 @@ char	*ft_gnl_strnew(int *error)
 	char	*str;
 
 	str = malloc(sizeof(char) * 1);
-	if ((*error = (str == NULL) ? 1 : 0) == 1)
+	if (str == NULL)
+		*error = 1;
+	if (str == NULL)
 		return (NULL);
 	str[0] = '\0';
 	return (str);
 }
 
-int		ft_gnl_strchr(char *str)
+int	ft_gnl_strchr(char *str)
 {
 	int	i;
 
@@ -47,9 +49,9 @@ int		ft_gnl_strchr(char *str)
 	return (1);
 }
 
-int		ft_gnl_strcount(char *str)
+int	ft_gnl_strcount(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] != '\0' && str[i] != '\n')
@@ -67,7 +69,9 @@ void	ft_gnl_strjoin(char **str, const char *buff, int buff_size, int *error)
 	u = 0;
 	tmp = *str;
 	*str = malloc(sizeof(char) * (ft_gnl_strlen(tmp) + buff_size + 1));
-	if ((*error = (*str == NULL) ? 1 : 0) == 0)
+	if (str == NULL)
+		*error = 1;
+	if (str != NULL)
 	{
 		while (tmp != NULL && tmp[i] != '\0')
 		{

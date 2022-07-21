@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guderram <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 22:53:56 by guderram          #+#    #+#             */
-/*   Updated: 2019/11/26 22:53:57 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/21 16:11:48 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static	int	ft_checking(char c, char const *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -26,7 +26,7 @@ static	int	ft_checking(char c, char const *str)
 	return (0);
 }
 
-char		*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*ret;
 	int		i;

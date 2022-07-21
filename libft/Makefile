@@ -41,31 +41,32 @@ LIBFT_C = ./ft_atoi.c\
 		./ft_get_next_line.c\
 		./ft_get_next_line_utils.c\
 
-SRC_C =	./printf.c\
-			./printf_disp.c\
-			./printf_x.c\
-			./printf_c.c\
-			./printf_ana.c\
-			./printf_know.c\
-			./printf_s.c\
-			./printf_percent.c\
-			./printf_u.c\
-			./printf_d.c\
-			./printf_itoa.c\
-			./printf_p.c\
+# SRC_C =	./printf.c\
+# 			./printf_disp.c\
+# 			./printf_x.c\
+# 			./printf_c.c\
+# 			./printf_ana.c\
+# 			./printf_know.c\
+# 			./printf_s.c\
+# 			./printf_percent.c\
+# 			./printf_u.c\
+# 			./printf_d.c\
+# 			./printf_itoa.c\
+# 			./printf_p.c\
 
-OBJS =	printf.o\
-			printf_u.o\
-			printf_c.o\
-			printf_x.o\
-			printf_p.o\
-			printf_itoa.o\
-			printf_d.o\
-			printf_disp.o\
-			printf_ana.o\
-			printf_know.o\
-			printf_s.o\
-			ft_atoi.o\
+# OBJS =	printf.o\
+# 			printf_u.o\
+# 			printf_c.o\
+# 			printf_x.o\
+# 			printf_p.o\
+# 			printf_itoa.o\
+# 			printf_d.o\
+# 			printf_disp.o\
+# 			printf_ana.o\
+# 			printf_know.o\
+# 			printf_s.o\
+
+OBJS =ft_atoi.o\
 			ft_bzero.o\
 			ft_calloc.o\
 			ft_isalnum.o\
@@ -101,14 +102,13 @@ OBJS =	printf.o\
 			ft_toupper.o\
 			ft_get_next_line.o\
 			ft_get_next_line_utils.o\
-			printf_percent.o\
 
 
 
 all : $(NAME)
 
 $(NAME) :
-	@$(CC) $(CFLAGS) $(SRC_C) $(LIBFT_C)-c
+	@$(CC) $(CFLAGS) $(LIBFT_C)-c
 	@ar -rc $(NAME) $(OBJS)
 	@ranlib $(NAME)
 
