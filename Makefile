@@ -54,12 +54,16 @@ all:	obj $(NAME)
 
 
 $(NAME): $(OBJ)
-	# @$(CC) $(MAIN_C) $(CFLAGS)  $(OBJ) $(MLXFLAGS) ./mlx/libmlx_Linux.a ./mlx/libmlx.a   ./libft.a -o $(NAME)
-	@$(CC) $(MAIN_C) $(CFLAGS)  $(MLXFLAGS) ./libft.a ./mlx/libmlx.a $(OBJ) -o $(NAME)
+	$(MR_LIBFT)
+	# @$(CC) $(MAIN_C) $(CFLAGS)  $(OBJ) $(MLXFLAGS) ./mlx/libmlx_Linux.a ./mlx/libmlx.a   -o $(NAME)
+	@$(CC) $(MAIN_C) $(CFLAGS)  $(MLXFLAGS) ./libft/libft.a ./mlx/libmlx.a $(OBJ) -o $(NAME)
 	$(DONE)
 
+MR_LIBFT = make re -sC $(LIBFT_DIR)
+
 $(LIBFT):
-	@make -sC $(LIBFT_DIR)
+
+	make -sC $(LIBFT_DIR)
 
 obj:
 	@mkdir -p obj

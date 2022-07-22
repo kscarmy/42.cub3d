@@ -6,11 +6,20 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 22:48:55 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/21 16:20:09 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/22 19:14:39 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
+
+static void	ft_memmove_else(char *dest, const char *src, size_t i, size_t n)
+{
+	while (i < n)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+}
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
@@ -32,12 +41,6 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		}
 	}
 	else
-	{
-		while (i < n)
-		{
-			la_dest[i] = la_src[i];
-			i++;
-		}
-	}
+		ft_memmove_else(la_dest, la_src, i, n);
 	return (dest);
 }

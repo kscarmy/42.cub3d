@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:25:39 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/21 15:08:07 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/22 19:41:04 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 
 # include <stdio.h> // A SUPPRIMER
 
-# define BUFFER_SIZE 32 // gnl
+# define BUFFER_SIZE 6 // gnl
 
 # define KEY_MOVE_FRONT 119 // 13 // old 122 ?
 # define KEY_MOVE_BACK 115 // 1 // old 100 ?

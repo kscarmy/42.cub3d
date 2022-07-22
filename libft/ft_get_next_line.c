@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 12:45:10 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/21 16:02:29 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/22 19:28:13 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,7 @@ char	*ft_gnl_strsub(char const *s,
 	char	*str;
 
 	if (start == 0 && len == 0)
-	{
-		str = malloc(sizeof(char) + 1);
-		if (str == NULL)
-			**error = 1;
-		if (str == NULL)
-			return (NULL);
-		str[0] = '\0';
-		return (str);
-	}
+		return (ft_gnl_strnew(&**error));
 	if (s == NULL)
 		return (NULL);
 	str = malloc(sizeof(char) * (len + 1));
@@ -107,9 +99,7 @@ int	ft_get_next_line(int fd, char **line)
 	if (error == 1 || ret == -1)
 		return (ft_gnl_exerror(&str, error));
 	ft_gnl_read(&str, line, ret, &error);
-	if (error == 1)
-		return (ft_gnl_exerror(&str, error));
-	if (ret == 0 && *str == 0)
+	if ((error == 1) || (ret == 0 && *str == 0))
 		return (ft_gnl_exerror(&str, error));
 	return (1);
 }
