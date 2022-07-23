@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:25:39 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/23 09:03:16 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/23 11:39:11 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,17 @@
 # define BUFFER_SIZE_GNL 32
 
 
+/*	Touches sur mac book pro m1	*/
+/*	Fonctionne potentiellement sur d'autres macs	*/
+# define MAC_KEY_MOVE_FRONT 13
+# define MAC_KEY_MOVE_BACK 1
+# define MAC_KEY_MOVE_LEFT 0
+# define MAC_KEY_MOVE_RIGHT 2
+# define MAC_KEY_ROTATE_LEFT 123
+# define MAC_KEY_ROTATE_RIGHT 124
+# define MAC_KEY_ECHAP 53
+
+/*	Touches pour linux (x)ubuntu sur mac de l'ecole	*/
 # define KEY_MOVE_FRONT 119 // 13 // old 122 ?
 # define KEY_MOVE_BACK 115 // 1 // old 100 ?
 # define KEY_MOVE_LEFT 97 // 0 // old 113 ?
@@ -33,8 +44,12 @@
 # define KEY_ROTATE_LEFT 65361 // 123 // old 65361 ?
 # define KEY_ROTATE_RIGHT 65363 // 124 // old 65363 ?
 # define KEY_ECHAP 65307 // 53 // old 65307 ?
+
+/*	Distance de deplacement lors d'une pression de touche	*/
 # define MOVE_SIZE 8
+/*	Taille de la FOV, le champ de vision, en degre	*/
 # define FOV_SIZE 60
+/*	Angle de rotation lors d'une pression de touche	*/
 # define ANG_SIZE 5
 
 
@@ -80,50 +95,71 @@ typedef struct	j_point
 	char	*so; // ./path_to_the_south_texture
 	char	*we; // ./path_to_the_west_texture
 	char	*ea; // ./path_to_the_east_texture
-	char	*s; // ./path_to_the_sprite_texture
+	// char	*s; // ./path_to_the_sprite_texture
 	char	spawn; // Position de spawn du joueur
 	char	**map; // La map mdrr
 	int		l; // nombre de lignes de la map
 }				m_point;
 
-typedef	struct v_point // structure de calcul : ca
+// typedef	struct cal_point // structure de calcul : ca
+// {
+// 	int	i;
+// }				c_point;
+
+
+typedef struct ver_point
 {
-	int	i;
-}				c_point;
+	/*	Position du rayon	*/
+	double	vr; // Vertical range
+	double	vx;
+	double	vy;
+
+	/*	Valeurs d'incrementation d'une iteration	*/
+	double	vcr; // Vertical Calc range
+	double	vcx;
+	double	vcy;
+
+}				v_point;
+
+typedef struct hor_point
+{
+	/*	Position du rayon	*/
+	double	hr; // Vertical range
+	double	hx;
+	double	hy;
+
+	/*	Valeurs d'incrementation d'une iteration	*/
+	double	hcr; // Vertical Calc range
+	double	hcx;
+	double	hcy;
+
+}				h_point;
 
 typedef struct k_point
 {
 	void	*mlx; // Le mlx requis pour utiliser la mlx
 	void	*win1; // Première fenetre d'affichage
-	int		error; // Pas d'erreurs = 0, erreurs = >0
+	int		er; // Pas d'erreurs = 0, erreurs = >0
 	m_point	*map; // Lien direct vers la structure map
 	int		pos_x; // position dans la case en x du perso
 	int		pos_y; // position dans la case en y du perso
-	// char	**casa; // position globale sur la map ( la case ) // old
 	int		x; // position sur la map du perso
 	int		y; // position sur la map du perso
 	double	d; // angle où se situe la vue du perso (d pour degré) : entre 0 et 359, où 0 regarde totalement direction nord
-	int		move_size; // définis la taille d'un déplacement dans une case /!\ move_size < 100 && > 0 !
-	int		d_size; // définis la taille de degrés de rotation de d lorsque la touche est pressée
 	int		screen_range; // distance entre la camera et lecran.
-	int		max_x; // max de x dans la ligne
-	int		max_y; // max de y dans la map
-	c_point *ca; // struct de calculs
-	int		orient; // orientation de langle de vue
+	// int		max_x; // max de x dans la ligne
+	// int		max_y; // max de y dans la map
+	// c_point *ca; // struct de calculs
+	h_point	*h;
+	v_point	*v;
+	// int		or; // orientation de langle de vue
 }				w_point;
-
-
-
-
-
 
 
 
 
 /*	main.c	*/
 int		main(int argc, char **argv);
-
-
 
 
 /*	******	*/
@@ -215,6 +251,18 @@ void	ft_init_map(m_point *m);
 void	ft_disp_verif(m_point *m);
 void	ft_exit_free_map_paths(m_point *m);
 int		ft_exit_free_map(m_point *m, int ret);
+
+
+/*	**********	*/
+/*	 WINDOWS	*/
+/*	**********	*/
+
+/*	ft_windows.c	*/
+void	ft_init_w(w_point *w, m_point *m);
+int		ft_is_worldspawn(char c);
+void	ft_found_worldspawn(w_point *w);
+void	ft_exit_free_all(w_point *w, int ret);
+void	ft_windows(m_point *m);
 
 
 #endif

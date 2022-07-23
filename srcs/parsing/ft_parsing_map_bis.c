@@ -46,8 +46,7 @@ int	ft_parsing_map(m_point *m, char *argv)
 					|| (m->fl[m->x] == 'S' && m->fl[m->x + 1] == 'O')
 					|| (m->fl[m->x] == 'W' && m->fl[m->x + 1] == 'E')
 					|| (m->fl[m->x] == 'E' && m->fl[m->x + 1] == 'A'))
-				&& m->fl[m->x + 2] == ' ')
-			|| (m->fl[m->x] == 'S' && m->fl[m->x + 1] == ' '))
+				&& m->fl[m->x + 2] == ' '))
 			ft_parsing_path_to(m);
 		i++;
 	}

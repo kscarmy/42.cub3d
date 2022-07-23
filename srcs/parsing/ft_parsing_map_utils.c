@@ -75,6 +75,7 @@ int	ft_next_zero_char(char c)
 
 void	ft_next_zero_map(m_point *m, int l, int x)
 {
+	printf("ft_next_zero_map : map :\n%s\nfile\n%s\n", m->map[0], m->fl);
 	if (l == 0 || l == m->l - 1)
 		m->er = 970;
 	if (m->er == 0 && ft_next_zero_char(m->map[l - 1][x - 1]) == 0)

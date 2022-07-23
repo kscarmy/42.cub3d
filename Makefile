@@ -28,6 +28,7 @@ SRC =srcs/move/ft_entry_key.c \
 		srcs/gnl/get_next_line.c \
 		srcs/gnl/get_next_line_bis.c \
 		srcs/gnl/get_next_line_utils.c \
+		srcs/disp/ft_windows.c \
 
 MAIN_C = srcs/main.c\
 
