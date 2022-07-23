@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   get_next_line_bis.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/20 15:40:45 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/21 16:07:20 by guderram         ###   ########.fr       */
+/*   Created: 2021/12/16 17:00:36 by guderram          #+#    #+#             */
+/*   Updated: 2022/07/23 08:56:06 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../../includes/cub3d.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_exerror(char **str, int error)
 {
-	size_t	i;
+	ft_strdel(&*str);
+	if (error == 1)
+		return (-1);
+	return (0);
+}
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+void	ft_strdel(char **as)
+{
+	if (as != NULL)
+	{
+		free(*as);
+		*as = NULL;
+	}
 }

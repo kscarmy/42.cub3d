@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:25:39 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/22 19:41:04 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/23 09:03:16 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,13 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <math.h>
-
+# include <stdio.h>
+# include "../libft/libft.h"
 
 # include "../mlx/mlx.h"
 // # include "../mlx/mlx_int.h" // LINUX UNIQUEMENT
+# define BUFFER_SIZE_GNL 32
 
-
-# include <stdio.h> // A SUPPRIMER
-
-# define BUFFER_SIZE 6 // gnl
 
 # define KEY_MOVE_FRONT 119 // 13 // old 122 ?
 # define KEY_MOVE_BACK 115 // 1 // old 100 ?
@@ -39,118 +37,28 @@
 # define FOV_SIZE 60
 # define ANG_SIZE 5
 
-int				ft_atoi(const char *nptr);
-void			ft_bzero(void *s, size_t n);
-int				ft_isalnum(int c);
-int				ft_isalpha(int c);
-int				ft_isascii(int c);
-int				ft_isdigit(int c);
-int				ft_isprint(int c);
-char			*ft_itoa(int n);
-void			*ft_memcpy(void *dest, const void *src, size_t n);
-void			*ft_memccpy(void *dest, const void *src, int c, size_t n);
-void			*ft_memchr(const void *s, int c, size_t n);
-int				ft_memcmp(const void *s1, const void *s2, size_t n);
-void			*ft_memmove(void *dest, const void *src, size_t n);
-void			*ft_memset (void *s, int c, size_t n);
-void			ft_putchar_fd(char c, int fd);
-void			ft_putendl_fd(char const *s, int fd);
-void			ft_putchar_fd(char c, int fd);
-void			ft_putnbr_fd(int n, int fd);
-void			ft_putstr_fd(char const *s, int fd);
-char			*ft_strchr(const char *s, int c);
-char			*ft_strdup(const char *s);
-char			*ft_strnstr(const char	*source, const char *objet, size_t len);
-char			*ft_strrchr(const char *s, int c);
-char			*ft_strtrim(char const *s1, char const *set);
-int				ft_tolower(int c);
-int				ft_toupper(int c);
-size_t			ft_strlen(const char *s);
-size_t			ft_strlcat(char *dest, const char *src, size_t destsize);
-int				ft_strncmp(const char *s1, const char *s2, size_t n);
-char			*ft_strjoin(char const *s1, char const *s2);
-char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-size_t			ft_strlcpy(char *dest, const char *src, size_t size);
-void			*ft_calloc(size_t count, size_t size);
-char			*ft_substr(char const *s, unsigned int start, size_t len);
-char			**ft_split(char const *s, char c);
-int				ft_gnl_strlen(char *str);
-char			*ft_gnl_strnew(int *error);
-int				ft_gnl_strchr(char *str);
-int				ft_gnl_strcount(char *str);
-void			ft_gnl_strjoin
-(char **str, const char *buff, int buff_size, int *error);
-int				ft_gnl_exerror(char **str, int error);
-void			ft_gnl_strdel(char **as);
-char			*ft_gnl_strsub
-(char const *s, unsigned int start, size_t len, int **error);
-void			ft_gnl_read(char **str, char **line, int ret, int *error);
-int				ft_get_next_line(int fd, char **line);
 
-typedef struct	s_point
-{
-	va_list				ap;
-	int					ret;
-	int					i;
-	int					u;
-	int					wdh;
-	int					pco;
-	int					siz;
-	char				*str;
-	char				*fmt;
-	char				c;
-	char				typ;
-	char				fag;
-	char				d[64];
-	int					t;
-	unsigned long long	ull;
-	int					b;
-	int					maj;
-	int					g;
-	unsigned int		ui;
-}				t_point;
+/*	******	*/
+/*	 GNL	*/
+/*	******	*/
 
-int				printf(const char *format, ...);
-void			ft_init_ptf(t_point	*ptf, char *format);
-void			ft_putchar_printf(char c, t_point *ptf);
-void			ft_putstr_printf(char *str, t_point *ptf);
-void			ft_know_flags(t_point *ptf);
-void			ft_know_width(t_point *ptf);
-void			ft_know_precision(t_point *ptf);
-void			ft_ana_types(t_point *ptf);
-int				ft_make_type(char type, t_point *ptf);
-int				ft_find_type(t_point *ptf);
-void			ft_ana_flags(t_point *ptf);
-void			printf_s(t_point *ptf);
-void			ft_clear_ptf(t_point *ptf);
-int				printf_strlen(char *str);
-void			printf_percent(t_point *ptf);
-void			printf_c(t_point *ptf);
-void			printf_d(t_point *ptf);
-void			printf_itoa(t_point *ptf);
-void			printf_d_disp(t_point *ptf);
-void			printf_itoa_init(t_point *ptf);
-void			printf_d_incre(int x, t_point *ptf);
-void			printf_d_suite(t_point *ptf);
-int				printf_d_disp_suite(int *m, int *a, int *u, t_point *ptf);
-void			printf_p(t_point *ptf);
-void			printf_p_suite(t_point *ptf);
-void			printf_p_incre(int x, t_point *ptf);
-void			printf_itoa_ull(t_point *ptf);
-void			printf_p_disp(t_point *ptf);
-void			printf_p_disp_suite(int *m, int *a, int *u, t_point *ptf);
-void			printf_u(t_point *ptf);
-void			printf_u_suite(t_point *ptf);
-void			printf_itoa_u(t_point *ptf);
-int				printf_u_disp_suite(int *m, int *a, int *u, t_point *ptf);
-void			printf_u_disp(t_point *ptf);
-void			printf_x(t_point *ptf);
-void			printf_x_suite(t_point *ptf);
-void			printf_itoa_x(t_point *ptf);
-void			printf_x_disp(t_point *ptf);
-void			printf_x_disp_suite(int *m, int *a, int *u, t_point *ptf);
-int				ft_false_type(t_point *ptf);
-void			printf_itoa_ll(t_point *ptf);
+/*	get_next_line.c	*/
+char	*ft_strsub_bis(int **error);
+char	*ft_strsub(char const *s, unsigned int start, size_t len, int **error);
+void	ft_read(char **str, char **line, int ret, int *error);
+int		get_next_line_bis(int error, int ret, char *str);
+int		get_next_line(int fd, char **line);
+
+/*	get_next_line_bis.c	*/
+int		ft_exerror(char **str, int error);
+void	ft_strdel(char **as);
+
+/*	get_next_line_utils.c	*/
+int		ft_strlen(char *str);
+char	*ft_strnew(int *error);
+int		ft_strchr(char *str);
+int		ft_strcount(char *str);
+void	ft_strjoin(char **str, const char *buff, int buff_size, int *error);
 
 typedef struct	j_point
 {
@@ -260,8 +168,8 @@ int	ft_check_file_name_end(int extension, int exist, int u);
 int	ft_check_file_name(char *argv, int extension);
 
 /*	ft_parsing_map_data.c	*/
-void ft_parsing_resolution(m_point *m);
-int	ft_parsing_while(m_point *m, int z);
+void	ft_parsing_resolution(m_point *m);
+int		ft_parsing_while(m_point *m, int z);
 void    ft_parsing_floor(m_point *m);
 void    ft_parsing_ceiling(m_point *m);
 char    *ft_parsing_get_path(m_point *m, int z);
@@ -307,11 +215,6 @@ void	ft_init_map(m_point *m);
 void	ft_disp_verif(m_point *m);
 void	ft_exit_free_map_paths(m_point *m);
 int		ft_exit_free_map(m_point *m, int ret);
-
-
-
-
-
 
 
 #endif

@@ -10,7 +10,7 @@
 /*																			*/
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "../../includes/cub3d.h"
 
 void	ft_create_mapping_bis(m_point *m, int u)
 {

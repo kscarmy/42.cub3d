@@ -10,7 +10,7 @@
 /*																			*/
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "../../includes/cub3d.h"
 
 int	ft_exor_nfn(int error)
 {

@@ -25,7 +25,9 @@ SRC =srcs/move/ft_entry_key.c \
 		srcs/parsing/ft_structs.c \
 		srcs/utils/ft_error_1.c \
 		srcs/utils/ft_utils.c \
-
+		srcs/gnl/get_next_line.c \
+		srcs/gnl/get_next_line_bis.c \
+		srcs/gnl/get_next_line_utils.c \
 
 MAIN_C = srcs/main.c\
 
@@ -72,6 +74,7 @@ obj:
 	@mkdir -p obj/move
 	@mkdir -p obj/utils
 	@mkdir -p obj/parsing
+	@mkdir -p obj/gnl
 
 
 obj/%.o: srcs/%.c

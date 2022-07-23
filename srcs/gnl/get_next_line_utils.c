@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_next_line_utils.c                           :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 12:45:32 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/23 08:50:57 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/23 08:56:11 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/cub3d.h"
 
-int	ft_gnl_strlen(char *str)
+int	ft_strlen(char *str)
 {
 	int	i;
 
@@ -22,25 +22,28 @@ int	ft_gnl_strlen(char *str)
 	return (i);
 }
 
-char	*ft_gnl_strnew(int *error)
+char	*ft_strnew(int *error)
 {
 	char	*str;
 
 	str = malloc(sizeof(char) * 1);
 	if (str == NULL)
+	{
 		*error = 1;
-	if (str == NULL)
 		return (NULL);
+	}
+	else
+		*error = 0;
 	str[0] = '\0';
 	return (str);
 }
 
-int	ft_gnl_strchr(char *str)
+int	ft_strchr(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (str != NULL && str[i] != '\0')
+	while (str[i] != '\0')
 	{
 		if (str[i] == '\n')
 			return (0);
@@ -49,7 +52,7 @@ int	ft_gnl_strchr(char *str)
 	return (1);
 }
 
-int	ft_gnl_strcount(char *str)
+int	ft_strcount(char *str)
 {
 	int	i;
 
@@ -59,7 +62,7 @@ int	ft_gnl_strcount(char *str)
 	return (i);
 }
 
-void	ft_gnl_strjoin(char **str, const char *buff, int buff_size, int *error)
+void	ft_strjoin(char **str, const char *buff, int buff_size, int *error)
 {
 	char	*tmp;
 	int		i;
@@ -68,12 +71,10 @@ void	ft_gnl_strjoin(char **str, const char *buff, int buff_size, int *error)
 	i = 0;
 	u = 0;
 	tmp = *str;
-	*str = malloc(sizeof(char) * (ft_gnl_strlen(tmp) + buff_size + 1));
-	if (str == NULL)
-		*error = 1;
-	if (str != NULL)
+	*str = malloc(sizeof(char) * (ft_strlen(tmp) + buff_size + 1));
+	if (*str != NULL)
 	{
-		while (tmp != NULL && tmp[i] != '\0')
+		while (tmp[i] != '\0')
 		{
 			(*str)[i] = tmp[i];
 			i++;
@@ -85,5 +86,7 @@ void	ft_gnl_strjoin(char **str, const char *buff, int buff_size, int *error)
 		}
 		(*str)[i + u] = '\0';
 	}
-	ft_gnl_strdel(&tmp);
+	else
+		*error = 1;
+	ft_strdel(&tmp);
 }

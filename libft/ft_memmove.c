@@ -6,11 +6,11 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 22:48:55 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/22 19:14:39 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/23 08:50:57 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 static void	ft_memmove_else(char *dest, const char *src, size_t i, size_t n)
 {

@@ -10,7 +10,7 @@
 /*																			*/
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "../../includes/cub3d.h"
 
 void	ft_parsing_path_to_bis(m_point *m, int y, int z)
 {

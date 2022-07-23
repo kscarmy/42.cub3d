@@ -10,7 +10,7 @@
 /*																			*/
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "../../includes/cub3d.h"
 
 void	ft_init_map(m_point *m)
 {
@@ -62,17 +62,17 @@ void	ft_disp_verif(m_point *m)
 void	ft_exit_free_map_paths(m_point *m)
 {
 	if (m->no != NULL)
-		ft_gnl_strdel(&m->no);
+		ft_strdel(&m->no);
 	if (m->so != NULL)
-		ft_gnl_strdel(&m->so);
+		ft_strdel(&m->so);
 	if (m->we != NULL)
-		ft_gnl_strdel(&m->we);
+		ft_strdel(&m->we);
 	if (m->ea != NULL)
-		ft_gnl_strdel(&m->ea);
+		ft_strdel(&m->ea);
 	if (m->s != NULL)
-		ft_gnl_strdel(&m->s);
+		ft_strdel(&m->s);
 	if (m->fl != NULL)
-		ft_gnl_strdel(&m->fl);
+		ft_strdel(&m->fl);
 }
 
 int	ft_exit_free_map(m_point *m, int ret)

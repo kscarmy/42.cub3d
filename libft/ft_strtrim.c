@@ -6,11 +6,11 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 22:53:56 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/21 16:11:48 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/23 09:06:02 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 static	int	ft_checking(char c, char const *str)
 {
@@ -33,7 +33,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		u;
 
 	i = 0;
-	u = (ft_strlen(s1) - 1);
+	u = (ft_strlen_st(s1) - 1);
 	while (ft_checking(s1[i], set) == 1)
 		i++;
 	if ((i - 1) == u)

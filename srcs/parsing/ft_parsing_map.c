@@ -10,7 +10,7 @@
 /*																			*/
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "../../includes/cub3d.h"
 
 void	ft_check_fl_half(m_point *m)
 {
@@ -53,7 +53,7 @@ void	ft_strfreejoin_newline(m_point *m, char *buff)
 	u = 0;
 	tmp = m->fl;
 	m->fl = malloc (sizeof(char)
-			* (ft_gnl_strlen(tmp) + ft_gnl_strlen(buff) + 2));
+			* (ft_strlen(tmp) + ft_strlen(buff) + 2));
 	if (m->fl == NULL)
 		m->er = 1010;
 	if (m->er != 0)
@@ -64,7 +64,7 @@ void	ft_strfreejoin_newline(m_point *m, char *buff)
 		i++;
 	}
 	ft_strfreejoin_newline_bis(m, buff, i, u);
-	ft_gnl_strdel(&tmp);
+	ft_strdel(&tmp);
 }
 
 void	ft_parsing_open_fd(m_point *m, char *argv)
@@ -76,15 +76,15 @@ void	ft_parsing_open_fd(m_point *m, char *argv)
 	ret = 0;
 	buff = NULL;
 	fd = open(argv, O_RDONLY);
-	ret = ft_get_next_line(fd, &buff);
+	ret = get_next_line(fd, &buff);
 	while (ret > 0)
 	{
 		ft_strfreejoin_newline(m, buff);
-		ft_gnl_strdel(&buff);
-		ret = ft_get_next_line(fd, &buff);
+		ft_strdel(&buff);
+		ret = get_next_line(fd, &buff);
 	}
 	ft_strfreejoin_newline(m, buff);
-	ft_gnl_strdel(&buff);
+	ft_strdel(&buff);
 	close(fd);
 	if (fd == -1)
 		m->er = 15;

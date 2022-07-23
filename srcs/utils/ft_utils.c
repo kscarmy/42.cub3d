@@ -6,11 +6,11 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:35:30 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/21 16:23:43 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/23 08:55:58 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "../../includes/cub3d.h"
 
 double	ft_degrees_to_radian(double deg)
 {

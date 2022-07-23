@@ -6,11 +6,11 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 12:45:10 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/22 19:28:13 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/23 08:50:57 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 int	ft_gnl_exerror(char **str, int error)
 {
@@ -101,5 +101,6 @@ int	ft_get_next_line(int fd, char **line)
 	ft_gnl_read(&str, line, ret, &error);
 	if ((error == 1) || (ret == 0 && *str == 0))
 		return (ft_gnl_exerror(&str, error));
+	printf("ft_get_next_line : <%s>\n", *line);
 	return (1);
 }

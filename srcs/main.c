@@ -6,11 +6,11 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:22:27 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/20 15:20:16 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/23 09:08:15 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../includes/cub3d.h"
 
 int	main(int argc, char **argv)
 {

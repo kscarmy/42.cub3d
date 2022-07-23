@@ -29,7 +29,7 @@ LIBFT_C = ./ft_atoi.c\
 		./ft_strjoin.c\
 		./ft_strlcat.c\
 		./ft_strlcpy.c\
-		./ft_strlen.c\
+		./ft_strlen_st.c\
 		./ft_strmapi.c\
 		./ft_strncmp.c\
 		./ft_strnstr.c\
@@ -38,8 +38,6 @@ LIBFT_C = ./ft_atoi.c\
 		./ft_substr.c\
 		./ft_tolower.c\
 		./ft_toupper.c\
-		./ft_get_next_line.c\
-		./ft_get_next_line_utils.c\
 
 # SRC_C =	./printf.c\
 # 			./printf_disp.c\
@@ -91,7 +89,7 @@ OBJS =ft_atoi.o\
 			ft_strjoin.o\
 			ft_strlcat.o\
 			ft_strlcpy.o\
-			ft_strlen.o\
+			ft_strlen_st.o\
 			ft_strmapi.o\
 			ft_strncmp.o\
 			ft_strnstr.o\
@@ -100,9 +98,6 @@ OBJS =ft_atoi.o\
 			ft_substr.o\
 			ft_tolower.o\
 			ft_toupper.o\
-			ft_get_next_line.o\
-			ft_get_next_line_utils.o\
-
 
 
 all : $(NAME)

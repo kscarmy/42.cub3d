@@ -10,7 +10,7 @@
 /*																			*/
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "../../includes/cub3d.h"
 
 void	ft_fill_line_map(m_point *m, int l)
 {
@@ -19,7 +19,7 @@ void	ft_fill_line_map(m_point *m, int l)
 	u = 1;
 	while (m->fl[m->x + u] != '\n' && m->fl[m->x + u] != '\0')
 		u++;
-	ft_gnl_strdel(&(m->map[l]));
+	ft_strdel(&(m->map[l]));
 	m->map[l] = (char *)malloc(sizeof(char) * (u));
 	if (m->map[l] == NULL)
 		m->er = 1200 + l;
