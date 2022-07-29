@@ -4,6 +4,7 @@ NAME		= cub3D
 
 ## LINUX
 MLXFLAGS = -I /usr/X11/include -g -L /usr/X11/lib -lX11 -lmlx -lXext -Lmlx -lmlx  -lXext -lX11 -lm
+MLX_DIR	= ./mlx/
 
 
 ## MAC
@@ -53,7 +54,7 @@ CLEAN_O = @echo "Object files removed!"
 CLEAN_A = @echo "Executables removed!"
 DONE = @echo "cub3D ready to use!"
 
-all:	obj $(NAME)
+all:	$(NAME)
 
 
 $(NAME): $(OBJ)
@@ -63,12 +64,12 @@ $(NAME): $(OBJ)
 	$(DONE)
 
 MR_LIBFT = make re -sC $(LIBFT_DIR)
+MR_MLX = make -sC $(MLX_DIR)
 
 $(LIBFT):
-
 	make -sC $(LIBFT_DIR)
 
-obj:
+obj/%.o: srcs/%.c
 	@mkdir -p obj
 	@mkdir -p obj/calc
 	@mkdir -p obj/disp
@@ -76,9 +77,6 @@ obj:
 	@mkdir -p obj/utils
 	@mkdir -p obj/parsing
 	@mkdir -p obj/gnl
-
-
-obj/%.o: srcs/%.c
 	@$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:
