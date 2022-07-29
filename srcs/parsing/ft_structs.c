@@ -34,7 +34,6 @@ void	ft_init_map(m_point *m)
 	m->so = NULL;
 	m->we = NULL;
 	m->ea = NULL;
-	// m->s = NULL;
 	m->map = NULL;
 }
 
@@ -48,7 +47,6 @@ void	ft_disp_verif(m_point *m)
 	printf("SO : '%s'\n", m->so);
 	printf("WE : '%s'\n", m->we);
 	printf("EA : '%s'\n", m->ea);
-	// printf("S : '%s'\n", m->s);
 	printf("F : '%d' : '%d','%d','%d'\n", m->floor, m->fr, m->fg, m->fb);
 	printf("C : '%d' : '%d','%d','%d'\n", m->ceiling, m->cr, m->cg, m->cb);
 	printf("Spawn : %c\n", m->spawn);
@@ -69,8 +67,6 @@ void	ft_exit_free_map_paths(m_point *m)
 		ft_strdel(&m->we);
 	if (m->ea != NULL)
 		ft_strdel(&m->ea);
-	// if (m->s != NULL)
-	// 	ft_strdel(&m->s);
 	if (m->fl != NULL)
 		ft_strdel(&m->fl);
 }

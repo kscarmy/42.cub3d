@@ -22,8 +22,6 @@ void	ft_parsing_path_to_bis(m_point *m, int y, int z)
 		m->we = ft_parsing_get_path(m, z);
 	if (m->er == 0 && m->fl[y] == 'E' && m->fl[y + 1] == 'A')
 		m->ea = ft_parsing_get_path(m, z);
-	// if (m->er == 0 && m->fl[y] == 'S' && m->fl[y + 1] == ' ')
-	// 	m->s = ft_parsing_get_path(m, z);
 }
 
 void	ft_parsing_path_to(m_point *m)
@@ -33,8 +31,6 @@ void	ft_parsing_path_to(m_point *m)
 
 	y = m->x;
 	z = 2;
-	// if (m->fl[m->x] == 'S' && m->fl[m->x + 1] == ' ')
-	// 	z = 1;
 	z = z + ft_incre_spaces(m, 0, z);
 	if (m->no != NULL && m->fl[m->x] == 'N' && m->fl[m->x + 1] == 'O')
 		m->er = 600;
@@ -44,7 +40,5 @@ void	ft_parsing_path_to(m_point *m)
 		m->er = 620;
 	if (m->ea != NULL && m->fl[m->x] == 'E' && m->fl[m->x + 1] == 'A')
 		m->er = 630;
-	// if (m->s != NULL && m->fl[m->x] == 'S' && m->fl[m->x + 1] == ' ')
-	// 	m->er = 640;
 	ft_parsing_path_to_bis(m, y, z);
 }

@@ -28,8 +28,6 @@ void	ft_check_fl_half(m_point *m)
 		m->er = 725;
 	if (m->ea == NULL)
 		m->er = 730;
-	// if (m->s == NULL)
-	// 	m->er = 735;
 }
 
 void	ft_strfreejoin_newline_bis(m_point *m, char *buff, int i, int u)

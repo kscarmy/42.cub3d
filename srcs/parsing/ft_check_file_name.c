@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 12:45:32 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/23 08:55:58 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/29 10:00:50 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	ft_check_open(char *argv)
 	int	fd;
 
 	exit = 0;
-	printf("ft_check_open : ARGV : <%s>\n\n", argv);
 	fd = open(argv, O_RDONLY);
 	if (fd == -1)
 		exit = 1;

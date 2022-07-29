@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:25:39 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/23 11:39:11 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/28 13:35:23 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include "../libft/libft.h"
 
 # include "../mlx/mlx.h"
-// # include "../mlx/mlx_int.h" // LINUX UNIQUEMENT
+# include "../mlx/mlx_int.h" // LINUX UNIQUEMENT
 # define BUFFER_SIZE_GNL 32
 
 
