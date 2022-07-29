@@ -1,4 +1,5 @@
 /* ************************************************************************** */
+<<<<<<< HEAD
 /*																			*/
 /*														:::	  ::::::::   */
 /*   ft_structs.c									   :+:	  :+:	:+:   */
@@ -8,6 +9,17 @@
 /*   Created: 2020/01/31 12:45:32 by guderram		  #+#	#+#			 */
 /*   Updated: 2022/07/19 16:52:28 by guderram		 ###   ########.fr	   */
 /*																			*/
+=======
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_structs.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/01/31 12:45:32 by guderram          #+#    #+#             */
+/*   Updated: 2022/07/17 03:24:47 by mourdani         ###   ########.fr       */
+/*                                                                            */
+>>>>>>> moves
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
@@ -88,8 +100,24 @@ int	ft_exit_free_map(m_point *m, int ret)
 		m->map = NULL;
 		m->l = 0;
 	}
+<<<<<<< HEAD
 	ft_exit_free_map_paths(m);
 	printf("\n\033[0m<Les mallocs ont ete clears>\n");
 	ft_disp_verif(m);
+=======
+	if (map->no != NULL)
+		ft_gnl_strdel(&map->no);
+	if (map->so != NULL)
+		ft_gnl_strdel(&map->so);
+	if (map->we != NULL)
+		ft_gnl_strdel(&map->we);
+	if (map->ea != NULL)
+		ft_gnl_strdel(&map->ea);
+	if (map->s != NULL)
+		ft_gnl_strdel(&map->s);
+	if (map->file != NULL)
+		ft_gnl_strdel(&map->file);
+	ft_printf("\n\033[0m<Les mallocs ont ete clears>\n");
+>>>>>>> moves
 	return (ret);
 }

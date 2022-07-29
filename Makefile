@@ -11,8 +11,19 @@ MLXFLAGS = -I /usr/X11/include -g -L /usr/X11/lib -lX11 -lmlx -lXext -Lmlx -lmlx
 
 ## Sources
 
+<<<<<<< HEAD
 SRC =srcs/move/ft_entry_key.c \
+=======
+SRC = srcs/calc/ft_range.c \
+		srcs/calc/ft_thales.c \
+		srcs/calc/ft_vc.c \
+		srcs/calc/ft_hc.c \
+		srcs/disp/ft_screen.c \
+		srcs/disp/ft_window.c \
+		srcs/move/ft_entry_key.c \
+>>>>>>> moves
 		srcs/move/ft_position.c \
+		srcs/move/trigo.c \
 		srcs/parsing/ft_check_file_name.c \
 		srcs/parsing/ft_parsing_map_data.c \
 		srcs/parsing/ft_parsing_map_data_bis.c \
@@ -56,18 +67,26 @@ DONE = @echo "cub3D ready to use!"
 all:	$(NAME)
 
 
+<<<<<<< HEAD
 $(NAME): $(OBJ)
 	$(MR_LIBFT)
 	$(CC)  $(MAIN_C)  $(CFLAGS)  $(OBJ)  ./libft/libft.a $(MLXFLAGS) ./mlx/libmlx_Linux.a ./mlx/libmlx.a -o $(NAME)
 	# @$(CC) $(MAIN_C) $(CFLAGS)  $(MLXFLAGS) ./libft/libft.a ./mlx/libmlx.a $(OBJ) -o $(NAME)
+=======
+$(NAME): $(OBJ) $(LIBFT)
+	@$(CC) $(MAIN_C) $(CFLAGS)  $(OBJ) $(MLXFLAGS) ./mlx/libmlx_Linux.a ./mlx/libmlx.a   ./libft/libft.a -o $(NAME)
+>>>>>>> moves
 	$(DONE)
 
 MR_LIBFT = make re -sC $(LIBFT_DIR)
 
 $(LIBFT):
 
+<<<<<<< HEAD
 	make -sC $(LIBFT_DIR)
 
+=======
+>>>>>>> moves
 obj/%.o: srcs/%.c
 	@mkdir -p obj
 	@mkdir -p obj/calc
@@ -75,7 +94,10 @@ obj/%.o: srcs/%.c
 	@mkdir -p obj/move
 	@mkdir -p obj/utils
 	@mkdir -p obj/parsing
+<<<<<<< HEAD
 	@mkdir -p obj/gnl
+=======
+>>>>>>> moves
 	@$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:

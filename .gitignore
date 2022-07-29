@@ -1,0 +1,6 @@
+*.o
+cub3D
+obj/
+.vscoode/
+*test*
+
