@@ -53,7 +53,7 @@ CLEAN_O = @echo "Object files removed!"
 CLEAN_A = @echo "Executables removed!"
 DONE = @echo "cub3D ready to use!"
 
-all:	obj $(NAME)
+all:	$(NAME)
 
 
 $(NAME): $(OBJ)
@@ -68,7 +68,7 @@ $(LIBFT):
 
 	make -sC $(LIBFT_DIR)
 
-obj:
+obj/%.o: srcs/%.c
 	@mkdir -p obj
 	@mkdir -p obj/calc
 	@mkdir -p obj/disp
@@ -76,9 +76,6 @@ obj:
 	@mkdir -p obj/utils
 	@mkdir -p obj/parsing
 	@mkdir -p obj/gnl
-
-
-obj/%.o: srcs/%.c
 	@$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:
