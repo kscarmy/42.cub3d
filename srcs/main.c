@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:22:27 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/29 10:06:03 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/29 14:12:09 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 	ft_disp_verif(&map);
 	if (ft_parsing_map(&map, argv[1]) == -1)
 		return (-1);
-	ft_disp_verif(&map);
 	ft_windows(&map);
+	printf("JEAN\n\n\n");
 	return (ft_exit_free_map(&map, 0));
 }

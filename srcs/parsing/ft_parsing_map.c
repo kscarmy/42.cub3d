@@ -14,8 +14,6 @@
 
 void	ft_check_fl_half(m_point *m)
 {
-	if (m->res == 0)
-		m->er = 700;
 	if (m->floor == 0)
 		m->er = 705;
 	if (m->ceiling == 0)

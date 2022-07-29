@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:35:30 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/28 13:37:19 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/29 13:24:46 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ void	ft_red_pixel(w_point *w, int h, int x)
 	int	mid;
 
 	i = 0;
-	mid = w->map->ry / 2;
+	mid = RES_Y / 2;
 	ret = 0;
-	while (h < w->map->ry && h > 0 && i < h && i <= w->map->ry)
+	while (h < RES_Y && h > 0 && i < h && i <= RES_Y)
 	{
 		ret = mlx_pixel_put(w->mlx, w->win1, x, mid + i, 0xFF99FF);
 		ret = mlx_pixel_put(w->mlx, w->win1, x, mid - i, 0xFF99FF);

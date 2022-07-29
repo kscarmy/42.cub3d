@@ -96,7 +96,8 @@ void	ft_fill_map(m_point *m)
 	int	u;
 
 	u = 0;
-	m->x = m->x - 1;
+	while (m->fl[m->x] != '\n')
+		m->x = m->x - 1;
 	while (u < m->l)
 	{
 		ft_fill_line_map(m, u);

@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:25:39 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/28 13:35:23 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/29 13:24:58 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@
 # define FOV_SIZE 60
 /*	Angle de rotation lors d'une pression de touche	*/
 # define ANG_SIZE 5
+# define RES_X 320
+# define RES_Y 200
 
 
 /*	******	*/
@@ -78,8 +80,8 @@ void	ft_strjoin(char **str, const char *buff, int buff_size, int *error);
 typedef struct	j_point
 {
 	int		er; // pas d'erreurs : 0, erreurs : >0
-	int 	rx; // résolution : largeur
-	int		ry; // résolution : hauteur
+	// int 	rx; // résolution : largeur
+	// int		ry; // résolution : hauteur
 	int		x; // tete de lecture utilisé dans : file,
 	char	*fl; // contien une copie fichier à lire.
 	int 	res; // de base res = 0, si la résolution est définie alors res = 1
@@ -204,7 +206,7 @@ int	ft_check_file_name_end(int extension, int exist, int u);
 int	ft_check_file_name(char *argv, int extension);
 
 /*	ft_parsing_map_data.c	*/
-void	ft_parsing_resolution(m_point *m);
+// void	ft_parsing_resolution(m_point *m);
 int		ft_parsing_while(m_point *m, int z);
 void    ft_parsing_floor(m_point *m);
 void    ft_parsing_ceiling(m_point *m);

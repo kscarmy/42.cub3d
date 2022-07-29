@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 10:03:21 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/29 10:03:24 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/29 14:13:57 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_init_w(w_point *w, m_point *m)
 		printf("Init mlx fail !\n");
 		w->er = 1;
 	}
-	if (!(w->win1 = mlx_new_window(w->mlx, m->rx, m->ry,"cub3d")))
+	if (!(w->win1 = mlx_new_window(w->mlx, RES_X, RES_Y,"cub3d")))
 	{
 		printf("Init win fail !\n");
 		w->er = 1;
@@ -84,8 +84,8 @@ void	ft_exit_free_all(w_point *w, int ret)
 	printf("All is begin freeing\n");
 	mlx_clear_window(w->mlx, w->win1);
 	mlx_destroy_window(w->mlx, w->win1);
-
-	exit(ft_exit_free_map(w->map, ret));
+	ret = ret;
+	// exit(ft_exit_free_map(w->map, ret));
 }
 
 void	ft_windows(m_point *m)

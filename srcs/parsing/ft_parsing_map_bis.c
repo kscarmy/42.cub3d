@@ -36,8 +36,6 @@ int	ft_parsing_map(m_point *m, char *argv)
 	while (m->er == 0 && m->fl[m->x] != '\0' && i < 8)
 	{
 		m->x = ft_incre_spaces(m, 1, 0) + m->x;
-		if (m->fl[m->x] == 'R')
-			ft_parsing_resolution(m);
 		if (m->fl[m->x] == 'F')
 			ft_parsing_floor(m);
 		if (m->fl[m->x] == 'C')

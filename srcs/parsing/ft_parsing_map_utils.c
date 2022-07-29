@@ -32,8 +32,6 @@ int	ft_is_not_map(char c, int one)
 		m++;
 	if (c == '0')
 		m++;
-	if (c == '2')
-		m++;
 	if (c == ' ' && one == 1)
 		m++;
 	if (c == '\n' && one == 1)
@@ -59,8 +57,6 @@ int	ft_next_zero_char(char c)
 	if (c == '0')
 		x++;
 	if (c == '1')
-		x++;
-	if (c == '2')
 		x++;
 	if (c == 'N')
 		x++;

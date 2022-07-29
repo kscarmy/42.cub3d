@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Jul 29 09:50:23 2022
+# Make data base, printed on Fri Jul 29 12:45:04 2022
 
 # Variables
 
@@ -77,7 +77,7 @@ VSCODE_VERBOSE_LOGGING = true
 # environment
 MANAGERPID = 336276
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/32509/vscode-ipc-c6fc8ef1-8564-4b9e-9413-191830c44b71.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/32509/vscode-ipc-804aa971-da5c-47a2-ba1c-31d59da267d2.sock
 # environment
 VSCODE_CWD = /mnt/nfs/homes/guderram/42/cub3d
 # environment
@@ -225,13 +225,13 @@ LC_ALL = C
 # environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/2b37ba69_2b91_45c1_ae50_fcc751cd16cd
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/676425f8_df4c_4503_b292_1ec4252299b8
 # makefile (from 'Makefile', line 65)
 MR_LIBFT = make re -sC $(LIBFT_DIR)
 # automatic
 ^F = $(notdir $^)
 # environment
-GNOME_TERMINAL_SERVICE = :1.110
+GNOME_TERMINAL_SERVICE = :1.387
 # default
 SUFFIXES := 
 # environment
@@ -251,7 +251,7 @@ TERM = xterm-256color
 # environment
 DOCKER_HOST = unix:///run/user/32509/docker.sock
 # environment
-VSCODE_PID = 338437
+VSCODE_PID = 366339
 # variable set hash-table stats:
 # Load=121/1024=12%, Rehash=0, Collisions=19/155=12%
 
@@ -261,10 +261,10 @@ VSCODE_PID = 338437
 
 # Directories
 
-# . (device 56, inode 264210003): 15 files, no impossibilities.
+# . (device 56, inode 264210003): 13 files, no impossibilities.
 # srcs (device 56, inode 56233031): No files, no impossibilities so far.
 
-# 15 files, no impossibilities in 2 directories.
+# 13 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -280,11 +280,11 @@ obj/%.o: srcs/%.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+ 
 #  recipe to execute (from 'Makefile', line 69):
 	make -sC $(LIBFT_DIR)
 
 # Not a target:
- 
 obj/gnl/get_next_line.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -514,9 +514,9 @@ obj/parsing/ft_parsing_map.o:
 # strcache buffers: 1 (0) / strings = 46 / storage = 725 B / avg = 15 B
 # current buf: size = 8162 B / used = 725 B / count = 46 / avg = 15 B
 
-# strcache performance: lookups = 74 / hit rate = 37%
+# strcache performance: lookups = 72 / hit rate = 36%
 # hash-table stats:
-# Load=46/8192=1%, Rehash=0, Collisions=1/74=1%
-# Finished Make data base on Fri Jul 29 09:50:23 2022
+# Load=46/8192=1%, Rehash=0, Collisions=1/72=1%
+# Finished Make data base on Fri Jul 29 12:45:04 2022
 
  

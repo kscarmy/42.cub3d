@@ -42,8 +42,7 @@ void	ft_parse_map_bis(m_point *m, int l, int x)
 		{
 			if (ft_is_not_map(m->map[l][x], 0) == 1)
 				ft_next_zero_map(m, l, x);
-			if ((m->map[l][x] == '0' && m->er == 0)
-				|| (m->map[l][x] == '2' && m->er == 0))
+			if ((m->map[l][x] == '0' && m->er == 0))
 				ft_next_zero_map(m, l, x);
 			x++;
 		}
@@ -59,15 +58,15 @@ void	ft_parse_map(m_point *m)
 
 	l = 0;
 	x = 0;
-	while (m->map[0][x] != '\0' && m->map[0][x] != '0' && m->map[0][x] != '2')
+	while (m->map[0][x] != '\0' && m->map[0][x] != '0')
 		x++;
-	if (m->map[0][x] != '\0' || m->map[0][x] == '2')
+	if (m->map[0][x] != '\0')
 		m->er = 950;
 	x = 0;
 	while (m->map[m->l - 1][x] != '\0' && m->map[m->l - 1][x]
-		!= '0' && m->map[m->l - 1][x] != '2')
+		!= '0')
 		x++;
-	if (m->map[m->l - 1][x] != '\0' || m->map[m->l - 1][x] == '2')
+	if (m->map[m->l - 1][x] != '\0')
 	m->er = 955;
 	x = 0;
 	ft_parse_map_bis(m, l, x);

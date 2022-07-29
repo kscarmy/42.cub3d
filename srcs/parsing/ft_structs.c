@@ -15,8 +15,6 @@
 void	ft_init_map(m_point *m)
 {
 	m->er = 0;
-	m->rx = 0;
-	m->ry = 0;
 	m->x = 0;
 	m->res = 0;
 	m->floor = 0;
@@ -42,7 +40,6 @@ void	ft_disp_verif(m_point *m)
 	int	u;
 
 	u = 0;
-	printf("R : '%d' : '%d','%d'\n", m->res, m->rx, m->ry);
 	printf("NO : '%s'\n", m->no);
 	printf("SO : '%s'\n", m->so);
 	printf("WE : '%s'\n", m->we);
