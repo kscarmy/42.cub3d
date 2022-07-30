@@ -103,9 +103,9 @@ OBJS =ft_atoi.o\
 all : $(NAME)
 
 $(NAME) :
-	@$(CC) $(CFLAGS) $(LIBFT_C)-c
-	@ar -rc $(NAME) $(OBJS)
-	@ranlib $(NAME)
+	$(CC) $(CFLAGS) $(LIBFT_C)-c
+	ar -rc $(NAME) $(OBJS)
+	ranlib $(NAME)
 
 clean :
 	@rm -rf $(OBJS)

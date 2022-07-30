@@ -1,16 +1,7 @@
 ## Executables name
 NAME		= cub3D
 
-
-## LINUX
-MLXFLAGS = -I /usr/X11/include -g -L /usr/X11/lib -lX11 -lmlx -lXext -Lmlx -lmlx  -lXext -lX11 -lm
-
-
-## MAC
-# MLXFLAGS = -I /usr/X11/include -g -L /usr/X11/lib -lX11 -lmlx -lXext -Lmlx -lmlx -framework OpenGL -framework AppKit
-
 ## Sources
-
 SRC =srcs/move/ft_entry_key.c \
 		srcs/move/ft_position.c \
 		srcs/parsing/ft_check_file_name.c \
@@ -39,8 +30,17 @@ MAIN_C = srcs/main.c\
 ## Objects (patsubst = path substitute)
 OBJ	= ${patsubst srcs/%, obj/%, $(SRC:.c=.o)}
 
+## MLX config
+MR_MLX = make -sC $(MLX_DIR)
+MLX	= ./mlx/libmlx_Linux.a ./mlx/libmlx.a
+MLX_DIR	= ./mlx/
+MLX_FLAGS = -I /usr/X11/include -g -L /usr/X11/lib -lX11 -lmlx -lXext -Lmlx -lmlx  -lXext -lX11 -lm
+## MAC
+# MLX_FLAGS = -I /usr/X11/include -g -L /usr/X11/lib -lX11 -lmlx -lXext -Lmlx -lmlx -framework OpenGL -framework AppKit
+
 ## LIBFT config
-LIBFT		= -L libft/libft.a
+MR_LIBFT = make -sC $(LIBFT_DIR)
+LIBFT		= libft/libft.a
 LIBFT_DIR	= ./libft/
 LIB_FLAGS	= -L $(LIBFT_DIR)
 INC		= -I ./inc/ -I $(LIBFT_DIR)
@@ -50,38 +50,24 @@ CC		= gcc
 RM		= rm -rf
 CFLAGS		= -Wall -Werror -Wextra
 ## -fsanitize=address -g3
+
 ## Output messages
 DONE = @echo "libft compiled successfully!"
 CLEAN_O = @echo "Object files removed!"
 CLEAN_A = @echo "Executables removed!"
 DONE = @echo "cub3D ready to use!"
 
-all:	obj $(NAME)
-
+all:	$(NAME)
 
 $(NAME): $(OBJ)
+	$(MR_MLX)
 	$(MR_LIBFT)
-	$(CC)  $(MAIN_C)  $(CFLAGS)  $(OBJ)  ./libft/libft.a $(MLXFLAGS) ./mlx/libmlx_Linux.a ./mlx/libmlx.a -o $(NAME)
-	# @$(CC) $(MAIN_C) $(CFLAGS)  $(MLXFLAGS) ./libft/libft.a ./mlx/libmlx.a $(OBJ) -o $(NAME)
+	$(CC)  $(MAIN_C)  $(CFLAGS) $(OBJ) $(MLX_FLAGS) $(LIBFT) $(MLX) -o $(NAME)
+	# @$(CC) $(MAIN_C) $(CFLAGS)  $(MLX_FLAGS) ./libft/libft.a ./mlx/libmlx.a $(OBJ) -o $(NAME)
 	$(DONE)
 
-MR_LIBFT = make re -sC $(LIBFT_DIR)
-
-$(LIBFT):
-
-	make -sC $(LIBFT_DIR)
-
-obj:
-	@mkdir -p obj
-	@mkdir -p obj/calc
-	@mkdir -p obj/disp
-	@mkdir -p obj/move
-	@mkdir -p obj/utils
-	@mkdir -p obj/parsing
-	@mkdir -p obj/gnl
-
-
 obj/%.o: srcs/%.c
+	@mkdir -p obj obj/calc obj/disp obj/move obj/utils obj/parsing obj/gnl
 	@$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:
