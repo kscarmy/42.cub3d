@@ -3,8 +3,8 @@ SO ./tests/path_to_the_south_texture
 WE ./tests/path_to_the_west_texture
 EA ./tests/path_to_the_east_texture
 
-F 220,100,0
-C 225,30,0
+F 52,66,37
+C 66,135,245
 
 1111111
 1000001

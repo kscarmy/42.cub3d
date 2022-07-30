@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 12:45:32 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/23 10:34:50 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/30 13:07:58 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	ft_entry_keyboard(int key, void *p)
 	{
 		ft_move_zqsd(key, win);
 		mlx_clear_window(win->mlx, win->win1);
+		ft_screen(win);
 	}
 	return (0);
 }

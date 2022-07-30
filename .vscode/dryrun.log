@@ -1,5 +1,6 @@
-make --dry-run --always-make --keep-going --print-directory
+make --dry-run --keep-going --print-directory
 make: Entering directory '/mnt/nfs/homes/guderram/42/cub3d'
+ 
 mkdir -p obj
 mkdir -p obj/calc
 mkdir -p obj/disp
@@ -7,27 +8,15 @@ mkdir -p obj/move
 mkdir -p obj/utils
 mkdir -p obj/parsing
 mkdir -p obj/gnl
-gcc -Wall -Werror -Wextra -o obj/move/ft_entry_key.o -c srcs/move/ft_entry_key.c
-gcc -Wall -Werror -Wextra -o obj/move/ft_position.o -c srcs/move/ft_position.c
-gcc -Wall -Werror -Wextra -o obj/parsing/ft_check_file_name.o -c srcs/parsing/ft_check_file_name.c
-gcc -Wall -Werror -Wextra -o obj/parsing/ft_parsing_map_data.o -c srcs/parsing/ft_parsing_map_data.c
-gcc -Wall -Werror -Wextra -o obj/parsing/ft_parsing_map_data_bis.o -c srcs/parsing/ft_parsing_map_data_bis.c
-gcc -Wall -Werror -Wextra -o obj/parsing/ft_parsing_map_map.o -c srcs/parsing/ft_parsing_map_map.c
-gcc -Wall -Werror -Wextra -o obj/parsing/ft_parsing_map_map_bis.o -c srcs/parsing/ft_parsing_map_map_bis.c
-gcc -Wall -Werror -Wextra -o obj/parsing/ft_parsing_map_utils.o -c srcs/parsing/ft_parsing_map_utils.c
-gcc -Wall -Werror -Wextra -o obj/parsing/ft_parsing_map.o -c srcs/parsing/ft_parsing_map.c
-gcc -Wall -Werror -Wextra -o obj/parsing/ft_parsing_map_bis.o -c srcs/parsing/ft_parsing_map_bis.c
-gcc -Wall -Werror -Wextra -o obj/parsing/ft_parsing_utils.o -c srcs/parsing/ft_parsing_utils.c
-gcc -Wall -Werror -Wextra -o obj/parsing/ft_structs.o -c srcs/parsing/ft_structs.c
-gcc -Wall -Werror -Wextra -o obj/utils/ft_error_1.o -c srcs/utils/ft_error_1.c
-gcc -Wall -Werror -Wextra -o obj/utils/ft_utils.o -c srcs/utils/ft_utils.c
-gcc -Wall -Werror -Wextra -o obj/gnl/get_next_line.o -c srcs/gnl/get_next_line.c
-gcc -Wall -Werror -Wextra -o obj/gnl/get_next_line_bis.o -c srcs/gnl/get_next_line_bis.c
-gcc -Wall -Werror -Wextra -o obj/gnl/get_next_line_utils.o -c srcs/gnl/get_next_line_utils.c
+ 
 gcc -Wall -Werror -Wextra -o obj/disp/ft_windows.o -c srcs/disp/ft_windows.c
+ 
+gcc -Wall -Werror -Wextra -o obj/disp/ft_screen.o -c srcs/disp/ft_screen.c
+ 
+gcc -Wall -Werror -Wextra -o obj/calc/ft_calc_thales.o -c srcs/calc/ft_calc_thales.c
 make re -sC ./libft/
-gcc  srcs/main.c   -Wall -Werror -Wextra   obj/move/ft_entry_key.o  obj/move/ft_position.o  obj/parsing/ft_check_file_name.o  obj/parsing/ft_parsing_map_data.o  obj/parsing/ft_parsing_map_data_bis.o  obj/parsing/ft_parsing_map_map.o  obj/parsing/ft_parsing_map_map_bis.o  obj/parsing/ft_parsing_map_utils.o  obj/parsing/ft_parsing_map.o  obj/parsing/ft_parsing_map_bis.o  obj/parsing/ft_parsing_utils.o  obj/parsing/ft_structs.o  obj/utils/ft_error_1.o  obj/utils/ft_utils.o  obj/gnl/get_next_line.o  obj/gnl/get_next_line_bis.o  obj/gnl/get_next_line_utils.o  obj/disp/ft_windows.o  ./libft/libft.a -I /usr/X11/include -g -L /usr/X11/lib -lX11 -lmlx -lXext -Lmlx -lmlx  -lXext -lX11 -lm ./mlx/libmlx_Linux.a ./mlx/libmlx.a -o cub3D
-# @gcc srcs/main.c  -Wall -Werror -Wextra  -I /usr/X11/include -g -L /usr/X11/lib -lX11 -lmlx -lXext -Lmlx -lmlx  -lXext -lX11 -lm ./libft/libft.a ./mlx/libmlx.a  obj/move/ft_entry_key.o  obj/move/ft_position.o  obj/parsing/ft_check_file_name.o  obj/parsing/ft_parsing_map_data.o  obj/parsing/ft_parsing_map_data_bis.o  obj/parsing/ft_parsing_map_map.o  obj/parsing/ft_parsing_map_map_bis.o  obj/parsing/ft_parsing_map_utils.o  obj/parsing/ft_parsing_map.o  obj/parsing/ft_parsing_map_bis.o  obj/parsing/ft_parsing_utils.o  obj/parsing/ft_structs.o  obj/utils/ft_error_1.o  obj/utils/ft_utils.o  obj/gnl/get_next_line.o  obj/gnl/get_next_line_bis.o  obj/gnl/get_next_line_utils.o  obj/disp/ft_windows.o -o cub3D
+gcc  srcs/main.c   -Wall -Werror -Wextra   obj/move/ft_entry_key.o  obj/move/ft_position.o  obj/parsing/ft_check_file_name.o  obj/parsing/ft_parsing_map_data.o  obj/parsing/ft_parsing_map_data_bis.o  obj/parsing/ft_parsing_map_map.o  obj/parsing/ft_parsing_map_map_bis.o  obj/parsing/ft_parsing_map_utils.o  obj/parsing/ft_parsing_map.o  obj/parsing/ft_parsing_map_bis.o  obj/parsing/ft_parsing_utils.o  obj/parsing/ft_structs.o  obj/utils/ft_error_1.o  obj/utils/ft_utils.o  obj/gnl/get_next_line.o  obj/gnl/get_next_line_bis.o  obj/gnl/get_next_line_utils.o  obj/disp/ft_windows.o  obj/disp/ft_screen.o  obj/calc/ft_calc_thales.o  ./libft/libft.a -I /usr/X11/include -g -L /usr/X11/lib -lX11 -lmlx -lXext -Lmlx -lmlx  -lXext -lX11 -lm ./mlx/libmlx_Linux.a ./mlx/libmlx.a -o cub3D
+# @gcc srcs/main.c  -Wall -Werror -Wextra  -I /usr/X11/include -g -L /usr/X11/lib -lX11 -lmlx -lXext -Lmlx -lmlx  -lXext -lX11 -lm ./libft/libft.a ./mlx/libmlx.a  obj/move/ft_entry_key.o  obj/move/ft_position.o  obj/parsing/ft_check_file_name.o  obj/parsing/ft_parsing_map_data.o  obj/parsing/ft_parsing_map_data_bis.o  obj/parsing/ft_parsing_map_map.o  obj/parsing/ft_parsing_map_map_bis.o  obj/parsing/ft_parsing_map_utils.o  obj/parsing/ft_parsing_map.o  obj/parsing/ft_parsing_map_bis.o  obj/parsing/ft_parsing_utils.o  obj/parsing/ft_structs.o  obj/utils/ft_error_1.o  obj/utils/ft_utils.o  obj/gnl/get_next_line.o  obj/gnl/get_next_line_bis.o  obj/gnl/get_next_line_utils.o  obj/disp/ft_windows.o  obj/disp/ft_screen.o  obj/calc/ft_calc_thales.o -o cub3D
 echo "cub3D ready to use!"
 make: Leaving directory '/mnt/nfs/homes/guderram/42/cub3d'
  

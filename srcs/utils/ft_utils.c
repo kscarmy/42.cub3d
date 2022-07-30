@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:35:30 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/29 13:24:46 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/30 13:29:37 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,22 @@ double	ft_radian_to_degrees(double rad)
 void	ft_red_pixel(w_point *w, int h, int x)
 {
 	int	i;
-	int	ret;
 	int	mid;
 
 	i = 0;
 	mid = RES_Y / 2;
-	ret = 0;
 	while (h < RES_Y && h > 0 && i < h && i <= RES_Y)
 	{
-		ret = mlx_pixel_put(w->mlx, w->win1, x, mid + i, 0xFF99FF);
-		ret = mlx_pixel_put(w->mlx, w->win1, x, mid - i, 0xFF99FF);
+		mlx_pixel_put(w->mlx, w->win1, x, mid + i, 0xFF99FF);
+		mlx_pixel_put(w->mlx, w->win1, x, mid - i, 0xFF99FF);
 		i++;
 	}
-	ret = ret;
+	while (i <= RES_Y)
+	{
+		mlx_pixel_put(w->mlx, w->win1, x, mid + i, w->map->ceiling);
+		mlx_pixel_put(w->mlx, w->win1, x, mid - i, w->map->floor);
+		i++;
+	}
 }
 
 int	ft_str_size(char *str)

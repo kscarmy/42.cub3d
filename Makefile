@@ -29,6 +29,8 @@ SRC =srcs/move/ft_entry_key.c \
 		srcs/gnl/get_next_line_bis.c \
 		srcs/gnl/get_next_line_utils.c \
 		srcs/disp/ft_windows.c \
+		srcs/disp/ft_screen.c \
+		srcs/calc/ft_calc_thales.c \
 
 MAIN_C = srcs/main.c\
 

@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:25:39 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/29 13:24:58 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/30 13:06:45 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,6 @@ typedef struct	j_point
 	char	*so; // ./path_to_the_south_texture
 	char	*we; // ./path_to_the_west_texture
 	char	*ea; // ./path_to_the_east_texture
-	// char	*s; // ./path_to_the_sprite_texture
 	char	spawn; // Position de spawn du joueur
 	char	**map; // La map mdrr
 	int		l; // nombre de lignes de la map
@@ -148,7 +147,7 @@ typedef struct k_point
 	int		x; // position sur la map du perso
 	int		y; // position sur la map du perso
 	double	d; // angle où se situe la vue du perso (d pour degré) : entre 0 et 359, où 0 regarde totalement direction nord
-	int		screen_range; // distance entre la camera et lecran.
+	double		sr; // distance entre la camera et lecran.
 	// int		max_x; // max de x dans la ligne
 	// int		max_y; // max de y dans la map
 	// c_point *ca; // struct de calculs
@@ -255,9 +254,9 @@ void	ft_exit_free_map_paths(m_point *m);
 int		ft_exit_free_map(m_point *m, int ret);
 
 
-/*	**********	*/
-/*	 WINDOWS	*/
-/*	**********	*/
+/*	*******	*/
+/*	 DISP	*/
+/*	*******	*/
 
 /*	ft_windows.c	*/
 void	ft_init_w(w_point *w, m_point *m);
@@ -265,6 +264,16 @@ int		ft_is_worldspawn(char c);
 void	ft_found_worldspawn(w_point *w);
 void	ft_exit_free_all(w_point *w, int ret);
 void	ft_windows(m_point *m);
+
+/*	ft_screen.c	*/
+void	ft_screen(w_point *w);
+void	ft_screen_init(w_point *w);
+
+/*	*******	*/
+/*	 CALC	*/
+/*	*******	*/
+
+/*	ft_calc_thales.c	*/
 
 
 #endif
