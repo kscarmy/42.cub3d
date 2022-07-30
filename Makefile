@@ -31,6 +31,7 @@ SRC =srcs/move/ft_entry_key.c \
 		srcs/disp/ft_windows.c \
 		srcs/disp/ft_screen.c \
 		srcs/calc/ft_calc_thales.c \
+		srcs/calc/ft_calc_init.c \
 
 MAIN_C = srcs/main.c\
 

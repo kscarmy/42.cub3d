@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:25:39 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/30 14:51:12 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/30 17:32:26 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@
 /*	Distance de deplacement lors d'une pression de touche	*/
 # define MOVE_SIZE 8
 /*	Taille de la FOV, le champ de vision, en degre	*/
-# define FOV_SIZE 60
+# define FOV_SIZE 90
 /*	Angle de rotation lors d'une pression de touche	*/
 # define ANG_SIZE 5
 /*	Resolution de la fenetre	*/
@@ -279,6 +279,14 @@ void	ft_screen_init(w_point *w);
 
 /*	ft_calc_thales.c	*/
 double	ft_thales_angle_conv(w_point *w, double d);
+double	ft_thales_pytha(double x, double y);
 double  ft_thales_range(w_point *w, double d);
+
+/*	ft_calc_init.c	*/
+void	ft_re_set_calc(w_point *w);
+void	ft_vc_init_up(w_point *w, double d);
+void	ft_vc_init_down(w_point *w, double d);
+void	ft_hc_init_right(w_point *w, double d);
+void	ft_hc_init_left(w_point *w, double d);
 
 #endif

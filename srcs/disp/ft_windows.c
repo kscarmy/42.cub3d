@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 10:03:21 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/30 13:10:00 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/30 17:31:59 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	ft_is_worldspawn(char c)
 		return (1);
 	if (c == 'E')
 		return (1);
-	if (c == 'O')
+	if (c == 'W')
 		return (1);
 	return (0);
 }
@@ -90,8 +90,14 @@ void	ft_exit_free_all(w_point *w, int ret)
 void	ft_windows(m_point *m)
 {
 	w_point	w;
+	v_point *v;
+	h_point *h;
 
+	h = malloc(sizeof(h_point));
+	v = malloc(sizeof(v_point));
 	ft_init_w(&w, m);
+	w.h = h;
+	w.v = v;
 	if (w.er > 0)
 		ft_exit_free_all(&w, -1);
 	printf("Pas d'erreur d'initialisation\n");

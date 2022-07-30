@@ -6,8 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
- 
-# Make data base, printed on Sat Jul 30 12:53:21 2022
+# Make data base, printed on Sat Jul 30 15:21:26 2022
 
 # Variables
 
@@ -19,12 +18,12 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 DESKTOP_SESSION = ubuntu
 # default
 .SHELLFLAGS := -c
-# makefile (from 'Makefile', line 39)
+# makefile (from 'Makefile', line 40)
 OBJ = ${patsubst srcs/%, obj/%, $(SRC:.c=.o)}
 # environment
 XDG_SESSION_CLASS = user
 # makefile (from 'Makefile', line 14)
-SRC = srcs/move/ft_entry_key.c srcs/move/ft_position.c srcs/parsing/ft_check_file_name.c srcs/parsing/ft_parsing_map_data.c srcs/parsing/ft_parsing_map_data_bis.c srcs/parsing/ft_parsing_map_map.c srcs/parsing/ft_parsing_map_map_bis.c srcs/parsing/ft_parsing_map_utils.c srcs/parsing/ft_parsing_map.c srcs/parsing/ft_parsing_map_bis.c srcs/parsing/ft_parsing_utils.c srcs/parsing/ft_structs.c srcs/utils/ft_error_1.c srcs/utils/ft_utils.c srcs/gnl/get_next_line.c srcs/gnl/get_next_line_bis.c srcs/gnl/get_next_line_utils.c srcs/disp/ft_windows.c srcs/disp/ft_screen.c srcs/calc/ft_calc_thales.c 
+SRC = srcs/move/ft_entry_key.c srcs/move/ft_position.c srcs/parsing/ft_check_file_name.c srcs/parsing/ft_parsing_map_data.c srcs/parsing/ft_parsing_map_data_bis.c srcs/parsing/ft_parsing_map_map.c srcs/parsing/ft_parsing_map_map_bis.c srcs/parsing/ft_parsing_map_utils.c srcs/parsing/ft_parsing_map.c srcs/parsing/ft_parsing_map_bis.c srcs/parsing/ft_parsing_utils.c srcs/parsing/ft_structs.c srcs/utils/ft_error_1.c srcs/utils/ft_utils.c srcs/gnl/get_next_line.c srcs/gnl/get_next_line_bis.c srcs/gnl/get_next_line_utils.c srcs/disp/ft_windows.c srcs/disp/ft_screen.c srcs/calc/ft_calc_thales.c srcs/calc/ft_calc_init.c 
 # environment
 XDG_SESSION_TYPE = x11
 # environment
@@ -43,7 +42,7 @@ XMODIFIERS = @im=ibus
 CURDIR := /mnt/nfs/homes/guderram/42/cub3d
 # makefile
 SHELL = /bin/sh
-# makefile (from 'Makefile', line 49)
+# makefile (from 'Makefile', line 50)
 RM = rm -rf
 # environment
 GDM_LANG = en
@@ -53,7 +52,7 @@ VTE_VERSION = 6003
 VSCODE_NLS_CONFIG = {"locale":"fr","availableLanguages":{"*":"fr"},"_languagePackId":"575d78304484aa5fa0cbb32d34fd883d.fr","_translationsConfigFile":"/mnt/nfs/homes/guderram/.config/Code/clp/575d78304484aa5fa0cbb32d34fd883d.fr/tcf.json","_cacheRoot":"/mnt/nfs/homes/guderram/.config/Code/clp/575d78304484aa5fa0cbb32d34fd883d.fr","_resolvedLanguagePackCoreLocation":"/mnt/nfs/homes/guderram/.config/Code/clp/575d78304484aa5fa0cbb32d34fd883d.fr/30d9c6cd9483b2cc586687151bcbcd635f373630","_corruptedFile":"/mnt/nfs/homes/guderram/.config/Code/clp/575d78304484aa5fa0cbb32d34fd883d.fr/corrupted.info","_languagePackSupport":true}
 # environment
 _ = /usr/bin/code
-# makefile (from 'Makefile', line 50)
+# makefile (from 'Makefile', line 51)
 CFLAGS = -Wall -Werror -Wextra
 # environment
 JOURNAL_STREAM = 9:2213057
@@ -61,7 +60,7 @@ JOURNAL_STREAM = 9:2213057
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile (from 'Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
-# makefile (from 'Makefile', line 44)
+# makefile (from 'Makefile', line 45)
 LIB_FLAGS = -L $(LIBFT_DIR)
 # automatic
 @F = $(notdir $@)
@@ -107,7 +106,7 @@ ELECTRON_RUN_AS_NODE = 1
 INVOCATION_ID = e953a1333f454b448853a89278cf364c
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
-# makefile (from 'Makefile', line 43)
+# makefile (from 'Makefile', line 44)
 LIBFT_DIR = ./libft/
 # environment
 XDG_GREETER_DATA_DIR = /var/lib/lightdm-data/guderram
@@ -129,11 +128,11 @@ PWD = /mnt/nfs/homes/guderram/42/cub3d
 .LOADED := 
 # environment
 SSH_AGENT_PID = 356242
-# makefile (from 'Makefile', line 56)
+# makefile (from 'Makefile', line 57)
 DONE = @echo "cub3D ready to use!"
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
-# makefile (from 'Makefile', line 35)
+# makefile (from 'Makefile', line 36)
 MAIN_C = srcs/main.c 
 # environment
 GTK_MODULES = gail:atk-bridge
@@ -169,11 +168,11 @@ MAKECMDGOALS := all
 QT_IM_MODULE = ibus
 # environment
 SHLVL = 2
-# makefile (from 'Makefile', line 42)
+# makefile (from 'Makefile', line 43)
 LIBFT = -L libft/libft.a
-# makefile (from 'Makefile', line 54)
+# makefile (from 'Makefile', line 55)
 CLEAN_O = @echo "Object files removed!"
-# makefile (from 'Makefile', line 48)
+# makefile (from 'Makefile', line 49)
 CC = gcc
 # default
 MAKE_VERSION := 4.2.1
@@ -189,7 +188,7 @@ LIBVIRT_DEFAULT_URI = qemu:///system
 %D = $(patsubst %/,%,$(dir $%))
 # default
 MAKE_COMMAND := make
-# makefile (from 'Makefile', line 45)
+# makefile (from 'Makefile', line 46)
 INC = -I ./inc/ -I $(LIBFT_DIR)
 # environment
 OLDPWD = /mnt/nfs/homes/guderram
@@ -215,7 +214,7 @@ MFLAGS = -pqrR
 GDK_BACKEND = x11
 # automatic
 +F = $(notdir $+)
-# makefile (from 'Makefile', line 55)
+# makefile (from 'Makefile', line 56)
 CLEAN_A = @echo "Executables removed!"
 # environment
 QT_ACCESSIBILITY = 1
@@ -231,7 +230,7 @@ LC_ALL = C
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # environment
 GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/9307bb15_d265_412d_931b_5ce77b08ef8f
-# makefile (from 'Makefile', line 67)
+# makefile (from 'Makefile', line 68)
 MR_LIBFT = make re -sC $(LIBFT_DIR)
 # automatic
 ^F = $(notdir $^)
@@ -266,15 +265,16 @@ VSCODE_PID = 358249
 
 # Directories
 
-# . (device 59, inode 264210003): 15 files, no impossibilities.
+ 
+# . (device 59, inode 264210003): 12 files, no impossibilities.
 # srcs (device 59, inode 56233031): No files, no impossibilities so far.
 
-# 15 files, no impossibilities in 2 directories.
+# 12 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
 obj/%.o: srcs/%.c
-#  recipe to execute (from 'Makefile', line 84):
+#  recipe to execute (from 'Makefile', line 85):
 	@$(CC) $(CFLAGS) -o $@ -c $<
 
 # 1 implicit rules, 0 (0.0%) terminal.
@@ -285,7 +285,7 @@ obj/%.o: srcs/%.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 71):
+#  recipe to execute (from 'Makefile', line 72):
 	make -sC $(LIBFT_DIR)
 
 # Not a target:
@@ -293,7 +293,6 @@ obj/gnl/get_next_line.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
- 
 
 all: obj cub3D
 #  Phony target (prerequisite of .PHONY).
@@ -316,11 +315,11 @@ obj/calc/ft_calc_thales.o:
 #  Modification time never checked.
 #  File has not been updated.
 
-cub3D: obj/move/ft_entry_key.o obj/move/ft_position.o obj/parsing/ft_check_file_name.o obj/parsing/ft_parsing_map_data.o obj/parsing/ft_parsing_map_data_bis.o obj/parsing/ft_parsing_map_map.o obj/parsing/ft_parsing_map_map_bis.o obj/parsing/ft_parsing_map_utils.o obj/parsing/ft_parsing_map.o obj/parsing/ft_parsing_map_bis.o obj/parsing/ft_parsing_utils.o obj/parsing/ft_structs.o obj/utils/ft_error_1.o obj/utils/ft_utils.o obj/gnl/get_next_line.o obj/gnl/get_next_line_bis.o obj/gnl/get_next_line_utils.o obj/disp/ft_windows.o obj/disp/ft_screen.o obj/calc/ft_calc_thales.o
+cub3D: obj/move/ft_entry_key.o obj/move/ft_position.o obj/parsing/ft_check_file_name.o obj/parsing/ft_parsing_map_data.o obj/parsing/ft_parsing_map_data_bis.o obj/parsing/ft_parsing_map_map.o obj/parsing/ft_parsing_map_map_bis.o obj/parsing/ft_parsing_map_utils.o obj/parsing/ft_parsing_map.o obj/parsing/ft_parsing_map_bis.o obj/parsing/ft_parsing_utils.o obj/parsing/ft_structs.o obj/utils/ft_error_1.o obj/utils/ft_utils.o obj/gnl/get_next_line.o obj/gnl/get_next_line_bis.o obj/gnl/get_next_line_utils.o obj/disp/ft_windows.o obj/disp/ft_screen.o obj/calc/ft_calc_thales.o obj/calc/ft_calc_init.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 62):
+#  recipe to execute (from 'Makefile', line 63):
 	$(MR_LIBFT)
 	$(CC)  $(MAIN_C)  $(CFLAGS)  $(OBJ)  ./libft/libft.a $(MLXFLAGS) ./mlx/libmlx_Linux.a ./mlx/libmlx.a -o $(NAME)
 	# @$(CC) $(MAIN_C) $(CFLAGS)  $(MLXFLAGS) ./libft/libft.a ./mlx/libmlx.a $(OBJ) -o $(NAME)
@@ -341,7 +340,7 @@ obj/parsing/ft_parsing_map_bis.o:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-30 12:53:19.49139424
+#  Last modified 2022-07-30 15:21:07.66273548
 #  File has been updated.
 #  Successfully updated.
 
@@ -364,6 +363,12 @@ obj/parsing/ft_parsing_utils.o:
 #  File has not been updated.
 
 # Not a target:
+obj/calc/ft_calc_init.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 obj/parsing/ft_parsing_map_data.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -373,7 +378,7 @@ libft/libft.a:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 71):
+#  recipe to execute (from 'Makefile', line 72):
 	make -sC $(LIBFT_DIR)
 
 fclean: clean
@@ -381,7 +386,7 @@ fclean: clean
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 92):
+#  recipe to execute (from 'Makefile', line 93):
 	@make fclean -sC $(LIBFT_DIR)
 	@${RM} ${NAME}
 	$(CLEAN_A)
@@ -423,7 +428,7 @@ obj:
 # ? := 
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=1/11=9%
-#  recipe to execute (from 'Makefile', line 74):
+#  recipe to execute (from 'Makefile', line 75):
 	@mkdir -p obj
 	@mkdir -p obj/calc
 	@mkdir -p obj/disp
@@ -479,7 +484,7 @@ clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 87):
+#  recipe to execute (from 'Makefile', line 88):
 	@make clean -sC $(LIBFT_DIR)
 	@${RM} obj ${OBJ}
 	$(CLEAN_O)
@@ -521,19 +526,19 @@ obj/parsing/ft_parsing_map.o:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=32/1024=3%, Rehash=0, Collisions=2/76=3%
+# Load=33/1024=3%, Rehash=0, Collisions=2/78=3%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 48 / storage = 772 B / avg = 16 B
-# current buf: size = 8162 B / used = 772 B / count = 48 / avg = 16 B
+# strcache buffers: 1 (0) / strings = 48 / storage = 785 B / avg = 16 B
+# current buf: size = 8162 B / used = 785 B / count = 48 / avg = 16 B
 
-# strcache performance: lookups = 76 / hit rate = 36%
+# strcache performance: lookups = 74 / hit rate = 35%
 # hash-table stats:
-# Load=48/8192=1%, Rehash=0, Collisions=1/76=1%
-# Finished Make data base on Sat Jul 30 12:53:21 2022
+# Load=48/8192=1%, Rehash=0, Collisions=1/74=1%
+# Finished Make data base on Sat Jul 30 15:21:26 2022
 
  
