@@ -6,11 +6,11 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:30:43 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/19 23:20:40 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/07/30 21:12:04 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "../../includes/cub3d.h"
 
 // prints map.cub
 void    ft_map_disp_pos(w_point *win)
@@ -20,15 +20,15 @@ void    ft_map_disp_pos(w_point *win)
 	
 	a = 0;
 	c = 0;
-	ft_printf("pos : \n");
+	printf("pos : \n");
 	while (win->map->map[a] != NULL)
 	{
 		while (win->map->map[a][c] != '\0')
 		{
-			ft_printf("\033[0m%c", win->map->map[a][c]);
+			printf("\033[0m%c", win->map->map[a][c]);
 			c++;
 		}
-		ft_printf("\n");
+		printf("\n");
 		c = 0;
 		a++;
 	}
@@ -106,7 +106,7 @@ int		ft_move_zqsd(int key, w_point *win)
 		if (win->pos_y > 100 || win->pos_y < 0 || win->pos_x > 100 || win->pos_x < 0)
 			ft_move_in_casa(win);
 	}
-	ft_printf("================\nkey : %d\nPos_X : %d\nPos_Y : %d\nX : %d\nY : %d\nD : %d\n"
+	printf("================\nkey : %d\nPos_X : %d\nPos_Y : %d\nX : %d\nY : %d\nD : %d\n"
 		, key, win->pos_x, win->pos_y, win->x, win->y, (int) win->d);
 	return(0);
 }

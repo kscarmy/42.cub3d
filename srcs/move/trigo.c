@@ -6,11 +6,11 @@
 /*   By: mourdani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 18:05:01 by mourdani          #+#    #+#             */
-/*   Updated: 2022/07/19 23:04:35 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/07/30 21:04:53 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "../../includes/cub3d.h"
 // Convert to radian
 // Return Double
 

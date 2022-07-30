@@ -6,11 +6,11 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 12:45:32 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/19 23:17:51 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/07/30 21:10:52 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "../../includes/cub3d.h"
 
 int		ft_entry_keyboard(int key, void *p)
 {
@@ -31,7 +31,6 @@ int		ft_entry_keyboard(int key, void *p)
 	{
 		ft_move_zqsd(key, win);
 		mlx_clear_window(win->mlx, win->win1);
-		ft_reset_ca(win);
 		ft_screen(win); // affiche les déplacements
 	}
 	return (0);

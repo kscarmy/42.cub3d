@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:25:39 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/30 17:32:26 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/30 21:09:23 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,20 +165,6 @@ typedef struct k_point
 /*	main.c	*/
 int		main(int argc, char **argv);
 
-
-/*	******	*/
-/*	 MOVE	*/
-/*	******	*/
-
-/*	ft_entry_key.c	*/
-int		ft_entry_keyboard(int key, void *p);
-
-/*	ft_position.c	*/
-void	ft_map_disp_pos(w_point *win);
-void	ft_move_in_casa(w_point *win);
-int		ft_move_zqsd(int key, w_point *win);
-
-
 /*	*******	*/
 /*	 UTILS	*/
 /*	*******	*/
@@ -288,5 +274,22 @@ void	ft_vc_init_up(w_point *w, double d);
 void	ft_vc_init_down(w_point *w, double d);
 void	ft_hc_init_right(w_point *w, double d);
 void	ft_hc_init_left(w_point *w, double d);
+
+/*	******** */
+/*	MOVE	 */
+/*	******** */
+
+/*	trigo.c		*/
+double convert_to_radian(double degree);
+double find_y(double d, double h);
+double find_x(double d, double h);
+
+/*	ft_entry_key.c	*/
+int		ft_entry_keyboard(int key, void *p);
+
+/*	ft_position.c	*/
+void	ft_map_disp_pos(w_point *win);
+void	ft_move_in_casa(w_point *win);
+int		ft_move_zqsd(int key, w_point *win);
 
 #endif
