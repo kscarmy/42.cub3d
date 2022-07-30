@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:25:39 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/30 13:06:45 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/30 14:51:12 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,11 @@
 # define FOV_SIZE 60
 /*	Angle de rotation lors d'une pression de touche	*/
 # define ANG_SIZE 5
+/*	Resolution de la fenetre	*/
 # define RES_X 320
 # define RES_Y 200
+/*	Taille des murs	*/
+# define WALL_SIZE 64
 
 
 /*	******	*/
@@ -193,6 +196,7 @@ double	ft_radian_to_degrees(double rad);
 void	ft_red_pixel(w_point *w, int h, int x);
 int		ft_str_size(char *str);
 int		ft_is_entier(double a); // retourne 1 si le nombre n'est pa entier sinon 0
+double	ft_double_abs(double val);
 
 
 /*	**********	*/
@@ -274,6 +278,7 @@ void	ft_screen_init(w_point *w);
 /*	*******	*/
 
 /*	ft_calc_thales.c	*/
-
+double	ft_thales_angle_conv(w_point *w, double d);
+double  ft_thales_range(w_point *w, double d);
 
 #endif
