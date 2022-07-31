@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 15:21:42 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/31 11:03:43 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/31 11:35:49 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,13 @@ void	ft_vc_init_up(w_point *w, double d)
 		w->h->hx = (double)w->x + ((double)w->pos_x / 100) + w->h->hcx;
 	else
 		w->h->hx = (double)w->x + ((double)w->pos_x / 100) - w->h->hcx;
+
+	w->h->hcy = 1;
+	if (d <= 90)
+		w->h->hcx = w->h->hcy / tan(ft_degrees_to_radian(d));
+	else
+		w->h->hcx = w->h->hcy / tan(ft_degrees_to_radian(360 - d));
+	w->h->hcr = ft_thales_pytha(w->h->hcx, w->h->hcy);
 }
 
 void	ft_vc_init_down(w_point *w, double d)
@@ -56,6 +63,13 @@ void	ft_vc_init_down(w_point *w, double d)
 		w->h->hx = (double)w->x + ((double)w->pos_x / 100) + w->h->hcx;
 	else
 		w->h->hx = (double)w->x + ((double)w->pos_x / 100) - w->h->hcx;
+
+	w->h->hcy = 1;
+	if (d > 90 && d <= 180)
+		w->h->hcx = w->h->hcy / tan(ft_degrees_to_radian(180 - d));
+	else
+		w->h->hcx = w->h->hcy / tan(ft_degrees_to_radian(d - 180));
+	w->h->hcr = ft_thales_pytha(w->h->hcx, w->h->hcy);
 }
 
 void	ft_hc_init_right(w_point *w, double d)
@@ -71,6 +85,13 @@ void	ft_hc_init_right(w_point *w, double d)
 		w->v->vy = (double)w->y + ((double)w->pos_y / 100) - w->v->vcy;
 	else
 		w->v->vy = (double)w->y + ((double)w->pos_y / 100) + w->v->vcy;
+
+	w->v->vcx = 1;
+	if (d <= 90)
+		w->v->vcy = w->v->vcx / tan(ft_degrees_to_radian(90 - d));
+	else
+		w->v->vcy = w->v->vcx / tan(ft_degrees_to_radian(d - 90));
+	w->v->vcr = ft_thales_pytha(w->v->vcx, w->v->vcy);
 }
 
 void	ft_hc_init_left(w_point *w, double d)
@@ -86,4 +107,11 @@ void	ft_hc_init_left(w_point *w, double d)
 		w->v->vy = (double)w->y + ((double)w->pos_y / 100) - w->v->vcy;
 	else
 		w->v->vy = (double)w->y + ((double)w->pos_y / 100) + w->v->vcy;
+
+	w->v->vcx = 1;
+	if (d <= 270)
+		w->v->vcy = w->v->vcx / tan(ft_degrees_to_radian(270 - d));
+	else
+		w->v->vcy = w->v->vcx / tan(ft_degrees_to_radian(270 - d));
+	w->v->vcr = ft_thales_pytha(w->v->vcx, w->v->vcy);
 }

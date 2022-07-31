@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:52:57 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/31 11:06:20 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/31 11:56:39 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ void	ft_screen(w_point *w)
 	d = (double)FOV_SIZE / (double)RES_X;
 	while (i <= (RES_X / 2) && 1 < 5)
 	{
-		r = ft_thales_range(w, ft_thales_angle_conv(w, d * i)) + 500;
+		r = ft_thales_range(w, ft_thales_angle_conv(w, d * i));
 		ft_red_pixel(w, (w->sr * (double)WALL_SIZE) / r, (RES_X / 2) + i);
-		r = ft_thales_range(w, ft_thales_angle_conv(w, d * i * -1)) + 500;
+		r = ft_thales_range(w, ft_thales_angle_conv(w, d * i * -1));
 		ft_red_pixel(w, (w->sr * (double)WALL_SIZE) / r, (RES_X / 2) - i);
 		i++;
 		max++;
