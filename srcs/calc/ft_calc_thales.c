@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:45:34 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/30 17:35:00 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/31 09:31:35 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,13 @@ double  ft_thales_range(w_point *w, double d)
 	{
 		
 		ret = w->v->vr;
-		printf("ft_thales_range : VR ret %f d %f\n", ret, d);
+//		printf("ft_thales_range : VR ret %f d %f\n", ret, d);
 	}
 	else
 	{
 
 		ret = w->h->hr;
-		printf("ft_thales_range : HR ret %f d %f\n", ret, d);
+//		printf("ft_thales_range : HR ret %f d %f\n", ret, d);
 	}
 	w = w;
 	return (ret * 100);
