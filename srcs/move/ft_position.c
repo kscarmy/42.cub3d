@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:30:43 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/31 09:30:28 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/07/31 09:36:09 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,8 @@ void	rotate(int key, w_point *win)
 		win->d = 0;
 }
 
-int		ft_move_zqsd(int key, w_point *win)
+void	zqsd(int key, w_point *win)
 {
-	rotate(key, win);
 	if (key == KEY_MOVE_FRONT)
 	{
 		win->pos_y += find_y(win->d, MOVE_SIZE);
@@ -92,6 +91,12 @@ int		ft_move_zqsd(int key, w_point *win)
 		win->pos_y -= find_x(win->d, MOVE_SIZE);
 		win->pos_x -= find_y(win->d, MOVE_SIZE);
 	}
+}
+
+int		ft_move_zqsd(int key, w_point *win)
+{
+	rotate(key, win);
+	zqsd(key, win);	
 	if (win->pos_y > 100
 		|| win->pos_y < 0
 		|| win->pos_x > 100
