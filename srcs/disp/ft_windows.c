@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 10:03:21 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/30 17:31:59 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/31 11:06:47 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,14 +84,13 @@ void	ft_exit_free_all(w_point *w, int ret)
 	mlx_clear_window(w->mlx, w->win1);
 	mlx_destroy_window(w->mlx, w->win1);
 	ret = ret;
-	// exit(ft_exit_free_map(w->map, ret));
 }
 
 void	ft_windows(m_point *m)
 {
 	w_point	w;
-	v_point *v;
-	h_point *h;
+	v_point	*v;
+	h_point	*h;
 
 	h = malloc(sizeof(h_point));
 	v = malloc(sizeof(v_point));

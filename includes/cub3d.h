@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:25:39 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/30 21:09:23 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/07/31 10:25:35 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@
 /*	Distance de deplacement lors d'une pression de touche	*/
 # define MOVE_SIZE 8
 /*	Taille de la FOV, le champ de vision, en degre	*/
-# define FOV_SIZE 90
+# define FOV_SIZE 60
 /*	Angle de rotation lors d'une pression de touche	*/
 # define ANG_SIZE 5
 /*	Resolution de la fenetre	*/

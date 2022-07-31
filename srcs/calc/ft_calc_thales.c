@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:45:34 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/30 17:35:00 by guderram         ###   ########.fr       */
+/*   Updated: 2022/07/31 11:04:48 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,13 @@
 double	ft_thales_angle_conv(w_point *w, double d)
 {
 	double	ret;
-	
-	// printf("tha ang conv : 1 floor %d\n", w->map->floor);
+
 	ret = w->d;
 	ret = ret + d;
 	if (ret < 0)
 		ret = 360 - ft_double_abs(ret);
 	if (ret >= 360)
 		ret = ret - 360;
-	// printf("tha ang conv : 2 floor %d\n", w->map->floor);
 	return (ret);
 }
 
@@ -36,7 +34,7 @@ double	ft_thales_pytha(double x, double y)
 	return (ret);
 }
 
-double  ft_thales_range(w_point *w, double d)
+double	ft_thales_range(w_point *w, double d)
 {
 	double	ret;
 
@@ -52,13 +50,11 @@ double  ft_thales_range(w_point *w, double d)
 		ft_hc_init_left(w, d);
 	if (w->v->vr <= w->h->hr)
 	{
-		
 		ret = w->v->vr;
 		printf("ft_thales_range : VR ret %f d %f\n", ret, d);
 	}
 	else
 	{
-
 		ret = w->h->hr;
 		printf("ft_thales_range : HR ret %f d %f\n", ret, d);
 	}
