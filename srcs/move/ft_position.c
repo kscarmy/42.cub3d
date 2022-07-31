@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:30:43 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/31 09:36:09 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/07/31 09:39:58 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,12 +84,12 @@ void	zqsd(int key, w_point *win)
 	else if (key == KEY_MOVE_LEFT)
 	{
 		win->pos_y += find_x(win->d, MOVE_SIZE);
-		win->pos_x += find_y(win->d, MOVE_SIZE);
+		win->pos_x -= find_y(win->d, MOVE_SIZE);
 	}
 	else if (key == KEY_MOVE_RIGHT)
 	{
 		win->pos_y -= find_x(win->d, MOVE_SIZE);
-		win->pos_x -= find_y(win->d, MOVE_SIZE);
+		win->pos_x += find_y(win->d, MOVE_SIZE);
 	}
 }
 
