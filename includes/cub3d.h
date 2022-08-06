@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:25:39 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/06 08:21:12 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/06 08:36:34 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@
 /*	Taille des murs	*/
 # define WALL_SIZE 64
 
-# define PIXEL_SIZE 5
+# define PIXEL_SIZE 100
 
 
 /*	******	*/

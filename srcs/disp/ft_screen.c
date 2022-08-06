@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:52:57 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/06 08:21:14 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/06 08:35:45 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,30 +28,42 @@ void	ft_screen(w_point *w)
 	int	max = 0;
 	double	r;
 	double	d;
-	int	u;
+	int	a; // droite de lecran
+	int	b; // gauche de lecran
 	
 	i = 0;
-	u = 0;
+	r = 0;
+	a = 0;
+	b = 0;
 	r = 100000;
 	d = (double)FOV_SIZE / (double)RES_X;
 	while (i <= (RES_X / 2) && 1 < 2)
 	{
-		while (u < PIXEL_SIZE)
+			/*	ZONE DROITE DE L	ECRAN	*/
+		r = ft_thales_range(w, ft_thales_angle_conv(w, d * i)) + 500;
+		while (a < PIXEL_SIZE)
 		{
-				/*	ZONE DROITE DE L	ECRAN	*/
-			r = ft_thales_range(w, ft_thales_angle_conv(w, d * i)) + 500;
 			/*	FONCTION DAFFICHAGE DE LA COLONNE	*/
 			ft_red_pixel(w, (w->sr * (double)WALL_SIZE) / r, (RES_X / 2) + i); // PROVISOIRE
-
-
+			a++;
+			i++;
+		}
+		a = 0;
+		i = i - PIXEL_SIZE;
 				/*	ZONE GAUCHE DE LECRAN	*/
-			r = ft_thales_range(w, ft_thales_angle_conv(w, d * i * -1)) + 500;
+		r = ft_thales_range(w, ft_thales_angle_conv(w, d * i * -1)) + 500;
+		while (b < PIXEL_SIZE)
+		{
+			
+			
+
+
 			/*	FONCTION DAFFICHAGE DE LA COLONNE	*/
 			ft_red_pixel(w, (w->sr * (double)WALL_SIZE) / r, (RES_X / 2) - i); // PROVISOIRE
 			i++;
-			u++;
+			b++;
 		}
-		u = 0;
+		b = 0;
 		max++;
 	}
 	d = d;

@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 10:03:21 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/06 08:22:35 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/06 08:30:29 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void	ft_windows(m_point *m)
 	// movement with key maintained
 	mlx_hook(w.win1, 02, 1L<<0,  ft_entry_keyboard, &w);
 	// movement at key press only
-	//mlx_key_hook(w.win1, ft_entry_keyboard, &w);
+	// mlx_key_hook(w.win1, ft_entry_keyboard, &w);
 	mlx_loop(w.mlx);
 	ft_exit_free_all(&w, 0);
 }
