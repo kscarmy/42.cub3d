@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:45:34 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/06 13:17:25 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/06 15:33:29 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,19 @@ void	ft_thales_init(w_point *w, double d)
 		w->dirx = -1;
 	else // vers la droite donc x incremente
 		w->dirx = 1;
+
+	ft_vc_init(w, d);
+	ft_hc_init(w, d);	
 	// ft_vc_init(w, d);
 	// ft_hc_init(w, d);
-	if (d > 90 && d <= 270)
-		ft_vc_init_down(w, d);
-	else
-		ft_vc_init_up(w, d);
-	if (d <= 180)
-		ft_hc_init_right(w, d);
-	else
-		ft_hc_init_left(w, d);
+	// if (d > 90 && d <= 270)
+	// 	ft_vc_init_down(w, d);
+	// else
+	// 	ft_vc_init_up(w, d);
+	// if (d <= 180)
+	// 	ft_hc_init_right(w, d);
+	// else
+	// 	ft_hc_init_left(w, d);
 }
 
 int	ft_thales_wall(m_point *m, double x, double y)
@@ -81,12 +84,12 @@ double	ft_thales_range(w_point *w, double d)
 	ret = 0;
 	i = 0;
 	ft_thales_init(w, d);
-	// while (i < 2)
-	// {
-	// 	ft_vc_add(w, d);
-	// 	ft_hc_add(w, d);
-	// 	i++;
-	// }
+	while (i < 2)
+	{
+		ft_vc_add(w);
+		ft_hc_add(w);
+		i++;
+	}
 	// while (i < 10 && ft_thales_wall(w->map, w->h->hx, w->h->hy))
 	// {
 	// 	ft_vc_add(w, d);

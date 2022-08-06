@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:25:39 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/06 12:46:32 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/06 15:33:15 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@
 
 # define PIXEL_SIZE 8
 
-# define PI_VAL 3.1415
+# define PI_VAL 3.141
 
 
 /*	******	*/
@@ -282,19 +282,22 @@ double  ft_thales_range(w_point *w, double d);
 
 /*	ft_calc_init.c	*/
 void	ft_re_set_calc(w_point *w);
-void	ft_vc_init_up(w_point *w, double d);
-void	ft_vc_init_down(w_point *w, double d);
-void	ft_hc_init_right(w_point *w, double d);
-void	ft_hc_init_left(w_point *w, double d);
+// void	ft_vc_init_up(w_point *w, double d);
+// void	ft_vc_init_down(w_point *w, double d);
+// void	ft_hc_init_right(w_point *w, double d);
+// void	ft_hc_init_left(w_point *w, double d);
 
+double	ft_vc_pytha(w_point *w, double y, double d);
 void	ft_vc_init(w_point *w, double d);
+double	ft_hc_pytha(w_point *w, double x, double d);
 void	ft_hc_init(w_point *w, double d);
 
 
 
+
 /*	ft_calc_add.c	*/
-void	ft_vc_add(w_point *w, double d);
-void	ft_hc_add(w_point *w, double d);
+void	ft_vc_add(w_point *w);
+void	ft_hc_add(w_point *w);
 
 
 /*	******** */

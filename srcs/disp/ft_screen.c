@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:52:57 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/06 13:11:39 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/06 15:32:27 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,18 @@ void	ft_screen(w_point *w)
 	
 	i = 0;
 	r = 0;
-	r = 100000;
+	r = 100000.;
 	d = (double)FOV_SIZE / (double)RES_X;
 	while (i <= (RES_X / 2) && 1 < 2)
 	{
 			/*	ZONE DROITE DE L	ECRAN	*/
-		r = ft_thales_range(w, ft_thales_angle_conv(w, d * i)) + 500;
+		r = ft_thales_range(w, ft_thales_angle_conv(w, d * i));
 			/*	FONCTION DAFFICHAGE DE LA COLONNE	*/
 		ft_red_pixel(w, (w->sr * (double)WALL_SIZE) / r, (RES_X / 2) + i); // PROVISOIRE
 
 
 			/*	ZONE GAUCHE DE LECRAN	*/
-		r = ft_thales_range(w, ft_thales_angle_conv(w, d * i * -1)) + 500;
+		r = ft_thales_range(w, ft_thales_angle_conv(w, d * i * -1));
 			/*	FONCTION DAFFICHAGE DE LA COLONNE	*/
 		ft_red_pixel(w, (w->sr * (double)WALL_SIZE) / r, (RES_X / 2) - i); // PROVISOIRE
 		
