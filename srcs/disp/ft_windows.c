@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 10:03:21 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/06 08:30:29 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/06 11:44:05 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	ft_init_w(w_point *w, m_point *m)
 	w->x = 0;
 	w->y = 0;
 	w->map = m;
+	w->dirx = 0;
+	w->diry = 0;
 	printf("INIT win ok\n");
 	ft_found_worldspawn(w);
 }
@@ -69,13 +71,13 @@ void	ft_found_worldspawn(w_point *w)
 		}
 	}
 	if (w->map->map[w->x][w->y] == 'N')
-		w->d = 0;
-	if (w->map->map[w->x][w->y] == 'E')
 		w->d = 90;
+	if (w->map->map[w->x][w->y] == 'E')
+		w->d = 0;
 	if (w->map->map[w->x][w->y] == 'S')
-		w->d = 180;
-	if (w->map->map[w->x][w->y] == 'O')
 		w->d = 270;
+	if (w->map->map[w->x][w->y] == 'O')
+		w->d = 180;
 }
 
 void	ft_exit_free_all(w_point *w, int ret)
@@ -103,9 +105,9 @@ void	ft_windows(m_point *m)
 	ft_screen_init(&w);
 	ft_screen(&w);
 	// movement with key maintained
-	mlx_hook(w.win1, 02, 1L<<0,  ft_entry_keyboard, &w);
+	// mlx_hook(w.win1, 02, 1L<<0,  ft_entry_keyboard, &w);
 	// movement at key press only
-	// mlx_key_hook(w.win1, ft_entry_keyboard, &w);
+	mlx_key_hook(w.win1, ft_entry_keyboard, &w);
 	mlx_loop(w.mlx);
 	ft_exit_free_all(&w, 0);
 }

@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:25:39 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/06 08:36:34 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/06 12:46:32 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,16 @@
 /*	Taille de la FOV, le champ de vision, en degre	*/
 # define FOV_SIZE 60
 /*	Angle de rotation lors d'une pression de touche	*/
-# define ANG_SIZE 5
+# define ANG_SIZE 10
 /*	Resolution de la fenetre	*/
 # define RES_X 800
 # define RES_Y 600
 /*	Taille des murs	*/
 # define WALL_SIZE 64
 
-# define PIXEL_SIZE 100
+# define PIXEL_SIZE 8
+
+# define PI_VAL 3.1415
 
 
 /*	******	*/
@@ -115,6 +117,8 @@ typedef struct	j_point
 
 typedef struct ver_point
 {
+	/*	ajoute ou supprime y un par un	*/
+
 	/*	Position du rayon	*/
 	double	vr; // Vertical range
 	double	vx;
@@ -129,6 +133,8 @@ typedef struct ver_point
 
 typedef struct hor_point
 {
+	/*	ajoute ou supprime x un par un	*/
+
 	/*	Position du rayon	*/
 	double	hr; // Vertical range
 	double	hx;
@@ -158,6 +164,8 @@ typedef struct k_point
 	// c_point *ca; // struct de calculs
 	h_point	*h;
 	v_point	*v;
+	double	dirx;
+	double	diry;
 	// int		or; // orientation de langle de vue
 }				w_point;
 
@@ -278,6 +286,11 @@ void	ft_vc_init_up(w_point *w, double d);
 void	ft_vc_init_down(w_point *w, double d);
 void	ft_hc_init_right(w_point *w, double d);
 void	ft_hc_init_left(w_point *w, double d);
+
+void	ft_vc_init(w_point *w, double d);
+void	ft_hc_init(w_point *w, double d);
+
+
 
 /*	ft_calc_add.c	*/
 void	ft_vc_add(w_point *w, double d);

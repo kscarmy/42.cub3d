@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 08:19:04 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/06 08:19:07 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/06 13:11:28 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 double	ft_degrees_to_radian(double deg)
 {
-	return (deg * M_PI / 180);
+	while (deg > 90)
+		deg = deg - 90;
+	return (deg * PI_VAL / 180);
 }
 
 double	ft_radian_to_degrees(double rad)
 {
-	return (rad * 180 / M_PI);
+	return (rad * 180 / PI_VAL);
 }
 
 void	ft_red_pixel(w_point *w, int h, int x)
@@ -37,8 +39,8 @@ void	ft_red_pixel(w_point *w, int h, int x)
 	}
 	while (i <= RES_Y)
 	{
-		mlx_pixel_put(w->mlx, w->win1, x, mid + i, w->map->floor);
-		mlx_pixel_put(w->mlx, w->win1, x, mid - i, w->map->ceiling);
+		// mlx_pixel_put(w->mlx, w->win1, x, mid + i, w->map->floor);
+		// mlx_pixel_put(w->mlx, w->win1, x, mid - i, w->map->ceiling);
 		i++;
 	}
 }

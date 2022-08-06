@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:45:34 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/06 08:23:23 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/06 13:17:25 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,23 @@ double	ft_thales_pytha(double x, double y)
 
 	ret = 0;
 	ret = sqrt((x * x) + (y * y));
-	return (ret);
+	return (ft_double_abs(ret));
 }
 
 void	ft_thales_init(w_point *w, double d)
 {
 	ft_re_set_calc(w);
+	if (d <= 180) // vers le haut donc y decremente
+		w->diry = -1;
+	else // vers le bas donc y incremente
+		w->diry = 1;
+
+	if (d >= 90 && d <= 270) // vers la gauche donc x decremente
+		w->dirx = -1;
+	else // vers la droite donc x incremente
+		w->dirx = 1;
+	// ft_vc_init(w, d);
+	// ft_hc_init(w, d);
 	if (d > 90 && d <= 270)
 		ft_vc_init_down(w, d);
 	else
@@ -70,12 +81,12 @@ double	ft_thales_range(w_point *w, double d)
 	ret = 0;
 	i = 0;
 	ft_thales_init(w, d);
-	while (i < 2)
-	{
-		ft_vc_add(w, d);
-		ft_hc_add(w, d);
-		i++;
-	}
+	// while (i < 2)
+	// {
+	// 	ft_vc_add(w, d);
+	// 	ft_hc_add(w, d);
+	// 	i++;
+	// }
 	// while (i < 10 && ft_thales_wall(w->map, w->h->hx, w->h->hy))
 	// {
 	// 	ft_vc_add(w, d);
@@ -91,13 +102,14 @@ double	ft_thales_range(w_point *w, double d)
 	{
 		ret = w->v->vr;
 		// ret = ret * cos(ft_degrees_to_radian(d));
-		// printf("ft_thales_range : VR ret %f d %f\n", ret, d);
+		printf("ft_thales_range : VR ret %f d %f\n", ret, d);
 	}
 	else
 	{
 		ret = w->h->hr;
 		// ret = ret * cos(ft_degrees_to_radian(d));
-		// printf("ft_thales_range : HR ret %f d %f\n", ret, d);
+		printf("ft_thales_range : HR ret %f d %f\n", ret, d);
 	}
+	i = i;
 	return (ret * 100);
 }
