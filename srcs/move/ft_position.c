@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:30:43 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/06 08:27:38 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/06 19:43:18 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,28 +74,40 @@ void	zqsd(int key, w_point *win)
 {
 	if (key == KEY_MOVE_FRONT)
 	{
-		win->pos_y += find_y(win->d, MOVE_SIZE);
-		win->pos_x += find_x(win->d, MOVE_SIZE);
+		printf("JEAN %d ", win->pos_y);
+		win->pos_y += (find_y(win->d, MOVE_SIZE) * win->diry);
+		win->pos_x += (find_x(win->d, MOVE_SIZE) * win->dirx);
+		// win->pos_y -= MOVE_SIZE;
+		printf("JEAN %d\n", win->pos_y);
 	}
 	else if (key == KEY_MOVE_BACK)
 	{
-		win->pos_y -= find_y(win->d, MOVE_SIZE);
-		win->pos_x -= find_x(win->d, MOVE_SIZE);
+		win->pos_y += (find_y(win->d, MOVE_SIZE) * win->diry);
+		win->pos_x += (find_x(win->d, MOVE_SIZE) * win->dirx);
 	}
 	else if (key == KEY_MOVE_LEFT)
 	{
-		win->pos_y += find_x(win->d, MOVE_SIZE);
-		win->pos_x -= find_y(win->d, MOVE_SIZE);
+		win->pos_y += (find_x(win->d, MOVE_SIZE) * win->diry);
+		win->pos_x += (find_y(win->d, MOVE_SIZE) * win->dirx);
 	}
 	else if (key == KEY_MOVE_RIGHT)
 	{
-		win->pos_y -= find_x(win->d, MOVE_SIZE);
-		win->pos_x += find_y(win->d, MOVE_SIZE);
+		win->pos_y += (find_x(win->d, MOVE_SIZE) * win->diry);
+		win->pos_x += (find_y(win->d, MOVE_SIZE) * win->dirx);
 	}
 }
 
 int		ft_move_zqsd(int key, w_point *win)
 {
+	if (win->d <= 180) // vers le haut donc y decremente
+		win->diry = -1;
+	else // vers le bas donc y incremente
+		win->diry = 1;
+
+	if (win->d >= 90 && win->d <= 270) // vers la gauche donc x decremente
+		win->dirx = -1;
+	else // vers la droite donc x incremente
+		win->dirx = 1;
 	rotate(key, win);
 	zqsd(key, win);	
 	if (win->pos_y > 100

@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:52:57 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/06 15:32:27 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/06 18:15:02 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,29 @@ void	ft_screen_init(w_point *w)
 	printf("ft_screen_init : screen range : %f floor %d ceilling %d\n", w->sr, w->map->floor, w->map->ceiling);
 }
 
+void	ft_swap_pos(w_point *w)
+{
+	int	a;
+	int	b;
+
+	a = w->x;
+	b = w->pos_x;
+	w->x = w->y;
+	w->y = a;
+	w->pos_x = w->pos_y;
+	w->pos_y = b;
+}
+
 void	ft_screen(w_point *w)
 {
 	double	i;
 	int	max = 0;
 	double	r;
 	double	d;
-	
+
 	i = 0;
-	r = 0;
 	r = 100000.;
+	// ft_swap_pos(w);
 	d = (double)FOV_SIZE / (double)RES_X;
 	while (i <= (RES_X / 2) && 1 < 2)
 	{
@@ -45,10 +58,13 @@ void	ft_screen(w_point *w)
 		r = ft_thales_range(w, ft_thales_angle_conv(w, d * i * -1));
 			/*	FONCTION DAFFICHAGE DE LA COLONNE	*/
 		ft_red_pixel(w, (w->sr * (double)WALL_SIZE) / r, (RES_X / 2) - i); // PROVISOIRE
-		
+
 		i++;
 		max++;
 	}
+	printf("================\nPos_X : %d\nPos_Y : %d\nX : %d\nY : %d\nD : %d\n"
+		, w->pos_x, w->pos_y, w->x, w->y, (int) w->d);
+	// ft_swap_pos(w);
 	d = d;
 	r = r;
 	w = w;

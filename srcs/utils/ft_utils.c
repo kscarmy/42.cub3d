@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 08:19:04 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/06 15:49:48 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/06 18:03:49 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,14 @@ void	ft_red_pixel(w_point *w, int h, int x)
 
 	i = 0;
 	mid = RES_Y / 2;
+	// printf("crash ?");
 	while (h > 0 && i < h && i <= RES_Y)
 	{
 		mlx_pixel_put(w->mlx, w->win1, x, mid + i, 0xFF99FF);
 		mlx_pixel_put(w->mlx, w->win1, x, mid - i, 0xFF99FF);
 		i++;
 	}
+	// printf("non\n");
 	// while (i <= RES_Y)
 	// {
 	// 	mlx_pixel_put(w->mlx, w->win1, x, mid + i, w->map->floor);

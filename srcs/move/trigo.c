@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 08:19:38 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/06 08:20:25 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/06 19:09:36 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ tan       = a / b
 // M_PI = pi (3.141592..)
 double	convert_to_radian(double degree)
 {
-	return (degree * (M_PI / 180.0));
+	return (degree * (PI_VAL / 180.0));
 }
 
 // b = cosinus * h 

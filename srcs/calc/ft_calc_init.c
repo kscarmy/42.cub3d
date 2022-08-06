@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 15:21:42 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/06 15:35:15 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/06 18:02:43 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ double	ft_hc_pytha(w_point *w, double x, double d)
 		return (x / tan(ft_degrees_to_radian(180. - d)));
 	if (w->dirx == -1 && w->diry == 1) // bas gauche
 		return (x / tan(ft_degrees_to_radian(d - 180.)));
-	return (0);
+	return (10000.);
 }
 
 void	ft_hc_init(w_point *w, double d)
@@ -96,19 +96,8 @@ void	ft_hc_init(w_point *w, double d)
 	w->h->hcx = 1.;
 	w->h->hcy = ft_hc_pytha(w, w->h->hcx, d);
 	w->h->hcr = ft_thales_pytha(w->h->hcx, w->h->hcy);
+	// printf("ft_hc_init : x %f y %f cx %f cy %f\n", w->h->hx, w->h->hy, w->h->hcx, w->h->hcy);
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -122,7 +111,7 @@ double	ft_vc_pytha(w_point *w, double y, double d)
 		return (y / tan(ft_degrees_to_radian(d - 90.)));
 	if (w->dirx == -1 && w->diry == 1) // bas gauche
 		return (y / tan(ft_degrees_to_radian(270. - d)));
-	return (0);
+	return (10000.);
 }
 
 void	ft_vc_init(w_point *w, double d)
@@ -141,6 +130,7 @@ void	ft_vc_init(w_point *w, double d)
 	w->v->vcy = 1.;
 	w->v->vcx = ft_vc_pytha(w, w->v->vcy, d);
 	w->v->vcr = ft_thales_pytha(w->v->vcx, w->v->vcy);
+	// printf("ft_vc_init : x %f y %f cx %f cy %f\n", w->v->vx, w->v->vy, w->v->vcx, w->v->vcy);
 }
 
 

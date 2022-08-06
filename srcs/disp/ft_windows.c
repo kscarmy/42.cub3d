@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 10:03:21 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/06 15:47:42 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/06 19:20:39 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,27 +56,27 @@ int	ft_is_worldspawn(char c)
 void	ft_found_worldspawn(w_point *w)
 {
 	ft_map_disp_pos(w);
-	while (w->map->map[w->x] != NULL
-		&& ft_is_worldspawn(w->map->map[w->x][w->y]) == 0)
+	while (w->map->map[w->y] != NULL
+		&& ft_is_worldspawn(w->map->map[w->y][w->x]) == 0)
 	{
-		while (w->map->map[w->x][w->y] != '\0'
-			&& ft_is_worldspawn(w->map->map[w->x][w->y]) == 0)
+		while (w->map->map[w->y][w->x] != '\0'
+			&& ft_is_worldspawn(w->map->map[w->y][w->x]) == 0)
 		{
-			w->y = w->y + 1;
-		}
-		if (ft_is_worldspawn(w->map->map[w->x][w->y]) == 0)
-		{
-			w->y = 0;
 			w->x = w->x + 1;
 		}
+		if (ft_is_worldspawn(w->map->map[w->y][w->x]) == 0)
+		{
+			w->x = 0;
+			w->y = w->y + 1;
+		}
 	}
-	if (w->map->map[w->x][w->y] == 'N')
+	if (w->map->map[w->y][w->x] == 'N')
 		w->d = 90;
-	if (w->map->map[w->x][w->y] == 'E')
+	if (w->map->map[w->y][w->x] == 'E')
 		w->d = 0;
-	if (w->map->map[w->x][w->y] == 'S')
+	if (w->map->map[w->y][w->x] == 'S')
 		w->d = 270;
-	if (w->map->map[w->x][w->y] == 'O')
+	if (w->map->map[w->y][w->x] == 'O')
 		w->d = 180;
 }
 
@@ -105,9 +105,9 @@ void	ft_windows(m_point *m)
 	ft_screen_init(&w);
 	ft_screen(&w);
 	// movement with key maintained
-	mlx_hook(w.win1, 02, 1L<<0,  ft_entry_keyboard, &w);
+	// mlx_hook(w.win1, 02, 1L<<0,  ft_entry_keyboard, &w);
 	// movement at key press only
-	// mlx_key_hook(w.win1, ft_entry_keyboard, &w);
+	mlx_key_hook(w.win1, ft_entry_keyboard, &w);
 	mlx_loop(w.mlx);
 	ft_exit_free_all(&w, 0);
 }
