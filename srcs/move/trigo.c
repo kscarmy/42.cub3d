@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   trigo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mourdani <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/19 18:05:01 by mourdani          #+#    #+#             */
-/*   Updated: 2022/07/31 09:22:01 by mourdani         ###   ########.fr       */
+/*   Created: 2022/08/06 08:19:38 by guderram          #+#    #+#             */
+/*   Updated: 2022/08/06 08:20:25 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
-// Convert to radian
-// Return Double
 
 /*
 soh cah toa

@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:25:39 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/30 21:09:23 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/08/06 08:21:12 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,16 @@
 /*	Distance de deplacement lors d'une pression de touche	*/
 # define MOVE_SIZE 8
 /*	Taille de la FOV, le champ de vision, en degre	*/
-# define FOV_SIZE 90
+# define FOV_SIZE 60
 /*	Angle de rotation lors d'une pression de touche	*/
 # define ANG_SIZE 5
 /*	Resolution de la fenetre	*/
-# define RES_X 320
-# define RES_Y 200
+# define RES_X 800
+# define RES_Y 600
 /*	Taille des murs	*/
 # define WALL_SIZE 64
+
+# define PIXEL_SIZE 5
 
 
 /*	******	*/
@@ -266,6 +268,8 @@ void	ft_screen_init(w_point *w);
 /*	ft_calc_thales.c	*/
 double	ft_thales_angle_conv(w_point *w, double d);
 double	ft_thales_pytha(double x, double y);
+void	ft_thales_init(w_point *w, double d);
+int	ft_thales_wall(m_point *m, double x, double y);
 double  ft_thales_range(w_point *w, double d);
 
 /*	ft_calc_init.c	*/
@@ -274,6 +278,11 @@ void	ft_vc_init_up(w_point *w, double d);
 void	ft_vc_init_down(w_point *w, double d);
 void	ft_hc_init_right(w_point *w, double d);
 void	ft_hc_init_left(w_point *w, double d);
+
+/*	ft_calc_add.c	*/
+void	ft_vc_add(w_point *w, double d);
+void	ft_hc_add(w_point *w, double d);
+
 
 /*	******** */
 /*	MOVE	 */

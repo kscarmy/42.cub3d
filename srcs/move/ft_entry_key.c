@@ -6,15 +6,15 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 12:45:32 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/30 21:10:52 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/07/31 11:07:14 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-int		ft_entry_keyboard(int key, void *p)
+int	ft_entry_keyboard(int key, void *p)
 {
-	w_point *win;
+	w_point	*win;
 
 	win = p;
 	if (key == KEY_ECHAP)
@@ -30,8 +30,7 @@ int		ft_entry_keyboard(int key, void *p)
 		|| key == KEY_ROTATE_RIGHT)
 	{
 		ft_move_zqsd(key, win);
-		mlx_clear_window(win->mlx, win->win1);
-		ft_screen(win); // affiche les déplacements
+		ft_screen(win);
 	}
 	return (0);
 }
