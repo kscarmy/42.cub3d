@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:25:39 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/06 15:33:15 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/06 15:47:23 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@
 /*	Taille de la FOV, le champ de vision, en degre	*/
 # define FOV_SIZE 60
 /*	Angle de rotation lors d'une pression de touche	*/
-# define ANG_SIZE 10
+# define ANG_SIZE 1
 /*	Resolution de la fenetre	*/
 # define RES_X 800
 # define RES_Y 600
