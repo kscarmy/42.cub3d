@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 10:03:21 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/07 16:00:27 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/07 17:42:05 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 void	ft_init_w(w_point *w, m_point *m)
 {
+	// int	size;
+	// int	bbp;
+	// int	size_line;
+	// int	endian;
 	w->er = 0;
 	printf("INIT win\n");
 	w->mlx = mlx_init();
@@ -36,7 +40,13 @@ void	ft_init_w(w_point *w, m_point *m)
 	w->map = m;
 	w->dirx = 0;
 	w->diry = 0;
-	
+	w->str = NULL;
+	w->no = mlx_xpm_file_to_image(w->mlx, w->map->no, &w->c->s, &w->c->s);
+	w->so = mlx_xpm_file_to_image(w->mlx, w->map->so, &w->c->s, &w->c->s);
+	w->ea = mlx_xpm_file_to_image(w->mlx, w->map->ea, &w->c->s, &w->c->s);
+	w->we = mlx_xpm_file_to_image(w->mlx, w->map->we, &w->c->s, &w->c->s);
+	w->screen = mlx_new_image(w->mlx, RES_X, RES_Y);
+	w->str = (int *)mlx_get_data_addr(w->screen, &w->c->bbp, &w->c->sl, &w->c->end);
 	printf("INIT win ok\n");
 	ft_found_worldspawn(w);
 }
@@ -94,12 +104,15 @@ void	ft_windows(m_point *m)
 	w_point	w;
 	v_point	*v;
 	h_point	*h;
+	c_point *c;
 
 	h = malloc(sizeof(h_point));
 	v = malloc(sizeof(v_point));
-	ft_init_w(&w, m);
+	c = malloc(sizeof(c_point));
 	w.h = h;
 	w.v = v;
+	w.c = c;
+	ft_init_w(&w, m);
 	if (w.er > 0)
 		ft_exit_free_all(&w, -1);
 	printf("Pas d'erreur d'initialisation\n");

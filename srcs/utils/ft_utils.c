@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 08:19:04 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/07 13:49:24 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/07 17:51:33 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,55 @@ double	ft_radian_to_degrees(double rad)
 {
 	return (rad * 180 / PI_VAL);
 }
+
+// void	ft_put_pixel(w_point *w, int i)
+// {
+// 	w->str[i] = w->c->r;
+// 	w->str[i + 1] = w->c->g;
+// 	w->str[i + 2] = w->c->b;
+// }
+
+void	ft_put_pixel_floor(w_point *w, int i)
+{
+	// w->str[i] = (char)w->map->fr;
+	// w->str[i + 1] = (char)w->map->fg;
+	// w->str[i + 2] = (char)w->map->fb;
+	w->str[i] = w->map->floor;
+	// w->str[i] = 78;
+	// w->str[i + 1] = 82;
+	// w->str[i + 2] = 43;
+}
+
+void	ft_put_pixel_ceiling(w_point *w, int i)
+{
+	// w->str[i] = (char)w->map->cr;
+	// w->str[i + 1] = (char)w->map->cg;
+	// w->str[i + 2] = (char)w->map->cb;
+	w->str[i] = w->map->ceiling;
+	// w->str[i] = 66;
+	// w->str[i + 1] = 135;
+	// w->str[i + 2] = 245;
+}
+
+// void	ft_put_colon(w_point *w, int h, int x)
+// {
+// 	int	i;
+// 	int	mid;
+
+// 	i = 0;
+// 	mid = RES_Y / 2;
+// 	while (h > 0 && i < h && i <= RES_Y)
+// 	{
+// 		i++;
+// 	}
+// 	while (i <= RES_Y)
+// 	{
+		
+// 		ft_put_pixel_ceiling(w, (x * 4 + 4 * RES_X * (mid + i)));
+// 		ft_put_pixel_floor(w, (x * 4 + 4 * RES_X * (mid - i)));
+// 		i++;
+// 	}
+// }
 
 void	ft_red_pixel(w_point *w, int h, int x)
 {
@@ -57,12 +106,17 @@ void	ft_red_pixel(w_point *w, int h, int x)
 		i++;
 	}
 	// printf("non\n");
-	// while (i <= RES_Y)
-	// {
-	// 	mlx_pixel_put(w->mlx, w->win1, x, mid + i, w->map->floor);
-	// 	mlx_pixel_put(w->mlx, w->win1, x, mid - i, w->map->ceiling);
-	// 	i++;
-	// }
+	while (i <= RES_Y)
+	{
+		printf("ft_red_pixel : size : %d\n", ((mid + i) * w->c->sl / 4 + x));
+		ft_put_pixel_ceiling(w, ((mid + i) * w->c->sl / 4 + x));
+		ft_put_pixel_floor(w, ((mid - i) * w->c->sl / 4 + x));
+		// mlx_pixel_put(w->mlx, w->win1, x, mid + i, w->map->floor);
+		// mlx_pixel_put(w->mlx, w->win1, x, mid - i, w->map->ceiling);
+		i++;
+	}
+
+	
 }
 
 int	ft_str_size(char *str)

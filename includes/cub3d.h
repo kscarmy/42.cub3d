@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:25:39 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/07 15:19:38 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/07 17:34:05 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,6 +147,19 @@ typedef struct hor_point
 
 }				h_point;
 
+
+typedef struct rgb_point
+{
+	int	r;
+	int	g;
+	int	b;
+	int	s;
+	int	bbp;
+	int	sl;
+	int	end;
+}				c_point;
+
+
 typedef struct k_point
 {
 	void	*mlx; // Le mlx requis pour utiliser la mlx
@@ -164,6 +177,7 @@ typedef struct k_point
 	// c_point *ca; // struct de calculs
 	h_point	*h;
 	v_point	*v;
+	c_point *c;
 	double	dirx;
 	double	diry;
 	int		or; // orientation de langle de vue : or = 1 HR, or = -1 VR
@@ -171,6 +185,8 @@ typedef struct k_point
 	t_img	*so;
 	t_img	*ea;
 	t_img	*we;
+	t_img	*screen;
+	int		*str;
 }				w_point;
 
 
@@ -197,6 +213,9 @@ void	ft_red_pixel(w_point *w, int h, int x);
 int		ft_str_size(char *str);
 int		ft_is_entier(double a); // retourne 1 si le nombre n'est pa entier sinon 0
 double	ft_double_abs(double val);
+
+void	ft_put_pixel_floor(w_point *w, int i);
+void	ft_put_pixel_ceiling(w_point *w, int i);
 
 
 /*	**********	*/

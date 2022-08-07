@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:52:57 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/07 16:04:38 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/07 17:46:49 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,25 +35,6 @@ void	ft_swap_pos(w_point *w)
 	w->pos_y = b;
 }
 
-// static void	ft_printf_map(w_point *w)
-// {
-// 	int y = 0;
-// 	int x = 0;
-// 	// printf("<");
-// 	while (w->map->map[y])
-// 	{
-// 		while (w->map->map[y][x])
-// 		{
-// 			printf("%c'", w->map->map[y][x]);
-// 			x++;
-// 		}
-// 		printf(">\n");
-// 		x = 0;
-// 		y++;
-// 	}
-	
-// }
-
 void	ft_screen(w_point *w)
 {
 	double	i;
@@ -63,36 +44,23 @@ void	ft_screen(w_point *w)
 
 	i = 0;
 	r = 100000.;
-	// ft_swap_pos(w);
-	// w->x = 3;
-	// w->y = 3;
-	// if ()
-	// w->pos_x = 0.01;
-	// w->pos_y = 0.01;
 	d = (double)FOV_SIZE / (double)RES_X;
-	// printf("---------------ft_screen : d %f x %d y %d\n", w->d, w->x, w->y);
-	while (i <= (RES_X / 2) && 1 < 2)
+	while (i <= (RES_X / 2) && max < 4)
 	{
 			/*	ZONE DROITE DE L	ECRAN	*/
-	//	printf("DROITE :\n");
 		r = ft_thales_range(w, ft_thales_angle_conv(w, d * i * -1));
-		
 			/*	FONCTION DAFFICHAGE DE LA COLONNE	*/
 		ft_red_pixel(w, (w->sr * (double)WALL_SIZE) / r, (RES_X / 2) + i); // PROVISOIRE
 
-	//	printf("GAUCHE :\n");
 			/*	ZONE GAUCHE DE LECRAN	*/
 		r = ft_thales_range(w, ft_thales_angle_conv(w, d * i));
 			/*	FONCTION DAFFICHAGE DE LA COLONNE	*/
 		ft_red_pixel(w, (w->sr * (double)WALL_SIZE) / r, (RES_X / 2) - i); // PROVISOIRE
-		// printf("\n================\n");
 		i++;
 		max++;
 	}
-	// printf("================\nPos_X : %f\nPos_Y : %f\nX : %d\nY : %d\nD : %d\n"
-		// , w->pos_x, w->pos_y, w->x, w->y, (int) w->d);
-	// ft_swap_pos(w);
-	// ft_printf_map(w);
+	mlx_put_image_to_window(w->mlx, w->win1, w->screen, 0, 0);
+	
 	d = d;
 	r = r;
 	w = w;
