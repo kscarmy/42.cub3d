@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 15:21:42 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/07 08:16:59 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/07 10:41:54 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,30 @@ double	ft_hc_pytha(w_point *w, double x, double d)
 	return (10000.);
 }
 
+// void	ft_hc_init(w_point *w, double d)
+// {
+// 	printf("ft_hc_init : R %f\n", w->h->hr);
+// 	if (w->dirx == 1)	// droite 
+// 		w->h->hcx = ((double)w->pos_x / 100.);
+// 	else				// gauche
+// 		w->h->hcx = (((double)WALL_SIZE - (double)w->pos_x) / 100.);
+// 	w->h->hcy = ft_hc_pytha(w, w->h->hcx, d);
+// 	w->h->hr = ft_thales_pytha(w->h->hcx, w->h->hcy);
+// 	if (w->dirx == 1)	// droite 
+// 		w->h->hx = (double)w->x;
+// 	else				// gauche
+// 		w->h->hx = (double)w->x + 1;
+// 	w->h->hy = (double)w->y + ((double)w->pos_y / 100.) + (w->h->hcy * w->diry);
+// 	w->h->hcx = 1.;
+// 	w->h->hcy = ft_hc_pytha(w, w->h->hcx, d);
+// 	w->h->hcr = ft_thales_pytha(w->h->hcx, w->h->hcy);
+// 	printf("ft_hc_init : R %f\n", w->h->hr);
+// 	// printf("ft_hc_init : x %f y %f cx %f cy %f\n", w->h->hx, w->h->hy, w->h->hcx, w->h->hcy);
+// }
+
 void	ft_hc_init(w_point *w, double d)
 {
+	printf("ft_hc_init : R %f\n", w->h->hr);
 	if (w->dirx == 1)	// droite 
 		w->h->hcx = ((double)w->pos_x / 100.);
 	else				// gauche
@@ -90,15 +112,20 @@ void	ft_hc_init(w_point *w, double d)
 	w->h->hcy = ft_hc_pytha(w, w->h->hcx, d);
 	w->h->hr = ft_thales_pytha(w->h->hcx, w->h->hcy);
 	if (w->dirx == 1)	// droite 
-		w->h->hx = (double)w->x;
+		w->h->hx = (double)w->x + 1.;
 	else				// gauche
 		w->h->hx = (double)w->x - 1.;
 	w->h->hy = (double)w->y + ((double)w->pos_y / 100.) + (w->h->hcy * w->diry);
 	w->h->hcx = 1.;
 	w->h->hcy = ft_hc_pytha(w, w->h->hcx, d);
 	w->h->hcr = ft_thales_pytha(w->h->hcx, w->h->hcy);
+	printf("ft_hc_init : R %f\n", w->h->hr);
 	// printf("ft_hc_init : x %f y %f cx %f cy %f\n", w->h->hx, w->h->hy, w->h->hcx, w->h->hcy);
 }
+
+
+
+
 
 
 
@@ -120,13 +147,13 @@ void	ft_vc_init(w_point *w, double d)
 	if (w->diry == -1)	// haut
 		w->v->vcy = ((double)w->pos_y / 100.);
 	else				// bas
-		w->v->vcy = ((100. - (double)w->pos_y) / 100.);
+		w->v->vcy = ((WALL_SIZE - (double)w->pos_y) / 100.);
 	w->v->vcx = ft_vc_pytha(w, w->v->vcy, d);
 	w->v->vr = ft_thales_pytha(w->v->vcx, w->v->vcy);
 	if (w->diry == -1)	// haut 
-		w->v->vy = (double)w->y;
-	else				// bas
 		w->v->vy = (double)w->y - 1.;
+	else				// bas
+		w->v->vy = (double)w->y + 1.;
 	w->v->vx = (double)w->x + ((double)w->pos_x / 100.) + (w->v->vcx * w->dirx);
 	w->v->vcy = 1.;
 	w->v->vcx = ft_vc_pytha(w, w->v->vcy, d);

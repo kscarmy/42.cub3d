@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:52:57 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/07 09:15:26 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/07 10:27:16 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,8 @@ void	ft_screen(w_point *w)
 	r = 100000.;
 	// ft_swap_pos(w);
 	d = (double)FOV_SIZE / (double)RES_X;
-	while (i <= (RES_X / 2) && max < 2)
+	printf("---------------ft_screen : d %f x %d y %d\n", w->d, w->x, w->y);
+	while (i <= (RES_X / 2) && 1 < 2)
 	{
 			/*	ZONE DROITE DE L	ECRAN	*/
 		printf("DROITE :\n");

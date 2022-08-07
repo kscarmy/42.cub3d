@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:25:39 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/07 08:17:50 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/07 09:45:53 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -278,7 +278,7 @@ void	ft_screen_init(w_point *w);
 double	ft_thales_angle_conv(w_point *w, double d);
 double	ft_thales_pytha(double x, double y);
 void	ft_thales_init(w_point *w, double d);
-int	ft_thales_wall(m_point *m, double x, double y);
+int	ft_thales_wall(w_point *w, double x, double y);
 double  ft_thales_range(w_point *w, double d);
 
 /*	ft_calc_init.c	*/
