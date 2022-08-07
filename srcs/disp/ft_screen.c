@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:52:57 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/07 14:58:58 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/08/07 16:04:38 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,24 +35,24 @@ void	ft_swap_pos(w_point *w)
 	w->pos_y = b;
 }
 
-static void	ft_printf_map(w_point *w)
-{
-	int y = 0;
-	int x = 0;
-	// printf("<");
-	while (w->map->map[y])
-	{
-		while (w->map->map[y][x])
-		{
-			printf("%c'", w->map->map[y][x]);
-			x++;
-		}
-		printf(">\n");
-		x = 0;
-		y++;
-	}
+// static void	ft_printf_map(w_point *w)
+// {
+// 	int y = 0;
+// 	int x = 0;
+// 	// printf("<");
+// 	while (w->map->map[y])
+// 	{
+// 		while (w->map->map[y][x])
+// 		{
+// 			printf("%c'", w->map->map[y][x]);
+// 			x++;
+// 		}
+// 		printf(">\n");
+// 		x = 0;
+// 		y++;
+// 	}
 	
-}
+// }
 
 void	ft_screen(w_point *w)
 {
@@ -64,8 +64,13 @@ void	ft_screen(w_point *w)
 	i = 0;
 	r = 100000.;
 	// ft_swap_pos(w);
+	// w->x = 3;
+	// w->y = 3;
+	// if ()
+	// w->pos_x = 0.01;
+	// w->pos_y = 0.01;
 	d = (double)FOV_SIZE / (double)RES_X;
-	printf("---------------ft_screen : d %f x %d y %d\n", w->d, w->x, w->y);
+	// printf("---------------ft_screen : d %f x %d y %d\n", w->d, w->x, w->y);
 	while (i <= (RES_X / 2) && 1 < 2)
 	{
 			/*	ZONE DROITE DE L	ECRAN	*/
@@ -80,14 +85,14 @@ void	ft_screen(w_point *w)
 		r = ft_thales_range(w, ft_thales_angle_conv(w, d * i));
 			/*	FONCTION DAFFICHAGE DE LA COLONNE	*/
 		ft_red_pixel(w, (w->sr * (double)WALL_SIZE) / r, (RES_X / 2) - i); // PROVISOIRE
-	//	printf("\n================\n");
+		// printf("\n================\n");
 		i++;
 		max++;
 	}
-	printf("================\nPos_X : %d\nPos_Y : %d\nX : %d\nY : %d\nD : %d\n"
-		, w->pos_x, w->pos_y, w->x, w->y, (int) w->d);
+	// printf("================\nPos_X : %f\nPos_Y : %f\nX : %d\nY : %d\nD : %d\n"
+		// , w->pos_x, w->pos_y, w->x, w->y, (int) w->d);
 	// ft_swap_pos(w);
-	ft_printf_map(w);
+	// ft_printf_map(w);
 	d = d;
 	r = r;
 	w = w;

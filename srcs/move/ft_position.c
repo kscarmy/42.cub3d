@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:30:43 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/07 14:20:24 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/08/07 16:02:35 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_move_in_casa(w_point *win)
 {
 	if (win->pos_x >= 100)
 	{
-		win->pos_x = 0;
+		win->pos_x = 0.01;
 		win->x = win->x + 1;
 	}
 	else if (win->pos_x < 0)
@@ -48,7 +48,7 @@ void	ft_move_in_casa(w_point *win)
 	}
 	if (win->pos_y >= 100)
 	{
-		win->pos_y = 0;
+		win->pos_y = 0.01;
 		win->y = win->y + 1;
 	}
 	else if (win->pos_y < 0)
@@ -57,6 +57,7 @@ void	ft_move_in_casa(w_point *win)
 		win->y = win->y - 1;
 	}
 }
+
 void	rotate(int key, w_point *win)
 {
 	if (key == KEY_ROTATE_LEFT)
@@ -103,7 +104,7 @@ int		ft_move_zqsd(int key, w_point *win)
 		|| win->pos_x < 0)
 		ft_move_in_casa(win);
 	
-	printf("================\nkey : %d\nPos_X : %d\nPos_Y : %d\nX : %d\nY : %d\nD : %d\n"
-		, key, win->pos_x, win->pos_y, win->x, win->y, (int) win->d);
+	// printf("================\nkey : %d\nPos_X : %f\nPos_Y : %f\nX : %d\nY : %d\nD : %d\n"
+	// 	, key, win->pos_x, win->pos_y, win->x, win->y, (int) win->d);
 	return (0);
 }

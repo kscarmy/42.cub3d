@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 10:03:21 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/07 14:34:31 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/07 16:00:27 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	ft_found_worldspawn(w_point *w)
 		w->d = 0;
 	if (w->map->map[w->y][w->x] == 'S')
 		w->d = 270;
-	if (w->map->map[w->y][w->x] == 'O')
+	if (w->map->map[w->y][w->x] == 'W')
 		w->d = 180;
 }
 
@@ -106,9 +106,9 @@ void	ft_windows(m_point *m)
 	ft_screen_init(&w);
 	ft_screen(&w);
 	// movement with key maintained
-	// mlx_hook(w.win1, 02, 1L<<0,  ft_entry_keyboard, &w);
+	mlx_hook(w.win1, 02, 1L<<0,  ft_entry_keyboard, &w);
 	// movement at key press only
-	mlx_key_hook(w.win1, ft_entry_keyboard, &w);
+	// mlx_key_hook(w.win1, ft_entry_keyboard, &w);
 	mlx_loop(w.mlx);
 	ft_exit_free_all(&w, 0);
 }

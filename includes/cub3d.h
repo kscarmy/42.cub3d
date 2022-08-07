@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:25:39 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/07 14:04:46 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/07 15:19:38 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,8 +153,8 @@ typedef struct k_point
 	void	*win1; // Première fenetre d'affichage
 	int		er; // Pas d'erreurs = 0, erreurs = >0
 	m_point	*map; // Lien direct vers la structure map
-	int		pos_x; // position dans la case en x du perso
-	int		pos_y; // position dans la case en y du perso
+	double		pos_x; // position dans la case en x du perso
+	double		pos_y; // position dans la case en y du perso
 	int		x; // position sur la map du perso
 	int		y; // position sur la map du perso
 	double	d; // angle où se situe la vue du perso (d pour degré) : entre 0 et 359, où 0 regarde totalement direction nord
