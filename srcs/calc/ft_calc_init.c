@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 15:21:42 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/07 13:23:49 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/07 14:59:49 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ double	ft_hc_pytha(w_point *w, double x, double d)
 
 void	ft_hc_init(w_point *w, double d)
 {
-	// printf("ft_hc_init : R %f\n", w->h->hr);
+//	printf("ft_hc_init : R %f\n", w->h->hr);
 	if (w->dirx == 1)	// droite 
 		w->h->hcx = ((double)w->pos_x / 100.);
 	else				// gauche
@@ -119,8 +119,8 @@ void	ft_hc_init(w_point *w, double d)
 	w->h->hcx = 1.;
 	w->h->hcy = ft_vc_pytha(w, w->h->hcx, d);
 	w->h->hcr = ft_thales_pytha(w->h->hcx, w->h->hcy);
-	// printf("ft_hc_init : R %f\n", w->h->hr);
-	printf("ft_hc_init : R %f x %f y %f cx %f cy %f\n", w->h->hr, w->h->hx, w->h->hy, w->h->hcx, w->h->hcy);
+//	printf("ft_hc_init : R %f\n", w->h->hr);
+	// printf("ft_hc_init : x %f y %f cx %f cy %f\n", w->h->hx, w->h->hy, w->h->hcx, w->h->hcy);
 }
 
 

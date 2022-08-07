@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:52:57 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/07 14:33:57 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/07 14:58:58 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,18 +69,18 @@ void	ft_screen(w_point *w)
 	while (i <= (RES_X / 2) && 1 < 2)
 	{
 			/*	ZONE DROITE DE L	ECRAN	*/
-		printf("DROITE :\n");
+	//	printf("DROITE :\n");
 		r = ft_thales_range(w, ft_thales_angle_conv(w, d * i * -1));
 		
 			/*	FONCTION DAFFICHAGE DE LA COLONNE	*/
 		ft_red_pixel(w, (w->sr * (double)WALL_SIZE) / r, (RES_X / 2) + i); // PROVISOIRE
 
-		printf("GAUCHE :\n");
+	//	printf("GAUCHE :\n");
 			/*	ZONE GAUCHE DE LECRAN	*/
 		r = ft_thales_range(w, ft_thales_angle_conv(w, d * i));
 			/*	FONCTION DAFFICHAGE DE LA COLONNE	*/
 		ft_red_pixel(w, (w->sr * (double)WALL_SIZE) / r, (RES_X / 2) - i); // PROVISOIRE
-		printf("\n================\n");
+	//	printf("\n================\n");
 		i++;
 		max++;
 	}
