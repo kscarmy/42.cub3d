@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:52:57 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/07 10:27:16 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/07 13:23:53 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	ft_printf_map(w_point *w)
 {
 	int y = 0;
 	int x = 0;
-	printf("<");
+	// printf("<");
 	while (w->map->map[y])
 	{
 		while (w->map->map[y][x])
