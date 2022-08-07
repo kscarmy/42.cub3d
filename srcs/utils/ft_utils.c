@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 08:19:04 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/06 18:03:49 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/07 08:30:48 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,28 @@ void	ft_red_pixel(w_point *w, int h, int x)
 	// printf("crash ?");
 	while (h > 0 && i < h && i <= RES_Y)
 	{
-		mlx_pixel_put(w->mlx, w->win1, x, mid + i, 0xFF99FF);
-		mlx_pixel_put(w->mlx, w->win1, x, mid - i, 0xFF99FF);
+		if (w->dirx == 1 && w->or == 1) //			DROITE : ORANGE
+		{
+			mlx_pixel_put(w->mlx, w->win1, x, mid + i, 0xF59042);
+			mlx_pixel_put(w->mlx, w->win1, x, mid - i, 0xF59042);
+		}
+		else if (w->dirx == -1 && w->or == 1) //	GAUCHE : VERT
+		{
+			mlx_pixel_put(w->mlx, w->win1, x, mid + i, 0x26BF59);
+			mlx_pixel_put(w->mlx, w->win1, x, mid - i, 0x26BF59);
+		}
+		else if (w->diry == 1 && w->or == -1) //		BAS : BLEU
+		{
+			mlx_pixel_put(w->mlx, w->win1, x, mid + i, 0x0D256E);
+			mlx_pixel_put(w->mlx, w->win1, x, mid - i, 0x0D256E);
+		}
+		else if (w->diry == -1 && w->or == -1) //	HAUT : MAUVE
+		{
+			mlx_pixel_put(w->mlx, w->win1, x, mid + i, 0xA30F54);
+			mlx_pixel_put(w->mlx, w->win1, x, mid - i, 0xA30F54);
+		}
+		// mlx_pixel_put(w->mlx, w->win1, x, mid + i, 0xFF99FF);
+		// mlx_pixel_put(w->mlx, w->win1, x, mid - i, 0xFF99FF);
 		i++;
 	}
 	// printf("non\n");

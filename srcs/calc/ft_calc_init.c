@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 15:21:42 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/06 18:02:43 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/07 08:16:59 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	ft_re_set_calc(w_point *w)
 	w->v->vcr = 0;
 	w->dirx = 0;
 	w->diry = 0;
+	w->or = 0;
 }
 
 // void	ft_vc_init(w_point *w, double d)

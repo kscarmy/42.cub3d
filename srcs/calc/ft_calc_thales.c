@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:45:34 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/06 19:42:43 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/07 09:14:30 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ double	ft_thales_pytha(double x, double y)
 void	ft_thales_init(w_point *w, double d)
 {
 	ft_re_set_calc(w);
+	
 	if (d <= 180) // vers le haut donc y decremente
 		w->diry = -1;
 	else // vers le bas donc y incremente
@@ -46,14 +47,19 @@ void	ft_thales_init(w_point *w, double d)
 		w->dirx = -1;
 	else // vers la droite donc x incremente
 		w->dirx = 1;
-
+	printf("ft_thales_init d %f dx %f dy %f\n", d, w->dirx, w->diry);
 	ft_vc_init(w, d);
 	ft_hc_init(w, d);	
 }
 
 int	ft_thales_wall(m_point *m, double x, double y)
 {
-	// printf("ft_thales_wall : x %f y %f\n", x, y);
+	int jean[5][5] = {{1,1,1,1,1},
+	{1,0,0,0,1},
+	{1,0,0,0,1},
+	{1,0,0,0,1},
+	{1,1,1,1,1}};
+	printf("ft_thales_wall : x %f y %f\n", x, y);
 	if (x < 0.)
 		return (0);
 	if (y < 0.)
@@ -62,12 +68,24 @@ int	ft_thales_wall(m_point *m, double x, double y)
 		return (0);
 	if (y > 100000.)
 		return (0);
-	if ((int)y > m->l - 1)
+
+	if (x > 4)
 		return (0);
-	if ((int)x > ft_str_size(m->map[(int)y]) - 1)
+	if (y > 4)
 		return (0);
-	if (m->map[(int)y][(int)x] == '1')
+	if (jean[(int)y][(int)x] == 1)
 		return (0);
+
+	m = m;
+	// if ((int)y > m->l - 1)
+	// 	return (0);
+	// if ((int)x > ft_str_size(m->map[(int)y]) - 1)
+	// 	return (0);
+	// if (m->map[(int)y][(int)x] == '1')
+	// 	return (0);
+
+
+		
 	// if (m->map[(int)y][(int)x] != '0' && m->map[(int)y][(int)x] != 'N' && m->map[(int)y][(int)x] != 'S' && m->map[(int)y][(int)x] != 'E' && m->map[(int)y][(int)x] != 'W')
 	// 	return (0);
 	return (1);
@@ -80,6 +98,7 @@ double	ft_thales_range(w_point *w, double d)
 
 	ret = 0;
 	i = 0;
+	printf("ft_thales_range : d %f\n", d);
 	ft_thales_init(w, d);
 	// while (i < 4)
 	// {
@@ -88,32 +107,38 @@ double	ft_thales_range(w_point *w, double d)
 	// 	i++;
 	// }
 	// printf("x %f y %f\n", w->h->hx, w->h->hy);
-	while (i < 5 && ft_thales_wall(w->map, w->h->hx, w->h->hy) == 1)
+	printf("HC ");
+	while (i < 10 && ft_thales_wall(w->map, w->h->hx, w->h->hy) == 1)
 	{
 		// printf("hc : x %f y %f\n", w->h->hx, w->h->hy);
+		printf("HC ");
 		ft_hc_add(w);
 		i++;
 	}
 	i = 0;
-	while (i < 5 && ft_thales_wall(w->map, w->v->vx, w->v->vy) == 1)
+	printf("VC ");
+	while (i < 10 && ft_thales_wall(w->map, w->v->vx, w->v->vy) == 1)
 	{
 		// printf("vc : x %f y %f\n", w->v->vx, w->v->vy);
+		printf("VC ");
 		ft_vc_add(w);
 		i++;
 	}
 	if (w->v->vr <= w->h->hr)
 	{
 		ret = w->v->vr;
+		w->or = 1;
 		// ret = ret * cos(ft_degrees_to_radian(d));
 		// printf("vc : x %f y %f\n", w->v->vx, w->v->vy);
-		// printf("ft_thales_range : VR ret %f d %f\n", ret, d);
+		printf("ft_thales_range : VR ret %f d %f\n", ret, d);
 	}
 	else
 	{
 		ret = w->h->hr;
+		w->or = -1;
 		// ret = ret * cos(ft_degrees_to_radian(d));
 		// printf("hc : x %f y %f\n", w->h->hx, w->h->hy);
-		// printf("ft_thales_range : HR ret %f d %f\n", ret, d);
+		printf("ft_thales_range : HR ret %f d %f\n", ret, d);
 	}
 	i = i;
 	return (ret * 100);

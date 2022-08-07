@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:52:57 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/06 18:15:02 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/07 09:15:26 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,25 @@ void	ft_swap_pos(w_point *w)
 	w->pos_y = b;
 }
 
+static void	ft_printf_map(w_point *w)
+{
+	int y = 0;
+	int x = 0;
+	printf("<");
+	while (w->map->map[y])
+	{
+		while (w->map->map[y][x])
+		{
+			printf("%c'", w->map->map[y][x]);
+			x++;
+		}
+		printf(">\n");
+		x = 0;
+		y++;
+	}
+	
+}
+
 void	ft_screen(w_point *w)
 {
 	double	i;
@@ -46,25 +65,28 @@ void	ft_screen(w_point *w)
 	r = 100000.;
 	// ft_swap_pos(w);
 	d = (double)FOV_SIZE / (double)RES_X;
-	while (i <= (RES_X / 2) && 1 < 2)
+	while (i <= (RES_X / 2) && max < 2)
 	{
 			/*	ZONE DROITE DE L	ECRAN	*/
-		r = ft_thales_range(w, ft_thales_angle_conv(w, d * i));
+		printf("DROITE :\n");
+		r = ft_thales_range(w, ft_thales_angle_conv(w, d * i * -1));
+		
 			/*	FONCTION DAFFICHAGE DE LA COLONNE	*/
 		ft_red_pixel(w, (w->sr * (double)WALL_SIZE) / r, (RES_X / 2) + i); // PROVISOIRE
 
-
+		printf("GAUCHE :\n");
 			/*	ZONE GAUCHE DE LECRAN	*/
-		r = ft_thales_range(w, ft_thales_angle_conv(w, d * i * -1));
+		r = ft_thales_range(w, ft_thales_angle_conv(w, d * i));
 			/*	FONCTION DAFFICHAGE DE LA COLONNE	*/
 		ft_red_pixel(w, (w->sr * (double)WALL_SIZE) / r, (RES_X / 2) - i); // PROVISOIRE
-
+		printf("\n================\n");
 		i++;
 		max++;
 	}
 	printf("================\nPos_X : %d\nPos_Y : %d\nX : %d\nY : %d\nD : %d\n"
 		, w->pos_x, w->pos_y, w->x, w->y, (int) w->d);
 	// ft_swap_pos(w);
+	ft_printf_map(w);
 	d = d;
 	r = r;
 	w = w;
