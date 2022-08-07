@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 10:03:21 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/06 19:20:39 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/07 14:34:31 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	ft_init_w(w_point *w, m_point *m)
 	w->map = m;
 	w->dirx = 0;
 	w->diry = 0;
+	
 	printf("INIT win ok\n");
 	ft_found_worldspawn(w);
 }

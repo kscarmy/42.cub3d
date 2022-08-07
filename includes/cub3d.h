@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:25:39 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/07 09:45:53 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/07 14:04:46 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,6 +167,10 @@ typedef struct k_point
 	double	dirx;
 	double	diry;
 	int		or; // orientation de langle de vue : or = 1 HR, or = -1 VR
+	t_img	*no;
+	t_img	*so;
+	t_img	*ea;
+	t_img	*we;
 }				w_point;
 
 
