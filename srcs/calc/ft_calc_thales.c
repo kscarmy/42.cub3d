@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:45:34 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/07 16:16:32 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/09 16:46:45 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,11 +93,13 @@ double	ft_thales_range(w_point *w, double d)
 	if (w->v->vr <= w->h->hr)
 	{
 		ret = w->v->vr;
+		printf("ft_thales_range : VR vx %f vy %f\n", w->v->vx, w->v->vy);
 		w->or = 1;
 	}
 	else
 	{
 		ret = w->h->hr;
+		printf("ft_thales_range : HR hx %f hy %f\n", w->h->hx, w->h->hy);
 		w->or = -1;;
 	}
 	i = i;

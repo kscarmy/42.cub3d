@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 08:19:04 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/09 16:16:47 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/09 16:53:18 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,12 @@ int	ft_get_centieme(double x)
 {
 	int ret;
 
-	ret = x * 100;
-	return (ret % 100);
+	x = x * 100;
+	ret = (int)x;
+	if (ret < 0)
+		ret = ret * -1;
+	ret = ret % 100;
+	return (ret);
 }
 
 void	ft_put_texture(w_point *w, char *img, int xx, int yy)
@@ -65,19 +69,23 @@ void	ft_put_texture(w_point *w, char *img, int xx, int yy)
 	int	y;
 	if (w->or == 1) // HR
 	{
-		x = ft_get_centieme(w->h->hx);
-		y = ft_get_centieme(w->h->hy);
-		w->str[xx * 4 + 4 * (int)RES_X * yy] = img[(int)((x * 64) / 100) * 4 + 4 * (int)RES_X * ((y * 64) / 100)];
-		w->str[xx * 4 + 4 * (int)RES_X * yy + 1] = img[(int)((x * 64) / 100) * 4 + 4 * (int)RES_X * ((y * 64) / 100) + 1];
-		w->str[xx * 4 + 4 * (int)RES_X * yy + 2] = img[(int)((x * 64) / 100) * 4 + 4 * (int)RES_X * ((y * 64) / 100) + 2];
+		x = (ft_get_centieme(w->h->hx) * 64 / 100);
+		// y = (ft_get_centieme(w->h->hy) * 64 / 100);
+		y = 0;
+		// printf("ft_put_texture : hx %f hy %f x %d y %d\n", w->h->hx, w->h->hy, x, y);
+		w->str[xx * 4 + 4 * (int)RES_X * yy] = img[x * 4 + 4 * (int)RES_X * y];
+		w->str[xx * 4 + 4 * (int)RES_X * yy + 1] = img[x * 4 + 4 * (int)RES_X * y + 1];
+		w->str[xx * 4 + 4 * (int)RES_X * yy + 2] = img[x * 4 + 4 * (int)RES_X * y + 2];
 	}
 	else // vr
 	{
-		x = ft_get_centieme(w->v->vx);
-		y = ft_get_centieme(w->v->vy);
-		w->str[xx * 4 + 4 * (int)RES_X * yy] = img[(int)((x * 64) / 100) * 4 + 4 * (int)RES_X * ((y * 64) / 100)];
-		w->str[xx * 4 + 4 * (int)RES_X * yy + 1] = img[(int)((x * 64) / 100) * 4 + 4 * (int)RES_X * ((y * 64) / 100) + 1];
-		w->str[xx * 4 + 4 * (int)RES_X * yy + 2] = img[(int)((x * 64) / 100) * 4 + 4 * (int)RES_X * ((y * 64) / 100) + 2];
+		x = (ft_get_centieme(w->v->vy) * 64 / 100);
+		// y = (ft_get_centieme(w->v->vy) * 64 / 100);
+		y = 0;
+		// printf("ft_put_texture : vx %f vy %f x %d y %d\n", w->v->vx, w->v->vy, x, y);
+		w->str[xx * 4 + 4 * (int)RES_X * yy] = img[x * 4 + 4 * (int)RES_X * y];
+		w->str[xx * 4 + 4 * (int)RES_X * yy + 1] = img[x * 4 + 4 * (int)RES_X * y + 1];
+		w->str[xx * 4 + 4 * (int)RES_X * yy + 2] = img[x * 4 + 4 * (int)RES_X * y + 2];
 	}
 }
 
@@ -121,27 +129,27 @@ void	ft_red_pixel(w_point *w, int h, int x)
 			// mlx_pixel_put(w->mlx, w->win1, x, mid + i, 0xF59042);
 			// mlx_pixel_put(w->mlx, w->win1, x, mid - i, 0xF59042);
 		}
-		// else if (w->dirx == -1 && w->or == -1) //	GAUCHE : VERT
-		// {
-		// 	ft_put_texture(w, w->c->we, x, (mid + i));
-		// 	ft_put_texture(w, w->c->we, x, (mid - i));
-		// 	// mlx_pixel_put(w->mlx, w->win1, x, mid + i, 0x26BF59);
-		// 	// mlx_pixel_put(w->mlx, w->win1, x, mid - i, 0x26BF59);
-		// }
-		// else if (w->diry == 1 && w->or == 1) //		BAS : BLEU
-		// {
-		// 	ft_put_texture(w, w->c->so, x, (mid + i));
-		// 	ft_put_texture(w, w->c->so, x, (mid - i));
-		// 	// mlx_pixel_put(w->mlx, w->win1, x, mid + i, 0x0D256E);
-		// 	// mlx_pixel_put(w->mlx, w->win1, x, mid - i, 0x0D256E);
-		// }
-		// else if (w->diry == -1 && w->or == 1) //	HAUT : MAUVE
-		// {
-		// 	ft_put_texture(w, w->c->no, x, (mid + i));
-		// 	ft_put_texture(w, w->c->no, x, (mid - i));
-		// 	// mlx_pixel_put(w->mlx, w->win1, x, mid + i, 0xA30F54);
-		// 	// mlx_pixel_put(w->mlx, w->win1, x, mid - i, 0xA30F54);
-		// }
+		else if (w->dirx == -1 && w->or == -1) //	GAUCHE : VERT
+		{
+			ft_put_texture(w, w->c->we, x, (mid + i));
+			ft_put_texture(w, w->c->we, x, (mid - i));
+			// mlx_pixel_put(w->mlx, w->win1, x, mid + i, 0x26BF59);
+			// mlx_pixel_put(w->mlx, w->win1, x, mid - i, 0x26BF59);
+		}
+		else if (w->diry == 1 && w->or == 1) //		BAS : BLEU
+		{
+			ft_put_texture(w, w->c->so, x, (mid + i));
+			ft_put_texture(w, w->c->so, x, (mid - i));
+			// mlx_pixel_put(w->mlx, w->win1, x, mid + i, 0x0D256E);
+			// mlx_pixel_put(w->mlx, w->win1, x, mid - i, 0x0D256E);
+		}
+		else if (w->diry == -1 && w->or == 1) //	HAUT : MAUVE
+		{
+			ft_put_texture(w, w->c->no, x, (mid + i));
+			ft_put_texture(w, w->c->no, x, (mid - i));
+			// mlx_pixel_put(w->mlx, w->win1, x, mid + i, 0xA30F54);
+			// mlx_pixel_put(w->mlx, w->win1, x, mid - i, 0xA30F54);
+		}
 
 		// // mlx_pixel_put(w->mlx, w->win1, x, mid + i, 0xFF99FF);
 		// // mlx_pixel_put(w->mlx, w->win1, x, mid - i, 0xFF99FF);

@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:52:57 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/09 15:34:03 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/09 17:07:53 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ft_screen(w_point *w)
 	mlx_destroy_image(w->mlx, w->screen);
 	w->screen = mlx_new_image(w->mlx, RES_X, RES_Y);
 	w->str = mlx_get_data_addr(w->screen, &w->c->bbp, &w->c->sl, &w->c->end);
-	while (i <= (RES_X / 2) && 1 < 100)
+	while (i < (RES_X / 2) && 1 < 10)
 	{
 			/*	ZONE DROITE DE L	ECRAN	*/
 		r = ft_thales_range(w, ft_thales_angle_conv(w, d * i * -1));
@@ -62,6 +62,15 @@ void	ft_screen(w_point *w)
 		i++;
 		max++;
 	}
+
+
+		/*	ZONE GAUCHE DE LECRAN	*/
+	r = ft_thales_range(w, ft_thales_angle_conv(w, d * i));
+		/*	FONCTION DAFFICHAGE DE LA COLONNE	*/
+	ft_red_pixel(w, (w->sr * (double)WALL_SIZE) / r, (RES_X / 2) - i); // PROVISOIRE
+
+
+	
 	// printf("ft_screen : bbp %d sl %d sizeof %d\n", w->c->bbp, w->c->sl, ft_str_size(w->str));
 	w->str[(0 + 4 * (int)RES_X * 2) + 2] = 255;
 	// printf("jean : %d\n", (0 + 4 * (int)RES_X * 2));

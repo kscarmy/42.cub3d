@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 10:03:21 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/09 16:08:47 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/09 16:33:59 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,22 @@
 void	ft_init_w(w_point *w, m_point *m)
 {
 	// int	size;
-	int	bbp;
-	int	size_line;
-	int	endian;
+	int	nobbp;
+	int	nosize_line;
+	int	noendian;
+
+	int	sobbp;
+	int	sosize_line;
+	int	soendian;
+
+	int	eabbp;
+	int	easize_line;
+	int	eaendian;
+
+	int	webbp;
+	int	wesize_line;
+	int	weendian;
+
 	w->er = 0;
 	printf("INIT win\n");
 	w->mlx = mlx_init();
@@ -47,10 +60,10 @@ void	ft_init_w(w_point *w, m_point *m)
 	w->we = mlx_xpm_file_to_image(w->mlx, w->map->we, &w->c->s, &w->c->s);
 	w->screen = mlx_new_image(w->mlx, RES_X, RES_Y);
 	w->str = mlx_get_data_addr(w->screen, &w->c->bbp, &w->c->sl, &w->c->end);
-	w->c->no = mlx_get_data_addr(w->no, &bbp, &size_line, &endian);
-	w->c->so = mlx_get_data_addr(w->so, &bbp, &size_line, &endian);
-	w->c->ea = mlx_get_data_addr(w->ea, &bbp, &size_line, &endian);
-	w->c->we = mlx_get_data_addr(w->we, &bbp, &size_line, &endian);
+	w->c->no = mlx_get_data_addr(w->no, &nobbp, &nosize_line, &noendian);
+	w->c->so = mlx_get_data_addr(w->so, &sobbp, &sosize_line, &soendian);
+	w->c->ea = mlx_get_data_addr(w->ea, &eabbp, &easize_line, &eaendian);
+	w->c->we = mlx_get_data_addr(w->we, &webbp, &wesize_line, &weendian);
 	printf("INIT win ok\n");
 	ft_found_worldspawn(w);
 }
