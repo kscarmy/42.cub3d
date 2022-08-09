@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:25:39 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/09 14:15:43 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/09 15:56:09 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,6 +157,10 @@ typedef struct rgb_point
 	int	bbp; // nombre de bits par pixels
 	int	sl; //  la taille d'une ligne 4x 
 	int	end;
+	char	*no;
+	char	*so;
+	char	*ea;
+	char	*we;
 }				c_point;
 
 
