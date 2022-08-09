@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 08:19:04 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/09 16:53:18 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/09 19:06:43 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,23 +69,32 @@ void	ft_put_texture(w_point *w, char *img, int xx, int yy)
 	int	y;
 	if (w->or == 1) // HR
 	{
-		x = (ft_get_centieme(w->h->hx) * 64 / 100);
+		x = (ft_get_centieme(w->h->hy) * 64 / 100);
 		// y = (ft_get_centieme(w->h->hy) * 64 / 100);
-		y = 0;
-		// printf("ft_put_texture : hx %f hy %f x %d y %d\n", w->h->hx, w->h->hy, x, y);
-		w->str[xx * 4 + 4 * (int)RES_X * yy] = img[x * 4 + 4 * (int)RES_X * y];
-		w->str[xx * 4 + 4 * (int)RES_X * yy + 1] = img[x * 4 + 4 * (int)RES_X * y + 1];
-		w->str[xx * 4 + 4 * (int)RES_X * yy + 2] = img[x * 4 + 4 * (int)RES_X * y + 2];
+		// y = yy * 64 / w->c->h;
+		y = yy * w->c->h / RES_Y;
+		y = y * 64 / w->c->h;
+		// y = (int)(((double)64. / (double)w->c->h) * yy);
+		// printf("ft_put_texture : x %d y %d xx %d yy %d h %d", x, y, xx, yy, w->c->h);
+		// y = 0;
+		// printf(" : ok mec : img %d RES_X %d IMG %d\n", x * 4 + 4 *(int)RES_X * y, RES_X, img[x * 4 + (4 *(int)RES_X * y)] + 125);
+		w->str[xx * 4 + 4 * (int)RES_X * yy] = (int)img[x * 4 + (4 * WALL_SIZE * y)];
+		w->str[xx * 4 + 4 * (int)RES_X * yy + 1] = (int)img[x * 4 + (4 * WALL_SIZE * y) + 1];
+		w->str[xx * 4 + 4 * (int)RES_X * yy + 2] = (int)img[x * 4 + (4 * WALL_SIZE * y) + 2];
 	}
 	else // vr
 	{
-		x = (ft_get_centieme(w->v->vy) * 64 / 100);
+		x = (ft_get_centieme(w->v->vx) * 64 / 100);
 		// y = (ft_get_centieme(w->v->vy) * 64 / 100);
-		y = 0;
-		// printf("ft_put_texture : vx %f vy %f x %d y %d\n", w->v->vx, w->v->vy, x, y);
-		w->str[xx * 4 + 4 * (int)RES_X * yy] = img[x * 4 + 4 * (int)RES_X * y];
-		w->str[xx * 4 + 4 * (int)RES_X * yy + 1] = img[x * 4 + 4 * (int)RES_X * y + 1];
-		w->str[xx * 4 + 4 * (int)RES_X * yy + 2] = img[x * 4 + 4 * (int)RES_X * y + 2];
+		y = yy * w->c->h / RES_Y;
+		y = y * 64 / w->c->h;
+		// y = (int)(((double)64. / (double)w->c->h) * yy);
+		// printf("ft_put_texture : x %d y %d xx %d yy %d h %d\n", x, y, xx, yy, w->c->h);
+		// y = 0;
+
+		w->str[xx * 4 + 4 * (int)RES_X * yy] = (int)img[x * 4 + 4 * WALL_SIZE * y];
+		w->str[xx * 4 + 4 * (int)RES_X * yy + 1] = (int)img[x * 4 + 4 * WALL_SIZE * y + 1];
+		w->str[xx * 4 + 4 * (int)RES_X * yy + 2] = (int)img[x * 4 + 4 * WALL_SIZE * y + 2];
 	}
 }
 
@@ -120,6 +129,7 @@ void	ft_red_pixel(w_point *w, int h, int x)
 	int	head;
 
 	head = 0;
+	w->c->h = h;
 	while (h > 0 && i < h && i <= RES_Y)
 	{
 		if (w->dirx == 1 && w->or == -1) //			DROITE : ORANGE

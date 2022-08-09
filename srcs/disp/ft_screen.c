@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:52:57 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/09 17:07:53 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/09 19:09:06 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ void	ft_screen(w_point *w)
 	i = 0;
 	r = 100000.;
 	d = (double)FOV_SIZE / (double)RES_X;
-	mlx_destroy_image(w->mlx, w->screen);
-	w->screen = mlx_new_image(w->mlx, RES_X, RES_Y);
+	// mlx_destroy_image(w->mlx, w->screen);
+	// w->screen = mlx_new_image(w->mlx, RES_X, RES_Y);
 	w->str = mlx_get_data_addr(w->screen, &w->c->bbp, &w->c->sl, &w->c->end);
-	while (i < (RES_X / 2) && 1 < 10)
+	while (i < (RES_X / 2) && 1 < 3)
 	{
 			/*	ZONE DROITE DE L	ECRAN	*/
 		r = ft_thales_range(w, ft_thales_angle_conv(w, d * i * -1));
@@ -63,11 +63,13 @@ void	ft_screen(w_point *w)
 		max++;
 	}
 
-
-		/*	ZONE GAUCHE DE LECRAN	*/
-	r = ft_thales_range(w, ft_thales_angle_conv(w, d * i));
-		/*	FONCTION DAFFICHAGE DE LA COLONNE	*/
-	ft_red_pixel(w, (w->sr * (double)WALL_SIZE) / r, (RES_X / 2) - i); // PROVISOIRE
+	if (RES_X %2 == 0) // si la resolution de lecran est impair
+	{
+			/*	ZONE GAUCHE DE LECRAN	*/
+		r = ft_thales_range(w, ft_thales_angle_conv(w, d * i));
+			/*	FONCTION DAFFICHAGE DE LA COLONNE	*/
+		ft_red_pixel(w, (w->sr * (double)WALL_SIZE) / r, (RES_X / 2) - i); // PROVISOIRE
+	}
 
 
 	

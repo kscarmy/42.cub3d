@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:25:39 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/09 15:56:09 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/09 17:57:22 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,6 +161,7 @@ typedef struct rgb_point
 	char	*so;
 	char	*ea;
 	char	*we;
+	int	h; // hauteur du mur
 }				c_point;
 
 
