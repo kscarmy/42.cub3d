@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 10:03:21 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/07 17:42:05 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/09 14:05:22 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_init_w(w_point *w, m_point *m)
 	w->ea = mlx_xpm_file_to_image(w->mlx, w->map->ea, &w->c->s, &w->c->s);
 	w->we = mlx_xpm_file_to_image(w->mlx, w->map->we, &w->c->s, &w->c->s);
 	w->screen = mlx_new_image(w->mlx, RES_X, RES_Y);
-	w->str = (int *)mlx_get_data_addr(w->screen, &w->c->bbp, &w->c->sl, &w->c->end);
+	w->str = mlx_get_data_addr(w->screen, &w->c->bbp, &w->c->sl, &w->c->end);
 	printf("INIT win ok\n");
 	ft_found_worldspawn(w);
 }

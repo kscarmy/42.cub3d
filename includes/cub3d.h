@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:25:39 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/07 17:34:05 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/09 14:15:43 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,9 +153,9 @@ typedef struct rgb_point
 	int	r;
 	int	g;
 	int	b;
-	int	s;
-	int	bbp;
-	int	sl;
+	int	s; // taille import image x et y
+	int	bbp; // nombre de bits par pixels
+	int	sl; //  la taille d'une ligne 4x 
 	int	end;
 }				c_point;
 
@@ -186,7 +186,7 @@ typedef struct k_point
 	t_img	*ea;
 	t_img	*we;
 	t_img	*screen;
-	int		*str;
+	char	*str;
 }				w_point;
 
 
