@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:52:57 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/09 19:09:06 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/11 16:15:58 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ft_screen(w_point *w)
 	// mlx_destroy_image(w->mlx, w->screen);
 	// w->screen = mlx_new_image(w->mlx, RES_X, RES_Y);
 	w->str = mlx_get_data_addr(w->screen, &w->c->bbp, &w->c->sl, &w->c->end);
-	while (i < (RES_X / 2) && 1 < 3)
+	while (i < (RES_X / 2) && 1 < 2)
 	{
 			/*	ZONE DROITE DE L	ECRAN	*/
 		r = ft_thales_range(w, ft_thales_angle_conv(w, d * i * -1));

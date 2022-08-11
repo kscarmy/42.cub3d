@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 08:19:04 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/11 14:29:59 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/11 16:16:15 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,15 +68,31 @@ void	ft_put_texture(w_point *w, char *img, int xx, int yy)
 {
 	int	x;
 	int	y;
+
+	// y = yy - ((RES_Y - w->c->h) / 2);
+	if (yy - (RES_Y / 2) > 0)
+		y = ((w->c->h / 2) + w->c->i) * 64 / w->c->h;
+	else
+		y = ((w->c->h / 2) - w->c->i) * 64 / w->c->h;
+	
+	if (y < 0 && y > 64)
+		y = 0;
+	// printf("put : y %d mid %d\n", y, yy - RES_Y / 2);
+	// printf("put : h %d ra %f y %d\n", w->c->h, (double)((w->c->h / 2) + w->c->i), y);
+	// if (y < 0 && y > 64)
+	// 	y = 0;
 	if (w->or == 1) // HR
 	{
 		x = (ft_get_centieme(w->h->hy) * 64 / 100);
 		// y = (ft_get_centieme(w->h->hy) * 64 / 100);
 		
 		// // y = yy;
-		y = yy - ((RES_Y - w->c->h) / 2);
-		y = y * 64 / w->c->h;
-		// y = y * (RES_Y / w->c->h);
+		// y = yy - ((RES_Y - w->c->h) / 2);
+		// y = y * 64 / w->c->h;
+		// printf("y %d ratio %f", y, (double)(w->c->h/ 64));
+		// y = (int)((double)y * (double)(w->c->h/ 64));
+		// y = y - 32;
+		// printf(" y %d\n", y);
 		// y = yy - ((RES_Y - w->c->h) / (w->c->h / RES_Y));
 		// y = yy * 64 / RES_Y;
 		// y = yy * w->c->h / (int)RES_Y;
@@ -93,8 +109,8 @@ void	ft_put_texture(w_point *w, char *img, int xx, int yy)
 		// else
 		// 	y = 32 - y;
 		// printf("ft_put_texture : x %d y %d xx %d yy %d h %d\n", x, y, xx, yy, w->c->h);
-		if (y < 0 && y > 64)
-			y = 0;
+		// if (y < 0 && y > 64)
+		// 	y = 0;
 		w->str[xx * 4 + 4 * (int)RES_X * yy] = img[x * 4 + (4 * WALL_SIZE * y)];
 		w->str[xx * 4 + 4 * (int)RES_X * yy + 1] = img[x * 4 + (4 * WALL_SIZE * y) + 1];
 		w->str[xx * 4 + 4 * (int)RES_X * yy + 2] = img[x * 4 + (4 * WALL_SIZE * y) + 2];
@@ -103,8 +119,8 @@ void	ft_put_texture(w_point *w, char *img, int xx, int yy)
 	{
 		x = (ft_get_centieme(w->v->vx) * 64 / 100);
 		// y = (ft_get_centieme(w->v->vy) * 64 / 100);
-		y = yy - ((RES_Y - w->c->h) / 2);
-		y = y * 64 / w->c->h;
+		// y = yy - ((RES_Y - w->c->h) / 2);
+		// y = y * 64 / w->c->h;
 		// y = yy * 64 / w->c->h;
 		// y = (int)(((double)64. / (double)w->c->h) * yy);
 		// printf("ft_put_texture : x %d y %d xx %d yy %d h %d\n", x, y, xx, yy, w->c->h);
@@ -114,8 +130,8 @@ void	ft_put_texture(w_point *w, char *img, int xx, int yy)
 		// else
 		// 	y = 32 - y;
 		// printf("ft_put_texture : x %d y %d xx %d yy %d h %d\n", x, y, xx, yy, w->c->h);
-		if (y < 0 && y > 64)
-			y = 0;
+		// if (y < 0 && y > 64)
+		// 	y = 0;
 		w->str[xx * 4 + 4 * (int)RES_X * yy] = img[x * 4 + 4 * WALL_SIZE * y];
 		w->str[xx * 4 + 4 * (int)RES_X * yy + 1] = img[x * 4 + 4 * WALL_SIZE * y + 1];
 		w->str[xx * 4 + 4 * (int)RES_X * yy + 2] = img[x * 4 + 4 * WALL_SIZE * y + 2];
@@ -153,9 +169,10 @@ void	ft_red_pixel(w_point *w, int h, int x)
 	int	head;
 
 	head = 0;
-	w->c->h = h;
+	w->c->h = h * 2;
 	while (h > 0 && i < h && i <= RES_Y)
 	{
+		w->c->i = i;
 		if (w->dirx == 1 && w->or == -1) //			DROITE : ORANGE
 		{
 			ft_put_texture(w, w->c->ea, x, (mid + i));
