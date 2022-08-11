@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 08:19:04 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/09 19:06:43 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/11 14:29:59 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,27 @@ double	ft_radian_to_degrees(double rad)
 // 	w->str[i + 2] = w->c->b;
 // }
 
-void	ft_put_pixel_floor(w_point *w, int i)
-{
-	// w->str[i] = (char)w->map->fr;
-	// w->str[i + 1] = (char)w->map->fg;
-	// w->str[i + 2] = (char)w->map->fb;
-	// w->str[i] = w->map->floor;
-	w->str[i] = 78;
-	w->str[i + 1] = 82;
-	w->str[i + 2] = 43;
-}
 
 void	ft_put_pixel_ceiling(w_point *w, int i)
 {
-	// w->str[i] = (char)w->map->cr;
-	// w->str[i + 1] = (char)w->map->cg;
-	// w->str[i + 2] = (char)w->map->cb;
+	w->str[i + 2] = w->map->fr;
+	w->str[i + 1] = w->map->fg;
+	w->str[i] = w->map->fb;
+	// w->str[i] = w->map->floor;
+	// w->str[i] = 78;
+	// w->str[i + 1] = 82;
+	// w->str[i + 2] = 43;
+}
+
+void	ft_put_pixel_floor(w_point *w, int i)
+{
+	w->str[i + 2] = w->map->cr;
+	w->str[i + 1] = w->map->cg;
+	w->str[i] = w->map->cb;
 	// w->str[i] = w->map->ceiling;
-	w->str[i] = 245;
-	w->str[i + 1] = 135;
-	w->str[i + 2] = 66;
+	// w->str[i] = 245;
+	// w->str[i + 1] = 135;
+	// w->str[i + 2] = 66;
 }
 
 int	ft_get_centieme(double x)
@@ -71,30 +72,53 @@ void	ft_put_texture(w_point *w, char *img, int xx, int yy)
 	{
 		x = (ft_get_centieme(w->h->hy) * 64 / 100);
 		// y = (ft_get_centieme(w->h->hy) * 64 / 100);
-		// y = yy * 64 / w->c->h;
-		y = yy * w->c->h / RES_Y;
+		
+		// // y = yy;
+		y = yy - ((RES_Y - w->c->h) / 2);
 		y = y * 64 / w->c->h;
+		// y = y * (RES_Y / w->c->h);
+		// y = yy - ((RES_Y - w->c->h) / (w->c->h / RES_Y));
+		// y = yy * 64 / RES_Y;
+		// y = yy * w->c->h / (int)RES_Y;
+		// y = y - ((RES_Y - w->c->h) / 2);
+		// y = y * 64 / w->c->h;
+		// y = y / 2;
+		// y = yy * 64 / w->c->h;
 		// y = (int)(((double)64. / (double)w->c->h) * yy);
-		// printf("ft_put_texture : x %d y %d xx %d yy %d h %d", x, y, xx, yy, w->c->h);
+
 		// y = 0;
 		// printf(" : ok mec : img %d RES_X %d IMG %d\n", x * 4 + 4 *(int)RES_X * y, RES_X, img[x * 4 + (4 *(int)RES_X * y)] + 125);
-		w->str[xx * 4 + 4 * (int)RES_X * yy] = (int)img[x * 4 + (4 * WALL_SIZE * y)];
-		w->str[xx * 4 + 4 * (int)RES_X * yy + 1] = (int)img[x * 4 + (4 * WALL_SIZE * y) + 1];
-		w->str[xx * 4 + 4 * (int)RES_X * yy + 2] = (int)img[x * 4 + (4 * WALL_SIZE * y) + 2];
+		// if (yy < RES_Y / 2)
+		// 	y = 32 + y;
+		// else
+		// 	y = 32 - y;
+		// printf("ft_put_texture : x %d y %d xx %d yy %d h %d\n", x, y, xx, yy, w->c->h);
+		if (y < 0 && y > 64)
+			y = 0;
+		w->str[xx * 4 + 4 * (int)RES_X * yy] = img[x * 4 + (4 * WALL_SIZE * y)];
+		w->str[xx * 4 + 4 * (int)RES_X * yy + 1] = img[x * 4 + (4 * WALL_SIZE * y) + 1];
+		w->str[xx * 4 + 4 * (int)RES_X * yy + 2] = img[x * 4 + (4 * WALL_SIZE * y) + 2];
 	}
 	else // vr
 	{
 		x = (ft_get_centieme(w->v->vx) * 64 / 100);
 		// y = (ft_get_centieme(w->v->vy) * 64 / 100);
-		y = yy * w->c->h / RES_Y;
+		y = yy - ((RES_Y - w->c->h) / 2);
 		y = y * 64 / w->c->h;
+		// y = yy * 64 / w->c->h;
 		// y = (int)(((double)64. / (double)w->c->h) * yy);
 		// printf("ft_put_texture : x %d y %d xx %d yy %d h %d\n", x, y, xx, yy, w->c->h);
 		// y = 0;
-
-		w->str[xx * 4 + 4 * (int)RES_X * yy] = (int)img[x * 4 + 4 * WALL_SIZE * y];
-		w->str[xx * 4 + 4 * (int)RES_X * yy + 1] = (int)img[x * 4 + 4 * WALL_SIZE * y + 1];
-		w->str[xx * 4 + 4 * (int)RES_X * yy + 2] = (int)img[x * 4 + 4 * WALL_SIZE * y + 2];
+		// if (yy < RES_Y / 2)
+		// 	y = 32 + y;
+		// else
+		// 	y = 32 - y;
+		// printf("ft_put_texture : x %d y %d xx %d yy %d h %d\n", x, y, xx, yy, w->c->h);
+		if (y < 0 && y > 64)
+			y = 0;
+		w->str[xx * 4 + 4 * (int)RES_X * yy] = img[x * 4 + 4 * WALL_SIZE * y];
+		w->str[xx * 4 + 4 * (int)RES_X * yy + 1] = img[x * 4 + 4 * WALL_SIZE * y + 1];
+		w->str[xx * 4 + 4 * (int)RES_X * yy + 2] = img[x * 4 + 4 * WALL_SIZE * y + 2];
 	}
 }
 
