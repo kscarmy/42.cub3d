@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:30:43 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/12 15:07:14 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/12 15:54:07 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	rotate(int key, t_w_point *win)
 		win->d = 0;
 }
 
-void	zqsd(int key, t_w_point *win)
+void	zqsd(int key, t_w_point *win, int dir)
 {
 	if (key == KEY_MOVE_FRONT)
 	{
@@ -83,20 +83,31 @@ void	zqsd(int key, t_w_point *win)
 	}
 	else if (key == KEY_MOVE_RIGHT)
 	{
-		win->pos_y -= find_x(win->d + 270, MOVE_SIZE);
-		win->pos_x -= find_y(win->d + 270, MOVE_SIZE);
+		win->pos_y -= find_x(win->d + 270, MOVE_SIZE * win->dirx * dir);
+		win->pos_x -= find_y(win->d + 270, MOVE_SIZE * win->diry * dir);
 	}
 	else if (key == KEY_MOVE_LEFT)
 	{
-		win->pos_y += find_x(win->d + 270, MOVE_SIZE);
-		win->pos_x += find_y(win->d + 270, MOVE_SIZE);
+		win->pos_y += find_x(win->d + 270, MOVE_SIZE * win->dirx * dir);
+		win->pos_x += find_y(win->d + 270, MOVE_SIZE * win->diry * dir);
 	}
 }
 
 int	ft_move_zqsd(int key, t_w_point *win)
 {
 	rotate(key, win);
-	zqsd(key, win);
+	if (win->d <= 180)
+		win->diry = -1;
+	else
+		win->diry = 1;
+	if (win->d >= 90 && win->d <= 270)
+		win->dirx = -1;
+	else
+		win->dirx = 1;
+	if (win->d >= 180 && win->d <= 270)
+		zqsd(key, win, -1);
+	else
+		zqsd(key, win, 1);
 	if (win->pos_y > 100
 		|| win->pos_y < 0
 		|| win->pos_x > 100
