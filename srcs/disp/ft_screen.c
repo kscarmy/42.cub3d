@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:52:57 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/12 14:09:05 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/12 14:35:57 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,20 @@ void	ft_swap_pos(w_point *w)
 	w->pos_y = b;
 }
 
+void	ft_screen_bis(w_point *w, double i, double r, double d)
+{
+	if (RES_X % 2 == 0)
+	{
+		r = ft_thales_range(w, ft_thales_angle_conv(w, d * i));
+		if (w->or == 1)
+			r = r * cos(ft_degrees_to_radian(d * i));
+		else
+			r = r * sin(ft_degrees_to_radian(90. + (d * i)));
+		ft_red_pixel(w, (w->sr * (double)WALL_SIZE) / r, (RES_X / 2) - i);
+	}
+	mlx_put_image_to_window(w->mlx, w->win1, w->screen, 0, 0);
+}
+
 void	ft_screen(w_point *w)
 {
 	double	i;
@@ -40,9 +54,7 @@ void	ft_screen(w_point *w)
 	double	d;
 
 	i = 0;
-	r = 100000.;
 	d = (double)FOV_SIZE / (double)RES_X;
-	w->str = mlx_get_data_addr(w->screen, &w->c->bbp, &w->c->sl, &w->c->end);
 	while (i < (RES_X / 2))
 	{
 		r = ft_thales_range(w, ft_thales_angle_conv(w, d * i * -1));
@@ -59,14 +71,5 @@ void	ft_screen(w_point *w)
 		ft_red_pixel(w, (w->sr * (double)WALL_SIZE) / r, (RES_X / 2) - i);
 		i++;
 	}
-	if (RES_X % 2 == 0)
-	{
-		r = ft_thales_range(w, ft_thales_angle_conv(w, d * i));
-		if (w->or == 1)
-			r = r * cos(ft_degrees_to_radian(d * i));
-		else
-			r = r * sin(ft_degrees_to_radian(90. + (d * i)));
-		ft_red_pixel(w, (w->sr * (double)WALL_SIZE) / r, (RES_X / 2) - i);
-	}
-	mlx_put_image_to_window(w->mlx, w->win1, w->screen, 0, 0);
+	ft_screen_bis(w, i, r, d);
 }

@@ -6,24 +6,11 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:45:34 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/12 14:14:49 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/12 14:54:14 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
-
-double	ft_thales_angle_conv(w_point *w, double d)
-{
-	double	ret;
-
-	ret = w->d;
-	ret = ret + d;
-	if (ret < 0)
-		ret = 360 - ft_double_abs(ret);
-	if (ret >= 360)
-		ret = ret - 360;
-	return (ret);
-}
 
 double	ft_thales_pytha(double x, double y)
 {
@@ -69,51 +56,11 @@ int	ft_thales_wall(w_point *w, double x, double y)
 	return (1);
 }
 
-double	ft_thales_fish_eyes_hc(w_point *w, double ret, double d)
-{
-	if (w->dirx == 1 && w->diry == -1)
-		return (ret * cos(ft_degrees_to_radian(d)));
-	if (w->dirx == 1 && w->diry == 1)
-		return (ret * cos(ft_degrees_to_radian(360. - d)));
-	if (w->dirx == -1 && w->diry == -1)
-		return (ret * cos(ft_degrees_to_radian(180. - d)));
-	if (w->dirx == -1 && w->diry == 1)
-		return (ret * cos(ft_degrees_to_radian(d - 180.)));
-	return (10000.);
-}
-
-double	ft_thales_fish_eyes_vc(w_point *w, double ret, double d)
-{
-	if (w->dirx == 1 && w->diry == -1)
-		return (ret * cos(ft_degrees_to_radian(90. - d)));
-	if (w->dirx == 1 && w->diry == 1)
-		return (ret * cos(ft_degrees_to_radian(d - 270.)));
-	if (w->dirx == -1 && w->diry == -1)
-		return (ret * cos(ft_degrees_to_radian(d - 90.)));
-	if (w->dirx == -1 && w->diry == 1)
-		return (ret * cos(ft_degrees_to_radian(270. - d)));
-	return (10000.);
-}
-
-double	ft_thales_range(w_point *w, double d)
+double	ft_thales_range_or(w_point *w)
 {
 	double	ret;
-	int		i;
 
 	ret = 0;
-	i = 0;
-	ft_thales_init(w, d);
-	while (i < 20 && ft_thales_wall(w, w->h->hx, w->h->hy) == 1)
-	{
-		ft_hc_add(w);
-		i++;
-	}
-	i = 0;
-	while (i < 20 && ft_thales_wall(w, w->v->vx, w->v->vy) == 1)
-	{
-		ft_vc_add(w);
-		i++;
-	}
 	if (w->v->vr <= w->h->hr)
 	{
 		ret = w->v->vr;
@@ -124,6 +71,25 @@ double	ft_thales_range(w_point *w, double d)
 		ret = w->h->hr;
 		w->or = -1;
 	}
-	i = i;
 	return (ret * 100);
+}
+
+double	ft_thales_range(w_point *w, double d)
+{
+	int		i;
+
+	i = 0;
+	ft_thales_init(w, d);
+	while (ft_thales_wall(w, w->h->hx, w->h->hy) == 1)
+	{
+		ft_hc_add(w);
+		i++;
+	}
+	i = 0;
+	while (ft_thales_wall(w, w->v->vx, w->v->vy) == 1)
+	{
+		ft_vc_add(w);
+		i++;
+	}
+	return (ft_thales_range_or(w));
 }

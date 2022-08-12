@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:25:39 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/12 13:51:27 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/12 14:51:57 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -287,23 +287,44 @@ int		ft_exit_free_map(m_point *m, int ret);
 /*	 DISP	*/
 /*	*******	*/
 
+/*	ft_init_img.c	*/
+void	ft_xpm_file_to_image(w_point *w, m_point *m);
+void	ft_init_no(w_point *w);
+void	ft_init_so(w_point *w);
+void	ft_init_ea(w_point *w);
+void	ft_init_we(w_point *w);
+
 /*	ft_windows.c	*/
 void	ft_init_w(w_point *w, m_point *m);
 int		ft_is_worldspawn(char c);
 void	ft_found_worldspawn(w_point *w);
 void	ft_exit_free_all(w_point *w, int ret);
 void	ft_windows(m_point *m);
+void	ft_xpm_file_to_image(w_point *w, m_point *m);
 
 /*	ft_screen.c	*/
+void	ft_screen_bis(w_point *w, double i, double r,  double d);
 void	ft_screen(w_point *w);
 void	ft_swap_pos(w_point *w);
 void	ft_screen_init(w_point *w);
+
+/*	ft_draw.c	*/
+void	ft_put_texture(w_point *w, char *img, int xx, int yy);
+void	ft_red_pixel(w_point *w, int h, int x);
+void	ft_red_pixel_up(w_point *w, int h, int x);
+void	ft_red_pixel_bord(w_point *w, int h, int x);
+
+/*	ft_draw_bis.c	*/
+void	ft_put_pixel_ceiling(w_point *w, int i);
+void	ft_put_pixel_floor(w_point *w, int i);
+int	ft_get_centieme(double x);
 
 /*	*******	*/
 /*	 CALC	*/
 /*	*******	*/
 
 /*	ft_calc_thales.c	*/
+double	ft_thales_range_or(w_point *w);
 double	ft_thales_angle_conv(w_point *w, double d);
 double	ft_thales_pytha(double x, double y);
 void	ft_thales_init(w_point *w, double d);
@@ -312,11 +333,6 @@ double  ft_thales_range(w_point *w, double d);
 
 /*	ft_calc_init.c	*/
 void	ft_re_set_calc(w_point *w);
-// void	ft_vc_init_up(w_point *w, double d);
-// void	ft_vc_init_down(w_point *w, double d);
-// void	ft_hc_init_right(w_point *w, double d);
-// void	ft_hc_init_left(w_point *w, double d);
-
 double	ft_vc_pytha(w_point *w, double y, double d);
 void	ft_vc_init(w_point *w, double d);
 double	ft_hc_pytha(w_point *w, double x, double d);

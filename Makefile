@@ -22,6 +22,9 @@ SRC =srcs/move/ft_entry_key.c \
 		srcs/gnl/get_next_line_utils.c \
 		srcs/disp/ft_windows.c \
 		srcs/disp/ft_screen.c \
+		srcs/disp/ft_init_img.c \
+		srcs/disp/ft_draw.c \
+		srcs/disp/ft_draw_bis.c \
 		srcs/calc/ft_calc_thales.c \
 		srcs/calc/ft_calc_init.c \
 		srcs/calc/ft_calc_add.c \

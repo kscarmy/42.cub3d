@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 10:03:21 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/12 14:10:45 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/12 14:49:35 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,6 @@
 
 void	ft_init_w(w_point *w, m_point *m)
 {
-	int	nobbp;
-	int	nosize_line;
-	int	noendian;
-	int	sobbp;
-	int	sosize_line;
-	int	soendian;
-	int	eabbp;
-	int	easize_line;
-	int	eaendian;
-	int	webbp;
-	int	wesize_line;
-	int	weendian;
-
 	w->er = 0;
 	printf("INIT win\n");
 	w->mlx = mlx_init();
@@ -42,24 +29,7 @@ void	ft_init_w(w_point *w, m_point *m)
 		w->er = 1;
 	}
 	mlx_clear_window(w->mlx, w->win1);
-	w->pos_x = 50;
-	w->pos_y = 50;
-	w->x = 0;
-	w->y = 0;
-	w->map = m;
-	w->dirx = 0;
-	w->diry = 0;
-	w->str = NULL;
-	w->no = mlx_xpm_file_to_image(w->mlx, w->map->no, &w->c->s, &w->c->s);
-	w->so = mlx_xpm_file_to_image(w->mlx, w->map->so, &w->c->s, &w->c->s);
-	w->ea = mlx_xpm_file_to_image(w->mlx, w->map->ea, &w->c->s, &w->c->s);
-	w->we = mlx_xpm_file_to_image(w->mlx, w->map->we, &w->c->s, &w->c->s);
-	w->screen = mlx_new_image(w->mlx, RES_X, RES_Y);
-	w->str = mlx_get_data_addr(w->screen, &w->c->bbp, &w->c->sl, &w->c->end);
-	w->c->no = mlx_get_data_addr(w->no, &nobbp, &nosize_line, &noendian);
-	w->c->so = mlx_get_data_addr(w->so, &sobbp, &sosize_line, &soendian);
-	w->c->ea = mlx_get_data_addr(w->ea, &eabbp, &easize_line, &eaendian);
-	w->c->we = mlx_get_data_addr(w->we, &webbp, &wesize_line, &weendian);
+	ft_xpm_file_to_image(w, m);
 	ft_found_worldspawn(w);
 }
 
