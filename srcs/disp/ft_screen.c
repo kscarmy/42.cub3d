@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:52:57 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/12 11:45:19 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/12 13:17:45 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,22 @@ void	ft_screen(w_point *w)
 	{
 			/*	ZONE DROITE DE L	ECRAN	*/
 		r = ft_thales_range(w, ft_thales_angle_conv(w, d * i * -1));
+		
+		if (w->or == 1)
+			r = r * cos(ft_degrees_to_radian(d * i * -1));
+		else
+			r = r * sin(ft_degrees_to_radian(90. + (d * i * -1)));
+		
 			/*	FONCTION DAFFICHAGE DE LA COLONNE	*/
 		ft_red_pixel(w, (w->sr * (double)WALL_SIZE) / r, (RES_X / 2) + i); // PROVISOIRE
 
 			/*	ZONE GAUCHE DE LECRAN	*/
 		r = ft_thales_range(w, ft_thales_angle_conv(w, d * i));
+
+		if (w->or == 1)
+			r = r * cos(ft_degrees_to_radian(d * i));
+		else
+			r = r * sin(ft_degrees_to_radian(90. + (d * i)));
 			/*	FONCTION DAFFICHAGE DE LA COLONNE	*/
 		ft_red_pixel(w, (w->sr * (double)WALL_SIZE) / r, (RES_X / 2) - i); // PROVISOIRE
 		i++;
@@ -67,6 +78,10 @@ void	ft_screen(w_point *w)
 	{
 			/*	ZONE GAUCHE DE LECRAN	*/
 		r = ft_thales_range(w, ft_thales_angle_conv(w, d * i));
+		if (w->or == 1)
+			r = r * cos(ft_degrees_to_radian(d * i));
+		else
+			r = r * sin(ft_degrees_to_radian(90. + (d * i)));
 			/*	FONCTION DAFFICHAGE DE LA COLONNE	*/
 		ft_red_pixel(w, (w->sr * (double)WALL_SIZE) / r, (RES_X / 2) - i); // PROVISOIRE
 	}
