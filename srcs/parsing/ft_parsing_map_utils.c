@@ -12,7 +12,7 @@
 
 #include "../../includes/cub3d.h"
 
-void	ft_set_world_spawn(m_point *m, int u)
+void	ft_set_world_spawn(t_m_point *m, int u)
 {
 	if (m->spawn != '0')
 	{
@@ -69,7 +69,7 @@ int	ft_next_zero_char(char c)
 	return (x);
 }
 
-void	ft_next_zero_map(m_point *m, int l, int x)
+void	ft_next_zero_map(t_m_point *m, int l, int x)
 {
 	if (l == 0 || l == m->l - 1)
 		m->er = 970;

@@ -6,13 +6,13 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 14:46:41 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/12 14:48:51 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/12 15:07:33 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-void	ft_xpm_file_to_image(w_point *w, m_point *m)
+void	ft_xpm_file_to_image(t_w_point *w, t_m_point *m)
 {
 	w->pos_x = 50;
 	w->pos_y = 50;
@@ -34,7 +34,7 @@ void	ft_xpm_file_to_image(w_point *w, m_point *m)
 	ft_init_we(w);
 }
 
-void	ft_init_no(w_point *w)
+void	ft_init_no(t_w_point *w)
 {
 	int	nobbp;
 	int	nosize_line;
@@ -43,7 +43,7 @@ void	ft_init_no(w_point *w)
 	w->c->no = mlx_get_data_addr(w->no, &nobbp, &nosize_line, &noendian);
 }
 
-void	ft_init_so(w_point *w)
+void	ft_init_so(t_w_point *w)
 {
 	int	sobbp;
 	int	sosize_line;
@@ -52,7 +52,7 @@ void	ft_init_so(w_point *w)
 	w->c->so = mlx_get_data_addr(w->so, &sobbp, &sosize_line, &soendian);
 }
 
-void	ft_init_ea(w_point *w)
+void	ft_init_ea(t_w_point *w)
 {
 	int	eabbp;
 	int	easize_line;
@@ -61,7 +61,7 @@ void	ft_init_ea(w_point *w)
 	w->c->ea = mlx_get_data_addr(w->ea, &eabbp, &easize_line, &eaendian);
 }
 
-void	ft_init_we(w_point *w)
+void	ft_init_we(t_w_point *w)
 {
 	int	webbp;
 	int	wesize_line;

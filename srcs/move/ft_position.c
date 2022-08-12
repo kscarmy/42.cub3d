@@ -6,13 +6,13 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:30:43 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/12 14:06:21 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/12 15:07:14 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-void	ft_map_disp_pos(w_point *win)
+void	ft_map_disp_pos(t_w_point *win)
 {
 	int	a;
 	int	c;
@@ -33,7 +33,7 @@ void	ft_map_disp_pos(w_point *win)
 	}
 }
 
-void	ft_move_in_casa(w_point *win)
+void	ft_move_in_casa(t_w_point *win)
 {
 	if (win->pos_x >= 100)
 	{
@@ -57,7 +57,7 @@ void	ft_move_in_casa(w_point *win)
 	}
 }
 
-void	rotate(int key, w_point *win)
+void	rotate(int key, t_w_point *win)
 {
 	if (key == KEY_ROTATE_LEFT)
 		win->d = win->d + ANG_SIZE;
@@ -69,7 +69,7 @@ void	rotate(int key, w_point *win)
 		win->d = 0;
 }
 
-void	zqsd(int key, w_point *win)
+void	zqsd(int key, t_w_point *win)
 {
 	if (key == KEY_MOVE_FRONT)
 	{
@@ -93,7 +93,7 @@ void	zqsd(int key, w_point *win)
 	}
 }
 
-int	ft_move_zqsd(int key, w_point *win)
+int	ft_move_zqsd(int key, t_w_point *win)
 {
 	rotate(key, win);
 	zqsd(key, win);

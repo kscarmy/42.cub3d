@@ -32,7 +32,7 @@ int	ft_exor_nfn(int error)
 	return (-1);
 }
 
-void	ft_map_disp_error(m_point *m, int l, int x, int erreur)
+void	ft_map_disp_error(t_m_point *m, int l, int x, int erreur)
 {
 	int	a;
 	int	c;
@@ -56,7 +56,7 @@ void	ft_map_disp_error(m_point *m, int l, int x, int erreur)
 	m->er = erreur;
 }
 
-void	ft_show_error_file_bis(m_point *m, int u, int i, int j)
+void	ft_show_error_file_bis(t_m_point *m, int u, int i, int j)
 {
 	while (u < m->x)
 	{
@@ -74,7 +74,7 @@ void	ft_show_error_file_bis(m_point *m, int u, int i, int j)
 	}
 }
 
-void	ft_show_error_file(m_point *m)
+void	ft_show_error_file(t_m_point *m)
 {
 	int	u;
 	int	j;
@@ -93,7 +93,7 @@ void	ft_show_error_file(m_point *m)
 	ft_show_error_file_bis(m, u, i, j);
 }
 
-void	ft_error_detected(m_point *m)
+void	ft_error_detected(t_m_point *m)
 {
 	printf("\033[0;31m[ERROR n'%d']\n", m->er);
 	if (m->er < 960)

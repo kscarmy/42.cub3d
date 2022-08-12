@@ -12,7 +12,7 @@
 
 #include "../../includes/cub3d.h"
 
-int	ft_parsing_map_bis(m_point *m)
+int	ft_parsing_map_bis(t_m_point *m)
 {
 	if (m->er == 0)
 		ft_check_fl_half(m);
@@ -27,7 +27,7 @@ int	ft_parsing_map_bis(m_point *m)
 	return (ft_exit_free_map(m, -1));
 }
 
-int	ft_parsing_map(m_point *m, char *argv)
+int	ft_parsing_map(t_m_point *m, char *argv)
 {
 	int	i;
 

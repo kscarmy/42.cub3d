@@ -12,7 +12,7 @@
 
 #include "../../includes/cub3d.h"
 
-void	ft_fill_line_map(m_point *m, int l)
+void	ft_fill_line_map(t_m_point *m, int l)
 {
 	int	u;
 
@@ -34,7 +34,7 @@ void	ft_fill_line_map(m_point *m, int l)
 	m->x = m->x + u;
 }
 
-void	ft_parse_map_bis(m_point *m, int l, int x)
+void	ft_parse_map_bis(t_m_point *m, int l, int x)
 {
 	while (m->er == 0 && m->map != NULL && m->map[l] != NULL)
 	{
@@ -51,7 +51,7 @@ void	ft_parse_map_bis(m_point *m, int l, int x)
 	}
 }
 
-void	ft_parse_map(m_point *m)
+void	ft_parse_map(t_m_point *m)
 {
 	int	l;
 	int	x;
@@ -72,7 +72,7 @@ void	ft_parse_map(m_point *m)
 	ft_parse_map_bis(m, l, x);
 }
 
-void	ft_check_map(m_point *m)
+void	ft_check_map(t_m_point *m)
 {
 	if (m->er == 0)
 		ft_found_map(m);

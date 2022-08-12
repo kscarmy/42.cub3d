@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 12:45:32 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/12 14:04:40 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/12 15:13:29 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_cross_is_red(void *p)
 {
-	w_point	*win;
+	t_w_point	*win;
 
 	win = p;
 	ft_exit_free_all(win, 0);
@@ -24,10 +24,9 @@ int	ft_cross_is_red(void *p)
 
 int	ft_entry_keyboard(int key, void *p)
 {
-	w_point	*win;
+	t_w_point	*win;
 
 	win = p;
-	printf("key : %d\n", key);
 	if (key == KEY_ECHAP)
 	{
 		ft_exit_free_all(win, 0);

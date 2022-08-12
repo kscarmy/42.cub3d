@@ -12,7 +12,7 @@
 
 #include "../../includes/cub3d.h"
 
-void	ft_create_mapping_bis(m_point *m, int u)
+void	ft_create_mapping_bis(t_m_point *m, int u)
 {
 	while (m->fl[u] == ' ' || m->fl[u] == '\t' || m->fl[u] == '\n')
 		u++;
@@ -33,7 +33,7 @@ void	ft_create_mapping_bis(m_point *m, int u)
 	}
 }
 
-void	ft_create_mapping(m_point *m)
+void	ft_create_mapping(t_m_point *m)
 {
 	int	u;
 	int	one;
@@ -55,7 +55,7 @@ void	ft_create_mapping(m_point *m)
 	ft_create_mapping_bis(m, u);
 }
 
-void	ft_found_map_bis(m_point *m, int u)
+void	ft_found_map_bis(t_m_point *m, int u)
 {
 	while (m->er == 0 && m->fl[u] != '\0')
 	{
@@ -68,7 +68,7 @@ void	ft_found_map_bis(m_point *m, int u)
 	}
 }
 
-void	ft_found_map(m_point *m)
+void	ft_found_map(t_m_point *m)
 {
 	int	u;
 	int	back;
@@ -91,7 +91,7 @@ void	ft_found_map(m_point *m)
 	ft_found_map_bis(m, u);
 }
 
-void	ft_fill_map(m_point *m)
+void	ft_fill_map(t_m_point *m)
 {
 	int	u;
 

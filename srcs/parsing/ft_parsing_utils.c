@@ -12,7 +12,7 @@
 
 #include "../../includes/cub3d.h"
 
-int	ft_incre_spaces(m_point *m, int backn, int h)
+int	ft_incre_spaces(t_m_point *m, int backn, int h)
 {
 	int	u;
 
@@ -22,7 +22,7 @@ int	ft_incre_spaces(m_point *m, int backn, int h)
 	return (u);
 }
 
-int	ft_is_space(char c, int backn, int end, m_point *m)
+int	ft_is_space(char c, int backn, int end, t_m_point *m)
 {
 	int	x;
 

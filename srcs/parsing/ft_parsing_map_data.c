@@ -12,7 +12,7 @@
 
 #include "../../includes/cub3d.h"
 
-// void	ft_parsing_resolution(m_point *m)
+// void	ft_parsing_resolution(t_m_point *m)
 // {
 // 	int	z;
 
@@ -37,14 +37,14 @@
 // 		m->er = 500;
 // }
 
-int	ft_parsing_while(m_point *m, int z)
+int	ft_parsing_while(t_m_point *m, int z)
 {
 	while (ft_isdigit(m->fl[m->x + z]) == 1)
 		z++;
 	return (z);
 }
 
-void	ft_parsing_floor(m_point *m)
+void	ft_parsing_floor(t_m_point *m)
 {
 	int	z;
 
@@ -72,7 +72,7 @@ void	ft_parsing_floor(m_point *m)
 	m->floor = 1;
 }
 
-void	ft_parsing_ceiling(m_point *m)
+void	ft_parsing_ceiling(t_m_point *m)
 {
 	int	z;
 
@@ -100,7 +100,7 @@ void	ft_parsing_ceiling(m_point *m)
 	m->ceiling = 1;
 }
 
-char	*ft_parsing_get_path(m_point *m, int z)
+char	*ft_parsing_get_path(t_m_point *m, int z)
 {
 	char	*str;
 	int		u;

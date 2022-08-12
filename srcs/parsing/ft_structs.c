@@ -12,7 +12,7 @@
 
 #include "../../includes/cub3d.h"
 
-void	ft_init_map(m_point *m)
+void	ft_init_map(t_m_point *m)
 {
 	m->er = 0;
 	m->x = 0;
@@ -35,7 +35,7 @@ void	ft_init_map(m_point *m)
 	m->map = NULL;
 }
 
-void	ft_disp_verif(m_point *m)
+void	ft_disp_verif(t_m_point *m)
 {
 	int	u;
 
@@ -54,7 +54,7 @@ void	ft_disp_verif(m_point *m)
 	}
 }
 
-void	ft_exit_free_map_paths(m_point *m)
+void	ft_exit_free_map_paths(t_m_point *m)
 {
 	if (m->no != NULL)
 		ft_strdel(&m->no);
@@ -68,7 +68,7 @@ void	ft_exit_free_map_paths(m_point *m)
 		ft_strdel(&m->fl);
 }
 
-int	ft_exit_free_map(m_point *m, int ret)
+int	ft_exit_free_map(t_m_point *m, int ret)
 {
 	int	i;
 
@@ -86,7 +86,5 @@ int	ft_exit_free_map(m_point *m, int ret)
 		m->l = 0;
 	}
 	ft_exit_free_map_paths(m);
-	printf("\n\033[0m<Les mallocs ont ete clears>\n");
-	ft_disp_verif(m);
 	return (ret);
 }

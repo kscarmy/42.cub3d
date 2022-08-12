@@ -6,16 +6,15 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 10:03:21 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/12 14:49:35 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/12 15:15:53 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-void	ft_init_w(w_point *w, m_point *m)
+void	ft_init_w(t_w_point *w, t_m_point *m)
 {
 	w->er = 0;
-	printf("INIT win\n");
 	w->mlx = mlx_init();
 	if (!(w->mlx))
 	{
@@ -46,9 +45,8 @@ int	ft_is_worldspawn(char c)
 	return (0);
 }
 
-void	ft_found_worldspawn(w_point *w)
+void	ft_found_worldspawn(t_w_point *w)
 {
-	ft_map_disp_pos(w);
 	while (w->map->map[w->y] != NULL
 		&& ft_is_worldspawn(w->map->map[w->y][w->x]) == 0)
 	{
@@ -73,7 +71,7 @@ void	ft_found_worldspawn(w_point *w)
 		w->d = 180;
 }
 
-void	ft_exit_free_all(w_point *w, int ret)
+void	ft_exit_free_all(t_w_point *w, int ret)
 {
 	mlx_clear_window(w->mlx, w->win1);
 	mlx_destroy_window(w->mlx, w->win1);
@@ -81,16 +79,16 @@ void	ft_exit_free_all(w_point *w, int ret)
 	exit(ret);
 }
 
-void	ft_windows(m_point *m)
+void	ft_windows(t_m_point *m)
 {
-	w_point	w;
-	v_point	*v;
-	h_point	*h;
-	c_point	*c;
+	t_w_point	w;
+	t_v_point	*v;
+	t_h_point	*h;
+	t_c_point	*c;
 
-	h = malloc(sizeof(h_point));
-	v = malloc(sizeof(v_point));
-	c = malloc(sizeof(c_point));
+	h = malloc(sizeof(t_h_point));
+	v = malloc(sizeof(t_v_point));
+	c = malloc(sizeof(t_c_point));
 	w.h = h;
 	w.v = v;
 	w.c = c;

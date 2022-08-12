@@ -12,7 +12,7 @@
 
 #include "../../includes/cub3d.h"
 
-void	ft_check_fl_half(m_point *m)
+void	ft_check_fl_half(t_m_point *m)
 {
 	if (m->floor == 0)
 		m->er = 705;
@@ -28,7 +28,7 @@ void	ft_check_fl_half(m_point *m)
 		m->er = 730;
 }
 
-void	ft_strfreejoin_newline_bis(m_point *m, char *buff, int i, int u)
+void	ft_strfreejoin_newline_bis(t_m_point *m, char *buff, int i, int u)
 {
 	while (buff[u] != '\0')
 	{
@@ -39,7 +39,7 @@ void	ft_strfreejoin_newline_bis(m_point *m, char *buff, int i, int u)
 	m->fl[i + u + 1] = '\0';
 }
 
-void	ft_strfreejoin_newline(m_point *m, char *buff)
+void	ft_strfreejoin_newline(t_m_point *m, char *buff)
 {
 	char	*tmp;
 	int		i;
@@ -63,7 +63,7 @@ void	ft_strfreejoin_newline(m_point *m, char *buff)
 	ft_strdel(&tmp);
 }
 
-void	ft_parsing_open_fd(m_point *m, char *argv)
+void	ft_parsing_open_fd(t_m_point *m, char *argv)
 {
 	int		ret;
 	int		fd;

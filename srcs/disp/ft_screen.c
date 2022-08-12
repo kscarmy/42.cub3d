@@ -6,13 +6,13 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:52:57 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/12 14:35:57 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/12 15:07:14 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-void	ft_screen_init(w_point *w)
+void	ft_screen_init(t_w_point *w)
 {
 	w->sr = 0;
 	w->sr = (RES_X / 2) / tan(ft_degrees_to_radian(FOV_SIZE / 2));
@@ -20,7 +20,7 @@ void	ft_screen_init(w_point *w)
 	w->map->ceiling = (w->map->cr << 16) | (w->map->cg << 8) | w->map->cb;
 }
 
-void	ft_swap_pos(w_point *w)
+void	ft_swap_pos(t_w_point *w)
 {
 	int	a;
 	int	b;
@@ -33,7 +33,7 @@ void	ft_swap_pos(w_point *w)
 	w->pos_y = b;
 }
 
-void	ft_screen_bis(w_point *w, double i, double r, double d)
+void	ft_screen_bis(t_w_point *w, double i, double r, double d)
 {
 	if (RES_X % 2 == 0)
 	{
@@ -47,7 +47,7 @@ void	ft_screen_bis(w_point *w, double i, double r, double d)
 	mlx_put_image_to_window(w->mlx, w->win1, w->screen, 0, 0);
 }
 
-void	ft_screen(w_point *w)
+void	ft_screen(t_w_point *w)
 {
 	double	i;
 	double	r;

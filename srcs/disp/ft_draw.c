@@ -6,13 +6,13 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 14:18:13 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/12 14:31:35 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/12 15:07:14 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-void	ft_put_texture(w_point *w, char *img, int xx, int yy)
+void	ft_put_texture(t_w_point *w, char *img, int xx, int yy)
 {
 	int	x;
 	int	y;
@@ -41,7 +41,7 @@ void	ft_put_texture(w_point *w, char *img, int xx, int yy)
 	}
 }
 
-void	ft_red_pixel_bord(w_point *w, int h, int x)
+void	ft_red_pixel_bord(t_w_point *w, int h, int x)
 {
 	int	i;
 	int	mid;
@@ -66,7 +66,7 @@ void	ft_red_pixel_bord(w_point *w, int h, int x)
 	}
 }
 
-void	ft_red_pixel_up(w_point *w, int h, int x)
+void	ft_red_pixel_up(t_w_point *w, int h, int x)
 {
 	int	i;
 	int	mid;
@@ -90,7 +90,7 @@ void	ft_red_pixel_up(w_point *w, int h, int x)
 	ft_red_pixel_bord(w, h, x);
 }
 
-void	ft_red_pixel(w_point *w, int h, int x)
+void	ft_red_pixel(t_w_point *w, int h, int x)
 {
 	int	i;
 	int	mid;

@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 12:45:10 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/23 08:50:57 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/12 15:10:47 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,5 @@ int	ft_get_next_line(int fd, char **line)
 	ft_gnl_read(&str, line, ret, &error);
 	if ((error == 1) || (ret == 0 && *str == 0))
 		return (ft_gnl_exerror(&str, error));
-	printf("ft_get_next_line : <%s>\n", *line);
 	return (1);
 }

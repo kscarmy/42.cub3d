@@ -12,7 +12,7 @@
 
 #include "../../includes/cub3d.h"
 
-void	ft_parsing_path_to_bis(m_point *m, int y, int z)
+void	ft_parsing_path_to_bis(t_m_point *m, int y, int z)
 {
 	if (m->er == 0 && m->fl[y] == 'N' && m->fl[y + 1] == 'O')
 		m->no = ft_parsing_get_path(m, z);
@@ -24,7 +24,7 @@ void	ft_parsing_path_to_bis(m_point *m, int y, int z)
 		m->ea = ft_parsing_get_path(m, z);
 }
 
-void	ft_parsing_path_to(m_point *m)
+void	ft_parsing_path_to(t_m_point *m)
 {
 	int	z;
 	int	y;

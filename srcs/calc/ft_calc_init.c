@@ -6,13 +6,13 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 15:21:42 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/12 14:13:32 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/12 15:07:14 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-void	ft_re_set_calc(w_point *w)
+void	ft_re_set_calc(t_w_point *w)
 {
 	w->h->hx = 0;
 	w->h->hy = 0;
@@ -31,7 +31,7 @@ void	ft_re_set_calc(w_point *w)
 	w->or = 0;
 }
 
-double	ft_hc_pytha(w_point *w, double x, double d)
+double	ft_hc_pytha(t_w_point *w, double x, double d)
 {
 	if (w->dirx == 1 && w->diry == -1)
 		return (x / tan(ft_degrees_to_radian(d)));
@@ -44,7 +44,7 @@ double	ft_hc_pytha(w_point *w, double x, double d)
 	return (10000.);
 }
 
-void	ft_hc_init(w_point *w, double d)
+void	ft_hc_init(t_w_point *w, double d)
 {
 	if (w->dirx == -1)
 		w->h->hcx = ((double)w->pos_x / 100.);
@@ -62,7 +62,7 @@ void	ft_hc_init(w_point *w, double d)
 	w->h->hcr = ft_thales_pytha(w->h->hcx, w->h->hcy);
 }
 
-double	ft_vc_pytha(w_point *w, double y, double d)
+double	ft_vc_pytha(t_w_point *w, double y, double d)
 {
 	if (w->dirx == 1 && w->diry == -1)
 		return (y / tan(ft_degrees_to_radian(90. - d)));
@@ -75,7 +75,7 @@ double	ft_vc_pytha(w_point *w, double y, double d)
 	return (10000.);
 }
 
-void	ft_vc_init(w_point *w, double d)
+void	ft_vc_init(t_w_point *w, double d)
 {
 	if (w->diry == -1)
 		w->v->vcy = ((double)w->pos_y / 100.);

@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:45:34 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/12 14:54:14 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/12 15:07:14 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ double	ft_thales_pytha(double x, double y)
 	return (ft_double_abs(ret));
 }
 
-void	ft_thales_init(w_point *w, double d)
+void	ft_thales_init(t_w_point *w, double d)
 {
 	ft_re_set_calc(w);
 	if (d <= 180)
@@ -36,7 +36,7 @@ void	ft_thales_init(w_point *w, double d)
 	ft_hc_init(w, d);
 }
 
-int	ft_thales_wall(w_point *w, double x, double y)
+int	ft_thales_wall(t_w_point *w, double x, double y)
 {
 	if (x < 0.)
 		return (0);
@@ -56,7 +56,7 @@ int	ft_thales_wall(w_point *w, double x, double y)
 	return (1);
 }
 
-double	ft_thales_range_or(w_point *w)
+double	ft_thales_range_or(t_w_point *w)
 {
 	double	ret;
 
@@ -74,7 +74,7 @@ double	ft_thales_range_or(w_point *w)
 	return (ret * 100);
 }
 
-double	ft_thales_range(w_point *w, double d)
+double	ft_thales_range(t_w_point *w, double d)
 {
 	int		i;
 
