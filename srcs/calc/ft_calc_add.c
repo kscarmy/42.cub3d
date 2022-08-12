@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:44:30 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/07 12:54:41 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/08/12 14:13:46 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,9 @@ void	ft_vc_add(w_point *w)
 	w->v->vr += w->v->vcr;
 }
 
-
 void	ft_hc_add(w_point *w)
 {
-//	printf("\nft_hc_add : R %f x %f y %f x %f y %f dx %f dy %f\n", w->h->hr, w->h->hx, w->h->hy, w->h->hcx, w->h->hcy, w->dirx, w->diry);
 	w->h->hx += (w->h->hcx * w->dirx);
 	w->h->hy += (w->h->hcy * w->diry);
 	w->h->hr += w->h->hcr;
-//	printf("ft_hc_add : R %f x %f y %f x %f y %f dx %f dy %f\n", w->h->hr, w->h->hx, w->h->hy, w->h->hcx, w->h->hcy, w->dirx, w->diry);
 }

@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 10:03:21 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/12 13:52:44 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/12 14:10:45 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,15 @@
 
 void	ft_init_w(w_point *w, m_point *m)
 {
-	// int	size;
 	int	nobbp;
 	int	nosize_line;
 	int	noendian;
-
 	int	sobbp;
 	int	sosize_line;
 	int	soendian;
-
 	int	eabbp;
 	int	easize_line;
 	int	eaendian;
-
 	int	webbp;
 	int	wesize_line;
 	int	weendian;
@@ -64,7 +60,6 @@ void	ft_init_w(w_point *w, m_point *m)
 	w->c->so = mlx_get_data_addr(w->so, &sobbp, &sosize_line, &soendian);
 	w->c->ea = mlx_get_data_addr(w->ea, &eabbp, &easize_line, &eaendian);
 	w->c->we = mlx_get_data_addr(w->we, &webbp, &wesize_line, &weendian);
-	printf("INIT win ok\n");
 	ft_found_worldspawn(w);
 }
 
@@ -110,7 +105,6 @@ void	ft_found_worldspawn(w_point *w)
 
 void	ft_exit_free_all(w_point *w, int ret)
 {
-	printf("All is begin freeing\n");
 	mlx_clear_window(w->mlx, w->win1);
 	mlx_destroy_window(w->mlx, w->win1);
 	ft_exit_free_map(w->map, ret);
@@ -122,7 +116,7 @@ void	ft_windows(m_point *m)
 	w_point	w;
 	v_point	*v;
 	h_point	*h;
-	c_point *c;
+	c_point	*c;
 
 	h = malloc(sizeof(h_point));
 	v = malloc(sizeof(v_point));
@@ -133,16 +127,10 @@ void	ft_windows(m_point *m)
 	ft_init_w(&w, m);
 	if (w.er > 0)
 		ft_exit_free_all(&w, -1);
-	printf("Pas d'erreur d'initialisation\n");
 	ft_screen_init(&w);
 	ft_screen(&w);
-	// movement with key maintained
-	mlx_key_hook(w.win1, ft_cross_is_red, &w);
 	mlx_hook(w.win1, 17, 0, &ft_cross_is_red, &w);
-	mlx_hook(w.win1, 02, 1L<<0,  ft_entry_keyboard, &w);
-
-	// movement at key press only
-	mlx_key_hook(w.win1, ft_entry_keyboard, &w);
+	mlx_hook(w.win1, 02, 1L << 0, ft_entry_keyboard, &w);
 	mlx_loop(w.mlx);
 	ft_exit_free_all(&w, 0);
 }

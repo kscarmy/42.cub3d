@@ -6,18 +6,17 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:30:43 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/12 12:02:32 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/12 14:06:21 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-// prints map.cub
-void    ft_map_disp_pos(w_point *win)
+void	ft_map_disp_pos(w_point *win)
 {
-	int a;
-	int c;
-	
+	int	a;
+	int	c;
+
 	a = 0;
 	c = 0;
 	printf("pos : \n");
@@ -74,37 +73,34 @@ void	zqsd(int key, w_point *win)
 {
 	if (key == KEY_MOVE_FRONT)
 	{
-		win->pos_y -= find_y(win->d+270, MOVE_SIZE);
-		win->pos_x -= find_x(win->d+270, MOVE_SIZE);
+		win->pos_y -= find_y(win->d + 270, MOVE_SIZE);
+		win->pos_x -= find_x(win->d + 270, MOVE_SIZE);
 	}
 	else if (key == KEY_MOVE_BACK)
 	{
-		win->pos_y += find_y(win->d+270, MOVE_SIZE);
-		win->pos_x += find_x(win->d+270, MOVE_SIZE);
+		win->pos_y += find_y(win->d + 270, MOVE_SIZE);
+		win->pos_x += find_x(win->d + 270, MOVE_SIZE);
 	}
 	else if (key == KEY_MOVE_RIGHT)
 	{
-		win->pos_y -= find_x(win->d+270, MOVE_SIZE);
-		win->pos_x -= find_y(win->d+270, MOVE_SIZE);
+		win->pos_y -= find_x(win->d + 270, MOVE_SIZE);
+		win->pos_x -= find_y(win->d + 270, MOVE_SIZE);
 	}
 	else if (key == KEY_MOVE_LEFT)
 	{
-		win->pos_y += find_x(win->d+270, MOVE_SIZE);
-		win->pos_x += find_y(win->d+270, MOVE_SIZE);
+		win->pos_y += find_x(win->d + 270, MOVE_SIZE);
+		win->pos_x += find_y(win->d + 270, MOVE_SIZE);
 	}
 }
 
-int		ft_move_zqsd(int key, w_point *win)
+int	ft_move_zqsd(int key, w_point *win)
 {
 	rotate(key, win);
-	zqsd(key, win);	
+	zqsd(key, win);
 	if (win->pos_y > 100
 		|| win->pos_y < 0
 		|| win->pos_x > 100
 		|| win->pos_x < 0)
 		ft_move_in_casa(win);
-	
-	// printf("================\nkey : %d\nPos_X : %f\nPos_Y : %f\nX : %d\nY : %d\nD : %d\n"
-	// 	, key, win->pos_x, win->pos_y, win->x, win->y, (int) win->d);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:45:34 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/12 13:13:12 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/12 14:14:49 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,16 @@ double	ft_thales_pytha(double x, double y)
 void	ft_thales_init(w_point *w, double d)
 {
 	ft_re_set_calc(w);
-	
-	if (d <= 180) // vers le haut donc y decremente
+	if (d <= 180)
 		w->diry = -1;
-	else // vers le bas donc y incremente
+	else
 		w->diry = 1;
-
-	if (d >= 90 && d <= 270) // vers la gauche donc x decremente
+	if (d >= 90 && d <= 270)
 		w->dirx = -1;
-	else // vers la droite donc x incremente
+	else
 		w->dirx = 1;
 	ft_vc_init(w, d);
-	ft_hc_init(w, d);	
+	ft_hc_init(w, d);
 }
 
 int	ft_thales_wall(w_point *w, double x, double y)
@@ -71,31 +69,28 @@ int	ft_thales_wall(w_point *w, double x, double y)
 	return (1);
 }
 
-
-
 double	ft_thales_fish_eyes_hc(w_point *w, double ret, double d)
 {
-	if (w->dirx == 1 && w->diry == -1) // haut droite
+	if (w->dirx == 1 && w->diry == -1)
 		return (ret * cos(ft_degrees_to_radian(d)));
-	if (w->dirx == 1 && w->diry == 1) // bas droite 
+	if (w->dirx == 1 && w->diry == 1)
 		return (ret * cos(ft_degrees_to_radian(360. - d)));
-	if (w->dirx == -1 && w->diry == -1) // haut gauche
+	if (w->dirx == -1 && w->diry == -1)
 		return (ret * cos(ft_degrees_to_radian(180. - d)));
-	if (w->dirx == -1 && w->diry == 1) // bas gauche
+	if (w->dirx == -1 && w->diry == 1)
 		return (ret * cos(ft_degrees_to_radian(d - 180.)));
 	return (10000.);
 }
 
-
 double	ft_thales_fish_eyes_vc(w_point *w, double ret, double d)
 {
-	if (w->dirx == 1 && w->diry == -1) // haut droite
+	if (w->dirx == 1 && w->diry == -1)
 		return (ret * cos(ft_degrees_to_radian(90. - d)));
-	if (w->dirx == 1 && w->diry == 1) // bas droite 
+	if (w->dirx == 1 && w->diry == 1)
 		return (ret * cos(ft_degrees_to_radian(d - 270.)));
-	if (w->dirx == -1 && w->diry == -1) // haut gauche
+	if (w->dirx == -1 && w->diry == -1)
 		return (ret * cos(ft_degrees_to_radian(d - 90.)));
-	if (w->dirx == -1 && w->diry == 1) // bas gauche
+	if (w->dirx == -1 && w->diry == 1)
 		return (ret * cos(ft_degrees_to_radian(270. - d)));
 	return (10000.);
 }
@@ -122,21 +117,12 @@ double	ft_thales_range(w_point *w, double d)
 	if (w->v->vr <= w->h->hr)
 	{
 		ret = w->v->vr;
-		// if (w->diry == -1)
-		// 	ret = ret * cos(ft_degrees_to_radian(d));
-		// else
-		// 	ret = ret * cos(ft_degrees_to_radian(d - 180.));
-		// ret = ft_thales_fish_eyes_vc(w, ret, d);
-		// printf("ft_thales_range : VR %f vx %f vy %f\n", w->v->vr, w->v->vx, w->v->vy);
 		w->or = 1;
 	}
 	else
 	{
 		ret = w->h->hr;
-		// ret = ret * cos(ft_degrees_to_radian(d));
-		// ret = ft_thales_fish_eyes_hc(w, ret, d);
-		// printf("ft_thales_range : HR %f hx %f hy %f\n", w->h->hr, w->h->hx, w->h->hy);
-		w->or = -1;;
+		w->or = -1;
 	}
 	i = i;
 	return (ret * 100);

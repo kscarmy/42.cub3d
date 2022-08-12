@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 15:21:42 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/12 11:36:38 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/12 14:13:32 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,32 +31,30 @@ void	ft_re_set_calc(w_point *w)
 	w->or = 0;
 }
 
-
 double	ft_hc_pytha(w_point *w, double x, double d)
 {
-	if (w->dirx == 1 && w->diry == -1) // haut droite
+	if (w->dirx == 1 && w->diry == -1)
 		return (x / tan(ft_degrees_to_radian(d)));
-	if (w->dirx == 1 && w->diry == 1) // bas droite 
+	if (w->dirx == 1 && w->diry == 1)
 		return (x / tan(ft_degrees_to_radian(360. - d)));
-	if (w->dirx == -1 && w->diry == -1) // haut gauche
+	if (w->dirx == -1 && w->diry == -1)
 		return (x / tan(ft_degrees_to_radian(180. - d)));
-	if (w->dirx == -1 && w->diry == 1) // bas gauche
+	if (w->dirx == -1 && w->diry == 1)
 		return (x / tan(ft_degrees_to_radian(d - 180.)));
 	return (10000.);
 }
 
 void	ft_hc_init(w_point *w, double d)
 {
-//	printf("ft_hc_init : R %f\n", w->h->hr);
-	if (w->dirx == -1)	// droite 
+	if (w->dirx == -1)
 		w->h->hcx = ((double)w->pos_x / 100.);
-	else				// gauche
+	else
 		w->h->hcx = ((100. - (double)w->pos_x) / 100.);
 	w->h->hcy = ft_vc_pytha(w, w->h->hcx, d);
 	w->h->hr = ft_thales_pytha(w->h->hcx, w->h->hcy);
-	if (w->dirx == 1)	// droite 
+	if (w->dirx == 1)
 		w->h->hx = (double)w->x + 1.;
-	else				// gauche
+	else
 		w->h->hx = (double)w->x - 1.;
 	w->h->hy = (double)w->y + ((double)w->pos_y / 100.) + (w->h->hcy * w->diry);
 	w->h->hcx = 1.;
@@ -66,28 +64,28 @@ void	ft_hc_init(w_point *w, double d)
 
 double	ft_vc_pytha(w_point *w, double y, double d)
 {
-	if (w->dirx == 1 && w->diry == -1) // haut droite
+	if (w->dirx == 1 && w->diry == -1)
 		return (y / tan(ft_degrees_to_radian(90. - d)));
-	if (w->dirx == 1 && w->diry == 1) // bas droite 
+	if (w->dirx == 1 && w->diry == 1)
 		return (y / tan(ft_degrees_to_radian(d - 270.)));
-	if (w->dirx == -1 && w->diry == -1) // haut gauche
+	if (w->dirx == -1 && w->diry == -1)
 		return (y / tan(ft_degrees_to_radian(d - 90.)));
-	if (w->dirx == -1 && w->diry == 1) // bas gauche
+	if (w->dirx == -1 && w->diry == 1)
 		return (y / tan(ft_degrees_to_radian(270. - d)));
 	return (10000.);
 }
 
 void	ft_vc_init(w_point *w, double d)
 {
-	if (w->diry == -1)	// haut
+	if (w->diry == -1)
 		w->v->vcy = ((double)w->pos_y / 100.);
-	else				// bas
+	else
 		w->v->vcy = ((100. - (double)w->pos_y) / 100.);
 	w->v->vcx = ft_hc_pytha(w, w->v->vcy, d);
 	w->v->vr = ft_thales_pytha(w->v->vcx, w->v->vcy);
-	if (w->diry == -1)	// haut 
+	if (w->diry == -1)
 		w->v->vy = (double)w->y - 1.;
-	else				// bas
+	else
 		w->v->vy = (double)w->y + 1;
 	w->v->vx = (double)w->x + ((double)w->pos_x / 100.) + (w->v->vcx * w->dirx);
 	w->v->vcy = 1.;
