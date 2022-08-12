@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:45:34 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/12 11:20:35 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/12 11:57:07 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,14 +123,14 @@ double	ft_thales_range(w_point *w, double d)
 	{
 		ret = w->v->vr;
 		// ret = ft_thales_fish_eyes_vc(w, ret, d);
-		// printf("ft_thales_range : VR vx %f vy %f\n", w->v->vx, w->v->vy);
+		// printf("ft_thales_range : VR %f vx %f vy %f\n", w->v->vr, w->v->vx, w->v->vy);
 		w->or = 1;
 	}
 	else
 	{
 		ret = w->h->hr;
 		// ret = ft_thales_fish_eyes_hc(w, ret, d);
-		// printf("ft_thales_range : HR hx %f hy %f\n", w->h->hx, w->h->hy);
+		// printf("ft_thales_range : HR %f hx %f hy %f\n", w->h->hr, w->h->hx, w->h->hy);
 		w->or = -1;;
 	}
 	i = i;

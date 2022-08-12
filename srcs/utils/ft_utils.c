@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 08:19:04 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/12 11:24:25 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/12 11:57:01 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ int	ft_get_centieme(double x)
 		ret = (int)x;
 	ret = ret % 100;
 	// printf("ret : %d\n", ret);
+	if (ret < 0 && ret > WALL_SIZE)
+		ret = 0;
 	return (ret);
 }
 
@@ -73,19 +75,21 @@ void	ft_put_texture(w_point *w, char *img, int xx, int yy)
 
 	// y = yy - ((RES_Y - w->c->h) / 2);
 	if (yy - (RES_Y / 2) > 0)
-		y = ((w->c->h / 2) + w->c->i) * 64 / w->c->h;
+		y = ((w->c->h / 2) + w->c->i) * WALL_SIZE / w->c->h;
 	else
-		y = ((w->c->h / 2) - w->c->i) * 64 / w->c->h;
+		y = ((w->c->h / 2) - w->c->i) * WALL_SIZE / w->c->h;
 	
-	if (y < 0 && y > 64)
+	if (y < 0 && y > WALL_SIZE)
 		y = 0;
 	// printf("put : y %d mid %d\n", y, yy - RES_Y / 2);
 	// printf("put : h %d ra %f y %d\n", w->c->h, (double)((w->c->h / 2) + w->c->i), y);
-	// if (y < 0 && y > 64)
+	// if (y < 0 && y > WALL_SIZE)
 	// 	y = 0;
+	// if (xx > RES_X || yy > RES_Y)
+	// 	return ;
 	if (w->or == -1) // HR
 	{
-		x = (ft_get_centieme(w->h->hy) * 64 / 100);
+		x = (ft_get_centieme(w->h->hy) * WALL_SIZE / 100);
 		// printf("HY %f", w->h->hy);
 		w->str[xx * 4 + 4 * (int)RES_X * yy] = img[x * 4 + (4 * WALL_SIZE * y)];
 		w->str[xx * 4 + 4 * (int)RES_X * yy + 1] = img[x * 4 + (4 * WALL_SIZE * y) + 1];
@@ -93,7 +97,7 @@ void	ft_put_texture(w_point *w, char *img, int xx, int yy)
 	}
 	else // vr
 	{
-		x = (ft_get_centieme(w->v->vx) * 64 / 100);
+		x = (ft_get_centieme(w->v->vx) * WALL_SIZE / 100);
 		// printf("VX %f ", w->v->vx);
 		w->str[xx * 4 + 4 * (int)RES_X * yy] = img[x * 4 + 4 * WALL_SIZE * y];
 		w->str[xx * 4 + 4 * (int)RES_X * yy + 1] = img[x * 4 + 4 * WALL_SIZE * y + 1];
@@ -128,12 +132,13 @@ void	ft_red_pixel(w_point *w, int h, int x)
 
 	i = 0;
 	mid = RES_Y / 2;
+	// write(1, "CRASH ?", 7);
 	// printf("crash ?");
 	int	head;
 
 	head = 0;
 	w->c->h = h * 2;
-	while (h > 0 && i < h && i <= RES_Y)
+	while (h > 0 && i < h && i < RES_Y / 2)
 	{
 		w->c->i = i;
 		if (w->dirx == 1 && w->or == -1) //			DROITE : ORANGE
@@ -173,7 +178,8 @@ void	ft_red_pixel(w_point *w, int h, int x)
 	// printf("non\n");
 	// printf("x %d RES_X %d y %d\n", x, RES_X, mid + i);
 	head = (x * 4 + 4 * (int)RES_X * (mid + i));
-	while (i <= RES_Y && head <= (RES_X * 4) * RES_Y)
+	// write(1, "CRASH 1", 7);
+	while (i < RES_Y && head < (RES_X * 4) * RES_Y)
 	{
 		
 		// printf("ft_red_pixel : x %d size %d\n", x, head);

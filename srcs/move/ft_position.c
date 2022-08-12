@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:30:43 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/07 16:19:49 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/12 11:29:48 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ int		ft_move_zqsd(int key, w_point *win)
 		|| win->pos_x < 0)
 		ft_move_in_casa(win);
 	
-	// printf("================\nkey : %d\nPos_X : %f\nPos_Y : %f\nX : %d\nY : %d\nD : %d\n"
-	// 	, key, win->pos_x, win->pos_y, win->x, win->y, (int) win->d);
+	printf("================\nkey : %d\nPos_X : %f\nPos_Y : %f\nX : %d\nY : %d\nD : %d\n"
+		, key, win->pos_x, win->pos_y, win->x, win->y, (int) win->d);
 	return (0);
 }
