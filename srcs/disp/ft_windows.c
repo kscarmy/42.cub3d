@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 10:03:21 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/09 16:33:59 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/12 13:52:44 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,8 @@ void	ft_exit_free_all(w_point *w, int ret)
 	printf("All is begin freeing\n");
 	mlx_clear_window(w->mlx, w->win1);
 	mlx_destroy_window(w->mlx, w->win1);
-	ret = ret;
+	ft_exit_free_map(w->map, ret);
+	exit(ret);
 }
 
 void	ft_windows(m_point *m)
@@ -136,9 +137,12 @@ void	ft_windows(m_point *m)
 	ft_screen_init(&w);
 	ft_screen(&w);
 	// movement with key maintained
+	mlx_key_hook(w.win1, ft_cross_is_red, &w);
+	mlx_hook(w.win1, 17, 0, &ft_cross_is_red, &w);
 	mlx_hook(w.win1, 02, 1L<<0,  ft_entry_keyboard, &w);
+
 	// movement at key press only
-	// mlx_key_hook(w.win1, ft_entry_keyboard, &w);
+	mlx_key_hook(w.win1, ft_entry_keyboard, &w);
 	mlx_loop(w.mlx);
 	ft_exit_free_all(&w, 0);
 }

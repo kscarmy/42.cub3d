@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:25:39 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/12 12:03:14 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/12 13:51:27 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -341,6 +341,7 @@ double find_x(double d, double h);
 
 /*	ft_entry_key.c	*/
 int		ft_entry_keyboard(int key, void *p);
+int		ft_cross_is_red(void *p);
 
 /*	ft_position.c	*/
 void	ft_map_disp_pos(w_point *win);

@@ -6,17 +6,30 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 12:45:32 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/30 21:10:52 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/08/12 13:51:38 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
+
+int		ft_cross_is_red(void *p)
+{
+	w_point *win;
+
+	win = p;
+	// win = win;
+	// printf("key %d WIN : %d\n", key, win->er);
+	ft_exit_free_all(win, 0);
+	exit(0);
+	return (0);
+}
 
 int		ft_entry_keyboard(int key, void *p)
 {
 	w_point *win;
 
 	win = p;
+	printf("key : %d\n", key);
 	if (key == KEY_ECHAP)
 	{
 		ft_exit_free_all(win, 0);
