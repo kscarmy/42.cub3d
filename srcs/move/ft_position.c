@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:30:43 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/12 15:54:07 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/13 13:34:40 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,22 +37,22 @@ void	ft_move_in_casa(t_w_point *win)
 {
 	if (win->pos_x >= 100)
 	{
-		win->pos_x = 0.01;
+		win->pos_x = 0.01 + (win->pos_x - 100);
 		win->x = win->x + 1;
 	}
 	else if (win->pos_x < 0)
 	{
-		win->pos_x = 100 - MOVE_SIZE;
+		win->pos_x = 100 + win->pos_x;
 		win->x = win->x - 1;
 	}
 	if (win->pos_y >= 100)
 	{
-		win->pos_y = 0.01;
+		win->pos_y = 0.01 + (win->pos_y - 100);
 		win->y = win->y + 1;
 	}
 	else if (win->pos_y < 0)
 	{
-		win->pos_y = 100 - MOVE_SIZE;
+		win->pos_y = 100 + win->pos_y;
 		win->y = win->y - 1;
 	}
 }
