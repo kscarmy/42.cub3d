@@ -2,8 +2,7 @@
 NAME		= cub3D
 
 ## Sources
-SRC =srcs/move/ft_entry_key.c \
-		srcs/move/trigo.c \
+SRC =srcs/move/trigo.c \
 		srcs/parsing/ft_check_file_name.c \
 		srcs/parsing/ft_parsing_map_data.c \
 		srcs/parsing/ft_parsing_map_data_bis.c \
@@ -23,17 +22,20 @@ SRC =srcs/move/ft_entry_key.c \
 		srcs/disp/ft_init_img.c \
 		srcs/disp/ft_draw.c \
 		srcs/disp/ft_draw_bis.c \
-		srcs/calc/ft_calc_thales.c \
 		srcs/calc/ft_calc_init.c \
 		srcs/calc/ft_calc_add.c \
 
 SRC_NON_BONUS=srcs/move/ft_position.c \
+		srcs/move/ft_entry_key.c \
 		srcs/disp/ft_screen.c \
+		srcs/calc/ft_calc_thales.c \
 
 SRC_BONUS =bonus/ft_position.c \
 		bonus/ft_screen.c \
 		bonus/ft_crossair.c \
 		bonus/ft_fps.c \
+		bonus/ft_calc_thales.c \
+		bonus/ft_entry_key.c \
 
 MAIN_C = srcs/main.c\
 
@@ -96,7 +98,7 @@ fclean:	clean
 
 re: fclean all
 
-bonus: $(OBJ) $(OBJ_B)
+bonus:$(OBJ) $(OBJ_B)
 	$(MR_MLX)
 	$(MR_LIBFT)
 	$(CC)  $(MAIN_C)  $(CFLAGS) $(OBJ) $(OBJ_B) $(MLX_FLAGS) $(LIBFT) $(MLX) -o $(NAME)

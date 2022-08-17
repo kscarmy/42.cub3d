@@ -6,31 +6,30 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:30:43 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/17 12:50:45 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/17 17:02:06 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-void	ft_map_disp_pos(t_w_point *win)
+void	ft_move_in_casa_bis(t_w_point *win)
 {
-	int	a;
-	int	c;
-
-	a = 0;
-	c = 0;
-	printf("pos : \n");
-	while (win->map->map[a] != NULL)
+	if (win->pos_y > 100 && win->map->map[win->y + 1][win->x] != '1')
 	{
-		while (win->map->map[a][c] != '\0')
-		{
-			printf("\033[0m%c", win->map->map[a][c]);
-			c++;
-		}
-		printf("\n");
-		c = 0;
-		a++;
+		win->pos_y = 0.01 + (win->pos_y - 100);
+		win->y = win->y + 1;
 	}
+	else if (win->pos_y > 100 && win->map->map[win->y + 1][win->x] == '1')
+	{
+		win->pos_y = 98.01;
+	}
+	if (win->pos_y < 0 && win->map->map[win->y - 1][win->x] != '1')
+	{
+		win->pos_y = 100 + win->pos_y;
+		win->y = win->y - 1;
+	}
+	else if (win->pos_y < 0 && win->map->map[win->y - 1][win->x] == '1')
+		win->pos_y = 2.01;
 }
 
 void	ft_move_in_casa(t_w_point *win)
@@ -41,33 +40,15 @@ void	ft_move_in_casa(t_w_point *win)
 		win->x = win->x + 1;
 	}
 	else if (win->pos_x > 100 && win->map->map[win->y][win->x + 1] == '1')
-		win->pos_x = 99.01;
-	
+		win->pos_x = 98.01;
 	if (win->pos_x < 0 && win->map->map[win->y][win->x - 1] != '1')
 	{
 		win->pos_x = 100 + win->pos_x;
 		win->x = win->x - 1;
 	}
 	else if (win->pos_x < 0 && win->map->map[win->y][win->x - 1] == '1')
-		win->pos_x =  0.01;
-	
-	if (win->pos_y > 100 && win->map->map[win->y + 1][win->x] != '1')
-	{
-		win->pos_y = 0.01 + (win->pos_y - 100);
-		win->y = win->y + 1;
-	}
-	else if (win->pos_y > 100 && win->map->map[win->y + 1][win->x] == '1')
-	{
-		win->pos_y = 99.01;
-	}
-	
-	if (win->pos_y < 0 && win->map->map[win->y - 1][win->x] != '1')
-	{
-		win->pos_y = 100 + win->pos_y;
-		win->y = win->y - 1;
-	}
-	else if (win->pos_y < 0 && win->map->map[win->y - 1][win->x] == '1')
-		win->pos_y =  0.01;
+		win->pos_x = 2.01;
+	ft_move_in_casa_bis(win);
 }
 
 void	rotate(int key, t_w_point *win)

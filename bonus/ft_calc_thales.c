@@ -6,11 +6,11 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:45:34 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/17 16:19:11 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/17 16:21:14 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../includes/cub3d.h"
 
 double	ft_thales_pytha(double x, double y)
 {
@@ -71,7 +71,7 @@ double	ft_thales_range_or(t_w_point *w)
 		ret = w->h->hr;
 		w->or = -1;
 	}
-	return (ret * 100);
+	return (ret * w->zoom);
 }
 
 double	ft_thales_range(t_w_point *w, double d)

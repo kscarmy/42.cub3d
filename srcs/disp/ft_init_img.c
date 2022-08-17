@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 14:46:41 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/17 12:50:39 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/17 16:52:16 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	ft_xpm_file_to_image(t_w_point *w, t_m_point *m)
 {
-	int a;
-	int b;
-	int c;
-	
+	int	a;
+	int	b;
+	int	c;
+
 	w->pos_x = 50;
 	w->pos_y = 50;
 	w->x = 0;
@@ -36,7 +36,8 @@ void	ft_xpm_file_to_image(t_w_point *w, t_m_point *m)
 	ft_init_so(w);
 	ft_init_ea(w);
 	ft_init_we(w);
-	w->crossair = mlx_xpm_file_to_image(w->mlx, CROSSAIR_PATH, &w->c->s, &w->c->s);
+	w->crossair = mlx_xpm_file_to_image(w->mlx,
+			CROSSAIR_PATH, &w->c->s, &w->c->s);
 	w->cr = mlx_get_data_addr(w->crossair, &a, &b, &c);
 }
 

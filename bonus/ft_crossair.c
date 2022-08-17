@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 12:49:19 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/17 13:17:22 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/17 16:56:38 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 
 void	ft_put_pixel_cross(t_w_point *w, int x, int y)
 {
-	int	xx;
-	int	yy;
-	char *cr;
+	int		xx;
+	int		yy;
+	char	*cr;
 
 	cr = w->cr;
 	xx = (RES_X / 2) - 32 + x;
 	yy = (RES_Y / 2) - 32 + y;
-	if (cr[x * 4 + 4 * WALL_SIZE * y] == 0 && cr[x * 4 + 4 * WALL_SIZE * y + 1] == 0 && cr[x * 4 + 4 * WALL_SIZE * y + 2] == 0)
+	if (cr[x * 4 + 4 * WALL_SIZE * y] == 0
+		&& cr[x * 4 + 4 * WALL_SIZE * y + 1] == 0
+		&& cr[x * 4 + 4 * WALL_SIZE * y + 2] == 0)
 	{
 		return ;
 	}
@@ -35,7 +37,7 @@ void	ft_put_pixel_cross(t_w_point *w, int x, int y)
 void	ft_put_crossair(t_w_point *w)
 {
 	int	x;
-	int y;
+	int	y;
 
 	x = 0;
 	y = 0;

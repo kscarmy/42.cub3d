@@ -24,7 +24,7 @@
 # include "../mlx/mlx.h"
 # include "../mlx/mlx_int.h"
 
-#include <sys/time.h>
+# include <sys/time.h>
 
 # define BUFFER_SIZE_GNL 32
 
@@ -47,8 +47,14 @@
 # define KEY_ROTATE_RIGHT 65363
 # define KEY_ECHAP 65307
 
+/*	Bonus keys	*/
+# define BONUS_KEY_ZOOM_IN 65451
+# define BONUS_KEY_ZOOM_OUT 65453
+# define BONUS_KEY_TEXTURE_MORE 61
+# define BONUS_KEY_TEXTURE_LESS 45
+
 /*	Distance de deplacement lors d'une pression de touche	*/
-# define MOVE_SIZE 8
+# define MOVE_SIZE 16
 /*	Taille de la FOV, le champ de vision, en degre	*/
 # define FOV_SIZE 60
 /*	Angle de rotation lors d'une pression de touche	*/
@@ -180,6 +186,8 @@ typedef struct k_point
 	int			i;
 	int			fps;
 	int			opti;
+	double		zoom;
+	double		deg;
 }				t_w_point;
 
 /*	main.c	*/
@@ -347,5 +355,7 @@ void	ft_put_pixel_cross(t_w_point *w, int x, int y);
 long	ft_get_time(void);
 void	ft_init_fps(t_w_point *w);
 void	ft_opti(t_w_point *w, int h, int x);
+void	ft_bonus_key(int key, t_w_point *w);
+void	ft_move_in_casa_bis(t_w_point *win);
 
 #endif

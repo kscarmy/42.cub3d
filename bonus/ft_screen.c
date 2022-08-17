@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:52:57 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/17 15:33:33 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/17 17:04:24 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,21 +46,20 @@ void	ft_screen_bis(t_w_point *w, double i, double r, double d)
 
 void	ft_opti(t_w_point *w, int h, int x)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (x == 0)
 	{
 		while (x < w->opti)
 		{
-		ft_red_pixel(w, h, (RES_X / 2) + x);
-		ft_red_pixel(w, h, (RES_X / 2) - x);
-		x++;
+			ft_red_pixel(w, h, (RES_X / 2) + x);
+			ft_red_pixel(w, h, (RES_X / 2) - x);
+			x++;
 		}
 	}
 	while (i < w->opti && x < (RES_X / 2))
 	{
-		// printf("i %d\n", x);
 		ft_red_pixel(w, h, (RES_X / 2) + x);
 		if (x >= 0)
 			x++;
@@ -74,29 +73,26 @@ void	ft_screen(t_w_point *w)
 {
 	double	i;
 	double	r;
-	double	d;
 
 	i = 0;
-	d = (double)FOV_SIZE / (double)RES_X;
 	while (i < (RES_X / 2))
 	{
-		r = ft_thales_range(w, ft_thales_angle_conv(w, d * i * -1));
+		r = ft_thales_range(w, ft_thales_angle_conv(w, w->deg * i * -1));
 		if (w->or == 1)
-			r = r * cos(ft_degrees_to_radian(d * i * -1));
+			r = r * cos(ft_degrees_to_radian(w->deg * i * -1));
 		else
-			r = r * sin(ft_degrees_to_radian(90. + (d * i * -1)));
+			r = r * sin(ft_degrees_to_radian(90. + (w->deg * i * -1)));
 		ft_opti(w, (w->sr * (double)WALL_SIZE) / r, i);
-		r = ft_thales_range(w, ft_thales_angle_conv(w, d * i));
+		r = ft_thales_range(w, ft_thales_angle_conv(w, w->deg * i));
 		if (w->or == 1)
-			r = r * cos(ft_degrees_to_radian(d * i));
+			r = r * cos(ft_degrees_to_radian(w->deg * i));
 		else
-			r = r * sin(ft_degrees_to_radian(90. + (d * i)));
+			r = r * sin(ft_degrees_to_radian(90. + (w->deg * i)));
 		ft_opti(w, (w->sr * (double)WALL_SIZE) / r, i * -1);
 		if (i + w->opti < (RES_X / 2))
 			i = i + w->opti;
 		else
 			i = i + (w->opti + (RES_X / 2) - (i + w->opti));
-			
 	}
-	ft_screen_bis(w, i, r, d);
+	ft_screen_bis(w, i, r, w->deg);
 }
