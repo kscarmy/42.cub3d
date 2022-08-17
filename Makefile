@@ -86,6 +86,7 @@ obj/%.o: srcs/%.c
 clean:
 	@make clean -sC $(LIBFT_DIR)
 	@${RM} obj ${OBJ} $(OBJ_NB) $(OBJ_b)
+	@${RM} ./bonus/*.o
 	$(CLEAN_O)
 
 fclean:	clean

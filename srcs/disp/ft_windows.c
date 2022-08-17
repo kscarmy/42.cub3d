@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 10:03:21 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/17 14:42:09 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/17 15:36:32 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	ft_init_w(t_w_point *w, t_m_point *m)
 	mlx_clear_window(w->mlx, w->win1);
 	ft_xpm_file_to_image(w, m);
 	ft_found_worldspawn(w);
+	w->opti = 8;
 }
 
 int	ft_is_worldspawn(char c)

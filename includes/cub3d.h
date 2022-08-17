@@ -179,6 +179,7 @@ typedef struct k_point
 	long		time;
 	int			i;
 	int			fps;
+	int			opti;
 }				t_w_point;
 
 /*	main.c	*/
@@ -345,6 +346,6 @@ void	ft_put_crossair(t_w_point *w);
 void	ft_put_pixel_cross(t_w_point *w, int x, int y);
 long	ft_get_time(void);
 void	ft_init_fps(t_w_point *w);
-
+void	ft_opti(t_w_point *w, int h, int x);
 
 #endif
