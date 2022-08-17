@@ -1,11 +1,11 @@
-NO ./ress/nord.xpm
-SO ./ress/sud.xpm
-WE ./ress/ouest.xpm
-EA ./ress/est.xpm
+NO ./ress/backroom.xpm
+SO ./ress/backroom.xpm
+WE ./ress/backroom.xpm
+EA ./ress/backroom.xpm
 
 
 F 59,56,51
-C 25,28,79
+C 135,135,116
 
         1111111111111111111111111
         1000000000110000000000001
