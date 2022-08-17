@@ -36,6 +36,7 @@ SRC_BONUS =bonus/ft_position.c \
 		bonus/ft_fps.c \
 		bonus/ft_calc_thales.c \
 		bonus/ft_entry_key.c \
+		bonus/ft_gun.c
 
 MAIN_C = srcs/main.c\
 

@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 10:03:21 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/17 16:59:07 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/17 23:12:16 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,7 @@ void	ft_windows(t_m_point *m)
 		ft_exit_free_all(&w, -1);
 	ft_screen_init(&w);
 	ft_screen(&w);
+	printf("ret = %d\n", spawn_gun(&w));
 	mlx_hook(w.win1, 17, 0, &ft_cross_is_red, &w);
 	mlx_hook(w.win1, 02, 1L << 0, ft_entry_keyboard, &w);
 	mlx_loop(w.mlx);

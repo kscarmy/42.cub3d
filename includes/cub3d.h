@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*																			*/
 /*														:::	  ::::::::   */
-/*   cub3d.h											:+:	  :+:	:+:   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
 /*													+:+ +:+		 +:+	 */
 /*   By: guderram <guderram@student.42.fr>		  +#+  +:+	   +#+		*/
 /*												+#+#+#+#+#+   +#+		   */
 /*   Created: 2019/11/20 13:25:39 by guderram		  #+#	#+#			 */
-/*   Updated: 2022/08/12 15:04:27 by guderram		 ###   ########.fr	   */
+/*   Updated: 2022/08/17 23:08:17 by mourdani         ###   ########.fr       */
 /*																			*/
 /* ************************************************************************** */
 
@@ -357,5 +357,6 @@ void	ft_init_fps(t_w_point *w);
 void	ft_opti(t_w_point *w, int h, int x);
 void	ft_bonus_key(int key, t_w_point *w);
 void	ft_move_in_casa_bis(t_w_point *win);
+int	spawn_gun(t_w_point *w);
 
 #endif
