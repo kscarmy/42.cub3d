@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:52:57 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/17 13:06:48 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/17 14:37:41 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@ void	ft_screen_init(t_w_point *w)
 	w->sr = (RES_X / 2) / tan(ft_degrees_to_radian(FOV_SIZE / 2));
 	w->map->floor = (w->map->fr << 16) | (w->map->fg << 8) | w->map->fb;
 	w->map->ceiling = (w->map->cr << 16) | (w->map->cg << 8) | w->map->cb;
+	w->time = ft_get_time();
+	w->i = 0;
+	w->fps = 0;
 }
 
 void	ft_swap_pos(t_w_point *w)
@@ -46,7 +49,8 @@ void	ft_screen_bis(t_w_point *w, double i, double r, double d)
 	}
 	ft_put_crossair(w);
 	mlx_put_image_to_window(w->mlx, w->win1, w->screen, 0, 0);
-	// mlx_put_image_to_window(w->mlx, w->win1, w->crossair, (RES_X / 2) - 32, (RES_Y / 2) - 32);
+	ft_init_fps(w);
+	mlx_string_put(w->mlx, w->win1, 10, 10, 16572163, ft_itoa(w->fps));
 }
 
 void	ft_screen(t_w_point *w)

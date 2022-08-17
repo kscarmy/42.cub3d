@@ -23,6 +23,9 @@
 
 # include "../mlx/mlx.h"
 # include "../mlx/mlx_int.h"
+
+#include <sys/time.h>
+
 # define BUFFER_SIZE_GNL 32
 
 /*	Touches sur mac book pro m1	*/
@@ -173,6 +176,9 @@ typedef struct k_point
 	t_img		*crossair;
 	char		*cr;
 	char		*str;
+	long		time;
+	int			i;
+	int			fps;
 }				t_w_point;
 
 /*	main.c	*/
@@ -337,5 +343,8 @@ int		ft_move_zqsd(int key, t_w_point *win);
 /*	******** */
 void	ft_put_crossair(t_w_point *w);
 void	ft_put_pixel_cross(t_w_point *w, int x, int y);
+long	ft_get_time(void);
+void	ft_init_fps(t_w_point *w);
+
 
 #endif

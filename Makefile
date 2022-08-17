@@ -33,6 +33,7 @@ SRC_NON_BONUS=srcs/move/ft_position.c \
 SRC_BONUS =bonus/ft_position.c \
 		bonus/ft_screen.c \
 		bonus/ft_crossair.c \
+		bonus/ft_fps.c \
 
 MAIN_C = srcs/main.c\
 
