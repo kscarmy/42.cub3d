@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 10:03:21 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/12 15:15:53 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/14 14:21:22 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,18 @@ void	ft_found_worldspawn(t_w_point *w)
 
 void	ft_exit_free_all(t_w_point *w, int ret)
 {
+	mlx_destroy_image(w->mlx, w->no);
+	mlx_destroy_image(w->mlx, w->so);
+	mlx_destroy_image(w->mlx, w->ea);
+	mlx_destroy_image(w->mlx, w->we);
+	mlx_destroy_image(w->mlx, w->screen);
 	mlx_clear_window(w->mlx, w->win1);
 	mlx_destroy_window(w->mlx, w->win1);
+	mlx_destroy_display(w->mlx);
+	free (w->v);
+	free (w->h);
+	free (w->c);
+	free (w->mlx);
 	ft_exit_free_map(w->map, ret);
 	exit(ret);
 }
