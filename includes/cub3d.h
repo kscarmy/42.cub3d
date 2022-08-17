@@ -60,6 +60,9 @@
 
 # define PI_VAL 3.141
 
+/*	BONUS	*/
+# define CROSSAIR_PATH "./ress/bonus_crossair.xpm"
+
 /*	******	*/
 /*	 GNL	*/
 /*	******	*/
@@ -167,6 +170,8 @@ typedef struct k_point
 	t_img		*ea;
 	t_img		*we;
 	t_img		*screen;
+	t_img		*crossair;
+	char		*cr;
 	char		*str;
 }				t_w_point;
 
@@ -326,5 +331,11 @@ int		ft_cross_is_red(void *p);
 void	ft_map_disp_pos(t_w_point *win);
 void	ft_move_in_casa(t_w_point *win);
 int		ft_move_zqsd(int key, t_w_point *win);
+
+/*	******** */
+/*	BONUS	 */
+/*	******** */
+void	ft_put_crossair(t_w_point *w);
+void	ft_put_pixel_cross(t_w_point *w, int x, int y);
 
 #endif

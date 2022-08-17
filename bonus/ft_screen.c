@@ -6,11 +6,11 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:52:57 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/17 12:49:07 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/17 13:06:48 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../includes/cub3d.h"
 
 void	ft_screen_init(t_w_point *w)
 {
@@ -44,7 +44,9 @@ void	ft_screen_bis(t_w_point *w, double i, double r, double d)
 			r = r * sin(ft_degrees_to_radian(90. + (d * i)));
 		ft_red_pixel(w, (w->sr * (double)WALL_SIZE) / r, (RES_X / 2) - i);
 	}
+	ft_put_crossair(w);
 	mlx_put_image_to_window(w->mlx, w->win1, w->screen, 0, 0);
+	// mlx_put_image_to_window(w->mlx, w->win1, w->crossair, (RES_X / 2) - 32, (RES_Y / 2) - 32);
 }
 
 void	ft_screen(t_w_point *w)
