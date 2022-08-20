@@ -6,11 +6,22 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 14:18:13 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/12 15:07:14 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/20 17:23:50 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
+
+void	ft_init_gun(t_w_point *w)
+{
+	int	a;
+	int	b;
+	int	c;
+
+	w->gun = mlx_xpm_file_to_image(w->mlx,
+			GUN_N_PATH, &w->c->s, &w->c->s);
+	w->gu = mlx_get_data_addr(w->gun, &a, &b, &c);
+}
 
 void	ft_put_texture(t_w_point *w, char *img, int xx, int yy)
 {

@@ -365,5 +365,6 @@ void	ft_bonus_key(int key, t_w_point *w);
 void	ft_move_in_casa_bis(t_w_point *win);
 void	ft_put_pixel_gun(t_w_point *w, int x, int y);
 void	ft_put_gun(t_w_point *w);
+void	ft_init_gun(t_w_point *w);
 
 #endif

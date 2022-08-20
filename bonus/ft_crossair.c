@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 12:49:19 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/20 17:09:18 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/20 17:26:45 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ void	ft_put_pixel_gun(t_w_point *w, int x, int y)
 	w->str[xx * 4 + 4 * RES_X * yy + 2]
 		= gu[x * 4 + 4 * GUN_X * y + 2];
 }
-
 
 void	ft_put_gun(t_w_point *w)
 {
