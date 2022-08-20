@@ -6,97 +6,66 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 22:46:19 by guderram          #+#    #+#             */
-/*   Updated: 2022/07/23 08:50:57 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/20 10:27:59 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int	ft_size(long nb)
+static char	*reverse_array_malloc(char *array)
 {
-	long	i;
+	char	*new;
+	int		end;
+	int		i;
 
-	i = 1;
-	if (nb == 0)
-		return (2);
-	if (nb < 0)
-	{
-		i++;
-		nb = -nb;
-	}
-	while (nb > 0)
-	{
-		i++;
-		nb = nb / 10;
-	}
-	return (i);
+	end = ft_strlen_st(array);
+	new = malloc(sizeof(char) * (end + 1));
+	if (!new)
+		return (NULL);
+	i = -1;
+	while (--end >= 0)
+		new[++i] = array[end];
+	new[++i] = 0;
+	return (new);
 }
 
-static	char	*ft_is_zero(void)
+static char	*malloc_zero(void)
 {
-	char	*zero;
+	char	*ret;
 
-	zero = malloc(sizeof(char) * 2);
-	if (zero == NULL)
+	ret = malloc(sizeof(char) * 2);
+	if (!ret)
 		return (NULL);
-	zero[0] = '0';
-	zero[1] = '\0';
-	return (zero);
-}
-
-static	char	*ft_strnb(long size, long nb)
-{
-	char	*str;
-	long	i;
-
-	i = 0;
-	str = (char *)malloc(sizeof(char) * size);
-	if (str == NULL)
-		return (NULL);
-	if (nb < 0)
-	{
-		nb = -nb;
-		size--;
-	}
-	size--;
-	if (nb == 0)
-		str = ft_is_zero();
-	while ((size > 0) && (nb > 0))
-	{
-		str[i] = (nb % 10) + 48;
-		nb = nb / 10;
-		i++;
-		size--;
-		str[i] = '\0';
-	}
-	return (str);
+	ret[0] = '0';
+	ret[1] = 0;
+	return (ret);
 }
 
 char	*ft_itoa(int n)
 {
-	char	*str;
-	char	*cpystr;
-	long	i;
-	long	size;
+	char			ret[12];
+	int				i;
+	int				sign;
+	long int		nb;
 
+	if (n == 0)
+		return (malloc_zero());
+	nb = (long int)n;
+	sign = 1;
+	if (nb < 0)
+	{
+		sign *= -1;
+		nb = -nb;
+	}
 	i = 0;
-	str = (char *)malloc(sizeof(char) * ft_size((long)n));
-	if (str == NULL)
-		return (NULL);
-	cpystr = ft_strnb(ft_size((long)n), (long)n);
-	size = ft_size((long)n) - 1;
-	if (n < 0)
+	while (nb)
 	{
-		str[i] = 45;
+		ret[i] = nb % 10 + '0';
+		nb = nb / 10;
 		i++;
-		size--;
 	}
-	while (size > 0)
-	{
-		str[i] = cpystr[ft_size((long)n) - (i + 2)];
-		i++;
-		size--;
-	}
-	str[i] = '\0';
-	return (str);
+	if (sign == -1)
+		ret[i++] = '-';
+	ret[i] = 0;
+	return (reverse_array_malloc(ret));
 }

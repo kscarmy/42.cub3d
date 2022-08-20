@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:52:57 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/17 17:04:24 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/20 10:37:01 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ void	ft_screen_init(t_w_point *w)
 
 void	ft_screen_bis(t_w_point *w, double i, double r, double d)
 {
+	char	*fps;
+
+	fps = NULL;
 	if (RES_X % 2 == 0)
 	{
 		if (i + w->opti < (RES_X / 2))
@@ -41,7 +44,9 @@ void	ft_screen_bis(t_w_point *w, double i, double r, double d)
 	ft_put_crossair(w);
 	mlx_put_image_to_window(w->mlx, w->win1, w->screen, 0, 0);
 	ft_init_fps(w);
-	mlx_string_put(w->mlx, w->win1, 10, 10, 16572163, ft_itoa(w->fps));
+	fps = ft_itoa(w->fps);
+	mlx_string_put(w->mlx, w->win1, 10, 10, 16572163, fps);
+	free (fps);
 }
 
 void	ft_opti(t_w_point *w, int h, int x)
