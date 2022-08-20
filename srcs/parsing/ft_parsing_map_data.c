@@ -12,31 +12,6 @@
 
 #include "../../includes/cub3d.h"
 
-// void	ft_parsing_resolution(t_m_point *m)
-// {
-// 	int	z;
-
-// 	z = 1;
-// 	if (m->res == 0)
-// 	{
-// 		z = z + ft_incre_spaces(m, 0, z);
-// 		// m->rx = ft_atoi((&m->fl[m->x + z]));
-// 		while (ft_isdigit(m->fl[m->x + z]) == 1)
-// 			z++;
-// 		m->ry = ft_atoi((&m->fl[m->x + z]));
-// 		z = z + ft_incre_spaces(m, 0, z);
-// 		while (ft_isdigit(m->fl[m->x + z]) == 1)
-// 			z++;
-// 		z = z + ft_incre_spaces(m, 0, z);
-// 		m->x = m->x + z;
-// 		if (m->fl[m->x] != '\n' || m->rx <= 0 || m->ry <= 0)
-// 			m->er = 505;
-// 		m->res = 1;
-// 	}
-// 	else
-// 		m->er = 500;
-// }
-
 int	ft_parsing_while(t_m_point *m, int z)
 {
 	while (ft_isdigit(m->fl[m->x + z]) == 1)
