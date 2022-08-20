@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:52:57 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/20 10:37:01 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/20 17:04:06 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	ft_screen_bis(t_w_point *w, double i, double r, double d)
 		ft_opti(w, (w->sr * (double)WALL_SIZE) / r, i * -1);
 	}
 	ft_put_crossair(w);
+	ft_put_gun(w);
 	mlx_put_image_to_window(w->mlx, w->win1, w->screen, 0, 0);
 	ft_init_fps(w);
 	fps = ft_itoa(w->fps);

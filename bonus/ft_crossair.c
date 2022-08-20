@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 12:49:19 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/17 16:56:38 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/20 17:09:18 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,48 @@ void	ft_put_crossair(t_w_point *w)
 		while (x < 64)
 		{
 			ft_put_pixel_cross(w, x, y);
+			x++;
+		}
+		x = 0;
+		y++;
+	}
+}
+
+void	ft_put_pixel_gun(t_w_point *w, int x, int y)
+{
+	int		xx;
+	int		yy;
+	char	*gu;
+
+	gu = w->gu;
+	xx = (RES_X * 2 / 3) - (GUN_X / 2) + x;
+	yy = RES_Y - GUN_Y + y;
+	if (gu[x * 4 + 4 * GUN_X * y] == 0
+		&& gu[x * 4 + 4 * GUN_X * y + 1] == 0
+		&& gu[x * 4 + 4 * GUN_X * y + 2] == 0)
+	{
+		return ;
+	}
+	w->str[xx * 4 + 4 * RES_X * yy] = gu[x * 4 + 4 * GUN_X * y];
+	w->str[xx * 4 + 4 * RES_X * yy + 1]
+		= gu[x * 4 + 4 * GUN_X * y + 1];
+	w->str[xx * 4 + 4 * RES_X * yy + 2]
+		= gu[x * 4 + 4 * GUN_X * y + 2];
+}
+
+
+void	ft_put_gun(t_w_point *w)
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	y = 0;
+	while (y < GUN_Y)
+	{
+		while (x < GUN_X)
+		{
+			ft_put_pixel_gun(w, x, y);
 			x++;
 		}
 		x = 0;

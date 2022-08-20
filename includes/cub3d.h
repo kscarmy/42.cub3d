@@ -71,6 +71,10 @@
 
 /*	BONUS	*/
 # define CROSSAIR_PATH "./ress/bonus_crossair.xpm"
+# define GUN_S_PATH "./ress/bonus_gun_small.xpm"
+# define GUN_N_PATH "./ress/bonus_gun_normal.xpm"
+# define GUN_X 320
+# define GUN_Y 181
 
 /*	******	*/
 /*	 GNL	*/
@@ -180,6 +184,8 @@ typedef struct k_point
 	t_img		*we;
 	t_img		*screen;
 	t_img		*crossair;
+	t_img		*gun;
+	char		*gu;
 	char		*cr;
 	char		*str;
 	long		time;
@@ -357,5 +363,7 @@ void	ft_init_fps(t_w_point *w);
 void	ft_opti(t_w_point *w, int h, int x);
 void	ft_bonus_key(int key, t_w_point *w);
 void	ft_move_in_casa_bis(t_w_point *win);
+void	ft_put_pixel_gun(t_w_point *w, int x, int y);
+void	ft_put_gun(t_w_point *w);
 
 #endif

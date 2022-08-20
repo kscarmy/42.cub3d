@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 14:46:41 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/17 16:52:16 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/20 17:08:01 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,14 @@ void	ft_init_no(t_w_point *w)
 	int	nobbp;
 	int	nosize_line;
 	int	noendian;
+	int	a;
+	int	b;
+	int	c;
 
 	w->c->no = mlx_get_data_addr(w->no, &nobbp, &nosize_line, &noendian);
+	w->gun = mlx_xpm_file_to_image(w->mlx,
+			GUN_N_PATH, &w->c->s, &w->c->s);
+	w->gu = mlx_get_data_addr(w->gun, &a, &b, &c);
 }
 
 void	ft_init_so(t_w_point *w)
