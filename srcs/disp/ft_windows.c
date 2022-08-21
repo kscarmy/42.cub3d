@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 10:03:21 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/20 17:14:53 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/21 08:06:12 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ void	ft_exit_free_all(t_w_point *w, int ret)
 	mlx_destroy_image(w->mlx, w->screen);
 	mlx_destroy_image(w->mlx, w->crossair);
 	mlx_destroy_image(w->mlx, w->gun);
+	mlx_destroy_image(w->mlx, w->hud);
 	mlx_clear_window(w->mlx, w->win1);
 	mlx_destroy_window(w->mlx, w->win1);
 	mlx_destroy_display(w->mlx);

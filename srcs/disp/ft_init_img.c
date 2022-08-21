@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 14:46:41 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/20 17:24:40 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/21 08:05:56 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	ft_init_no(t_w_point *w)
 
 	w->c->no = mlx_get_data_addr(w->no, &nobbp, &nosize_line, &noendian);
 	ft_init_gun(w);
+	ft_init_hud(w);
 }
 
 void	ft_init_so(t_w_point *w)

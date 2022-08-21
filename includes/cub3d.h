@@ -73,6 +73,10 @@
 # define CROSSAIR_PATH "./ress/bonus_crossair.xpm"
 # define GUN_S_PATH "./ress/bonus_gun_small.xpm"
 # define GUN_N_PATH "./ress/bonus_gun_normal.xpm"
+# define HUD_S_PATH "./ress/hud_s.xpm"
+# define HUD_N_PATH "./ress/hud_n.xpm"
+# define HUD_X 800
+# define HUD_Y 600
 # define GUN_X 320
 # define GUN_Y 181
 
@@ -185,6 +189,8 @@ typedef struct k_point
 	t_img		*screen;
 	t_img		*crossair;
 	t_img		*gun;
+	t_img		*hud;
+	char		*hu;
 	char		*gu;
 	char		*cr;
 	char		*str;
@@ -366,5 +372,8 @@ void	ft_move_in_casa_bis(t_w_point *win);
 void	ft_put_pixel_gun(t_w_point *w, int x, int y);
 void	ft_put_gun(t_w_point *w);
 void	ft_init_gun(t_w_point *w);
+void	ft_init_hud(t_w_point *w);
+void	ft_put_pixel_hud(t_w_point *w, int x, int y);
+void	ft_put_hud(t_w_point *w);
 
 #endif

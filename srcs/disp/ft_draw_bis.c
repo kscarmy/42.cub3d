@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 14:19:52 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/12 15:07:14 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/21 08:05:12 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,15 @@ int	ft_get_centieme(double x)
 	if (ret < 0 && ret > WALL_SIZE)
 		ret = 0;
 	return (ret);
+}
+
+void	ft_init_hud(t_w_point *w)
+{
+	int	a;
+	int	b;
+	int	c;
+
+	w->hud = mlx_xpm_file_to_image(w->mlx,
+			HUD_S_PATH, &w->c->s, &w->c->s);
+	w->hu = mlx_get_data_addr(w->hud, &a, &b, &c);
 }
