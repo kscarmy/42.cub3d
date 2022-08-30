@@ -82,4 +82,6 @@ void	ft_check_map(t_m_point *m)
 		ft_fill_map(m);
 	if (m->er == 0)
 		ft_parse_map(m);
+	if (m->spawn == '0')
+		m->er = 999;
 }

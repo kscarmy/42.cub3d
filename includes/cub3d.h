@@ -104,6 +104,7 @@ void	ft_strjoin(char **str, const char *buff, int buff_size, int *error);
 
 typedef struct j_point
 {
+	int		jean;
 	int		er;
 	int		x;
 	char	*fl;
@@ -317,6 +318,7 @@ void	ft_red_pixel_bord(t_w_point *w, int h, int x);
 void	ft_put_pixel_ceiling(t_w_point *w, int i);
 void	ft_put_pixel_floor(t_w_point *w, int i);
 int		ft_get_centieme(double x);
+// int		ft_img(int x, int xx);
 
 /*	*******	*/
 /*	 CALC	*/

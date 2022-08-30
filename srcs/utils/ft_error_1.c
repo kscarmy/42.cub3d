@@ -100,4 +100,7 @@ void	ft_error_detected(t_m_point *m)
 		ft_show_error_file(m);
 	if (m->er >= 1000 && m->er < 1500)
 		printf("\033[0;31mMalloc error !\n");
+	if (m->er == 999)
+		printf("No SpawnPoint !\n");
+	printf("\e[m");
 }

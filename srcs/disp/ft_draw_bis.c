@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 14:19:52 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/21 08:05:12 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/30 14:02:47 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ void	ft_put_pixel_ceiling(t_w_point *w, int i)
 
 void	ft_put_pixel_floor(t_w_point *w, int i)
 {
+	if (i < 0)
+		return ;
+	if (RES_X + 4 * RES_X * RES_Y < i)
+		return ;
 	w->str[i + 2] = w->map->cr;
 	w->str[i + 1] = w->map->cg;
 	w->str[i] = w->map->cb;
@@ -51,3 +55,12 @@ void	ft_init_hud(t_w_point *w)
 			HUD_S_PATH, &w->c->s, &w->c->s);
 	w->hu = mlx_get_data_addr(w->hud, &a, &b, &c);
 }
+
+// int	ft_img(int x, int xx)
+// {
+// 	if (x < 0)
+// 		return (0);
+// 	if (x > xx)
+// 		return (0);
+// 	return (1);
+// }

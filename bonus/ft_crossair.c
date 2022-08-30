@@ -6,7 +6,7 @@
 /*   By: guderram <guderram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 12:49:19 by guderram          #+#    #+#             */
-/*   Updated: 2022/08/21 08:13:41 by guderram         ###   ########.fr       */
+/*   Updated: 2022/08/30 15:47:31 by guderram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	ft_put_pixel_gun(t_w_point *w, int x, int y)
 
 	gu = w->gu;
 	xx = (RES_X * 2 / 3) - (GUN_X / 2) + x;
-	yy = RES_Y - GUN_Y + y;
+	yy = RES_Y - GUN_Y + y - 80;
 	if (gu[x * 4 + 4 * GUN_X * y] == 0
 		&& gu[x * 4 + 4 * GUN_X * y + 1] == 0
 		&& gu[x * 4 + 4 * GUN_X * y + 2] == 0)
